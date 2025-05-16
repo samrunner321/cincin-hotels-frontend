@@ -1,0 +1,24 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(find:*)",
+      "Bash(mkdir:*)",
+      "Bash(ls:*)",
+      "Bash(npm run dev:*)",
+      "Bash(grep:*)",
+      "Bash(npm run build:*)",
+      "Bash(rm:*)",
+      "Bash(cp:*)",
+      "Bash(__NEW_LINE__ echo -e \"\\nKategorie: Hotels\")",
+      "Bash(__NEW_LINE__ echo -e \"\\nKategorie: Kategorien\")",
+      "Bash(__NEW_LINE__ echo -e \"\\nKategorie: Destinationen\")",
+      "Bash(__NEW_LINE__ echo -e \"\\nKategorie: Restaurants\")",
+      "Bash(__NEW_LINE__ echo -e \"\\nKategorie: Journal\")",
+      "Bash(__NEW_LINE__ echo -e \"\\nKategorie: Misc\")",
+      "Bash(for:*)",
+      "Bash(do)",
+      "Bash(done)"
+    ],
+    "deny": []
+  }
+}

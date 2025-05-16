@@ -1,0 +1,62 @@
+// Vereinfachte Version der API-Route für das Membership-Formular
+// Speicherort: /app/api/membership/route.js
+
+export async function POST(request) {
+  try {
+    // Parse der Anfrage
+    const formData = await request.json();
+    
+    // Validierung der Daten
+    if (!formData.firstName || !formData.lastName || !formData.hotelName || !formData.email || !formData.website || !formData.agreeToTerms) {
+      return new Response(JSON.stringify({ error: 'Required fields are missing' }), {
+        status: 400,
+        headers: { 'Content-Type': 'application/json' }
+      });
+    }
+    
+    // Hier könntest du die Daten in deiner Datenbank speichern
+    // oder an einen Drittanbieter-Dienst wie Directus senden
+    
+    // Beispiel für Directus-Integration (wenn implementiert)
+    /*
+    const directusResponse = await fetch('https://your-directus-url/items/membership_applications', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${process.env.DIRECTUS_API_TOKEN}`
+      },
+      body: JSON.stringify({
+        first_name: formData.firstName,
+        last_name: formData.lastName,
+        hotel_name: formData.hotelName,
+        email: formData.email,
+        phone: formData.phone,
+        website: formData.website,
+        about: formData.about,
+        terms_accepted: formData.agreeToTerms,
+        submission_date: new Date().toISOString()
+      })
+    });
+    
+    if (!directusResponse.ok) {
+      throw new Error('Failed to store data in Directus');
+    }
+    */
+    
+    // Für jetzt simulieren wir eine erfolgreiche Speicherung
+    // Hier könntest du auch eine E-Mail-Benachrichtigung senden
+    
+    return new Response(JSON.stringify({ success: true }), {
+      status: 200,
+      headers: { 'Content-Type': 'application/json' }
+    });
+    
+  } catch (error) {
+    console.error('Error processing membership application:', error);
+    
+    return new Response(JSON.stringify({ error: 'Internal server error' }), {
+      status: 500,
+      headers: { 'Content-Type': 'application/json' }
+    });
+  }
+}

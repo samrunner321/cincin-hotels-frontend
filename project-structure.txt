@@ -1,0 +1,110 @@
+/Users/samuelrenner/cincinhotels/
+├── .eslintrc.json
+├── .gitignore
+├── README.md
+├── app/
+│   ├── about/
+│   │   └── page.js
+│   ├── api/
+│   │   └── route.js
+│   ├── categories/
+│   │   └── [slug]/
+│   │       └── page.js
+│   ├── contact/
+│   │   └── page.js
+│   ├── destinations/
+│   │   ├── [slug]/
+│   │   │   └── page.js
+│   │   └── page.js
+│   ├── error.js
+│   ├── favicon.ico
+│   ├── globals.css
+│   ├── hotels/
+│   │   ├── [slug]/
+│   │   │   └── page.js
+│   │   └── page.js
+│   ├── journal/
+│   │   ├── [slug]/
+│   │   │   └── page.js
+│   │   └── page.js
+│   ├── layout.js
+│   ├── loading.js
+│   ├── not-found.js
+│   └── page.js
+├── components/
+│   ├── about/
+│   │   ├── AboutContent.jsx
+│   │   ├── AboutHero.jsx
+│   │   └── Team.jsx
+│   ├── common/
+│   │   ├── Button.jsx
+│   │   ├── Container.jsx
+│   │   ├── LoadingSpinner.jsx
+│   │   ├── PageHeader.jsx
+│   │   └── SEO.jsx
+│   ├── contact/
+│   │   ├── ContactForm.jsx
+│   │   └── ContactInfo.jsx
+│   ├── destinations/
+│   │   ├── DestinationCard.jsx
+│   │   ├── DestinationGrid.jsx
+│   │   ├── DestinationHero.jsx
+│   │   └── DestinationMap.jsx
+│   ├── home/
+│   │   ├── DestinationCategories.jsx
+│   │   ├── DiscoverDestinations.jsx
+│   │   ├── FeaturedHotel.jsx
+│   │   ├── Hero.jsx
+│   │   ├── HotelCategories.jsx
+│   │   ├── JournalSection.jsx
+│   │   ├── NewsletterSignup.jsx
+│   │   ├── PopularDestinations.jsx
+│   │   ├── RestaurantFeature.jsx
+│   │   └── WorldMapSection.jsx
+│   ├── hotels/
+│   │   ├── CategoryBar.jsx
+│   │   ├── CategoryButton.jsx
+│   │   ├── FilterModal.jsx
+│   │   ├── Filters.jsx
+│   │   ├── HotelCard.jsx
+│   │   ├── HotelDetails.jsx
+│   │   ├── HotelGallery.jsx
+│   │   ├── HotelHero.jsx
+│   │   ├── HotelList.jsx
+│   │   ├── HotelMap.jsx
+│   │   └── RelatedHotels.jsx
+│   ├── journal/
+│   │   ├── ArticleContent.jsx
+│   │   ├── Hero.jsx
+│   │   ├── JournalGrid.jsx
+│   │   └── RelatedArticles.jsx
+│   └── layout/
+│       ├── Footer.jsx
+│       ├── Layout.jsx
+│       ├── MobileMenu.jsx
+│       └── Navbar.jsx
+├── data/
+│   ├── categories.js
+│   ├── destinations.js
+│   ├── hotels.js
+│   └── journal.js
+├── lib/
+│   ├── api.js
+│   ├── constants.js
+│   ├── hooks/
+│   │   ├── useDestinations.js
+│   │   ├── useHotels.js
+│   │   └── useJournal.js
+│   └── utils.js
+├── middleware.js
+├── next.config.js
+├── package.json
+├── postcss.config.js
+├── public/
+│   ├── fonts/
+│   ├── icons/
+│   └── images/
+│       ├── destinations/
+│       ├── hotels/
+│       └── journal/
+└── tailwind.config.js
