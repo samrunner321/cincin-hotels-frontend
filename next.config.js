@@ -5,10 +5,6 @@ const nextConfig = {
     formats: ['image/avif', 'image/webp'],
   },
   reactStrictMode: true,
-  // Bei Verwendung beider App- und Pages-Router
-  experimental: {
-    appDir: true,
-  },
 };
 
 module.exports = nextConfig;
