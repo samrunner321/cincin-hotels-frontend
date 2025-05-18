@@ -62,10 +62,10 @@ export default function FeaturedHotel({
   };
 
   return (
-    <section className="py-16">
-      <div className="max-w-7xl mx-auto px-4">
+    <section className="py-12 md:py-16 lg:py-20">
+      <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-[1536px]">
         <motion.div 
-          className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center"
+          className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 xl:gap-16 items-center"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -74,12 +74,12 @@ export default function FeaturedHotel({
           {/* Content */}
           <motion.div variants={itemVariants}>
             {tag && (
-              <div className="uppercase tracking-wider text-sm font-normal mb-4">
+              <div className="uppercase tracking-wider text-sm font-normal mb-4 font-brooklyn text-brand-olive-400">
                 {tag}
               </div>
             )}
             
-            <h2 className="text-3xl md:text-4xl font-normal text-gray-900 mb-4">
+            <h2 className="text-3xl md:text-4xl font-normal text-gray-900 mb-4 font-brooklyn">
               {name}
             </h2>
             
@@ -94,14 +94,14 @@ export default function FeaturedHotel({
             )}
             
             {description && (
-              <p className="text-gray-700 mb-8 leading-relaxed font-light">
+              <p className="text-gray-700 mb-8 leading-relaxed font-light font-brooklyn">
                 {description}
               </p>
             )}
             
             <Link 
               href={`/hotels/${slug}`}
-              className="inline-flex items-center hover:opacity-80 transition-opacity"
+              className="inline-flex items-center hover:text-brand-olive-400 transition-colors"
             >
               <span>Discover Hotel</span>
               <svg 

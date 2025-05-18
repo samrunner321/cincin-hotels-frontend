@@ -1,9 +1,11 @@
-import { Inter } from 'next/font/google';
 import './globals.css';
 import Navbar from '../components/layout/Navbar';
 import Footer from '../components/layout/Footer';
+import dynamic from 'next/dynamic';
 
-const inter = Inter({ subsets: ['latin'] });
+// Dynamisches Importieren der interaktiven Komponenten um SSR-Probleme zu vermeiden
+const TravelAdvisor = dynamic(() => import('../components/chatbot/TravelAdvisor'), { ssr: false });
+const TravelJourneyDesigner = dynamic(() => import('../components/journey-designer/TravelJourneyDesigner'), { ssr: false });
 
 export const metadata = {
   title: 'CinCin Hotels - Handpicked Luxury Accommodations',
@@ -13,11 +15,18 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <body className={inter.className}>
+    <html lang="en" className="scroll-smooth">
+      <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+      </head>
+      <body className="font-brooklyn antialiased text-gray-900 bg-white overflow-x-hidden">
         <Navbar />
-        <main className="min-h-screen">{children}</main>
+        <main className="min-h-screen w-full overflow-x-hidden">{children}</main>
         <Footer />
+        
+        {/* Interaktive Komponenten */}
+        <TravelAdvisor />
+        <TravelJourneyDesigner />
       </body>
     </html>
   );

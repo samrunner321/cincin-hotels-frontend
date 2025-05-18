@@ -5,15 +5,7 @@ const nextConfig = {
     formats: ['image/avif', 'image/webp'],
   },
   reactStrictMode: true,
-  async redirects() {
-    return [
-      {
-        source: '/destinations',
-        destination: '/',
-        permanent: false,
-      },
-    ];
-  },
+  // Redirects wurden entfernt
 };
 
 module.exports = nextConfig;

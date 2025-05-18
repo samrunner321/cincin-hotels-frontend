@@ -32,40 +32,45 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-black text-white pt-12 pb-6">
-      <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
-          <div className="md:col-span-2">
+    <footer className="bg-brand-gray-900 text-white pt-10 sm:pt-12 pb-6">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8 md:gap-x-4 lg:gap-x-8">
+          <div className="col-span-2 lg:col-span-2">
             <Link href="/" aria-label="CinCin Hotels Home">
               <Image 
                 src="/images/logo/footer-logo.png" 
                 alt="CinCin Hotels" 
                 width={37} 
                 height={32} 
-                className="mb-4"
+                className="h-8 w-auto mb-4"
               />
             </Link>
-            <p className="text-white mb-4">© {currentYear} CinCin Hotels</p>
-            <p className="text-gray-300 max-w-sm">Discover a curated collection of unique accommodations, renowned for timeless design and warm, personalized hospitality.</p>
+            <p className="text-white mb-4 text-sm">© {currentYear} CinCin Hotels</p>
+            <p className="text-gray-300 max-w-sm text-sm sm:text-base">Discover a curated collection of unique accommodations, renowned for timeless design and warm, personalized hospitality.</p>
           </div>
           
-          <FooterLinksColumn title="Company" links={links.company} />
-          <FooterLinksColumn title="Business" links={links.business} />
+          <div className="hidden sm:block md:col-span-1">
+            <FooterLinksColumn title="Company" links={links.company} />
+          </div>
           
-          <div>
-            <h3 className="text-sm font-normal text-white mb-4 uppercase tracking-wider">Legal</h3>
-            <ul className="space-y-2">
+          <div className="hidden sm:block md:col-span-1">
+            <FooterLinksColumn title="Business" links={links.business} />
+          </div>
+          
+          <div className="col-span-2 sm:col-span-1 md:col-span-2 lg:col-span-1">
+            <h3 className="text-xs sm:text-sm font-normal text-white mb-3 sm:mb-4 uppercase tracking-wider">Legal</h3>
+            <ul className="space-y-1 sm:space-y-2">
               {links.legal.map(link => (
                 <li key={link.text}>
                   {link.isButton ? (
                     <button 
-                      className="text-gray-300 hover:text-white transition-colors"
+                      className="text-gray-300 hover:text-brand-olive-300 transition-colors text-sm py-1 block"
                       onClick={() => console.log('Cookie settings clicked')}
                     >
                       {link.text}
                     </button>
                   ) : (
-                    <Link href={link.href} className="text-gray-300 hover:text-white transition-colors">
+                    <Link href={link.href} className="text-gray-300 hover:text-brand-olive-300 transition-colors text-sm py-1 block">
                       {link.text}
                     </Link>
                   )}
@@ -81,16 +86,22 @@ export default function Footer() {
                   target="_blank" 
                   rel="noopener noreferrer" 
                   aria-label={item.name}
-                  className="text-gray-300 hover:text-white transition-colors"
+                  className="text-gray-300 hover:text-brand-olive-300 transition-colors"
                 >
-                  <item.icon className="w-6 h-6" />
+                  <item.icon className="w-5 h-5 sm:w-6 sm:h-6" />
                 </a>
               ))}
             </div>
           </div>
+          
+          {/* Mobile-only footer links */}
+          <div className="col-span-2 grid grid-cols-2 gap-8 sm:hidden mt-4">
+            <FooterLinksColumn title="Company" links={links.company} />
+            <FooterLinksColumn title="Business" links={links.business} />
+          </div>
         </div>
         
-        <div className="border-t border-gray-800 mt-10 pt-6 text-sm text-gray-400 text-center md:text-left">
+        <div className="border-t border-gray-800 mt-8 sm:mt-10 pt-6 text-xs sm:text-sm text-gray-400 text-center md:text-left">
           <p>CinCin Hotels is committed to responsible tourism and environmental sustainability.</p>
         </div>
       </div>
@@ -101,11 +112,14 @@ export default function Footer() {
 function FooterLinksColumn({ title, links }) {
   return (
     <div>
-      <h3 className="text-sm font-normal text-white mb-4 uppercase tracking-wider">{title}</h3>
-      <ul className="space-y-2">
+      <h3 className="text-xs sm:text-sm font-normal text-white mb-3 sm:mb-4 uppercase tracking-wider">{title}</h3>
+      <ul className="space-y-1 sm:space-y-2">
         {links.map(link => (
           <li key={link.text}>
-            <Link href={link.href} className="text-gray-300 hover:text-white transition-colors">
+            <Link 
+              href={link.href} 
+              className="text-gray-300 hover:text-brand-olive-300 transition-colors text-sm py-1 block"
+            >
               {link.text}
             </Link>
           </li>

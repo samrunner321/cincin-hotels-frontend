@@ -30,14 +30,14 @@ export default function DestinationCategories({
   ]
 }) {
   return (
-    <section className="pb-24">
-      <div className="max-w-7xl mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+    <section className="pb-16 md:pb-20 lg:pb-24">
+      <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-[1536px]">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
           {categories.map((category) => (
             <Link 
               key={category.id}
               href={category.url}
-              className="group relative h-[550px] overflow-hidden rounded-xl transition-all duration-300 hover:shadow-xl"
+              className="group relative h-[400px] md:h-[450px] lg:h-[550px] overflow-hidden rounded-xl transition-all duration-300 hover:shadow-xl"
             >
               <div className="absolute inset-0 bg-black/40 group-hover:bg-black/30 transition-all duration-300 z-10"></div>
               
@@ -50,7 +50,7 @@ export default function DestinationCategories({
               />
               
               <div className="absolute bottom-8 left-0 right-0 text-center z-20">
-                <h5 className="text-white text-xl font-normal">{category.title}</h5>
+                <h5 className="text-white text-xl font-normal font-brooklyn">{category.title}</h5>
               </div>
             </Link>
           ))}

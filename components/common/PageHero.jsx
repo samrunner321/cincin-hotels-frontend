@@ -10,7 +10,7 @@ export default function PageHero({
   overlayOpacity = 50
 }) {
   return (
-    <div className="relative h-[40vh] md:h-[50vh] overflow-hidden">
+    <div className="relative h-[40vh] sm:h-[45vh] md:h-[50vh] overflow-hidden">
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <Image
@@ -24,17 +24,18 @@ export default function PageHero({
       </div>
       
       {/* Content */}
-      <div className="relative z-10 h-full flex flex-col justify-center items-center container mx-auto px-4 text-center">
+      <div className="relative z-10 h-full flex flex-col justify-center items-center container mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
+          className="w-full sm:max-w-3xl lg:max-w-4xl mx-auto"
         >
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-normal text-white mb-4">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-normal text-white mb-3 sm:mb-4">
             {title}
           </h1>
           {subtitle && (
-            <p className="text-xl text-white/90 max-w-2xl mx-auto">
+            <p className="text-base sm:text-lg md:text-xl text-white/90 max-w-full sm:max-w-2xl mx-auto px-4 sm:px-0">
               {subtitle}
             </p>
           )}

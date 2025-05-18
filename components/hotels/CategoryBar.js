@@ -117,8 +117,8 @@ export default function CategoryBar({
   };
 
   return (
-    <section className="py-6 flex justify-center">
-      <div className="max-w-7xl w-full px-4">
+    <section className="py-6 sm:py-8 md:py-10 flex justify-center">
+      <div className="w-full px-4 sm:px-6 lg:px-8 max-w-[1536px]">
         {title && (
           <h2 className="text-lg font-medium text-gray-900 mb-4 sr-only">
             {title}
@@ -136,7 +136,7 @@ export default function CategoryBar({
                   absolute left-0 top-1/2 transform -translate-y-1/2 z-10
                   w-10 h-10 flex items-center justify-center rounded-full
                   bg-white shadow-sm focus:outline-none
-                  ${!canScrollLeft ? 'opacity-0 cursor-default' : 'opacity-100 hover:bg-gray-50'}
+                  ${!canScrollLeft ? 'opacity-0 cursor-default' : 'opacity-100 hover:bg-brand-olive-50'}
                   transition-opacity duration-300
                 `}
                 aria-label="Scroll categories left"
@@ -153,7 +153,7 @@ export default function CategoryBar({
                   absolute right-0 top-1/2 transform -translate-y-1/2 z-10
                   w-10 h-10 flex items-center justify-center rounded-full
                   bg-white shadow-sm focus:outline-none
-                  ${!canScrollRight ? 'opacity-0 cursor-default' : 'opacity-100 hover:bg-gray-50'}
+                  ${!canScrollRight ? 'opacity-0 cursor-default' : 'opacity-100 hover:bg-brand-olive-50'}
                   transition-opacity duration-300
                 `}
                 aria-label="Scroll categories right"
@@ -177,7 +177,7 @@ export default function CategoryBar({
               <Link 
                 key={category.id}
                 href={category.url}
-                className="flex flex-col items-center justify-center min-w-[80px] transition-all text-center"
+                className="flex flex-col items-center justify-center min-w-[80px] transition-all text-center hover:text-brand-olive-400"
                 onClick={() => onCategoryClick(category)}
                 aria-label={`Browse ${category.name} hotels`}
                 aria-current={getIsActive(category.id) ? 'page' : undefined}
@@ -185,7 +185,7 @@ export default function CategoryBar({
                 <div className="mb-2 w-12 h-12 flex items-center justify-center text-black mx-auto">
                   {CategoryIcons[category.id]?.({ className: "w-8 h-8" })}
                 </div>
-                <span className="text-sm text-center w-full">{category.name}</span>
+                <span className="text-sm font-brooklyn text-center w-full">{category.name}</span>
               </Link>
             ))}
           </div>

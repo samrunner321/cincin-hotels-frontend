@@ -1,0 +1,26 @@
+@font-face {
+  font-family: 'Brooklyn';
+  src: url('./Brooklyn-Regular.woff2') format('woff2'),
+       url('./Brooklyn-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Brooklyn';
+  src: url('./Brooklyn-Medium.woff2') format('woff2'),
+       url('./Brooklyn-Medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Brooklyn';
+  src: url('./Brooklyn-Bold.woff2') format('woff2'),
+       url('./Brooklyn-Bold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}

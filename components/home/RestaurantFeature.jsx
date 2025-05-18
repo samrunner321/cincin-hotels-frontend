@@ -70,8 +70,8 @@ export default function RestaurantFeature({
   };
 
   return (
-    <section className="py-16" style={{ backgroundColor: "#f1f3ee" }} ref={componentRef}>
-      <div className="max-w-7xl mx-auto px-4">
+    <section className="py-12 md:py-16" style={{ backgroundColor: "#f1f3ee" }} ref={componentRef}>
+      <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-[1536px]">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 md:min-h-[500px]">
           {/* Image Column - Takes up 7/12 of the grid */}
           <div className="md:col-span-7 relative h-auto md:h-full rounded-xl overflow-hidden">
@@ -93,7 +93,7 @@ export default function RestaurantFeature({
                 <div className="absolute bottom-6 right-6">
                   <Link
                     href={restaurant.url}
-                    className="px-6 py-2 bg-white text-black rounded-md hover:bg-white/90 transition-colors text-sm"
+                    className="px-6 py-2 bg-white text-black rounded-md hover:bg-white/90 transition-colors text-sm font-brooklyn"
                   >
                     Menu
                   </Link>
@@ -104,7 +104,7 @@ export default function RestaurantFeature({
           
           {/* Content Column - Takes up 5/12 of the grid */}
           <div className="md:col-span-5 py-4 flex flex-col h-full">
-            <h2 className="text-2xl md:text-3xl font-normal mb-10">{title}</h2>
+            <h2 className="text-2xl md:text-3xl font-normal mb-10 font-brooklyn">{title}</h2>
             
             <div className="space-y-5">
               {restaurants.map((restaurant, index) => (
@@ -115,10 +115,10 @@ export default function RestaurantFeature({
                   onClick={() => handleClick(index)}
                 >
                   <div className={`transition-all duration-200 rounded-md p-2 ${
-                    index === activeRestaurant ? 'bg-black text-white' : 'hover:bg-black hover:text-white'
+                    index === activeRestaurant ? 'bg-brand-olive-400 text-white' : 'hover:bg-brand-olive-400 hover:text-white'
                   }`}>
-                    <h3 className="text-lg font-normal mb-0.5">{restaurant.name}</h3>
-                    <p className={`text-sm leading-tight ${index === activeRestaurant ? 'text-gray-100' : 'text-gray-600'}`}>
+                    <h3 className="text-lg font-normal mb-0.5 font-brooklyn">{restaurant.name}</h3>
+                    <p className={`text-sm leading-tight font-brooklyn ${index === activeRestaurant ? 'text-gray-100' : 'text-gray-600'}`}>
                       {restaurant.description}
                     </p>
                   </div>

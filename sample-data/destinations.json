@@ -1,0 +1,502 @@
+[
+  {
+    "id": "3b95a6d5-e85e-4bcc-8f4a-9f7d71c7e3a0",
+    "status": "published",
+    "name": "Crans-Montana",
+    "slug": "crans-montana",
+    "subtitle": "Alpine Paradise in the Swiss Alps",
+    "country": "Switzerland",
+    "region": "alps",
+    "short_description": "A sun-drenched plateau in the heart of the Swiss Alps offering stunning mountain views, outdoor activities, and sophisticated lifestyle.",
+    "description": "<p>Crans-Montana is perched on a sun-drenched plateau high above the Rhone Valley, offering breathtaking views of the Swiss and French Alps. This dual municipality combines the best of alpine tradition with cosmopolitan sophistication.</p><p>In winter, Crans-Montana transforms into a premier ski destination with over 140 kilometers of varied slopes, while summer brings endless opportunities for hiking, mountain biking, and golf on the legendary Severiano Ballesteros course.</p><p>Beyond outdoor activities, Crans-Montana is known for its upscale shopping along the Rue du Prado, diverse culinary scene ranging from traditional Swiss cuisine to international gastronomy, and a vibrant cultural calendar including the Caprices Festival and the Omega European Masters golf tournament.</p>",
+    "coordinates": {
+      "lat": 46.3085,
+      "lng": 7.4794
+    },
+    "main_image": "crans-montana-main.jpg",
+    "gallery": [
+      {
+        "image": "crans-montana-winter.jpg",
+        "alt": "Crans-Montana ski slopes with panoramic mountain views",
+        "caption": "World-class skiing with breathtaking Alpine panoramas",
+        "season": "winter"
+      },
+      {
+        "image": "crans-montana-summer.jpg",
+        "alt": "Green Alpine meadows and hiking trails in Crans-Montana",
+        "caption": "Summer hiking through lush Alpine meadows",
+        "season": "summer"
+      },
+      {
+        "image": "crans-montana-autumn.jpg",
+        "alt": "Colorful autumn forest in Crans-Montana",
+        "caption": "Experience the magical colors of Alpine autumn",
+        "season": "autumn"
+      },
+      {
+        "image": "crans-montana-lake.jpg",
+        "alt": "Étang Long lake in Crans-Montana",
+        "caption": "The picturesque Étang Long lake reflects the surrounding mountains",
+        "season": "all"
+      }
+    ],
+    "video_url": "https://vimeo.com/123456789",
+    "highlights": [
+      {
+        "title": "Alpine Panorama",
+        "description": "Enjoy breathtaking views of iconic peaks including the Matterhorn, Mont Blanc, and the Bernese Alps from the sun-drenched plateau.",
+        "icon": "landscape",
+        "image": "crans-montana-panorama.jpg"
+      },
+      {
+        "title": "World-Class Golf",
+        "description": "Play on the legendary Severiano Ballesteros golf course, home to the Omega European Masters tournament.",
+        "icon": "activities",
+        "image": "crans-montana-golf.jpg"
+      },
+      {
+        "title": "Year-Round Adventure",
+        "description": "From winter skiing on 140km of slopes to summer hiking, mountain biking, and paragliding, Crans-Montana offers endless outdoor activities.",
+        "icon": "activities",
+        "image": "crans-montana-activities.jpg"
+      }
+    ],
+    "activities": [
+      {
+        "title": "Alpine Skiing",
+        "description": "Explore 140km of varied ski runs suitable for all levels, from gentle beginners' slopes to challenging black runs and off-piste terrain.",
+        "season": "winter",
+        "image": "crans-montana-skiing.jpg"
+      },
+      {
+        "title": "Cross-Country Skiing",
+        "description": "Glide through snowy forests and across the plateau on 15km of groomed cross-country tracks.",
+        "season": "winter",
+        "image": "crans-montana-crosscountry.jpg"
+      },
+      {
+        "title": "Golf",
+        "description": "Play on the Severiano Ballesteros course with its breathtaking Alpine views and challenging layout.",
+        "season": "summer",
+        "image": "crans-montana-golf-summer.jpg"
+      },
+      {
+        "title": "Mountain Biking",
+        "description": "Ride through diverse terrain on over 200km of marked mountain bike trails for all skill levels.",
+        "season": "summer",
+        "image": "crans-montana-biking.jpg"
+      },
+      {
+        "title": "Hiking",
+        "description": "Discover over 300km of hiking trails through Alpine meadows, forests, and mountain landscapes.",
+        "season": "summer",
+        "image": "crans-montana-hiking.jpg"
+      },
+      {
+        "title": "Paragliding",
+        "description": "Experience the thrill of soaring above the Alps with tandem paragliding flights available for all experience levels.",
+        "season": "summer",
+        "image": "crans-montana-paragliding.jpg"
+      },
+      {
+        "title": "Forest Walks",
+        "description": "Enjoy the spectacular autumn colors on forest walks around the lakes and through ancient pine forests.",
+        "season": "autumn",
+        "image": "crans-montana-forest.jpg"
+      }
+    ],
+    "dining": [
+      {
+        "name": "LeMontBlanc",
+        "description": "Sophisticated Alpine cuisine with a modern twist, featuring locally-sourced ingredients and an impressive wine list.",
+        "cuisine": "Modern Swiss",
+        "price_range": "$$$",
+        "address": "Route des Sommets 1, 3963 Crans-Montana, Switzerland",
+        "coordinates": {
+          "lat": 46.3065,
+          "lng": 7.4776
+        },
+        "image": "restaurant-lemontblanc.jpg"
+      },
+      {
+        "name": "Chetzeron",
+        "description": "Located in a converted cable car station at 2,112m altitude, offering panoramic views and contemporary mountain cuisine.",
+        "cuisine": "Alpine",
+        "price_range": "$$$$",
+        "address": "Route des Chetzeron 1, 3963 Crans-Montana, Switzerland",
+        "coordinates": {
+          "lat": 46.3310,
+          "lng": 7.4659
+        },
+        "image": "restaurant-chetzeron.jpg"
+      },
+      {
+        "name": "La Marmotte",
+        "description": "Traditional Swiss restaurant specializing in raclette, fondue, and other local specialties in a cozy, rustic atmosphere.",
+        "cuisine": "Traditional Swiss",
+        "price_range": "$$",
+        "address": "Route des Mélèzes 17, 3963 Crans-Montana, Switzerland",
+        "coordinates": {
+          "lat": 46.3102,
+          "lng": 7.4830
+        },
+        "image": "restaurant-marmotte.jpg"
+      }
+    ],
+    "signature_dishes": [
+      {
+        "name": "Raclette",
+        "description": "Traditional Swiss dish of melted cheese scraped onto potatoes, pickles, and dried meats.",
+        "restaurant": "La Marmotte",
+        "image": "dish-raclette.jpg"
+      },
+      {
+        "name": "Alpine Lamb",
+        "description": "Locally-raised lamb with mountain herbs, seasonal vegetables, and potato gratin.",
+        "restaurant": "LeMontBlanc",
+        "image": "dish-lamb.jpg"
+      },
+      {
+        "name": "Tartiflette",
+        "description": "Savory dish of potatoes, reblochon cheese, lardons, and onions baked to perfection.",
+        "restaurant": "Chetzeron",
+        "image": "dish-tartiflette.jpg"
+      }
+    ],
+    "chef_spotlight": [
+      {
+        "name": "Thomas Meyer",
+        "restaurant": "LeMontBlanc",
+        "description": "Chef Thomas Meyer combines traditional Swiss techniques with modern influences, focusing on seasonal and locally-sourced ingredients from the Valais region.",
+        "image": "chef-meyer.jpg"
+      }
+    ],
+    "travel_info": [
+      {
+        "category": "transportation",
+        "title": "Getting There",
+        "description": "Crans-Montana is accessible by car or public transport. The nearest international airports are Geneva (180km) and Zurich (300km). From Geneva, take the train to Sierre and then the funicular or bus to Crans-Montana.",
+        "icon": "plane"
+      },
+      {
+        "category": "climate",
+        "title": "Climate",
+        "description": "Crans-Montana enjoys a microclimate with over 300 days of sunshine per year. Winter temperatures range from -5°C to 5°C, while summer temperatures typically range from 15°C to 25°C.",
+        "icon": "weather"
+      },
+      {
+        "category": "best_time",
+        "title": "Best Time to Visit",
+        "description": "For skiing, visit from December to April. For hiking and golf, June to September offers ideal conditions. September and October provide beautiful autumn colors with mild temperatures.",
+        "icon": "calendar"
+      },
+      {
+        "category": "language",
+        "title": "Language",
+        "description": "The main language is French, though German and Italian are also official languages of Switzerland. English is widely spoken in tourist areas.",
+        "icon": "language"
+      },
+      {
+        "category": "currency",
+        "title": "Currency",
+        "description": "The Swiss Franc (CHF) is the official currency. Credit cards are widely accepted, but having some cash is recommended for smaller establishments.",
+        "icon": "currency"
+      }
+    ],
+    "weather": [
+      {
+        "season": "winter",
+        "temp_low": -5,
+        "temp_high": 5,
+        "precipitation": "Snowfall: 70-100cm monthly",
+        "description": "Cold temperatures with regular snowfall, creating excellent conditions for winter sports. The high altitude and north-facing slopes preserve snow quality."
+      },
+      {
+        "season": "spring",
+        "temp_low": 5,
+        "temp_high": 15,
+        "precipitation": "Rainfall: 70-90mm monthly",
+        "description": "Mild temperatures with occasional rainfall. Spring brings blooming Alpine flowers and the first hiking opportunities as snow melts at lower elevations."
+      },
+      {
+        "season": "summer",
+        "temp_low": 12,
+        "temp_high": 25,
+        "precipitation": "Rainfall: 80-100mm monthly",
+        "description": "Warm, sunny days with cool evenings. Summer offers ideal conditions for outdoor activities with occasional afternoon thunderstorms."
+      },
+      {
+        "season": "autumn",
+        "temp_low": 5,
+        "temp_high": 15,
+        "precipitation": "Rainfall: 70-90mm monthly",
+        "description": "Mild temperatures with spectacular foliage colors. Autumn is less crowded and offers clear visibility for enjoying mountain views."
+      }
+    ],
+    "categories": [
+      "mountains",
+      "ski",
+      "luxury",
+      "adventure"
+    ],
+    "tags": [
+      "swiss alps",
+      "skiing",
+      "golf",
+      "hiking",
+      "luxury destination",
+      "mountain views"
+    ],
+    "is_featured": true,
+    "is_popular": true,
+    "meta_title": "Crans-Montana | Alpine Paradise in the Swiss Alps",
+    "meta_description": "Discover Crans-Montana, a sun-drenched plateau in the Swiss Alps offering world-class skiing, golf, hiking and breathtaking mountain panoramas."
+  },
+  {
+    "id": "4c7f8e2d-1a5b-47c3-9d8f-6e3b8f2a9c7d",
+    "status": "published",
+    "name": "Dolomites",
+    "slug": "dolomites",
+    "subtitle": "The Pale Mountains of Northern Italy",
+    "country": "Italy",
+    "region": "alps",
+    "short_description": "A UNESCO World Heritage site featuring distinctive limestone peaks, alpine meadows, and a unique blend of Italian and Austrian cultures.",
+    "description": "<p>The Dolomites are a mountain range in northeastern Italy, part of the Southern Limestone Alps. Named after the carbonate rock dolomite, these mountains are characterized by their pale color and distinctive shapes, with vertical walls and sharp pinnacles that create one of the most dramatic mountain landscapes in the world.</p><p>Recognized as a UNESCO World Heritage Site, the Dolomites span across several Italian provinces and feature 18 peaks that rise above 3,000 meters. The region offers world-class skiing in winter as part of the Dolomiti Superski area, while summer brings opportunities for hiking, climbing, mountain biking, and paragliding.</p><p>The Dolomites also represent a fascinating cultural crossroads where Italian, Austrian, and Ladin influences blend in the architecture, cuisine, and local traditions of the charming mountain villages that dot the valleys.</p>",
+    "coordinates": {
+      "lat": 46.4102,
+      "lng": 11.8440
+    },
+    "main_image": "dolomites-main.jpg",
+    "gallery": [
+      {
+        "image": "dolomites-winter.jpg",
+        "alt": "Snow-covered Dolomites peaks with ski slopes",
+        "caption": "World-class skiing amid dramatic limestone peaks",
+        "season": "winter"
+      },
+      {
+        "image": "dolomites-summer.jpg",
+        "alt": "Green alpine meadows with Dolomites peaks in the background",
+        "caption": "Summer hiking through lush alpine meadows",
+        "season": "summer"
+      },
+      {
+        "image": "dolomites-autumn.jpg",
+        "alt": "Autumn colors in the Dolomites with golden larches",
+        "caption": "The magical golden larches of autumn",
+        "season": "autumn"
+      },
+      {
+        "image": "dolomites-spring.jpg",
+        "alt": "Spring flowers in alpine meadows with Dolomites peaks",
+        "caption": "Spring bloom in the alpine meadows",
+        "season": "spring"
+      }
+    ],
+    "video_url": "https://vimeo.com/987654321",
+    "highlights": [
+      {
+        "title": "Dramatic Limestone Peaks",
+        "description": "Marvel at the distinctive pale mountains with their vertical walls and sharp pinnacles that create one of the world's most iconic mountain landscapes.",
+        "icon": "landscape",
+        "image": "dolomites-peaks.jpg"
+      },
+      {
+        "title": "Cultural Crossroads",
+        "description": "Experience the unique blend of Italian, Austrian, and Ladin cultures reflected in the architecture, cuisine, and traditions of the region.",
+        "icon": "culture",
+        "image": "dolomites-culture.jpg"
+      },
+      {
+        "title": "Outdoor Paradise",
+        "description": "From world-class skiing to hiking, climbing, and mountain biking, the Dolomites offer endless opportunities for outdoor adventures in every season.",
+        "icon": "activities",
+        "image": "dolomites-activities.jpg"
+      }
+    ],
+    "activities": [
+      {
+        "title": "Dolomiti Superski",
+        "description": "Access 1,200km of ski runs across 12 interconnected resorts with a single ski pass in the world's largest ski circuit.",
+        "season": "winter",
+        "image": "dolomites-skiing.jpg"
+      },
+      {
+        "title": "Sella Ronda",
+        "description": "Ski the famous 26km circuit around the Sella massif, connecting four Dolomite valleys and passes.",
+        "season": "winter",
+        "image": "dolomites-sellaronda.jpg"
+      },
+      {
+        "title": "Alta Via Trails",
+        "description": "Hike the high-altitude trails that traverse the Dolomites, offering stunning views and mountain hut accommodation.",
+        "season": "summer",
+        "image": "dolomites-altavia.jpg"
+      },
+      {
+        "title": "Via Ferrata",
+        "description": "Follow protected climbing routes with fixed cables and ladders that make challenging terrain accessible to moderately experienced hikers.",
+        "season": "summer",
+        "image": "dolomites-viaferrata.jpg"
+      },
+      {
+        "title": "Mountain Biking",
+        "description": "Ride hundreds of kilometers of marked trails from gentle valley routes to challenging single-track descents.",
+        "season": "summer",
+        "image": "dolomites-biking.jpg"
+      },
+      {
+        "title": "Photography Tours",
+        "description": "Capture the magical light of the Dolomites as it transforms the pale mountains into glowing pink and orange during the 'enrosadira' phenomenon.",
+        "season": "all",
+        "image": "dolomites-enrosadira.jpg"
+      }
+    ],
+    "dining": [
+      {
+        "name": "Rifugio Averau",
+        "description": "Mountain hut restaurant at 2,413m offering traditional cuisine with panoramic views of the surrounding peaks.",
+        "cuisine": "South Tyrolean",
+        "price_range": "$$",
+        "address": "Forcella Nuvolau, 32043 Cortina d'Ampezzo, Italy",
+        "coordinates": {
+          "lat": 46.5177,
+          "lng": 12.0018
+        },
+        "image": "restaurant-averau.jpg"
+      },
+      {
+        "name": "St. Hubertus",
+        "description": "Three Michelin-starred restaurant focusing on local mountain ingredients with an innovative approach.",
+        "cuisine": "Innovative Alpine",
+        "price_range": "$$$$",
+        "address": "Strada Micurà de Rü, 20, 39036 San Cassiano, Italy",
+        "coordinates": {
+          "lat": 46.5769,
+          "lng": 11.9353
+        },
+        "image": "restaurant-hubertus.jpg"
+      },
+      {
+        "name": "Baita Fraina",
+        "description": "Family-run mountain restaurant serving traditional Ampezzo cuisine in a rustic setting.",
+        "cuisine": "Traditional Dolomite",
+        "price_range": "$$",
+        "address": "Località Fraina, 32043 Cortina d'Ampezzo, Italy",
+        "coordinates": {
+          "lat": 46.5412,
+          "lng": 12.1263
+        },
+        "image": "restaurant-fraina.jpg"
+      }
+    ],
+    "signature_dishes": [
+      {
+        "name": "Canederli",
+        "description": "Bread dumplings served in broth or with butter, often flavored with speck (smoked ham) or cheese.",
+        "restaurant": "Rifugio Averau",
+        "image": "dish-canederli.jpg"
+      },
+      {
+        "name": "Speck Alto Adige",
+        "description": "Locally-produced smoked and cured ham, a specialty of South Tyrol.",
+        "restaurant": "Baita Fraina",
+        "image": "dish-speck.jpg"
+      },
+      {
+        "name": "Strangolapreti",
+        "description": "Spinach and bread 'priest strangler' dumplings served with brown butter and sage.",
+        "restaurant": "St. Hubertus",
+        "image": "dish-strangolapreti.jpg"
+      }
+    ],
+    "chef_spotlight": [
+      {
+        "name": "Norbert Niederkofler",
+        "restaurant": "St. Hubertus",
+        "description": "Chef Niederkofler's 'Cook the Mountain' philosophy celebrates local, seasonal ingredients from the Dolomites, earning his restaurant three Michelin stars.",
+        "image": "chef-niederkofler.jpg"
+      }
+    ],
+    "travel_info": [
+      {
+        "category": "transportation",
+        "title": "Getting There",
+        "description": "The Dolomites are accessible by car or public transport. The nearest airports are Venice, Innsbruck, and Verona. Regional trains connect to towns like Bolzano and Cortina d'Ampezzo, from where bus services reach smaller villages.",
+        "icon": "plane"
+      },
+      {
+        "category": "climate",
+        "title": "Climate",
+        "description": "The Dolomites have an Alpine climate with cold, snowy winters and mild summers. Winter temperatures range from -10°C to 0°C, while summer temperatures typically range from 10°C to 25°C.",
+        "icon": "weather"
+      },
+      {
+        "category": "best_time",
+        "title": "Best Time to Visit",
+        "description": "For skiing, visit from December to April. For hiking and climbing, mid-June to September offers the most reliable weather. Late September and October provide beautiful autumn colors with fewer crowds.",
+        "icon": "calendar"
+      },
+      {
+        "category": "language",
+        "title": "Language",
+        "description": "Italian is the main language, though German is widely spoken in South Tyrol. In some valleys, Ladin (an ancient Romance language) is still spoken. English is common in tourist areas.",
+        "icon": "language"
+      },
+      {
+        "category": "currency",
+        "title": "Currency",
+        "description": "The Euro (€) is the official currency. Credit cards are widely accepted in towns and larger establishments, but cash is recommended for mountain huts and smaller restaurants.",
+        "icon": "currency"
+      }
+    ],
+    "weather": [
+      {
+        "season": "winter",
+        "temp_low": -10,
+        "temp_high": 0,
+        "precipitation": "Snowfall: 80-120cm monthly",
+        "description": "Cold temperatures with significant snowfall, creating excellent conditions for winter sports. The Dolomites typically have reliable snow conditions from December through April."
+      },
+      {
+        "season": "spring",
+        "temp_low": 0,
+        "temp_high": 15,
+        "precipitation": "Rainfall: 70-90mm monthly",
+        "description": "Variable conditions with snow still present at higher elevations. Lower valleys begin to bloom with spring flowers, while hiking season gradually begins in late spring."
+      },
+      {
+        "season": "summer",
+        "temp_low": 10,
+        "temp_high": 25,
+        "precipitation": "Rainfall: 100-120mm monthly",
+        "description": "Mild temperatures ideal for hiking and climbing. Afternoon thunderstorms are common, particularly in July and August, so morning activities are recommended."
+      },
+      {
+        "season": "autumn",
+        "temp_low": 0,
+        "temp_high": 15,
+        "precipitation": "Rainfall: 70-90mm monthly",
+        "description": "Cooling temperatures with spectacular foliage as the larch trees turn golden. Early autumn offers stable weather and fewer crowds, while late autumn may see the first snowfall."
+      }
+    ],
+    "categories": [
+      "mountains",
+      "ski",
+      "cultural",
+      "adventure"
+    ],
+    "tags": [
+      "unesco",
+      "limestone",
+      "italian alps",
+      "south tyrol",
+      "via ferrata",
+      "dolomiti superski"
+    ],
+    "is_featured": true,
+    "is_popular": true,
+    "meta_title": "The Dolomites | UNESCO World Heritage Mountain Range in Northern Italy",
+    "meta_description": "Explore the Dolomites, a dramatic limestone mountain range in northern Italy offering world-class skiing, hiking, and a unique blend of Italian and Austrian cultures."
+  }
+]

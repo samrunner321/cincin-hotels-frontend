@@ -34,12 +34,12 @@ export default function JournalSection({
   ]
 }) {
   return (
-    <section className="py-16">
-      <div className="max-w-7xl mx-auto px-4">
+    <section className="py-12 md:py-16">
+      <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-[1536px]">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
           {/* Left Column */}
           <div className="md:col-span-6">
-            <h2 className="text-3xl font-normal mb-4">{title}</h2>
+            <h2 className="text-3xl font-normal mb-4 font-brooklyn">{title}</h2>
             
             {/* Categories */}
             <div className="flex gap-6 mb-8">
@@ -47,7 +47,7 @@ export default function JournalSection({
                 <Link 
                   key={index}
                   href={`/journal/category/${category.toLowerCase()}`}
-                  className={`${index === 0 ? 'underline underline-offset-4' : 'hover:underline hover:underline-offset-4'} transition-all`}
+                  className={`${index === 0 ? 'underline underline-offset-4 text-brand-olive-400' : 'hover:underline hover:underline-offset-4 hover:text-brand-olive-400'} transition-all font-brooklyn`}
                 >
                   {category}
                 </Link>
@@ -67,13 +67,13 @@ export default function JournalSection({
                       className="w-full h-auto transition-transform duration-500 group-hover:scale-105"
                     />
                   </Link>
-                  <div className="text-sm mb-1">{article.category}</div>
-                  <h3 className="text-xl font-normal mb-2">
-                    <Link href={article.url} className="hover:underline">
+                  <div className="text-sm mb-1 text-brand-olive-400 font-brooklyn">{article.category}</div>
+                  <h3 className="text-xl font-normal mb-2 font-brooklyn">
+                    <Link href={article.url} className="hover:underline hover:text-brand-olive-400 transition-colors">
                       {article.title}
                     </Link>
                   </h3>
-                  <p className="text-sm text-gray-700">{article.excerpt}</p>
+                  <p className="text-sm text-gray-700 font-brooklyn">{article.excerpt}</p>
                 </div>
               ))}
             </div>
@@ -90,7 +90,7 @@ export default function JournalSection({
                   className="object-cover"
                 />
                 <div className="absolute bottom-0 w-full flex justify-center pb-8">
-                  <button className="bg-white text-black px-6 py-3 rounded-full text-sm hover:bg-gray-100 transition-colors">
+                  <button className="bg-white text-black px-6 py-3 rounded-full text-sm hover:bg-brand-olive-50 hover:text-brand-olive-600 transition-colors font-brooklyn">
                     Uncover more stories
                   </button>
                 </div>

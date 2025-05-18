@@ -14,6 +14,7 @@ const PopularDestinations = dynamic(() => import('../components/home/PopularDest
 const RestaurantFeature = dynamic(() => import('../components/home/RestaurantFeature'), { ssr: false });
 const JournalSection = dynamic(() => import('../components/home/JournalSection'), { ssr: false });
 const NewsletterSignup = dynamic(() => import('../components/home/NewsletterSignup'), { ssr: false });
+const InteractiveFeatures = dynamic(() => import('../components/home/InteractiveFeatures'), { ssr: false });
 
 // Metadata für SEO (ersetzt Head)
 export const metadata = {
@@ -181,6 +182,7 @@ export default async function HomePage() {
           featured={destinations.featured} 
           hotels={destinations.hotels} 
         />
+        <InteractiveFeatures />
         <RestaurantFeature restaurants={restaurantPicks} />
         <HotelCategories categories={hotelCategories} />
         <WorldMapSection />

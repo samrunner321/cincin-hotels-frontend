@@ -11,8 +11,8 @@ export default function RoomCard({
   image = "/images/hotels/hotel-3.jpg"
 }) {
   return (
-    <div className="bg-white rounded-lg overflow-hidden shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
-      <div className="relative aspect-[4/3]">
+    <div className="bg-white overflow-hidden hover:shadow-sm transition-shadow rounded-xl">
+      <div className="relative aspect-[4/3] rounded-t-xl overflow-hidden">
         <Image
           src={image}
           alt={name}
@@ -22,22 +22,22 @@ export default function RoomCard({
       </div>
       
       <div className="p-6">
-        <div className="flex justify-between items-start mb-2">
-          <h3 className="text-lg font-medium">{name}</h3>
-          <div className="bg-gray-100 px-2 py-1 rounded text-sm">
+        <div className="flex justify-between items-start mb-4">
+          <h3 className="text-lg font-normal">{name}</h3>
+          <div className="text-sm">
             {size} • {persons} {persons === 1 ? 'Person' : 'Persons'}
           </div>
         </div>
         
-        <p className="text-gray-600 mb-4 line-clamp-2">{description}</p>
+        <p className="text-gray-600 mb-6 line-clamp-2">{description}</p>
         
         <div className="flex justify-between items-center">
           <div>
-            <span className="text-lg font-medium">{price}</span>
+            <span className="text-lg font-normal">{price}</span>
             <span className="text-gray-500 text-sm"> / night</span>
           </div>
           
-          <button className="px-4 py-2 border border-blue-600 text-blue-600 rounded hover:bg-blue-600 hover:text-white transition-colors">
+          <button className="bg-[#93A27F] text-white px-4 py-2 hover:bg-[#7d8a6b] transition-colors rounded-lg">
             Book Now
           </button>
         </div>

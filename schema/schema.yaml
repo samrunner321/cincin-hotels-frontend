@@ -1,0 +1,2781 @@
+collections:
+  # Hotels Collection
+  hotels:
+    sort: 1
+    singleton: false
+    note: "Hotels available on CinCin Hotels platform"
+    icon: "hotel"
+    translations:
+      - language: en-US
+        translation: "Hotels"
+      - language: de-DE
+        translation: "Hotels"
+    fields:
+      - field: id
+        type: uuid
+        meta:
+          hidden: true
+          readonly: true
+          interface: input
+          special: uuid
+        schema:
+          is_primary_key: true
+
+      - field: status
+        type: string
+        meta:
+          width: half
+          interface: select-dropdown
+          options:
+            choices:
+              - text: Published
+                value: published
+              - text: Draft
+                value: draft
+              - text: Archived
+                value: archived
+          required: true
+          translation: Status
+        schema:
+          default_value: draft
+
+      - field: name
+        type: string
+        meta:
+          width: full
+          interface: input
+          required: true
+          options:
+            trim: true
+          note: "Name of the hotel"
+          group: basic_info
+          sort: 1
+          translations:
+            - language: en-US
+              translation: "Hotel Name"
+            - language: de-DE
+              translation: "Hotelname"
+        schema:
+          is_nullable: false
+          
+      - field: slug
+        type: string
+        meta:
+          width: full
+          interface: input-slug
+          options:
+            slugify:
+              - name
+          required: true
+          note: "URL-friendly version of hotel name. Auto-generated but can be modified."
+          group: basic_info
+          sort: 2
+          translations:
+            - language: en-US
+              translation: "Slug"
+            - language: de-DE
+              translation: "Slug"
+        schema:
+          is_nullable: false
+
+      - field: subtitle
+        type: string
+        meta:
+          width: full
+          interface: input
+          note: "Short tagline for the hotel"
+          group: basic_info
+          sort: 3
+          translations:
+            - language: en-US
+              translation: "Subtitle"
+            - language: de-DE
+              translation: "Untertitel"
+
+      - field: location
+        type: string
+        meta:
+          width: half
+          interface: input
+          required: true
+          note: "City, Country format recommended"
+          group: basic_info
+          sort: 4
+          translations:
+            - language: en-US
+              translation: "Location"
+            - language: de-DE
+              translation: "Standort"
+        schema:
+          is_nullable: false
+
+      - field: region
+        type: string
+        meta:
+          width: half
+          interface: select-dropdown
+          options:
+            choices:
+              - text: Alps
+                value: alps
+              - text: Mediterranean
+                value: mediterranean
+              - text: Northern Europe
+                value: northern_europe
+              - text: Central Europe
+                value: central_europe
+              - text: Southern Europe
+                value: southern_europe
+          note: "Geographical region of the hotel"
+          group: basic_info
+          sort: 5
+          translations:
+            - language: en-US
+              translation: "Region"
+            - language: de-DE
+              translation: "Region"
+
+      - field: short_description
+        type: text
+        meta:
+          width: full
+          interface: input-multiline
+          required: true
+          note: "Brief description for hotel listings (120-150 characters)"
+          group: basic_info
+          sort: 6
+          translations:
+            - language: en-US
+              translation: "Short Description"
+            - language: de-DE
+              translation: "Kurzbeschreibung"
+        schema:
+          is_nullable: false
+
+      - field: description
+        type: text
+        meta:
+          width: full
+          interface: input-rich-text-html
+          required: true
+          options:
+            toolbar: ["bold", "italic", "underline", "link", "blockquote", "bullist", "numlist", "h2", "h3", "removeformat"]
+          note: "Full hotel description for detail page"
+          group: basic_info
+          sort: 7
+          translations:
+            - language: en-US
+              translation: "Description"
+            - language: de-DE
+              translation: "Beschreibung"
+        schema:
+          is_nullable: false
+
+      - field: coordinates
+        type: json
+        meta:
+          width: full
+          interface: input-map
+          group: location
+          sort: 1
+          translations:
+            - language: en-US
+              translation: "Map Coordinates"
+            - language: de-DE
+              translation: "Kartenkoordinaten"
+
+      - field: address
+        type: text
+        meta:
+          width: full
+          interface: input-multiline
+          group: location
+          sort: 2
+          translations:
+            - language: en-US
+              translation: "Full Address"
+            - language: de-DE
+              translation: "Vollständige Adresse"
+
+      - field: zip
+        type: string
+        meta:
+          width: half
+          interface: input
+          group: location
+          sort: 3
+          translations:
+            - language: en-US
+              translation: "Postal/ZIP Code"
+            - language: de-DE
+              translation: "Postleitzahl"
+
+      - field: city
+        type: string
+        meta:
+          width: half
+          interface: input
+          group: location
+          sort: 4
+          translations:
+            - language: en-US
+              translation: "City"
+            - language: de-DE
+              translation: "Stadt"
+
+      - field: country
+        type: string
+        meta:
+          width: half
+          interface: input
+          group: location
+          sort: 5
+          translations:
+            - language: en-US
+              translation: "Country"
+            - language: de-DE
+              translation: "Land"
+
+      - field: main_image
+        type: uuid
+        meta:
+          width: full
+          interface: file-image
+          required: true
+          special: file
+          note: "Primary hotel image used for cards and headers (1920x1080px recommended)"
+          group: media
+          sort: 1
+          translations:
+            - language: en-US
+              translation: "Main Image"
+            - language: de-DE
+              translation: "Hauptbild"
+        schema:
+          is_nullable: false
+
+      - field: gallery
+        type: json
+        meta:
+          width: full
+          interface: list
+          special: cast-json
+          options:
+            template: "{{image.filename}}"
+            fields:
+              - name: image
+                type: uuid
+                meta:
+                  width: full
+                  interface: file-image
+                  special: file
+              - name: alt
+                type: string
+                meta:
+                  width: full
+                  interface: input
+              - name: caption
+                type: string
+                meta:
+                  width: full
+                  interface: input
+          group: media
+          sort: 2
+          translations:
+            - language: en-US
+              translation: "Gallery Images"
+            - language: de-DE
+              translation: "Galeriebilder"
+
+      - field: video_url
+        type: string
+        meta:
+          width: full
+          interface: input
+          options:
+            placeholder: "https://vimeo.com/123456789"
+          note: "Optional video URL (YouTube or Vimeo)"
+          group: media
+          sort: 3
+          translations:
+            - language: en-US
+              translation: "Video URL"
+            - language: de-DE
+              translation: "Video-URL"
+
+      - field: price_from
+        type: integer
+        meta:
+          width: half
+          interface: input
+          required: true
+          note: "Starting price per night in EUR"
+          group: pricing
+          sort: 1
+          translations:
+            - language: en-US
+              translation: "Price From"
+            - language: de-DE
+              translation: "Preis ab"
+        schema:
+          is_nullable: false
+
+      - field: currency
+        type: string
+        meta:
+          width: half
+          interface: select-dropdown
+          options:
+            choices:
+              - text: Euro (€)
+                value: EUR
+              - text: Swiss Franc (CHF)
+                value: CHF
+              - text: US Dollar ($)
+                value: USD
+              - text: British Pound (£)
+                value: GBP
+          default_value: EUR
+          required: true
+          group: pricing
+          sort: 2
+          translations:
+            - language: en-US
+              translation: "Currency"
+            - language: de-DE
+              translation: "Währung"
+        schema:
+          default_value: EUR
+          is_nullable: false
+
+      - field: price_notes
+        type: text
+        meta:
+          width: full
+          interface: input-multiline
+          note: "Additional notes about pricing (taxes, seasonal variations)"
+          group: pricing
+          sort: 3
+          translations:
+            - language: en-US
+              translation: "Price Notes"
+            - language: de-DE
+              translation: "Preishinweise"
+
+      - field: star_rating
+        type: integer
+        meta:
+          width: half
+          interface: input
+          options:
+            min: 1
+            max: 5
+            step: 1
+          note: "Official star rating (1-5)"
+          group: details
+          sort: 1
+          translations:
+            - language: en-US
+              translation: "Star Rating"
+            - language: de-DE
+              translation: "Sterne-Bewertung"
+
+      - field: user_rating
+        type: decimal
+        meta:
+          width: half
+          interface: input
+          options:
+            min: 0
+            max: 5
+            step: 0.1
+          note: "Average user rating (0-5)"
+          group: details
+          sort: 2
+          translations:
+            - language: en-US
+              translation: "User Rating"
+            - language: de-DE
+              translation: "Benutzerbewertung"
+
+      - field: review_count
+        type: integer
+        meta:
+          width: half
+          interface: input
+          options:
+            min: 0
+          note: "Number of user reviews"
+          group: details
+          sort: 3
+          translations:
+            - language: en-US
+              translation: "Review Count"
+            - language: de-DE
+              translation: "Anzahl der Bewertungen"
+
+      - field: year_built
+        type: integer
+        meta:
+          width: half
+          interface: input
+          note: "Year the hotel was built"
+          group: details
+          sort: 4
+          translations:
+            - language: en-US
+              translation: "Year Built"
+            - language: de-DE
+              translation: "Baujahr"
+
+      - field: year_renovated
+        type: integer
+        meta:
+          width: half
+          interface: input
+          note: "Year of last major renovation"
+          group: details
+          sort: 5
+          translations:
+            - language: en-US
+              translation: "Year Renovated"
+            - language: de-DE
+              translation: "Jahr der Renovierung"
+
+      - field: room_count
+        type: integer
+        meta:
+          width: half
+          interface: input
+          options:
+            min: 1
+          note: "Total number of rooms"
+          group: details
+          sort: 6
+          translations:
+            - language: en-US
+              translation: "Room Count"
+            - language: de-DE
+              translation: "Anzahl der Zimmer"
+
+      - field: amenities
+        type: json
+        meta:
+          width: full
+          interface: select-multiple-dropdown
+          special: cast-json
+          options:
+            choices:
+              - text: "WiFi"
+                value: wifi
+              - text: "Pool"
+                value: pool
+              - text: "Spa"
+                value: spa
+              - text: "Fitness Center"
+                value: fitness
+              - text: "Restaurant"
+                value: restaurant
+              - text: "Bar"
+                value: bar
+              - text: "Room Service"
+                value: room_service
+              - text: "Concierge"
+                value: concierge
+              - text: "Parking"
+                value: parking
+              - text: "Airport Shuttle"
+                value: airport_shuttle
+              - text: "Pet Friendly"
+                value: pet_friendly
+              - text: "Business Center"
+                value: business_center
+              - text: "Sauna"
+                value: sauna
+              - text: "Jacuzzi"
+                value: jacuzzi
+          note: "Hotel amenities and facilities"
+          group: features
+          sort: 1
+          translations:
+            - language: en-US
+              translation: "Amenities"
+            - language: de-DE
+              translation: "Annehmlichkeiten"
+
+      - field: features
+        type: json
+        meta:
+          width: full
+          interface: list
+          special: cast-json
+          options:
+            template: "{{title}}"
+            fields:
+              - name: title
+                type: string
+                meta:
+                  width: full
+                  interface: input
+                  required: true
+              - name: description
+                type: text
+                meta:
+                  width: full
+                  interface: input-multiline
+              - name: icon
+                type: string
+                meta:
+                  width: half
+                  interface: select-dropdown
+                  options:
+                    choices:
+                      - text: "Mountains"
+                        value: mountains
+                      - text: "Beach"
+                        value: beach
+                      - text: "City"
+                        value: city
+                      - text: "Food"
+                        value: food
+                      - text: "Spa"
+                        value: spa
+                      - text: "Pool"
+                        value: pool
+                      - text: "Design"
+                        value: design
+                      - text: "Architecture"
+                        value: architecture
+                      - text: "Nature"
+                        value: nature
+                      - text: "Culture"
+                        value: culture
+              - name: image
+                type: uuid
+                meta:
+                  width: half
+                  interface: file-image
+                  special: file
+          note: "Special features of the hotel"
+          group: features
+          sort: 2
+          translations:
+            - language: en-US
+              translation: "Special Features"
+            - language: de-DE
+              translation: "Besondere Merkmale"
+
+      - field: categories
+        type: json
+        meta:
+          interface: select-multiple-dropdown
+          special: cast-json
+          options:
+            choices:
+              - text: "Mountains"
+                value: mountains
+              - text: "Beach"
+                value: beach
+              - text: "City"
+                value: city
+              - text: "Boutique"
+                value: boutique
+              - text: "Luxury"
+                value: luxury
+              - text: "Spa"
+                value: spa
+              - text: "Design"
+                value: design
+              - text: "Lake"
+                value: lake
+              - text: "Business"
+                value: business
+              - text: "Family"
+                value: family
+              - text: "Couples"
+                value: couples
+              - text: "Adventure"
+                value: adventure
+              - text: "Historic"
+                value: historic
+              - text: "Ski"
+                value: ski
+          width: full
+          group: categorization
+          sort: 1
+          translations:
+            - language: en-US
+              translation: "Categories"
+            - language: de-DE
+              translation: "Kategorien"
+
+      - field: tags
+        type: json
+        meta:
+          width: full
+          interface: tags
+          special: cast-json
+          options:
+            placeholder: "Add tags..."
+            iconLeft: tag
+          note: "Additional tags for filtering and search"
+          group: categorization
+          sort: 2
+          translations:
+            - language: en-US
+              translation: "Tags"
+            - language: de-DE
+              translation: "Tags"
+
+      - field: destination
+        type: uuid
+        meta:
+          width: full
+          interface: select-dropdown-m2o
+          required: true
+          special: m2o
+          options:
+            template: "{{name}}"
+          group: relationships
+          sort: 1
+          translations:
+            - language: en-US
+              translation: "Destination"
+            - language: de-DE
+              translation: "Destination"
+        schema:
+          foreign_key_column: destination
+          foreign_key_table: destinations
+          on_delete: SET NULL
+
+      - field: is_featured
+        type: boolean
+        meta:
+          width: half
+          interface: boolean
+          special: cast-boolean
+          group: display_options
+          sort: 1
+          translations:
+            - language: en-US
+              translation: "Featured Hotel"
+            - language: de-DE
+              translation: "Empfohlenes Hotel"
+        schema:
+          default_value: false
+
+      - field: is_new
+        type: boolean
+        meta:
+          width: half
+          interface: boolean
+          special: cast-boolean
+          group: display_options
+          sort: 2
+          translations:
+            - language: en-US
+              translation: "New Hotel"
+            - language: de-DE
+              translation: "Neues Hotel"
+        schema:
+          default_value: false
+
+      - field: owner_information
+        type: json
+        meta:
+          width: full
+          interface: list
+          special: cast-json
+          options:
+            template: "{{name}}"
+            fields:
+              - name: name
+                type: string
+                meta:
+                  width: full
+                  interface: input
+                  required: true
+              - name: description
+                type: text
+                meta:
+                  width: full
+                  interface: input-multiline
+              - name: image
+                type: uuid
+                meta:
+                  width: full
+                  interface: file-image
+                  special: file
+          group: owner
+          sort: 1
+          translations:
+            - language: en-US
+              translation: "Owner Information"
+            - language: de-DE
+              translation: "Besitzerinformationen"
+
+      - field: meta_title
+        type: string
+        meta:
+          width: full
+          interface: input
+          note: "Page title for SEO (70 chars max)"
+          group: seo
+          sort: 1
+          translations:
+            - language: en-US
+              translation: "Meta Title"
+            - language: de-DE
+              translation: "Meta-Titel"
+
+      - field: meta_description
+        type: text
+        meta:
+          width: full
+          interface: input-multiline
+          note: "Meta description for SEO (160 chars max)"
+          group: seo
+          sort: 2
+          translations:
+            - language: en-US
+              translation: "Meta Description"
+            - language: de-DE
+              translation: "Meta-Beschreibung"
+
+      - field: sort
+        type: integer
+        meta:
+          hidden: true
+          interface: input
+          width: full
+        schema:
+          default_value: 0
+
+      - field: date_created
+        type: timestamp
+        meta:
+          special: date-created
+          interface: datetime
+          readonly: true
+          width: half
+          display: datetime
+          display_options:
+            relative: true
+          group: system
+          sort: 1
+          translations:
+            - language: en-US
+              translation: "Date Created"
+            - language: de-DE
+              translation: "Erstellungsdatum"
+        schema:
+          on_update: false
+
+      - field: date_updated
+        type: timestamp
+        meta:
+          special: date-updated
+          interface: datetime
+          readonly: true
+          width: half
+          display: datetime
+          display_options:
+            relative: true
+          group: system
+          sort: 2
+          translations:
+            - language: en-US
+              translation: "Date Updated"
+            - language: de-DE
+              translation: "Aktualisierungsdatum"
+        schema:
+          on_update: true
+
+      - field: user_created
+        type: uuid
+        meta:
+          special: user-created
+          interface: select-dropdown-m2o
+          options:
+            template: "{{first_name}} {{last_name}}"
+          readonly: true
+          width: half
+          hidden: true
+          group: system
+          sort: 3
+        schema:
+          on_update: false
+
+      - field: user_updated
+        type: uuid
+        meta:
+          special: user-updated
+          interface: select-dropdown-m2o
+          options:
+            template: "{{first_name}} {{last_name}}"
+          readonly: true
+          width: half
+          hidden: true
+          group: system
+          sort: 4
+        schema:
+          on_update: true
+
+    meta:
+      sort_field: sort
+      archive_field: status
+      archive_value: archived
+      unarchive_value: draft
+      singleton: false
+      group: content
+      translation: "Hotels"
+      item_duplication_fields:
+        - name
+        - short_description
+        - description
+        - price_from
+        - currency
+        - star_rating
+        - amenities
+        - features
+        - categories
+        - destination
+      accountability: all
+      color: "#93A27F"
+      display_template: "{{name}}"
+      preview_url: null
+      sort: 1
+      
+    schema:
+      name: hotels
+
+  # Rooms Collection
+  rooms:
+    sort: 2
+    singleton: false
+    note: "Hotel rooms and suites"
+    icon: "king_bed"
+    translations:
+      - language: en-US
+        translation: "Rooms"
+      - language: de-DE
+        translation: "Zimmer"
+    fields:
+      - field: id
+        type: uuid
+        meta:
+          hidden: true
+          readonly: true
+          interface: input
+          special: uuid
+        schema:
+          is_primary_key: true
+
+      - field: status
+        type: string
+        meta:
+          width: half
+          interface: select-dropdown
+          options:
+            choices:
+              - text: Published
+                value: published
+              - text: Draft
+                value: draft
+              - text: Archived
+                value: archived
+          required: true
+          translation: Status
+        schema:
+          default_value: draft
+
+      - field: name
+        type: string
+        meta:
+          width: full
+          interface: input
+          required: true
+          options:
+            trim: true
+          note: "Name of the room"
+          group: basic_info
+          sort: 1
+          translations:
+            - language: en-US
+              translation: "Room Name"
+            - language: de-DE
+              translation: "Zimmername"
+        schema:
+          is_nullable: false
+
+      - field: slug
+        type: string
+        meta:
+          width: full
+          interface: input-slug
+          options:
+            slugify:
+              - name
+          required: true
+          note: "URL-friendly version of room name"
+          group: basic_info
+          sort: 2
+          translations:
+            - language: en-US
+              translation: "Slug"
+            - language: de-DE
+              translation: "Slug"
+        schema:
+          is_nullable: false
+
+      - field: description
+        type: text
+        meta:
+          width: full
+          interface: input-rich-text-html
+          required: true
+          options:
+            toolbar: ["bold", "italic", "underline", "link", "blockquote", "bullist", "numlist", "removeformat"]
+          note: "Room description"
+          group: basic_info
+          sort: 3
+          translations:
+            - language: en-US
+              translation: "Description"
+            - language: de-DE
+              translation: "Beschreibung"
+        schema:
+          is_nullable: false
+
+      - field: size
+        type: string
+        meta:
+          width: half
+          interface: input
+          required: true
+          note: "Room size in square meters (e.g., '30m²')"
+          group: details
+          sort: 1
+          translations:
+            - language: en-US
+              translation: "Size"
+            - language: de-DE
+              translation: "Größe"
+        schema:
+          is_nullable: false
+
+      - field: max_occupancy
+        type: integer
+        meta:
+          width: half
+          interface: input
+          required: true
+          options:
+            min: 1
+            max: 10
+            step: 1
+          note: "Maximum number of guests"
+          group: details
+          sort: 2
+          translations:
+            - language: en-US
+              translation: "Max Occupancy"
+            - language: de-DE
+              translation: "Maximale Belegung"
+        schema:
+          is_nullable: false
+
+      - field: bed_type
+        type: string
+        meta:
+          width: half
+          interface: select-dropdown
+          options:
+            choices:
+              - text: King
+                value: king
+              - text: Queen
+                value: queen
+              - text: Twin
+                value: twin
+              - text: Double
+                value: double
+              - text: Single
+                value: single
+              - text: Multiple
+                value: multiple
+          note: "Type of bed"
+          group: details
+          sort: 3
+          translations:
+            - language: en-US
+              translation: "Bed Type"
+            - language: de-DE
+              translation: "Betttyp"
+
+      - field: bed_count
+        type: integer
+        meta:
+          width: half
+          interface: input
+          options:
+            min: 1
+            max: 10
+            step: 1
+          note: "Number of beds"
+          group: details
+          sort: 4
+          translations:
+            - language: en-US
+              translation: "Bed Count"
+            - language: de-DE
+              translation: "Anzahl der Betten"
+
+      - field: bathroom_count
+        type: integer
+        meta:
+          width: half
+          interface: input
+          options:
+            min: 1
+            max: 5
+            step: 1
+          note: "Number of bathrooms"
+          group: details
+          sort: 5
+          translations:
+            - language: en-US
+              translation: "Bathroom Count"
+            - language: de-DE
+              translation: "Anzahl der Badezimmer"
+
+      - field: view_type
+        type: string
+        meta:
+          width: half
+          interface: select-dropdown
+          options:
+            choices:
+              - text: Mountain View
+                value: mountain
+              - text: Sea View
+                value: sea
+              - text: Garden View
+                value: garden
+              - text: City View
+                value: city
+              - text: Lake View
+                value: lake
+              - text: Pool View
+                value: pool
+              - text: No View
+                value: none
+          note: "Type of view from the room"
+          group: details
+          sort: 6
+          translations:
+            - language: en-US
+              translation: "View Type"
+            - language: de-DE
+              translation: "Aussichtstyp"
+
+      - field: main_image
+        type: uuid
+        meta:
+          width: full
+          interface: file-image
+          required: true
+          special: file
+          note: "Primary room image"
+          group: media
+          sort: 1
+          translations:
+            - language: en-US
+              translation: "Main Image"
+            - language: de-DE
+              translation: "Hauptbild"
+        schema:
+          is_nullable: false
+
+      - field: gallery
+        type: json
+        meta:
+          width: full
+          interface: list
+          special: cast-json
+          options:
+            template: "{{image.filename}}"
+            fields:
+              - name: image
+                type: uuid
+                meta:
+                  width: full
+                  interface: file-image
+                  special: file
+              - name: alt
+                type: string
+                meta:
+                  width: full
+                  interface: input
+              - name: caption
+                type: string
+                meta:
+                  width: full
+                  interface: input
+          group: media
+          sort: 2
+          translations:
+            - language: en-US
+              translation: "Gallery Images"
+            - language: de-DE
+              translation: "Galeriebilder"
+
+      - field: price_per_night
+        type: integer
+        meta:
+          width: half
+          interface: input
+          required: true
+          note: "Price per night in EUR"
+          group: pricing
+          sort: 1
+          translations:
+            - language: en-US
+              translation: "Price Per Night"
+            - language: de-DE
+              translation: "Preis pro Nacht"
+        schema:
+          is_nullable: false
+
+      - field: currency
+        type: string
+        meta:
+          width: half
+          interface: select-dropdown
+          options:
+            choices:
+              - text: Euro (€)
+                value: EUR
+              - text: Swiss Franc (CHF)
+                value: CHF
+              - text: US Dollar ($)
+                value: USD
+              - text: British Pound (£)
+                value: GBP
+          default_value: EUR
+          required: true
+          group: pricing
+          sort: 2
+          translations:
+            - language: en-US
+              translation: "Currency"
+            - language: de-DE
+              translation: "Währung"
+        schema:
+          default_value: EUR
+          is_nullable: false
+
+      - field: price_notes
+        type: text
+        meta:
+          width: full
+          interface: input-multiline
+          note: "Additional notes about pricing (taxes, seasonal variations)"
+          group: pricing
+          sort: 3
+          translations:
+            - language: en-US
+              translation: "Price Notes"
+            - language: de-DE
+              translation: "Preishinweise"
+
+      - field: amenities
+        type: json
+        meta:
+          width: full
+          interface: select-multiple-dropdown
+          special: cast-json
+          options:
+            choices:
+              - text: "Free WiFi"
+                value: wifi
+              - text: "TV"
+                value: tv
+              - text: "Safe"
+                value: safe
+              - text: "Minibar"
+                value: minibar
+              - text: "Bathtub"
+                value: bathtub
+              - text: "Shower"
+                value: shower
+              - text: "Balcony"
+                value: balcony
+              - text: "Terrace"
+                value: terrace
+              - text: "Air Conditioning"
+                value: air_conditioning
+              - text: "Heating"
+                value: heating
+              - text: "Coffee Machine"
+                value: coffee_machine
+              - text: "Kitchenette"
+                value: kitchenette
+              - text: "Desk"
+                value: desk
+              - text: "Ironing Facilities"
+                value: ironing
+              - text: "Hairdryer"
+                value: hairdryer
+              - text: "Robe"
+                value: robe
+              - text: "Slippers"
+                value: slippers
+          note: "Room amenities"
+          group: features
+          sort: 1
+          translations:
+            - language: en-US
+              translation: "Amenities"
+            - language: de-DE
+              translation: "Annehmlichkeiten"
+
+      - field: features
+        type: json
+        meta:
+          width: full
+          interface: list
+          special: cast-json
+          options:
+            template: "{{title}}"
+            fields:
+              - name: title
+                type: string
+                meta:
+                  width: full
+                  interface: input
+                  required: true
+              - name: description
+                type: text
+                meta:
+                  width: full
+                  interface: input-multiline
+          note: "Special features of the room"
+          group: features
+          sort: 2
+          translations:
+            - language: en-US
+              translation: "Special Features"
+            - language: de-DE
+              translation: "Besondere Merkmale"
+
+      - field: hotel
+        type: uuid
+        meta:
+          width: full
+          interface: select-dropdown-m2o
+          required: true
+          special: m2o
+          options:
+            template: "{{name}}"
+          group: relationships
+          sort: 1
+          translations:
+            - language: en-US
+              translation: "Hotel"
+            - language: de-DE
+              translation: "Hotel"
+        schema:
+          foreign_key_column: hotel
+          foreign_key_table: hotels
+          on_delete: CASCADE
+
+      - field: is_featured
+        type: boolean
+        meta:
+          width: half
+          interface: boolean
+          special: cast-boolean
+          group: display_options
+          sort: 1
+          translations:
+            - language: en-US
+              translation: "Featured Room"
+            - language: de-DE
+              translation: "Empfohlenes Zimmer"
+        schema:
+          default_value: false
+
+      - field: sort
+        type: integer
+        meta:
+          hidden: true
+          interface: input
+          width: full
+        schema:
+          default_value: 0
+
+      - field: date_created
+        type: timestamp
+        meta:
+          special: date-created
+          interface: datetime
+          readonly: true
+          width: half
+          display: datetime
+          display_options:
+            relative: true
+          group: system
+          sort: 1
+          translations:
+            - language: en-US
+              translation: "Date Created"
+            - language: de-DE
+              translation: "Erstellungsdatum"
+        schema:
+          on_update: false
+
+      - field: date_updated
+        type: timestamp
+        meta:
+          special: date-updated
+          interface: datetime
+          readonly: true
+          width: half
+          display: datetime
+          display_options:
+            relative: true
+          group: system
+          sort: 2
+          translations:
+            - language: en-US
+              translation: "Date Updated"
+            - language: de-DE
+              translation: "Aktualisierungsdatum"
+        schema:
+          on_update: true
+
+      - field: user_created
+        type: uuid
+        meta:
+          special: user-created
+          interface: select-dropdown-m2o
+          options:
+            template: "{{first_name}} {{last_name}}"
+          readonly: true
+          width: half
+          hidden: true
+          group: system
+          sort: 3
+        schema:
+          on_update: false
+
+      - field: user_updated
+        type: uuid
+        meta:
+          special: user-updated
+          interface: select-dropdown-m2o
+          options:
+            template: "{{first_name}} {{last_name}}"
+          readonly: true
+          width: half
+          hidden: true
+          group: system
+          sort: 4
+        schema:
+          on_update: true
+
+    meta:
+      sort_field: sort
+      archive_field: status
+      archive_value: archived
+      unarchive_value: draft
+      singleton: false
+      group: content
+      translation: "Rooms"
+      item_duplication_fields:
+        - name
+        - description
+        - size
+        - max_occupancy
+        - bed_type
+        - bed_count
+        - bathroom_count
+        - view_type
+        - price_per_night
+        - currency
+        - amenities
+        - features
+        - hotel
+      accountability: all
+      color: "#93A27F"
+      display_template: "{{name}} ({{hotel.name}})"
+      preview_url: null
+      sort: 2
+      
+    schema:
+      name: rooms
+
+  # Destinations Collection
+  destinations:
+    sort: 3
+    singleton: false
+    note: "Travel destinations"
+    icon: "explore"
+    translations:
+      - language: en-US
+        translation: "Destinations"
+      - language: de-DE
+        translation: "Reiseziele"
+    fields:
+      - field: id
+        type: uuid
+        meta:
+          hidden: true
+          readonly: true
+          interface: input
+          special: uuid
+        schema:
+          is_primary_key: true
+
+      - field: status
+        type: string
+        meta:
+          width: half
+          interface: select-dropdown
+          options:
+            choices:
+              - text: Published
+                value: published
+              - text: Draft
+                value: draft
+              - text: Archived
+                value: archived
+          required: true
+          translation: Status
+        schema:
+          default_value: draft
+
+      - field: name
+        type: string
+        meta:
+          width: full
+          interface: input
+          required: true
+          options:
+            trim: true
+          note: "Name of the destination"
+          group: basic_info
+          sort: 1
+          translations:
+            - language: en-US
+              translation: "Destination Name"
+            - language: de-DE
+              translation: "Name des Reiseziels"
+        schema:
+          is_nullable: false
+
+      - field: slug
+        type: string
+        meta:
+          width: full
+          interface: input-slug
+          options:
+            slugify:
+              - name
+          required: true
+          note: "URL-friendly version of destination name"
+          group: basic_info
+          sort: 2
+          translations:
+            - language: en-US
+              translation: "Slug"
+            - language: de-DE
+              translation: "Slug"
+        schema:
+          is_nullable: false
+
+      - field: subtitle
+        type: string
+        meta:
+          width: full
+          interface: input
+          note: "Short tagline for the destination"
+          group: basic_info
+          sort: 3
+          translations:
+            - language: en-US
+              translation: "Subtitle"
+            - language: de-DE
+              translation: "Untertitel"
+
+      - field: country
+        type: string
+        meta:
+          width: half
+          interface: input
+          required: true
+          note: "Country name"
+          group: basic_info
+          sort: 4
+          translations:
+            - language: en-US
+              translation: "Country"
+            - language: de-DE
+              translation: "Land"
+        schema:
+          is_nullable: false
+
+      - field: region
+        type: string
+        meta:
+          width: half
+          interface: select-dropdown
+          options:
+            choices:
+              - text: Alps
+                value: alps
+              - text: Mediterranean
+                value: mediterranean
+              - text: Northern Europe
+                value: northern_europe
+              - text: Central Europe
+                value: central_europe
+              - text: Southern Europe
+                value: southern_europe
+          note: "Geographical region"
+          group: basic_info
+          sort: 5
+          translations:
+            - language: en-US
+              translation: "Region"
+            - language: de-DE
+              translation: "Region"
+
+      - field: short_description
+        type: text
+        meta:
+          width: full
+          interface: input-multiline
+          required: true
+          note: "Brief description for destination listings (120-150 characters)"
+          group: basic_info
+          sort: 6
+          translations:
+            - language: en-US
+              translation: "Short Description"
+            - language: de-DE
+              translation: "Kurzbeschreibung"
+        schema:
+          is_nullable: false
+
+      - field: description
+        type: text
+        meta:
+          width: full
+          interface: input-rich-text-html
+          required: true
+          options:
+            toolbar: ["bold", "italic", "underline", "link", "blockquote", "bullist", "numlist", "h2", "h3", "removeformat"]
+          note: "Full destination description"
+          group: basic_info
+          sort: 7
+          translations:
+            - language: en-US
+              translation: "Description"
+            - language: de-DE
+              translation: "Beschreibung"
+        schema:
+          is_nullable: false
+
+      - field: coordinates
+        type: json
+        meta:
+          width: full
+          interface: input-map
+          group: location
+          sort: 1
+          translations:
+            - language: en-US
+              translation: "Map Coordinates"
+            - language: de-DE
+              translation: "Kartenkoordinaten"
+
+      - field: main_image
+        type: uuid
+        meta:
+          width: full
+          interface: file-image
+          required: true
+          special: file
+          note: "Primary destination image used for cards and headers (1920x1080px recommended)"
+          group: media
+          sort: 1
+          translations:
+            - language: en-US
+              translation: "Main Image"
+            - language: de-DE
+              translation: "Hauptbild"
+        schema:
+          is_nullable: false
+
+      - field: gallery
+        type: json
+        meta:
+          width: full
+          interface: list
+          special: cast-json
+          options:
+            template: "{{image.filename}}"
+            fields:
+              - name: image
+                type: uuid
+                meta:
+                  width: full
+                  interface: file-image
+                  special: file
+              - name: alt
+                type: string
+                meta:
+                  width: full
+                  interface: input
+              - name: caption
+                type: string
+                meta:
+                  width: full
+                  interface: input
+              - name: season
+                type: string
+                meta:
+                  width: half
+                  interface: select-dropdown
+                  options:
+                    choices:
+                      - text: "Spring"
+                        value: spring
+                      - text: "Summer"
+                        value: summer
+                      - text: "Autumn"
+                        value: autumn
+                      - text: "Winter"
+                        value: winter
+                      - text: "All Seasons"
+                        value: all
+          note: "Gallery images showing the destination in different seasons"
+          group: media
+          sort: 2
+          translations:
+            - language: en-US
+              translation: "Gallery Images"
+            - language: de-DE
+              translation: "Galeriebilder"
+
+      - field: video_url
+        type: string
+        meta:
+          width: full
+          interface: input
+          options:
+            placeholder: "https://vimeo.com/123456789"
+          note: "Optional video URL (YouTube or Vimeo)"
+          group: media
+          sort: 3
+          translations:
+            - language: en-US
+              translation: "Video URL"
+            - language: de-DE
+              translation: "Video-URL"
+
+      - field: highlights
+        type: json
+        meta:
+          width: full
+          interface: list
+          special: cast-json
+          options:
+            template: "{{title}}"
+            fields:
+              - name: title
+                type: string
+                meta:
+                  width: full
+                  interface: input
+                  required: true
+              - name: description
+                type: text
+                meta:
+                  width: full
+                  interface: input-multiline
+              - name: icon
+                type: string
+                meta:
+                  width: half
+                  interface: select-dropdown
+                  options:
+                    choices:
+                      - text: "Landscape"
+                        value: landscape
+                      - text: "Culture"
+                        value: culture
+                      - text: "Food"
+                        value: food
+                      - text: "Activities"
+                        value: activities
+                      - text: "Relaxation"
+                        value: relaxation
+                      - text: "Nature"
+                        value: nature
+                      - text: "Architecture"
+                        value: architecture
+                      - text: "History"
+                        value: history
+              - name: image
+                type: uuid
+                meta:
+                  width: half
+                  interface: file-image
+                  special: file
+          group: highlights_activities
+          sort: 1
+          translations:
+            - language: en-US
+              translation: "Highlights"
+            - language: de-DE
+              translation: "Höhepunkte"
+
+      - field: activities
+        type: json
+        meta:
+          width: full
+          interface: list
+          special: cast-json
+          options:
+            template: "{{title}} ({{season}})"
+            fields:
+              - name: title
+                type: string
+                meta:
+                  width: full
+                  interface: input
+                  required: true
+              - name: description
+                type: text
+                meta:
+                  width: full
+                  interface: input-multiline
+              - name: season
+                type: string
+                meta:
+                  width: half
+                  interface: select-dropdown
+                  options:
+                    choices:
+                      - text: "Spring"
+                        value: spring
+                      - text: "Summer"
+                        value: summer
+                      - text: "Autumn"
+                        value: autumn
+                      - text: "Winter"
+                        value: winter
+                      - text: "All Seasons"
+                        value: all
+              - name: image
+                type: uuid
+                meta:
+                  width: half
+                  interface: file-image
+                  special: file
+          group: highlights_activities
+          sort: 2
+          translations:
+            - language: en-US
+              translation: "Activities"
+            - language: de-DE
+              translation: "Aktivitäten"
+
+      - field: dining
+        type: json
+        meta:
+          width: full
+          interface: list
+          special: cast-json
+          options:
+            template: "{{name}}"
+            fields:
+              - name: name
+                type: string
+                meta:
+                  width: full
+                  interface: input
+                  required: true
+              - name: description
+                type: text
+                meta:
+                  width: full
+                  interface: input-multiline
+              - name: cuisine
+                type: string
+                meta:
+                  width: half
+                  interface: input
+              - name: price_range
+                type: string
+                meta:
+                  width: half
+                  interface: select-dropdown
+                  options:
+                    choices:
+                      - text: "$"
+                        value: $
+                      - text: "$$"
+                        value: $$
+                      - text: "$$$"
+                        value: $$$
+                      - text: "$$$$"
+                        value: $$$$
+              - name: address
+                type: text
+                meta:
+                  width: full
+                  interface: input-multiline
+              - name: coordinates
+                type: json
+                meta:
+                  width: full
+                  interface: input-map
+              - name: image
+                type: uuid
+                meta:
+                  width: full
+                  interface: file-image
+                  special: file
+          group: dining
+          sort: 1
+          translations:
+            - language: en-US
+              translation: "Restaurants"
+            - language: de-DE
+              translation: "Restaurants"
+
+      - field: signature_dishes
+        type: json
+        meta:
+          width: full
+          interface: list
+          special: cast-json
+          options:
+            template: "{{name}}"
+            fields:
+              - name: name
+                type: string
+                meta:
+                  width: full
+                  interface: input
+                  required: true
+              - name: description
+                type: text
+                meta:
+                  width: full
+                  interface: input-multiline
+              - name: restaurant
+                type: string
+                meta:
+                  width: full
+                  interface: input
+              - name: image
+                type: uuid
+                meta:
+                  width: full
+                  interface: file-image
+                  special: file
+          group: dining
+          sort: 2
+          translations:
+            - language: en-US
+              translation: "Signature Dishes"
+            - language: de-DE
+              translation: "Spezialitäten"
+
+      - field: chef_spotlight
+        type: json
+        meta:
+          width: full
+          interface: list
+          special: cast-json
+          options:
+            template: "{{name}}"
+            fields:
+              - name: name
+                type: string
+                meta:
+                  width: full
+                  interface: input
+                  required: true
+              - name: restaurant
+                type: string
+                meta:
+                  width: full
+                  interface: input
+              - name: description
+                type: text
+                meta:
+                  width: full
+                  interface: input-multiline
+              - name: image
+                type: uuid
+                meta:
+                  width: full
+                  interface: file-image
+                  special: file
+          group: dining
+          sort: 3
+          translations:
+            - language: en-US
+              translation: "Chef Spotlight"
+            - language: de-DE
+              translation: "Küchenchef im Rampenlicht"
+
+      - field: travel_info
+        type: json
+        meta:
+          width: full
+          interface: list
+          special: cast-json
+          options:
+            template: "{{category}}"
+            fields:
+              - name: category
+                type: string
+                meta:
+                  width: full
+                  interface: select-dropdown
+                  options:
+                    choices:
+                      - text: "Getting There"
+                        value: transportation
+                      - text: "Climate"
+                        value: climate
+                      - text: "Best Time to Visit"
+                        value: best_time
+                      - text: "Language"
+                        value: language
+                      - text: "Currency"
+                        value: currency
+                      - text: "Local Customs"
+                        value: customs
+                      - text: "Travel Tips"
+                        value: tips
+                  required: true
+              - name: title
+                type: string
+                meta:
+                  width: full
+                  interface: input
+                  required: true
+              - name: description
+                type: text
+                meta:
+                  width: full
+                  interface: input-multiline
+                  required: true
+              - name: icon
+                type: string
+                meta:
+                  width: half
+                  interface: select-dropdown
+                  options:
+                    choices:
+                      - text: "Plane"
+                        value: plane
+                      - text: "Train"
+                        value: train
+                      - text: "Car"
+                        value: car
+                      - text: "Weather"
+                        value: weather
+                      - text: "Calendar"
+                        value: calendar
+                      - text: "Language"
+                        value: language
+                      - text: "Currency"
+                        value: currency
+                      - text: "Culture"
+                        value: culture
+                      - text: "Tips"
+                        value: tips
+          group: travel_info
+          sort: 1
+          translations:
+            - language: en-US
+              translation: "Travel Information"
+            - language: de-DE
+              translation: "Reiseinformationen"
+
+      - field: weather
+        type: json
+        meta:
+          width: full
+          interface: list
+          special: cast-json
+          options:
+            template: "{{season}}"
+            fields:
+              - name: season
+                type: string
+                meta:
+                  width: full
+                  interface: select-dropdown
+                  options:
+                    choices:
+                      - text: "Spring"
+                        value: spring
+                      - text: "Summer"
+                        value: summer
+                      - text: "Autumn"
+                        value: autumn
+                      - text: "Winter"
+                        value: winter
+                  required: true
+              - name: temp_low
+                type: integer
+                meta:
+                  width: half
+                  interface: input
+                  required: true
+              - name: temp_high
+                type: integer
+                meta:
+                  width: half
+                  interface: input
+                  required: true
+              - name: precipitation
+                type: string
+                meta:
+                  width: half
+                  interface: input
+              - name: description
+                type: text
+                meta:
+                  width: full
+                  interface: input-multiline
+          group: travel_info
+          sort: 2
+          translations:
+            - language: en-US
+              translation: "Weather"
+            - language: de-DE
+              translation: "Wetter"
+
+      - field: categories
+        type: json
+        meta:
+          interface: select-multiple-dropdown
+          special: cast-json
+          options:
+            choices:
+              - text: "Mountains"
+                value: mountains
+              - text: "Beach"
+                value: beach
+              - text: "City"
+                value: city
+              - text: "Countryside"
+                value: countryside
+              - text: "Lake"
+                value: lake
+              - text: "Island"
+                value: island
+              - text: "Historic"
+                value: historic
+              - text: "Cultural"
+                value: cultural
+              - text: "Adventure"
+                value: adventure
+              - text: "Relaxation"
+                value: relaxation
+              - text: "Ski"
+                value: ski
+              - text: "Culinary"
+                value: culinary
+          width: full
+          group: categorization
+          sort: 1
+          translations:
+            - language: en-US
+              translation: "Categories"
+            - language: de-DE
+              translation: "Kategorien"
+
+      - field: tags
+        type: json
+        meta:
+          width: full
+          interface: tags
+          special: cast-json
+          options:
+            placeholder: "Add tags..."
+            iconLeft: tag
+          note: "Additional tags for filtering and search"
+          group: categorization
+          sort: 2
+          translations:
+            - language: en-US
+              translation: "Tags"
+            - language: de-DE
+              translation: "Tags"
+
+      - field: is_featured
+        type: boolean
+        meta:
+          width: half
+          interface: boolean
+          special: cast-boolean
+          group: display_options
+          sort: 1
+          translations:
+            - language: en-US
+              translation: "Featured Destination"
+            - language: de-DE
+              translation: "Empfohlenes Reiseziel"
+        schema:
+          default_value: false
+
+      - field: is_popular
+        type: boolean
+        meta:
+          width: half
+          interface: boolean
+          special: cast-boolean
+          group: display_options
+          sort: 2
+          translations:
+            - language: en-US
+              translation: "Popular Destination"
+            - language: de-DE
+              translation: "Beliebtes Reiseziel"
+        schema:
+          default_value: false
+
+      - field: meta_title
+        type: string
+        meta:
+          width: full
+          interface: input
+          note: "Page title for SEO (70 chars max)"
+          group: seo
+          sort: 1
+          translations:
+            - language: en-US
+              translation: "Meta Title"
+            - language: de-DE
+              translation: "Meta-Titel"
+
+      - field: meta_description
+        type: text
+        meta:
+          width: full
+          interface: input-multiline
+          note: "Meta description for SEO (160 chars max)"
+          group: seo
+          sort: 2
+          translations:
+            - language: en-US
+              translation: "Meta Description"
+            - language: de-DE
+              translation: "Meta-Beschreibung"
+
+      - field: sort
+        type: integer
+        meta:
+          hidden: true
+          interface: input
+          width: full
+        schema:
+          default_value: 0
+
+      - field: date_created
+        type: timestamp
+        meta:
+          special: date-created
+          interface: datetime
+          readonly: true
+          width: half
+          display: datetime
+          display_options:
+            relative: true
+          group: system
+          sort: 1
+          translations:
+            - language: en-US
+              translation: "Date Created"
+            - language: de-DE
+              translation: "Erstellungsdatum"
+        schema:
+          on_update: false
+
+      - field: date_updated
+        type: timestamp
+        meta:
+          special: date-updated
+          interface: datetime
+          readonly: true
+          width: half
+          display: datetime
+          display_options:
+            relative: true
+          group: system
+          sort: 2
+          translations:
+            - language: en-US
+              translation: "Date Updated"
+            - language: de-DE
+              translation: "Aktualisierungsdatum"
+        schema:
+          on_update: true
+
+      - field: user_created
+        type: uuid
+        meta:
+          special: user-created
+          interface: select-dropdown-m2o
+          options:
+            template: "{{first_name}} {{last_name}}"
+          readonly: true
+          width: half
+          hidden: true
+          group: system
+          sort: 3
+        schema:
+          on_update: false
+
+      - field: user_updated
+        type: uuid
+        meta:
+          special: user-updated
+          interface: select-dropdown-m2o
+          options:
+            template: "{{first_name}} {{last_name}}"
+          readonly: true
+          width: half
+          hidden: true
+          group: system
+          sort: 4
+        schema:
+          on_update: true
+
+    meta:
+      sort_field: sort
+      archive_field: status
+      archive_value: archived
+      unarchive_value: draft
+      singleton: false
+      group: content
+      translation: "Destinations"
+      item_duplication_fields:
+        - name
+        - short_description
+        - description
+        - country
+        - region
+        - highlights
+        - categories
+      accountability: all
+      color: "#93A27F"
+      display_template: "{{name}}"
+      preview_url: null
+      sort: 3
+      
+    schema:
+      name: destinations
+
+  # Categories Collection
+  categories:
+    sort: 4
+    singleton: false
+    note: "Hotel and destination categories"
+    icon: "category"
+    translations:
+      - language: en-US
+        translation: "Categories"
+      - language: de-DE
+        translation: "Kategorien"
+    fields:
+      - field: id
+        type: uuid
+        meta:
+          hidden: true
+          readonly: true
+          interface: input
+          special: uuid
+        schema:
+          is_primary_key: true
+
+      - field: name
+        type: string
+        meta:
+          width: full
+          interface: input
+          required: true
+          options:
+            trim: true
+          note: "Name of the category"
+          sort: 1
+          translations:
+            - language: en-US
+              translation: "Category Name"
+            - language: de-DE
+              translation: "Kategoriename"
+        schema:
+          is_nullable: false
+          
+      - field: slug
+        type: string
+        meta:
+          width: full
+          interface: input-slug
+          options:
+            slugify:
+              - name
+          required: true
+          note: "URL-friendly version of category name"
+          sort: 2
+          translations:
+            - language: en-US
+              translation: "Slug"
+            - language: de-DE
+              translation: "Slug"
+        schema:
+          is_nullable: false
+
+      - field: description
+        type: text
+        meta:
+          width: full
+          interface: input-multiline
+          note: "Description of the category"
+          sort: 3
+          translations:
+            - language: en-US
+              translation: "Description"
+            - language: de-DE
+              translation: "Beschreibung"
+
+      - field: icon
+        type: string
+        meta:
+          width: half
+          interface: select-dropdown
+          options:
+            choices:
+              - text: "Mountains"
+                value: mountains
+              - text: "Beach"
+                value: beach
+              - text: "City"
+                value: city
+              - text: "Spa"
+                value: spa
+              - text: "Design"
+                value: design
+              - text: "Food"
+                value: food
+              - text: "Lake"
+                value: lake
+              - text: "Family"
+                value: family
+              - text: "Business"
+                value: business
+              - text: "Luxury"
+                value: luxury
+              - text: "Boutique"
+                value: boutique
+              - text: "Ski"
+                value: ski
+              - text: "Nature"
+                value: nature
+              - text: "Cultural"
+                value: cultural
+          note: "Icon for the category"
+          sort: 4
+          translations:
+            - language: en-US
+              translation: "Icon"
+            - language: de-DE
+              translation: "Symbol"
+
+      - field: image
+        type: uuid
+        meta:
+          width: full
+          interface: file-image
+          special: file
+          note: "Category image"
+          sort: 5
+          translations:
+            - language: en-US
+              translation: "Image"
+            - language: de-DE
+              translation: "Bild"
+
+      - field: type
+        type: string
+        meta:
+          width: half
+          interface: select-dropdown
+          options:
+            choices:
+              - text: "Hotel"
+                value: hotel
+              - text: "Destination"
+                value: destination
+              - text: "Both"
+                value: both
+          default_value: both
+          required: true
+          note: "What this category applies to"
+          sort: 6
+          translations:
+            - language: en-US
+              translation: "Application Type"
+            - language: de-DE
+              translation: "Anwendungstyp"
+        schema:
+          default_value: both
+          is_nullable: false
+
+      - field: featured
+        type: boolean
+        meta:
+          width: half
+          interface: boolean
+          special: cast-boolean
+          note: "Show in featured categories section"
+          sort: 7
+          translations:
+            - language: en-US
+              translation: "Featured"
+            - language: de-DE
+              translation: "Empfohlen"
+        schema:
+          default_value: false
+
+      - field: sort
+        type: integer
+        meta:
+          interface: input
+          width: half
+          note: "Display order (lower numbers first)"
+          sort: 8
+          translations:
+            - language: en-US
+              translation: "Sort Order"
+            - language: de-DE
+              translation: "Sortierreihenfolge"
+        schema:
+          default_value: 0
+
+      - field: date_created
+        type: timestamp
+        meta:
+          special: date-created
+          interface: datetime
+          readonly: true
+          width: half
+          display: datetime
+          display_options:
+            relative: true
+          hidden: true
+        schema:
+          on_update: false
+
+      - field: date_updated
+        type: timestamp
+        meta:
+          special: date-updated
+          interface: datetime
+          readonly: true
+          width: half
+          display: datetime
+          display_options:
+            relative: true
+          hidden: true
+        schema:
+          on_update: true
+
+    meta:
+      sort_field: sort
+      singleton: false
+      group: content
+      translation: "Categories"
+      accountability: all
+      color: "#93A27F"
+      display_template: "{{name}}"
+      preview_url: null
+      sort: 4
+      
+    schema:
+      name: categories
+
+  # Pages Collection
+  pages:
+    sort: 5
+    singleton: false
+    note: "Content pages like About, Privacy Policy, etc."
+    icon: "article"
+    translations:
+      - language: en-US
+        translation: "Pages"
+      - language: de-DE
+        translation: "Seiten"
+    fields:
+      - field: id
+        type: uuid
+        meta:
+          hidden: true
+          readonly: true
+          interface: input
+          special: uuid
+        schema:
+          is_primary_key: true
+
+      - field: status
+        type: string
+        meta:
+          width: half
+          interface: select-dropdown
+          options:
+            choices:
+              - text: Published
+                value: published
+              - text: Draft
+                value: draft
+              - text: Archived
+                value: archived
+          required: true
+          translation: Status
+        schema:
+          default_value: draft
+
+      - field: title
+        type: string
+        meta:
+          width: full
+          interface: input
+          required: true
+          options:
+            trim: true
+          note: "Page title"
+          sort: 1
+          translations:
+            - language: en-US
+              translation: "Title"
+            - language: de-DE
+              translation: "Titel"
+        schema:
+          is_nullable: false
+          
+      - field: slug
+        type: string
+        meta:
+          width: full
+          interface: input-slug
+          options:
+            slugify:
+              - title
+          required: true
+          note: "URL-friendly version of page title"
+          sort: 2
+          translations:
+            - language: en-US
+              translation: "Slug"
+            - language: de-DE
+              translation: "Slug"
+        schema:
+          is_nullable: false
+
+      - field: content
+        type: text
+        meta:
+          width: full
+          interface: input-rich-text-html
+          required: true
+          options:
+            toolbar: ["bold", "italic", "underline", "link", "blockquote", "bullist", "numlist", "h2", "h3", "h4", "image", "removeformat"]
+          note: "Page content"
+          sort: 3
+          translations:
+            - language: en-US
+              translation: "Content"
+            - language: de-DE
+              translation: "Inhalt"
+        schema:
+          is_nullable: false
+
+      - field: featured_image
+        type: uuid
+        meta:
+          width: full
+          interface: file-image
+          special: file
+          note: "Featured image for the page"
+          sort: 4
+          translations:
+            - language: en-US
+              translation: "Featured Image"
+            - language: de-DE
+              translation: "Hauptbild"
+
+      - field: template
+        type: string
+        meta:
+          width: full
+          interface: select-dropdown
+          options:
+            choices:
+              - text: "Default"
+                value: default
+              - text: "Full Width"
+                value: full_width
+              - text: "Sidebar"
+                value: sidebar
+              - text: "Landing Page"
+                value: landing
+          default_value: default
+          note: "Page template"
+          sort: 5
+          translations:
+            - language: en-US
+              translation: "Template"
+            - language: de-DE
+              translation: "Vorlage"
+        schema:
+          default_value: default
+
+      - field: meta_title
+        type: string
+        meta:
+          width: full
+          interface: input
+          note: "Page title for SEO (70 chars max)"
+          sort: 6
+          translations:
+            - language: en-US
+              translation: "Meta Title"
+            - language: de-DE
+              translation: "Meta-Titel"
+
+      - field: meta_description
+        type: text
+        meta:
+          width: full
+          interface: input-multiline
+          note: "Meta description for SEO (160 chars max)"
+          sort: 7
+          translations:
+            - language: en-US
+              translation: "Meta Description"
+            - language: de-DE
+              translation: "Meta-Beschreibung"
+
+      - field: show_in_navigation
+        type: boolean
+        meta:
+          width: half
+          interface: boolean
+          special: cast-boolean
+          note: "Show in main navigation"
+          sort: 8
+          translations:
+            - language: en-US
+              translation: "Show in Navigation"
+            - language: de-DE
+              translation: "In Navigation anzeigen"
+        schema:
+          default_value: false
+
+      - field: sort
+        type: integer
+        meta:
+          interface: input
+          width: half
+          note: "Navigation display order (lower numbers first)"
+          sort: 9
+          translations:
+            - language: en-US
+              translation: "Sort Order"
+            - language: de-DE
+              translation: "Sortierreihenfolge"
+        schema:
+          default_value: 0
+
+      - field: date_created
+        type: timestamp
+        meta:
+          special: date-created
+          interface: datetime
+          readonly: true
+          width: half
+          display: datetime
+          display_options:
+            relative: true
+          hidden: true
+        schema:
+          on_update: false
+
+      - field: date_updated
+        type: timestamp
+        meta:
+          special: date-updated
+          interface: datetime
+          readonly: true
+          width: half
+          display: datetime
+          display_options:
+            relative: true
+          hidden: true
+        schema:
+          on_update: true
+
+      - field: user_created
+        type: uuid
+        meta:
+          special: user-created
+          interface: select-dropdown-m2o
+          options:
+            template: "{{first_name}} {{last_name}}"
+          readonly: true
+          width: half
+          hidden: true
+        schema:
+          on_update: false
+
+      - field: user_updated
+        type: uuid
+        meta:
+          special: user-updated
+          interface: select-dropdown-m2o
+          options:
+            template: "{{first_name}} {{last_name}}"
+          readonly: true
+          width: half
+          hidden: true
+        schema:
+          on_update: true
+
+    meta:
+      sort_field: sort
+      archive_field: status
+      archive_value: archived
+      unarchive_value: draft
+      singleton: false
+      group: content
+      translation: "Pages"
+      accountability: all
+      color: "#93A27F"
+      display_template: "{{title}}"
+      preview_url: null
+      sort: 5
+      
+    schema:
+      name: pages

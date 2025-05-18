@@ -1,3 +1,6 @@
+/* Import Brooklyn Font */
+@import url('/fonts/brooklyn/brooklyn.css');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

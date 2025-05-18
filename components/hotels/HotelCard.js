@@ -42,11 +42,11 @@ export default function HotelCard({
     : description;
 
   return (
-    <article className="overflow-hidden rounded-xl">
+    <article className="overflow-hidden rounded-xl font-brooklyn hover:shadow-lg transition-shadow duration-300">
       <div className="flex flex-col h-full">
         {/* Bild-Container */}
-        <div className="relative h-[460px] overflow-hidden rounded-xl">
-          <Link href={hotelUrl} aria-label={`View details for ${name}`}>
+        <div className="relative h-[320px] md:h-[400px] lg:h-[460px] overflow-hidden rounded-xl">
+          <div className="h-full w-full">
             <Image
               src={getHotelImage(slug, image)}
               alt={name || "Hotel exterior"}
@@ -55,12 +55,18 @@ export default function HotelCard({
               className="object-cover transition-transform duration-500 hover:scale-105"
               priority={false}
             />
-          </Link>
+            <div className="absolute top-0 right-0 m-4 bg-white/80 hover:bg-white p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity">
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+              </svg>
+            </div>
+          </div>
         </div>
         
         {/* Content-Container */}
         <div className="pt-4">
-          <h3 className="text-xl font-normal">
+          <h3 className="text-xl font-normal font-brooklyn">
             {name}
           </h3>
           
@@ -89,7 +95,7 @@ export default function HotelCard({
                   <Link 
                     key={category} 
                     href={`/categories/${categorySlug}`}
-                    className="text-sm text-blue-600 hover:text-blue-800 transition-colors bg-blue-50 px-2 py-1 rounded-full"
+                    className="text-sm text-brand-olive-600 hover:text-brand-olive-800 transition-colors bg-brand-olive-50 px-2 py-1 rounded-full"
                     aria-label={`Browse ${category} hotels`}
                   >
                     {category}

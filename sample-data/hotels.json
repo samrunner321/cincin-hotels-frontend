@@ -1,0 +1,247 @@
+[
+  {
+    "status": "published",
+    "name": "The Comodo",
+    "slug": "the-comodo",
+    "subtitle": "Luxury in the Mountains",
+    "location": "Crans-Montana, Switzerland",
+    "region": "alps",
+    "short_description": "A modern mountain retreat offering breathtaking views of the Swiss Alps and exceptional service.",
+    "description": "<p>The Comodo is a modern alpine retreat nestled in the picturesque town of Crans-Montana, Switzerland. The hotel combines traditional Swiss architecture with contemporary design elements, creating a unique atmosphere that is both luxurious and welcoming.</p><p>Surrounded by the majestic peaks of the Swiss Alps, guests can enjoy breathtaking panoramic views from their rooms and the hotel's terraces. The Comodo is the perfect base for exploring the natural beauty of the region, whether you're hiking in summer or skiing in winter.</p><p>The hotel's restaurant serves exceptional cuisine using locally sourced ingredients, and the spa offers a range of treatments to help you relax and rejuvenate after a day in the mountains.</p>",
+    "coordinates": {
+      "lat": 46.3082,
+      "lng": 7.4816
+    },
+    "address": "Route de Plans-Mayens 10",
+    "zip": "3963",
+    "city": "Crans-Montana",
+    "country": "Switzerland",
+    "price_from": 350,
+    "currency": "CHF",
+    "price_notes": "Prices may vary depending on season. All prices include breakfast and access to spa facilities.",
+    "star_rating": 5,
+    "user_rating": 4.8,
+    "review_count": 128,
+    "year_built": 2018,
+    "room_count": 45,
+    "amenities": [
+      "wifi",
+      "pool",
+      "spa",
+      "restaurant",
+      "bar",
+      "room_service",
+      "concierge",
+      "parking",
+      "sauna"
+    ],
+    "features": [
+      {
+        "title": "Mountain View Spa",
+        "description": "Our spa features floor-to-ceiling windows with panoramic mountain views, a heated indoor pool, sauna, steam room, and a range of treatments.",
+        "icon": "spa",
+        "image": "spa.jpg"
+      },
+      {
+        "title": "Alpine Restaurant",
+        "description": "Our restaurant serves modern interpretations of traditional Swiss dishes using local, seasonal ingredients.",
+        "icon": "food",
+        "image": "restaurant.jpg"
+      },
+      {
+        "title": "Ski-in/Ski-out Access",
+        "description": "Direct access to the slopes of Crans-Montana, with a dedicated ski concierge to handle your equipment.",
+        "icon": "mountains",
+        "image": "ski.jpg"
+      }
+    ],
+    "categories": [
+      "mountains",
+      "luxury",
+      "spa",
+      "ski"
+    ],
+    "tags": [
+      "swiss alps",
+      "winter sports",
+      "summer hiking",
+      "wellness",
+      "mountain retreat"
+    ],
+    "destination": "3b95a6d5-e85e-4bcc-8f4a-9f7d71c7e3a0",
+    "is_featured": true,
+    "is_new": false,
+    "owner_information": [
+      {
+        "name": "Alpine Luxury Hotels Group",
+        "description": "A family-owned collection of premium hotels in the Swiss Alps, focused on authentic experiences and sustainable luxury.",
+        "image": "owner.jpg"
+      }
+    ],
+    "meta_title": "The Comodo | Luxury Mountain Retreat in Crans-Montana",
+    "meta_description": "Experience alpine luxury at The Comodo, a modern mountain retreat in Crans-Montana offering panoramic views, exceptional dining, and direct ski access."
+  },
+  {
+    "status": "published",
+    "name": "Schgaguler Hotel",
+    "slug": "schgaguler-hotel",
+    "subtitle": "Minimalist Alpine Elegance",
+    "location": "Castelrotto, Italy",
+    "region": "alps",
+    "short_description": "A minimalist design hotel in the heart of the Dolomites, offering an elegant retreat with stunning mountain views.",
+    "description": "<p>Schgaguler Hotel is a family-run design hotel in the charming village of Castelrotto, at the foot of the Dolomites. Recently renovated by renowned architect Peter Pichler, the hotel presents a stunning minimalist aesthetic that complements its Alpine surroundings.</p><p>The hotel's interiors feature natural materials such as oak, stone, and linen, creating a serene atmosphere that allows guests to connect with the spectacular mountain landscape visible through floor-to-ceiling windows. Each room is a study in understated luxury, with custom-designed furniture and thoughtful details.</p><p>The hotel's spa offers a variety of treatments using local products, and the restaurant serves refined South Tyrolean cuisine with a focus on fresh, locally-sourced ingredients.</p>",
+    "coordinates": {
+      "lat": 46.5613,
+      "lng": 11.5588
+    },
+    "address": "Vicolo dei Principi 1",
+    "zip": "39040",
+    "city": "Castelrotto",
+    "country": "Italy",
+    "price_from": 280,
+    "currency": "EUR",
+    "price_notes": "Rates include half-board accommodation with breakfast and dinner. Special packages available for extended stays.",
+    "star_rating": 4,
+    "user_rating": 4.9,
+    "review_count": 146,
+    "year_built": 1986,
+    "year_renovated": 2018,
+    "room_count": 42,
+    "amenities": [
+      "wifi",
+      "spa",
+      "restaurant",
+      "bar",
+      "sauna",
+      "parking",
+      "jacuzzi"
+    ],
+    "features": [
+      {
+        "title": "Design-Focused Architecture",
+        "description": "Award-winning architecture by Peter Pichler creates a harmonious balance between modern design and alpine tradition.",
+        "icon": "design",
+        "image": "architecture.jpg"
+      },
+      {
+        "title": "Gourmet Half-Board",
+        "description": "Experience the flavors of South Tyrol with our half-board option featuring locally-sourced ingredients and regional specialties.",
+        "icon": "food",
+        "image": "dining.jpg"
+      },
+      {
+        "title": "Mountain Wellness",
+        "description": "Our wellness area includes Finnish sauna, bio sauna, steam bath, and relaxation areas with panoramic mountain views.",
+        "icon": "spa",
+        "image": "wellness.jpg"
+      }
+    ],
+    "categories": [
+      "mountains",
+      "design",
+      "boutique",
+      "ski"
+    ],
+    "tags": [
+      "dolomites",
+      "minimalist design",
+      "family-run",
+      "south tyrol",
+      "hiking",
+      "skiing"
+    ],
+    "destination": "4c7f8e2d-1a5b-47c3-9d8f-6e3b8f2a9c7d",
+    "is_featured": true,
+    "is_new": false,
+    "owner_information": [
+      {
+        "name": "Schgaguler Family",
+        "description": "The Schgaguler family has been welcoming guests to Castelrotto for generations, combining traditional hospitality with contemporary vision.",
+        "image": "schgaguler-family.jpg"
+      }
+    ],
+    "meta_title": "Schgaguler Hotel | Minimalist Design Hotel in the Dolomites",
+    "meta_description": "Experience minimalist alpine luxury at Schgaguler Hotel, a design-focused retreat in Castelrotto with stunning views of the Dolomites and refined South Tyrolean cuisine."
+  },
+  {
+    "status": "published",
+    "name": "Casa Cook Samos",
+    "slug": "casa-cook-samos",
+    "subtitle": "Bohemian Beachfront Luxury",
+    "location": "Samos, Greece",
+    "region": "mediterranean",
+    "short_description": "A bohemian beach retreat on the Aegean island of Samos, offering laid-back luxury and a connection to nature.",
+    "description": "<p>Casa Cook Samos is nestled against the sloping hillsides of the island's north coast, with stunning views of the Aegean Sea. The resort's design draws inspiration from traditional Greek island architecture, with an emphasis on indoor-outdoor living and natural materials.</p><p>The hotel features a collection of swimming pools that cascade down the hillside, creating multiple spaces for relaxation and socializing. Each room offers private terraces, many with swim-up pool access, allowing guests to enjoy the Mediterranean climate in privacy.</p><p>The resort's restaurant focuses on Greek cuisine with a modern twist, using locally-sourced ingredients and traditional cooking methods. The beach club offers a relaxed atmosphere for enjoying the crystal-clear waters of the Aegean.</p>",
+    "coordinates": {
+      "lat": 37.7964,
+      "lng": 26.6509
+    },
+    "address": "Mesokampos",
+    "zip": "83300",
+    "city": "Samos",
+    "country": "Greece",
+    "price_from": 220,
+    "currency": "EUR",
+    "price_notes": "Prices include daily breakfast and welcome drink. Special offers available for early bookings and stays of 7 nights or more.",
+    "star_rating": 5,
+    "user_rating": 4.7,
+    "review_count": 203,
+    "year_built": 2022,
+    "room_count": 128,
+    "amenities": [
+      "wifi",
+      "pool",
+      "restaurant",
+      "bar",
+      "room_service",
+      "beach",
+      "fitness",
+      "spa"
+    ],
+    "features": [
+      {
+        "title": "Terraced Swimming Pools",
+        "description": "A series of pools cascading down the hillside, offering different atmospheres from lively to serene.",
+        "icon": "pool",
+        "image": "pools.jpg"
+      },
+      {
+        "title": "Beach Club",
+        "description": "Our private beach club offers comfortable loungers, food and drink service, and water sports equipment.",
+        "icon": "beach",
+        "image": "beach.jpg"
+      },
+      {
+        "title": "Farm-to-Table Dining",
+        "description": "Our restaurant sources ingredients from local farmers and fishermen, showcasing the best of Greek cuisine.",
+        "icon": "food",
+        "image": "food.jpg"
+      }
+    ],
+    "categories": [
+      "beach",
+      "design",
+      "boutique"
+    ],
+    "tags": [
+      "aegean",
+      "greek islands",
+      "beach resort",
+      "swim-up rooms",
+      "bohemian",
+      "contemporary"
+    ],
+    "destination": "5d9e6a3f-2c7b-4e8d-b1a5-f3c4d8e9a7b6",
+    "is_featured": false,
+    "is_new": true,
+    "owner_information": [
+      {
+        "name": "Casa Cook Hotels",
+        "description": "Casa Cook Hotels is a collection of boutique retreats designed for the modern traveler, with locations across the Mediterranean.",
+        "image": "casa-cook-brand.jpg"
+      }
+    ],
+    "meta_title": "Casa Cook Samos | Bohemian Beachfront Luxury in Greece",
+    "meta_description": "Discover Casa Cook Samos, a bohemian beach retreat on the Greek island of Samos offering terraced pools, private swim-up rooms, and authentic Greek cuisine."
+  }
+]

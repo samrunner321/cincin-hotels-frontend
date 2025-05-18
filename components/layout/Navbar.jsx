@@ -41,33 +41,35 @@ export default function Navbar() {
   };
 
   return (
-    <header className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-      isScrolled ? 'bg-white shadow-md' : 'bg-transparent'
+    <header className={`fixed top-0 w-full z-[100] transition-all duration-300 ${
+      isScrolled ? 'bg-white shadow-md' : 'bg-transparent pt-4'
     }`}>
-      <div className="container mx-auto px-4 py-4 flex justify-between items-center">
+      <div className={`container mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center ${
+        isScrolled ? 'py-5' : 'py-3 md:py-4'
+      }`}>
         <motion.div 
           className="flex items-center" 
           initial="hidden"
           animate="visible"
           variants={logoVariants}
         >
-          <Link href="/" aria-label="CinCin Hotels Home">
+          <Link href="/" aria-label="CinCin Hotels Home" className="block">
             {isScrolled ? (
               <Image 
                 src="/images/logo/logo-dark.png" 
                 alt="CinCin Hotels" 
-                width={143} 
-                height={35} 
-                className="h-[35px] w-auto"
+                width={130} 
+                height={32} 
+                className="h-[25px] sm:h-[29px] md:h-[31px] w-auto" // 10% kleiner als das weiße Logo
                 priority
               />
             ) : (
               <Image 
                 src="/images/logo/logo.png" 
                 alt="CinCin Hotels" 
-                width={143} 
-                height={34} 
-                className="h-[34px] w-auto"
+                width={130} 
+                height={32} 
+                className="h-[28px] sm:h-[32px] md:h-[35px] w-auto"
                 priority
               />
             )}
@@ -75,18 +77,18 @@ export default function Navbar() {
         </motion.div>
         
         <div className="flex items-center">
-          <nav className="hidden md:block mr-8">
-            <ul className="flex space-x-8">
+          {/* Desktop Navigation */}
+          <nav className="hidden lg:block mr-8">
+            <ul className="flex space-x-4 xl:space-x-8">
               {[
                 { text: 'Hotels', href: '/hotels' },
                 { text: 'Destinations', href: '/destinations' },
                 { text: 'Journal', href: '/journal' },
-                { text: 'Become a Member', href: '/membership' },
               ].map((item, i) => (
                 <motion.li key={item.href} custom={i} variants={navItemVariants} initial="hidden" animate="visible">
                   <Link 
                     href={item.href} 
-                    className={`${isScrolled ? 'text-gray-700' : 'text-white'} hover:text-brand-blue-600 transition-colors`}
+                    className={`${isScrolled ? 'text-gray-700 hover:text-brand-olive-400' : 'text-white hover:text-black'} text-sm xl:text-base transition-colors py-2 block`}
                   >
                     {item.text}
                   </Link>
@@ -95,30 +97,10 @@ export default function Navbar() {
             </ul>
           </nav>
           
-          <div className="flex items-center space-x-4">
+          {/* Mobile Menu Button */}
+          <div className="flex items-center">
             <motion.button 
-              className="focus:outline-none" 
-              aria-label="User Profile"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.4 }}
-            >
-              <svg 
-                xmlns="http://www.w3.org/2000/svg" 
-                width="15" 
-                height="16" 
-                viewBox="0 0 15 16" 
-                fill="none" 
-                stroke={isScrolled ? "#1E293B" : "white"}
-                strokeLinecap="round" 
-                strokeLinejoin="round"
-              >
-                <path d="M14 14.75V13.25C14 12.4544 13.6488 11.6913 13.0236 11.1287C12.3985 10.5661 11.5507 10.25 10.6666 10.25H3.99996C3.1159 10.25 2.26806 10.5661 1.64294 11.1287C1.01782 11.6913 0.666626 12.4544 0.666626 13.25V14.75M10.6666 4.25C10.6666 5.90685 9.17424 7.25 7.33329 7.25C5.49234 7.25 3.99996 5.90685 3.99996 4.25C3.99996 2.59315 5.49234 1.25 7.33329 1.25C9.17424 1.25 10.6666 2.59315 10.6666 4.25Z" />
-              </svg>
-            </motion.button>
-            
-            <motion.button 
-              className="focus:outline-none" 
+              className="focus:outline-none flex items-center justify-center" 
               aria-label="Open Menu"
               onClick={() => setIsMobileMenuOpen(true)}
               initial={{ opacity: 0 }}
@@ -134,6 +116,7 @@ export default function Navbar() {
                 stroke={isScrolled ? "#1E293B" : "white"}
                 strokeLinecap="round" 
                 strokeLinejoin="round"
+                className="w-5 h-4"
               >
                 <path d="M1 7H19M1 1H19M1 13H19" />
               </svg>
