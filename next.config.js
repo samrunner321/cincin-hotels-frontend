@@ -1,11 +1,14 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: ['images.unsplash.com', 'loremflickr.com'],
+    domains: ['images.unsplash.com', 'loremflickr.com', 'localhost'],
     formats: ['image/avif', 'image/webp'],
   },
   reactStrictMode: true,
-  // Redirects wurden entfernt
+  // Bei Verwendung beider App- und Pages-Router
+  experimental: {
+    appDir: true,
+  },
 };
 
 module.exports = nextConfig;
