@@ -215,6 +215,15 @@ export interface Page extends BaseItem {
 }
 
 /**
+ * Translation
+ */
+export interface Translation extends BaseItem {
+  language: 'en-US' | 'de-DE';
+  key: string;
+  value: string;
+}
+
+/**
  * Schema definition
  */
 export interface Schema {
@@ -223,33 +232,67 @@ export interface Schema {
   destinations: Destination[];
   categories: Category[];
   pages: Page[];
+  translations: Translation[];
 }
 
 /**
  * API client configuration
  */
-const DIRECTUS_URL = process.env.NEXT_PUBLIC_DIRECTUS_URL || 'http://localhost:8055';
-const DIRECTUS_TOKEN = process.env.DIRECTUS_TOKEN || '';
+const DIRECTUS_URL = typeof window !== 'undefined' 
+  ? (process.env.NEXT_PUBLIC_DIRECTUS_URL || 'http://localhost:8055')
+  : (process.env.NEXT_PUBLIC_DIRECTUS_URL || 'http://localhost:8055');
+
+const DIRECTUS_ADMIN_TOKEN = process.env.DIRECTUS_ADMIN_TOKEN || '';
+const DIRECTUS_PUBLIC_TOKEN = process.env.DIRECTUS_PUBLIC_TOKEN || 'kFQlJAEbLr5BrPGIbqODGDWiL1TJgLfE';
+const IS_MOCK_SERVER = process.env.IS_MOCK_SERVER === 'true';
 
 /**
- * Directus REST client
+ * Mock data paths
  */
-export const directusRest = createDirectus<Schema>(DIRECTUS_URL)
+const MOCK_DATA_DIR = './mock-directus/data';
+const MOCK_DESTINATIONS_PATH = `${MOCK_DATA_DIR}/destinations.json`;
+const MOCK_HOTELS_PATH = `${MOCK_DATA_DIR}/hotels.json`;
+const MOCK_CATEGORIES_PATH = `${MOCK_DATA_DIR}/categories.json`;
+
+/**
+ * Directus REST client - admin access (server-side only)
+ */
+export const directusAdminRest = createDirectus<Schema>(DIRECTUS_URL)
   .with(rest())
-  .with(staticToken(DIRECTUS_TOKEN));
+  .with(staticToken(DIRECTUS_ADMIN_TOKEN));
 
 /**
- * Directus GraphQL client
+ * Directus REST client - public access (can be used on client)
  */
-export const directusGraphQL = createDirectus<Schema>(DIRECTUS_URL)
+export const directusPublicRest = createDirectus<Schema>(DIRECTUS_URL)
+  .with(rest())
+  .with(staticToken(DIRECTUS_PUBLIC_TOKEN));
+
+/**
+ * Directus GraphQL client - admin access (server-side only)
+ */
+export const directusAdminGraphQL = createDirectus<Schema>(DIRECTUS_URL)
   .with(graphql())
-  .with(staticToken(DIRECTUS_TOKEN));
+  .with(staticToken(DIRECTUS_ADMIN_TOKEN));
+
+/**
+ * Directus GraphQL client - public access (can be used on client)
+ */
+export const directusPublicGraphQL = createDirectus<Schema>(DIRECTUS_URL)
+  .with(graphql())
+  .with(staticToken(DIRECTUS_PUBLIC_TOKEN));
 
 /**
  * Function to get asset URL from Directus file ID
  */
 export function getAssetURL(fileId: string): string {
   if (!fileId) return '';
+  
+  // Mock-Modus: Pfad zu lokalen Bildern
+  if (IS_MOCK_SERVER) {
+    return `/mock-images/${fileId}`;
+  }
+  
   return `${DIRECTUS_URL}/assets/${fileId}`;
 }
 
@@ -323,7 +366,41 @@ export async function getHotels(options: {
       fields = ['*', 'main_image.*'],
     } = options;
 
-    const response = await directusRest.request(
+    // Use mock data in mock mode
+    if (IS_MOCK_SERVER) {
+      const fs = require('fs');
+      const path = require('path');
+      
+      try {
+        const mockDataPath = path.join(process.cwd(), 'mock-directus/data/hotels.json');
+        if (fs.existsSync(mockDataPath)) {
+          const data = fs.readFileSync(mockDataPath, 'utf8');
+          let hotels = JSON.parse(data);
+          
+          // Simple filtering
+          if (filter.status && filter.status._eq) {
+            hotels = hotels.filter((h: any) => h.status === filter.status._eq);
+          }
+          
+          if (filter.is_featured !== undefined) {
+            hotels = hotels.filter((h: any) => h.is_featured === filter.is_featured._eq);
+          }
+          
+          if (filter.destination && filter.destination._eq) {
+            hotels = hotels.filter((h: any) => h.destination === filter.destination._eq);
+          }
+          
+          return hotels.slice(offset, offset + limit);
+        }
+        return [];
+      } catch (mockError) {
+        console.error('Error reading mock hotel data:', mockError);
+        return [];
+      }
+    }
+
+    // API request in production mode
+    const response = await directusPublicRest.request(
       rest.readItems('hotels', {
         limit,
         offset,
@@ -345,7 +422,31 @@ export async function getHotels(options: {
  */
 export async function getHotelBySlug(slug: string) {
   try {
-    const response = await directusRest.request(
+    // Use mock data in mock mode
+    if (IS_MOCK_SERVER) {
+      const fs = require('fs');
+      const path = require('path');
+      
+      try {
+        const mockDataPath = path.join(process.cwd(), 'mock-directus/data/hotels.json');
+        if (fs.existsSync(mockDataPath)) {
+          const data = fs.readFileSync(mockDataPath, 'utf8');
+          const hotels = JSON.parse(data);
+          
+          // Find by slug
+          const hotel = hotels.find((h: any) => h.slug === slug && h.status === 'published');
+          
+          return hotel || null;
+        }
+        return null;
+      } catch (mockError) {
+        console.error(`Error reading mock hotel data for slug ${slug}:`, mockError);
+        return null;
+      }
+    }
+
+    // API request in production mode
+    const response = await directusPublicRest.request(
       rest.readItems('hotels', {
         limit: 1,
         filter: {
@@ -390,7 +491,45 @@ export async function getDestinations(options: {
       fields = ['*', 'main_image.*'],
     } = options;
 
-    const response = await directusRest.request(
+    // Use mock data in mock mode
+    if (IS_MOCK_SERVER) {
+      const fs = require('fs');
+      const path = require('path');
+      
+      try {
+        const mockDataPath = path.join(process.cwd(), 'mock-directus/data/destinations.json');
+        if (fs.existsSync(mockDataPath)) {
+          const data = fs.readFileSync(mockDataPath, 'utf8');
+          let destinations = JSON.parse(data);
+          
+          // Simple filtering
+          if (filter.status && filter.status._eq) {
+            destinations = destinations.filter((d: any) => d.status === filter.status._eq);
+          }
+          
+          if (filter.is_featured !== undefined) {
+            destinations = destinations.filter((d: any) => d.is_featured === filter.is_featured._eq);
+          }
+          
+          if (filter.is_popular !== undefined) {
+            destinations = destinations.filter((d: any) => d.is_popular === filter.is_popular._eq);
+          }
+          
+          if (filter.region && filter.region._eq) {
+            destinations = destinations.filter((d: any) => d.region === filter.region._eq);
+          }
+          
+          return destinations.slice(offset, offset + limit);
+        }
+        return [];
+      } catch (mockError) {
+        console.error('Error reading mock destination data:', mockError);
+        return [];
+      }
+    }
+
+    // API request in production mode
+    const response = await directusPublicRest.request(
       rest.readItems('destinations', {
         limit,
         offset,
@@ -412,7 +551,30 @@ export async function getDestinations(options: {
  */
 export async function getDestinationBySlug(slug: string) {
   try {
-    const response = await directusRest.request(
+    // Use mock data in mock mode
+    if (IS_MOCK_SERVER) {
+      const fs = require('fs');
+      const path = require('path');
+      
+      try {
+        const mockDataPath = path.join(process.cwd(), 'mock-directus/data/destinations.json');
+        if (fs.existsSync(mockDataPath)) {
+          const data = fs.readFileSync(mockDataPath, 'utf8');
+          const destinations = JSON.parse(data);
+          
+          // Find by slug
+          const destination = destinations.find((d: any) => d.slug === slug && d.status === 'published');
+          return destination || null;
+        }
+        return null;
+      } catch (mockError) {
+        console.error(`Error reading mock destination data for slug ${slug}:`, mockError);
+        return null;
+      }
+    }
+
+    // API request in production mode
+    const response = await directusPublicRest.request(
       rest.readItems('destinations', {
         limit: 1,
         filter: {
@@ -444,7 +606,31 @@ export async function getDestinationBySlug(slug: string) {
  */
 export async function getHotelsByDestination(destinationId: string) {
   try {
-    const response = await directusRest.request(
+    // Use mock data in mock mode
+    if (IS_MOCK_SERVER) {
+      const fs = require('fs');
+      const path = require('path');
+      
+      try {
+        const mockDataPath = path.join(process.cwd(), 'mock-directus/data/hotels.json');
+        if (fs.existsSync(mockDataPath)) {
+          const data = fs.readFileSync(mockDataPath, 'utf8');
+          const hotels = JSON.parse(data);
+          
+          // Filter by destination
+          return hotels.filter((h: any) => 
+            h.destination === destinationId && h.status === 'published'
+          );
+        }
+        return [];
+      } catch (mockError) {
+        console.error(`Error reading mock hotel data for destination ${destinationId}:`, mockError);
+        return [];
+      }
+    }
+
+    // API request in production mode
+    const response = await directusPublicRest.request(
       rest.readItems('hotels', {
         filter: {
           destination: { _eq: destinationId },
@@ -466,7 +652,7 @@ export async function getHotelsByDestination(destinationId: string) {
  */
 export async function getRoomsByHotel(hotelId: string) {
   try {
-    const response = await directusRest.request(
+    const response = await directusPublicRest.request(
       rest.readItems('rooms', {
         filter: {
           hotel: { _eq: hotelId },
@@ -502,7 +688,38 @@ export async function getCategories(options: {
       filter.featured = { _eq: featured };
     }
 
-    const response = await directusRest.request(
+    // Use mock data in mock mode
+    if (IS_MOCK_SERVER) {
+      const fs = require('fs');
+      const path = require('path');
+      
+      try {
+        const mockDataPath = path.join(process.cwd(), 'mock-directus/data/categories.json');
+        if (fs.existsSync(mockDataPath)) {
+          const data = fs.readFileSync(mockDataPath, 'utf8');
+          let categories = JSON.parse(data);
+          
+          // Filter by type
+          if (type) {
+            categories = categories.filter((c: any) => c.type === type || c.type === 'both');
+          }
+          
+          // Filter by featured
+          if (featured !== undefined) {
+            categories = categories.filter((c: any) => c.featured === featured);
+          }
+          
+          return categories;
+        }
+        return [];
+      } catch (mockError) {
+        console.error('Error reading mock category data:', mockError);
+        return [];
+      }
+    }
+
+    // API request in production mode
+    const response = await directusPublicRest.request(
       rest.readItems('categories', {
         filter,
         sort: ['sort'],
@@ -522,7 +739,7 @@ export async function getCategories(options: {
  */
 export async function getPageBySlug(slug: string) {
   try {
-    const response = await directusRest.request(
+    const response = await directusPublicRest.request(
       rest.readItems('pages', {
         limit: 1,
         filter: {
@@ -545,7 +762,7 @@ export async function getPageBySlug(slug: string) {
  */
 export async function getNavigationPages() {
   try {
-    const response = await directusRest.request(
+    const response = await directusPublicRest.request(
       rest.readItems('pages', {
         filter: {
           show_in_navigation: { _eq: true },
@@ -560,5 +777,32 @@ export async function getNavigationPages() {
   } catch (error) {
     console.error('Error fetching navigation pages:', error);
     return [];
+  }
+}
+
+/**
+ * Get translations by language
+ */
+export async function getTranslationsByLanguage(language: string) {
+  try {
+    const response = await directusPublicRest.request(
+      rest.readItems('translations', {
+        filter: {
+          language: { _eq: language },
+        },
+        fields: ['key', 'value'],
+      })
+    );
+    
+    // Convert to object format
+    const translationsObject: Record<string, string> = {};
+    response.forEach(item => {
+      translationsObject[item.key] = item.value;
+    });
+    
+    return translationsObject;
+  } catch (error) {
+    console.error(`Error fetching translations for language ${language}:`, error);
+    return {};
   }
 }
