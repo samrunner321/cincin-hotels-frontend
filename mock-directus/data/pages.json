@@ -1,0 +1,50 @@
+[
+  {
+    "id": "1",
+    "status": "published",
+    "title": "About",
+    "slug": "about",
+    "content": "<p>Welcome to CinCin Hotels, your gateway to extraordinary hospitality experiences across Europe's most beautiful destinations.</p><p>Founded with a passion for exceptional service and memorable stays, CinCin Hotels curates a collection of the finest boutique and luxury properties across the Mediterranean, Alps, and beyond.</p><p>Our commitment goes beyond providing a place to stay. We believe in creating immersive experiences that connect our guests with the heart and soul of each destination. From the culinary delights of coastal Italy to the serene beauty of Alpine retreats, each property in our collection tells a unique story and offers a distinctive sense of place.</p>",
+    "template": "default",
+    "meta_title": "About CinCin Hotels | Luxury Hotel Collection",
+    "meta_description": "Learn about CinCin Hotels, a curated collection of luxury boutique properties across Europe's most beautiful destinations.",
+    "show_in_navigation": true,
+    "sort": 10
+  },
+  {
+    "id": "2",
+    "status": "published",
+    "title": "Contact",
+    "slug": "contact",
+    "content": "<h2>Get in Touch</h2><p>We'd love to hear from you. Whether you have a question about one of our properties, need assistance with a booking, or want to discuss potential partnerships, our team is here to help.</p><p><strong>General Inquiries:</strong><br>info@cincinhotels.com<br>+41 44 123 4567</p><p><strong>Reservations:</strong><br>reservations@cincinhotels.com<br>+41 44 123 4568</p><p><strong>Media & Press:</strong><br>press@cincinhotels.com</p><p><strong>Head Office:</strong><br>CinCin Hotels AG<br>Bahnhofstrasse 10<br>8001 Zürich<br>Switzerland</p>",
+    "template": "sidebar",
+    "meta_title": "Contact CinCin Hotels | Get in Touch",
+    "meta_description": "Contact CinCin Hotels for inquiries about our luxury properties, assistance with bookings, or partnership opportunities.",
+    "show_in_navigation": true,
+    "sort": 20
+  },
+  {
+    "id": "3",
+    "status": "published",
+    "title": "Privacy Policy",
+    "slug": "privacy-policy",
+    "content": "<h2>Privacy Policy</h2><p>This Privacy Policy describes how your personal information is collected, used, and shared when you visit or make a reservation through cincinhotels.com (the "Site").</p><p><strong>Personal Information We Collect</strong></p><p>When you visit the Site, we automatically collect certain information about your device, including information about your web browser, IP address, time zone, and some of the cookies that are installed on your device. Additionally, as you browse the Site, we collect information about the individual web pages or products that you view, what websites or search terms referred you to the Site, and information about how you interact with the Site. We refer to this automatically-collected information as "Device Information."</p>",
+    "template": "default",
+    "meta_title": "Privacy Policy | CinCin Hotels",
+    "meta_description": "Learn about how CinCin Hotels collects, uses, and protects your personal information.",
+    "show_in_navigation": false,
+    "sort": 30
+  },
+  {
+    "id": "4",
+    "status": "published",
+    "title": "Terms & Conditions",
+    "slug": "terms-conditions",
+    "content": "<h2>Terms and Conditions</h2><p>These terms and conditions outline the rules and regulations for the use of CinCin Hotels' Website, located at cincinhotels.com.</p><p>By accessing this website we assume you accept these terms and conditions. Do not continue to use CinCin Hotels if you do not agree to take all of the terms and conditions stated on this page.</p><p><strong>Cookies</strong></p><p>We employ the use of cookies. By accessing CinCin Hotels, you agreed to use cookies in agreement with the CinCin Hotels' Privacy Policy.</p>",
+    "template": "default",
+    "meta_title": "Terms & Conditions | CinCin Hotels",
+    "meta_description": "Read the terms and conditions for using the CinCin Hotels website and services.",
+    "show_in_navigation": false,
+    "sort": 40
+  }
+]

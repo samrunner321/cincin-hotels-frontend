@@ -1,0 +1,22 @@
+[2025-05-20T10:15:04.948Z] INFO: 
+📦 CHECKPOINT-FÄHIGES MIGRATIONS-TOOL
+[2025-05-20T10:15:04.949Z] INFO: ════════════════════════════════════════════
+[2025-05-20T10:15:04.949Z] SUCCESS: Ausgewählter Batch: Batch 3: Form and Layout Components
+[2025-05-20T10:15:04.949Z] INFO: Beschreibung: Form elements, layouts, and structural components
+[2025-05-20T10:15:04.949Z] INFO: Komponenten: 7
+[2025-05-20T10:15:04.949Z] INFO: Geschätzter Aufwand: 6.3 Stunden
+[2025-05-20T10:15:04.949Z] INFO: Checkpoint geladen: /Users/samuelrenner/cincinhotels/.migration-checkpoints/batch-3-checkpoint.json
+[2025-05-20T10:15:04.949Z] INFO: Setze Migration ab Komponente 5/7 fort
+[2025-05-20T10:15:04.950Z] INFO: 
+🚀 Starte Migration von 7 Komponenten
+[2025-05-20T10:15:04.950Z] INFO: Wiederaufnahme ab Index 4
+[2025-05-20T10:15:04.950Z] INFO: Checkpoint geladen: /Users/samuelrenner/cincinhotels/.migration-checkpoints/batch-3-checkpoint.json
+[2025-05-20T10:15:04.950Z] INFO: 4 bereits verarbeitete Ergebnisse geladen
+[2025-05-20T10:15:04.950Z] INFO: 
+[5/7] Verarbeite Komponente: MembershipHero
+[2025-05-20T10:15:04.950Z] INFO: 
+➤ Migriere Komponente: MembershipHero
+[2025-05-20T10:15:04.950Z] INFO:   Quelle: components/forms/MembershipHero.jsx
+[2025-05-20T10:15:04.950Z] INFO:   Ziel: /Users/samuelrenner/cincinhotels/src/components/forms/MembershipHero.tsx
+[2025-05-20T10:15:04.950Z] INFO:   Konvertiere zu TypeScript...
+[2025-05-20T10:15:05.060Z] INFO:   Standardisiere Import-Pfade...

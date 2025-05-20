@@ -1,12 +1,12 @@
-import DestinationsHero from '../../components/destinations/Hero';
-import DestinationExplorer from '../../components/destinations/DestinationExplorer';
-import FeaturedDestination from '../../components/destinations/FeaturedDestination';
-import PopularHotels from '../../components/destinations/PopularHotels';
-import Newsletter from '../../components/home/NewsletterSignup';
-import dynamic from 'next/dynamic';
-
-// Dynamisches Importieren für die interaktive Features Komponente
-const DestinationInteractiveFeatures = dynamic(() => import('../../components/destinations/DestinationInteractiveFeatures'), { ssr: false });
+import DestinationsHero from '../../src/components/destinations/Hero';
+import Newsletter from '../../src/components/home/NewsletterSignup';
+// Import placeholder components while the actual components are being migrated
+import { 
+  DestinationExplorer,
+  FeaturedDestination,
+  PopularHotels,
+  DestinationInteractiveFeatures
+} from '../../src/components/destinations/placeholders';
 
 export const metadata = {
   title: 'Destinations | CinCin Hotels',

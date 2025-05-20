@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { getPageBySlug } from '@/lib/directus';
+import { getPageBySlug } from '../../../../lib/directus';
 
 export const dynamic = 'force-dynamic';
 

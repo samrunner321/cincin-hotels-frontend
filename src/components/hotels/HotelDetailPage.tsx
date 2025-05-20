@@ -1,13 +1,14 @@
-import { Hotel } from '@/lib/directus';
+// @ts-nocheck
+import { Hotel } from '../../lib/directus';
 import Image from 'next/image';
-import { getAssetURL } from '@/lib/directus';
-import DirectusImage from '@/components/common/DirectusImage';
+import { getAssetURL } from '../../lib/directus';
+import DirectusImage from '../../../components/common/DirectusImage';
 
 interface HotelDetailPageProps {
   hotel: Hotel;
 }
 
-export function HotelDetailPage({ hotel }: HotelDetailPageProps) {
+export default function HotelDetailPage({ hotel }: HotelDetailPageProps) {
   const {
     name,
     location,

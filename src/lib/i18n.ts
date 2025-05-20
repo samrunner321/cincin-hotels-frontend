@@ -1,7 +1,6 @@
 /**
- * Internationalization utilities for handling multilingual content from Directus
+ * Internationalization utilities for handling multilingual content
  */
-import { createDirectus, rest, staticToken } from '@directus/sdk';
 
 // Define supported languages
 export const LANGUAGES = {
@@ -16,6 +15,18 @@ export const LANGUAGES = {
     name: 'Deutsch',
     flag: '🇩🇪',
     default: false
+  },
+  'ar-AE': {
+    code: 'ar-AE',
+    name: 'العربية',
+    flag: '🇦🇪',
+    default: false
+  },
+  'he-IL': {
+    code: 'he-IL',
+    name: 'עברית',
+    flag: '🇮🇱',
+    default: false
   }
 };
 
@@ -24,43 +35,8 @@ export type LanguageCode = keyof typeof LANGUAGES;
 // Default language code
 export const DEFAULT_LANGUAGE: LanguageCode = 'en-US';
 
-// Directus configuration
-const DIRECTUS_URL = process.env.NEXT_PUBLIC_DIRECTUS_URL || 'http://localhost:8055';
-const DIRECTUS_TOKEN = process.env.DIRECTUS_TOKEN || '';
-
-/**
- * Directus REST client for translations
- */
-const translationsClient = createDirectus(DIRECTUS_URL)
-  .with(rest())
-  .with(staticToken(DIRECTUS_TOKEN));
-
-/**
- * Fetch translations for a given language
- */
-export async function getTranslations(languageCode: LanguageCode = DEFAULT_LANGUAGE) {
-  try {
-    const translations = await translationsClient.request(
-      rest.readItems('translations', {
-        filter: {
-          language: { _eq: languageCode }
-        },
-        fields: ['key', 'value']
-      })
-    );
-
-    // Convert to key-value object
-    const translationMap: Record<string, string> = {};
-    translations.forEach((item: any) => {
-      translationMap[item.key] = item.value;
-    });
-
-    return translationMap;
-  } catch (error) {
-    console.error(`Error fetching translations for ${languageCode}:`, error);
-    return {};
-  }
-}
+// Languages that require Right-to-Left text direction
+export const RTL_LANGUAGES: LanguageCode[] = ['ar-AE', 'he-IL'];
 
 /**
  * Get language from a Next.js locale string
@@ -82,7 +58,7 @@ export function getTranslatedContent<T extends Record<string, any>>(
   }
 
   // Create a copy of the item to avoid modifying the original
-  const translatedItem = { ...item };
+  const translatedItem = { ...item } as Record<string, any>;
 
   // Look for translations field
   if (
@@ -106,7 +82,7 @@ export function getTranslatedContent<T extends Record<string, any>>(
       // Copy translation fields to the root object
       Object.keys(translation).forEach((key) => {
         if (key !== 'language' && key !== 'id') {
-          translatedItem[key] = translation[key];
+          translatedItem[key] = translation[key as keyof typeof translation];
         }
       });
     }
@@ -130,14 +106,19 @@ export function getTranslatedContent<T extends Record<string, any>>(
     }
   });
 
-  return translatedItem;
+  return translatedItem as T;
 }
+
+/**
+ * Type definitions for translations
+ */
+export type TranslationsMap = Record<string, string>;
 
 /**
  * Context provider for translations
  */
 export type TranslationsContextType = {
-  translations: Record<string, string>;
+  translations: TranslationsMap;
   language: LanguageCode;
   translate: (key: string, params?: Record<string, string>) => string;
 };
@@ -159,3 +140,54 @@ export function createTranslator(translations: Record<string, string>) {
     return value;
   };
 }
+
+/**
+ * Create a local translator function for use within components
+ */
+export function createLocalTranslator(translations: TranslationsMap) {
+  return function translate(key: string, params?: Record<string, string | number>): string {
+    let value = translations[key] || key;
+    
+    // Replace parameters if they exist
+    if (params) {
+      Object.entries(params).forEach(([paramKey, paramValue]) => {
+        value = value.replace(
+          new RegExp(`{{${paramKey}}}`, 'g'), 
+          String(paramValue)
+        );
+      });
+    }
+    
+    return value;
+  };
+}
+
+/**
+ * Mock translations for development and testing
+ */
+export const mockTranslations: Record<LanguageCode, TranslationsMap> = {
+  'en-US': {
+    'common.welcome': 'Welcome',
+    'common.hotels': 'Hotels',
+    'common.destinations': 'Destinations',
+    'common.search': 'Search',
+  },
+  'de-DE': {
+    'common.welcome': 'Willkommen',
+    'common.hotels': 'Hotels',
+    'common.destinations': 'Reiseziele',
+    'common.search': 'Suchen',
+  },
+  'ar-AE': {
+    'common.welcome': 'مرحباً',
+    'common.hotels': 'الفنادق',
+    'common.destinations': 'الوجهات',
+    'common.search': 'بحث',
+  },
+  'he-IL': {
+    'common.welcome': 'ברוך הבא',
+    'common.hotels': 'מלונות',
+    'common.destinations': 'יעדים',
+    'common.search': 'חיפוש',
+  }
+};

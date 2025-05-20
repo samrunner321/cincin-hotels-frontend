@@ -1,0 +1,151 @@
+[
+  {
+    "id": "da8192c5-f28f-4f11-98de-37ca1e729a5a",
+    "status": "published",
+    "name": "Amalfi Coast",
+    "slug": "amalfi-coast",
+    "subtitle": "Italy's breathtaking coastal paradise",
+    "country": "Italy",
+    "region": "mediterranean",
+    "short_description": "Discover the stunning Amalfi Coast with its dramatic cliffs, colorful villages, and crystal-clear waters of the Mediterranean.",
+    "description": "<p>The Amalfi Coast, a UNESCO World Heritage Site, is one of Italy's most iconic and breathtaking destinations. This 50-kilometer stretch of coastline along the southern edge of Italy's Sorrentine Peninsula features dramatic cliffs that plunge into the azure waters of the Mediterranean, creating a landscape of exceptional beauty.</p><p>The coast is dotted with picturesque towns and villages, each with its own unique charm. Positano, with its pastel-colored houses cascading down the hillside; Amalfi, with its impressive cathedral and maritime history; and Ravello, perched high above the sea with its luxurious villas and gardens, are just a few of the highlights.</p>",
+    "main_image": "amalfi-coast.jpg",
+    "coordinates": {
+      "lat": 40.6333,
+      "lng": 14.6027
+    },
+    "is_featured": true,
+    "is_popular": true,
+    "categories": [
+      "2",
+      "4",
+      "5",
+      "8"
+    ],
+    "weather": [
+      {
+        "season": "spring",
+        "temp_low": 15,
+        "temp_high": 22,
+        "precipitation": "Moderate"
+      },
+      {
+        "season": "summer",
+        "temp_low": 23,
+        "temp_high": 30,
+        "precipitation": "Low"
+      },
+      {
+        "season": "autumn",
+        "temp_low": 16,
+        "temp_high": 25,
+        "precipitation": "Moderate"
+      },
+      {
+        "season": "winter",
+        "temp_low": 8,
+        "temp_high": 15,
+        "precipitation": "High"
+      }
+    ]
+  },
+  {
+    "id": "7b824242-1ab8-46a1-8e07-7f96c6a6b383",
+    "status": "published",
+    "name": "Swiss Alps",
+    "slug": "swiss-alps",
+    "subtitle": "Majestic mountain landscapes and luxury experiences",
+    "country": "Switzerland",
+    "region": "alps",
+    "short_description": "Experience the breathtaking beauty of the Swiss Alps with their soaring peaks, pristine lakes, and world-class mountain resorts.",
+    "description": "<p>The Swiss Alps represent one of the most iconic and spectacular mountain ranges in the world. Covering nearly 60% of Switzerland's territory, these majestic mountains offer an unparalleled combination of natural beauty, outdoor activities, and cultural experiences.</p><p>From the famous peaks of the Matterhorn, Eiger, and Jungfrau to the stunning alpine lakes and meadows, the landscape presents a breathtaking panorama in every direction. Picturesque villages with traditional wooden chalets dot the valleys, preserving centuries-old Swiss customs and architecture.</p>",
+    "main_image": "swiss-alps.jpg",
+    "coordinates": {
+      "lat": 46.8182,
+      "lng": 8.2275
+    },
+    "is_featured": true,
+    "is_popular": true,
+    "categories": [
+      "1",
+      "3",
+      "6",
+      "8"
+    ],
+    "weather": [
+      {
+        "season": "spring",
+        "temp_low": 2,
+        "temp_high": 15,
+        "precipitation": "Moderate"
+      },
+      {
+        "season": "summer",
+        "temp_low": 10,
+        "temp_high": 25,
+        "precipitation": "Moderate"
+      },
+      {
+        "season": "autumn",
+        "temp_low": 5,
+        "temp_high": 18,
+        "precipitation": "Low"
+      },
+      {
+        "season": "winter",
+        "temp_low": -10,
+        "temp_high": 5,
+        "precipitation": "High (snow)"
+      }
+    ]
+  },
+  {
+    "id": "5c8f8e9a-3e7d-4cbd-b22c-15b5c6de9b72",
+    "status": "published",
+    "name": "Barcelona",
+    "slug": "barcelona",
+    "subtitle": "A vibrant blend of culture, architecture, and Mediterranean charm",
+    "country": "Spain",
+    "region": "mediterranean",
+    "short_description": "Explore the unique Catalan culture, Gaudí's architectural marvels, and the sun-soaked beaches of Barcelona.",
+    "description": "<p>Barcelona, the cosmopolitan capital of Spain's Catalonia region, is a city that seamlessly blends historic charm with avant-garde style. Its streets are a living museum of architectural wonders, from the medieval Gothic Quarter to Antoni Gaudí's surreal masterpieces like the Sagrada Familia and Park Güell.</p><p>The city offers a perfect balance of urban excitement and relaxation. Stroll down the iconic La Rambla boulevard, explore the bustling La Boqueria market, or unwind on the city's Mediterranean beaches. Barcelona's culinary scene is equally impressive, with everything from traditional tapas bars to innovative Michelin-starred restaurants showcasing Catalan and Spanish cuisine.</p>",
+    "main_image": "barcelona.jpg",
+    "coordinates": {
+      "lat": 41.3851,
+      "lng": 2.1734
+    },
+    "is_featured": false,
+    "is_popular": true,
+    "categories": [
+      "2",
+      "4",
+      "5"
+    ],
+    "weather": [
+      {
+        "season": "spring",
+        "temp_low": 13,
+        "temp_high": 20,
+        "precipitation": "Low"
+      },
+      {
+        "season": "summer",
+        "temp_low": 20,
+        "temp_high": 28,
+        "precipitation": "Very Low"
+      },
+      {
+        "season": "autumn",
+        "temp_low": 14,
+        "temp_high": 23,
+        "precipitation": "Moderate"
+      },
+      {
+        "season": "winter",
+        "temp_low": 8,
+        "temp_high": 14,
+        "precipitation": "Low"
+      }
+    ]
+  }
+]

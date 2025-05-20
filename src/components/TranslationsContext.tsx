@@ -1,8 +1,8 @@
 'use client';
 
-import { createContext, useContext, useState, useEffect, ReactNode } from 'react';
-import { LANGUAGES, LanguageCode, DEFAULT_LANGUAGE, getLanguageFromLocale } from '@/lib/i18n';
-import { getTranslation, mockTranslations } from '@/lib/translations';
+import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
+import { LANGUAGES, LanguageCode, DEFAULT_LANGUAGE } from '../lib/i18n';
+import { getTranslation, mockTranslations } from '../lib/translations';
 
 // Type definition for the context
 export interface TranslationsContextProps {
@@ -23,8 +23,14 @@ const TranslationsContext = createContext<TranslationsContextProps>({
 });
 
 // Provider component
-export function TranslationsProvider({ children, initialLanguage }: { children: ReactNode, initialLanguage?: LanguageCode }) {
-  const [language, setLanguage] = useState<LanguageCode>(initialLanguage || DEFAULT_LANGUAGE);
+export function TranslationsProvider({ 
+  children, 
+  initialLanguage = DEFAULT_LANGUAGE 
+}: { 
+  children: ReactNode;
+  initialLanguage?: LanguageCode;
+}) {
+  const [language, setLanguage] = useState<LanguageCode>(initialLanguage);
   const [translations, setTranslations] = useState<Record<string, string>>({});
   const [isLoading, setIsLoading] = useState(true);
 
@@ -33,6 +39,7 @@ export function TranslationsProvider({ children, initialLanguage }: { children: 
     async function fetchTranslations() {
       setIsLoading(true);
       try {
+        // Use the API client to fetch translations
         const response = await fetch(`/api/translations?language=${language}`);
         
         if (!response.ok) {
@@ -44,7 +51,7 @@ export function TranslationsProvider({ children, initialLanguage }: { children: 
       } catch (error) {
         console.error('Error fetching translations:', error);
         // Fallback to mock translations
-        setTranslations(mockTranslations[language]);
+        setTranslations(mockTranslations[language] || {});
       } finally {
         setIsLoading(false);
       }
@@ -60,10 +67,12 @@ export function TranslationsProvider({ children, initialLanguage }: { children: 
 
   // Change language handler
   const handleSetLanguage = (newLanguage: LanguageCode) => {
-    setLanguage(newLanguage);
-    // Optionally store the language preference
-    if (typeof window !== 'undefined') {
-      localStorage.setItem('preferred_language', newLanguage);
+    if (LANGUAGES[newLanguage]) {
+      setLanguage(newLanguage);
+      // Store language preference in localStorage
+      if (typeof window !== 'undefined') {
+        localStorage.setItem('preferred_language', newLanguage);
+      }
     }
   };
 

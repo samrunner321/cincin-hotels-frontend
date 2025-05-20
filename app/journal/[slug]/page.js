@@ -3,7 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { getJournalArticleBySlug, getRecentJournalArticles } from '../../../lib/api';
 import { formatDate } from '../../../lib/utils';
-import { JournalPostContent } from '../../../components/journal_post';
+import { JournalPostContent } from '../../../src/components/journal_post';
 
 // Generate metadata for the page
 export async function generateMetadata({ params }) {

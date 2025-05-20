@@ -1,0 +1,423 @@
+
+src/components/hotel-detail/DetailHeroBanner.tsx (7 alias imports):
+  - import { useAssetLoading } from '@hooks/useAssetLoading';
+  - import { useAnimation } from '@hooks/useAnimation';
+  - import { useRtl } from '@hooks/useRtl';
+  - import { DetailHeroBannerProps } from '@types/advanced-ui';
+  - import ParallaxImage from '@components/ui/common/ParallaxImage';
+  - import ProgressiveDirectusImage from '@components/common/ProgressiveDirectusImage';
+  - import { getHotelImage, isValidImageUrl, generateSrcSet } from '@/utils/image-helpers';
+
+src/components/hotels/HotelMapView.tsx (6 alias imports):
+  - import MapComponent from '@components/ui/maps/MapComponent';
+  - import MapMarker from '@components/ui/maps/MapMarker';
+  - import MapTooltip from '@components/ui/maps/MapTooltip';
+  - import { useRtl } from '@hooks/useRtl';
+  - import { HotelMapItem, HotelMapViewProps } from '@types/advanced-ui';
+  - import { getHotelImage } from '@/utils/image-helpers';
+
+src/app/api/translations/route.ts (5 alias imports):
+  - import { getTranslationsWithCache } from '@src-lib/directus-client';
+  - import { TranslationQueryParams } from '@src-lib/types/api';
+  - import { REVALIDATE_TIMES } from '@src-lib/directus-client';
+  - import { mockTranslations } from '@src-lib/translations';
+  - import { LanguageCode, DEFAULT_LANGUAGE } from '@src-lib/i18n';
+
+src/app/layout.tsx (5 alias imports):
+  - import { DEFAULT_LANGUAGE, LanguageCode } from '@src-lib/i18n';
+  - import { EnhancedTranslationsProvider } from '@src-components/i18n/EnhancedTranslationsProvider';
+  - import { UIStateProvider } from '@src-components/UIStateContext';
+  - import Navbar from '@src-components/layout/Navbar';
+  - import Footer from '@src-components/layout/Footer';
+
+src/components/examples/DemoAssetGallery.tsx (5 alias imports):
+  - import { useFeatureInteraction } from '@hooks/useFeatureInteraction';
+  - import { Asset, DemoAssetGalleryProps, SpinnerOption } from '@types/advanced-ui';
+  - import { ResponsiveDirectusImage } from '@components/common/DirectusImage';
+  - import LoadingSpinner from '@components/ui/LoadingSpinner';
+  - import { AssetManagerProvider } from '@components/common/AssetManager';
+
+src/components/hotels/HotelList.tsx (5 alias imports):
+  - import { Hotel } from '@/types/hotel';
+  - import { cn } from '@/lib/utils';
+  - import { useHotelNavigation } from '@/hooks/useHotelNavigation';
+  - import ViewSwitcher from '@/components/ui/ViewSwitcher';
+  - import LoadingSpinner from '@/components/ui/LoadingSpinner';
+
+src/components/ui/tables/BaseTable.tsx (5 alias imports):
+  - import { cn } from '@lib/utils';
+  - import LoadingSpinner from '@components/ui/LoadingSpinner';
+  - import { useTheme } from '@components/ThemeProvider';
+  - import { useEnhancedTranslations } from '@components/i18n/EnhancedTranslationsProvider';
+  - import { rtlFlipClasses } from '@/utils/rtl-utils';
+
+src/components/common/ProgressiveDirectusImage.tsx (4 alias imports):
+  - import { getAssetUrl } from '@lib/api/directus-client';
+  - import { useAnimation } from '@hooks/useAnimation';
+  - import { ImageFit, BaseLayoutProps, BaseAnimationProps } from '@types/advanced-ui';
+  - import LoadingSpinner from '@components/ui/common/LoadingSpinner';
+
+src/components/forms/MembershipForm.tsx (4 alias imports):
+  - import { useComplexForm } from '@hooks/useComplexForm';
+  - import { useAnimation } from '@hooks/useAnimation';
+  - import { useRtl } from '@hooks/useRtl';
+  - import { MembershipFormProps, MembershipFormData } from '@types/advanced-ui';
+
+src/components/home/FeaturedHotel.tsx (4 alias imports):
+  - import { useFeatureInteraction } from '@hooks/useFeatureInteraction';
+  - import BaseFeature from '@components/ui/BaseFeature';
+  - import { FeaturedHotelData } from '@types/advanced-ui';
+  - import { cn } from '@lib/utils';
+
+src/components/hotel-detail/LocalDining.tsx (4 alias imports):
+  - import { useRtl } from '@hooks/useRtl';
+  - import { useAnimation } from '@hooks/useAnimation';
+  - import { LocalDiningProps, Restaurant } from '@types/advanced-ui';
+  - import LazyImage from '@components/ui/common/LazyImage';
+
+src/components/hotels/AnimatedHotelEntry.tsx (4 alias imports):
+  - import { useUIState } from '@components/UIStateContext';
+  - import { useFeatureInteraction } from '@hooks/useFeatureInteraction';
+  - import { cn } from '@lib/utils';
+  - import type { AnimatedHotelEntryProps } from '@types/advanced-ui';
+
+src/components/hotels/HotelCard.tsx (4 alias imports):
+  - import { Hotel, HotelSummary } from '@types/hotel';
+  - import { Category } from '@types/category';
+  - import { getHotelImage, getResponsiveImageSizes } from '@/utils/image-helpers';
+  - import { cn } from '@lib/utils';
+
+src/components/journey-designer/TravelJourneyDesigner.tsx (4 alias imports):
+  - import { useUIState } from '@components/UIStateContext';
+  - import { useFeatureInteraction } from '@hooks/useFeatureInteraction';
+  - import { useTravelPlanner } from '@hooks/useTravelPlanner';
+  - import { cn } from '@src-lib/utils';
+
+src/components/ui/maps/MapTooltip.tsx (4 alias imports):
+  - import { useAnimation } from '@hooks/useAnimation';
+  - import { useRtl } from '@hooks/useRtl';
+  - import { HotelMapItem } from '@types/advanced-ui';
+  - import { getHotelImage } from '@/utils/image-helpers';
+
+src/app/api/destinations/route.ts (3 alias imports):
+  - import { getDestinationsWithCache } from '@src-lib/directus-client';
+  - import { DestinationQueryParams } from '@src-lib/types/api';
+  - import { REVALIDATE_TIMES } from '@src-lib/directus-client';
+
+src/app/api/hotels/[slug]/route.ts (3 alias imports):
+  - import { getHotelBySlugWithCache } from '@src-lib/directus-client';
+  - import { BaseQueryParams } from '@src-lib/types/api';
+  - import { REVALIDATE_TIMES } from '@src-lib/directus-client';
+
+src/app/api/hotels/route.ts (3 alias imports):
+  - import { getHotelsWithCache } from '@src-lib/directus-client';
+  - import { HotelQueryParams } from '@src-lib/types/api';
+  - import { REVALIDATE_TIMES } from '@src-lib/directus-client';
+
+src/app/destinations/page.tsx (3 alias imports):
+  - import { loadDestinations, loadCategories, REVALIDATE } from '@src-lib/dataLoaders';
+  - import DestinationList from '@src-components/destinations/DestinationList';
+  - import Hero from '@src-components/destinations/Hero';
+
+src/app/hotels/page.tsx (3 alias imports):
+  - import { loadHotels, loadCategories, REVALIDATE } from '@src-lib/dataLoaders';
+  - import HotelList from '@src-components/hotels/HotelList';
+  - import CategoryBar from '@components/hotels/CategoryBar';
+
+src/app/rtl-demo/page.tsx (3 alias imports):
+  - import { LANGUAGES, LanguageCode } from '@src-lib/i18n';
+  - import { useEnhancedTranslations } from '@src-components/i18n/EnhancedTranslationsProvider';
+  - import RtlDemo from '@src-components/ui/RtlDemo';
+
+src/app/rtl-demo/styling/page.tsx (3 alias imports):
+  - import { LANGUAGES, LanguageCode } from '@src-lib/i18n';
+  - import { useEnhancedTranslations } from '@src-components/i18n/EnhancedTranslationsProvider';
+  - import RtlStylingExample from '@src-components/ui/RtlStylingExample';
+
+src/components/chatbot/TravelAdvisor.tsx (3 alias imports):
+  - import { useUIState } from '@components/UIStateContext';
+  - import { useFeatureInteraction } from '@hooks/useFeatureInteraction';
+  - import { cn } from '@src-lib/utils';
+
+src/components/destinations/DestinationDetailPage.tsx (3 alias imports):
+  - import { Destination, Hotel } from '@src-lib/directus';
+  - import DirectusImage from '@components/common/DirectusImage';
+  - import HotelList from '@components/hotels/HotelList';
+
+src/components/home/RestaurantFeature.tsx (3 alias imports):
+  - import { useFeatureInteraction } from '@hooks/useFeatureInteraction';
+  - import BaseFeature from '@components/ui/BaseFeature';
+  - import { RestaurantFeatureItem } from '@types/advanced-ui';
+
+src/components/hotels/HotelDetailPage.tsx (3 alias imports):
+  - import { Hotel } from '@src-lib/directus';
+  - import { getAssetURL } from '@src-lib/directus';
+  - import DirectusImage from '@components/common/DirectusImage';
+
+src/components/hotels/HotelListView.tsx (3 alias imports):
+  - import { Hotel } from '@types/hotel';
+  - import { getHotelImage } from '@/utils/image-helpers';
+  - import { formatCurrency } from '@lib/utils';
+
+src/components/hotels/HotelQuickView.tsx (3 alias imports):
+  - import { useFeatureInteraction } from '@hooks/useFeatureInteraction';
+  - import { HotelQuickViewData, HotelQuickViewProps } from '@types/advanced-ui';
+  - import { cn } from '@lib/utils';
+
+src/components/ui/maps/MapComponent.tsx (3 alias imports):
+  - import { useMapInteractions } from '@hooks/useMapInteractions';
+  - import { HotelMapItem, HotelCoordinates, BaseLayoutProps, BaseAnimationProps } from '@types/advanced-ui';
+  - import { useRtl } from '@hooks/useRtl';
+
+src/components/ui/maps/MapMarker.tsx (3 alias imports):
+  - import { useAnimation } from '@hooks/useAnimation';
+  - import { useRtl } from '@hooks/useRtl';
+  - import { HotelMapItem } from '@types/advanced-ui';
+
+src/components/ui/navigation/BaseNavigation.tsx (3 alias imports):
+  - import { cn } from '@lib/utils';
+  - import { useEnhancedTranslations } from '@components/i18n/EnhancedTranslationsProvider';
+  - import { rtlFlipClasses } from '@/utils/rtl-utils';
+
+src/components/ui/tabs/BaseTabs.tsx (3 alias imports):
+  - import { cn } from '@lib/utils';
+  - import { useEnhancedTranslations } from '@components/i18n/EnhancedTranslationsProvider';
+  - import { rtlFlipClasses } from '@/utils/rtl-utils';
+
+src/app/destinations/[slug]/page.tsx (2 alias imports):
+  - import { loadDestination, loadDestinationSlugs, REVALIDATE } from '@src-lib/dataLoaders';
+  - import DestinationDetailPage from '@src-components/destinations/DestinationDetailPage';
+
+src/app/hotels/[slug]/page.tsx (2 alias imports):
+  - import { loadHotel, loadHotelSlugs, REVALIDATE } from '@src-lib/dataLoaders';
+  - import HotelDetailPage from '@src-components/hotels/HotelDetailPage';
+
+src/components/TranslationsContext.tsx (2 alias imports):
+  - import { LANGUAGES, LanguageCode, DEFAULT_LANGUAGE } from '@src-lib/i18n';
+  - import { getTranslation, mockTranslations } from '@src-lib/translations';
+
+src/components/destinations/DestinationCard.tsx (2 alias imports):
+  - import { Destination } from '@src-lib/directus';
+  - import DirectusImage from '@components/common/DirectusImage';
+
+src/components/destinations/DestinationList.tsx (2 alias imports):
+  - import { useDestinations } from '@hooks/useDirectusData';
+  - import { Destination, Category } from '@src-lib/directus';
+
+src/components/home/DestinationCategories.jsx (2 alias imports):
+  - import DirectusImage from '@components/common/DirectusImage';
+  - import { useCategories } from '@hooks/useDirectusData';
+
+src/components/home/DiscoverDestinations.jsx (2 alias imports):
+  - import DirectusImage from '@components/common/DirectusImage';
+  - import { useDestinations } from '@hooks/useDirectusData';
+
+src/components/home/PopularDestinations.jsx (2 alias imports):
+  - import DirectusImage from '@components/common/DirectusImage';
+  - import { useDestinations } from '@hooks/useDirectusData';
+
+src/components/home/PopularDestinations.tsx (2 alias imports):
+  - import ResponsiveDirectusImage from '@components/common/ResponsiveDirectusImage';
+  - import { BaseHeroProps, CtaButton, ImageObject } from '@components/ui/BaseHero';
+
+src/components/hotel-detail/DestinationOverview.tsx (2 alias imports):
+  - import { useFeatureInteraction } from '@hooks/useFeatureInteraction';
+  - import { DestinationData } from '@types/advanced-ui';
+
+src/components/hotels/HotelCard.ts (2 alias imports):
+  - import HotelCard from '@components/hotels/HotelCard';
+  - import { getHotelImage } from '@/utils/image-helpers';
+
+src/components/hotels/HotelModal.tsx (2 alias imports):
+  - import { cn } from '@/lib/utils';
+  - import BaseModal from '@/components/ui/modal/BaseModal';
+
+src/components/hotels/filters/Filters.tsx (2 alias imports):
+  - import { cn } from '@lib/utils';
+  - import BaseFilter, { FilterGroup, ActiveFilters } from '@components/ui/filters/BaseFilter';
+
+src/components/ui/RtlDemo.tsx (2 alias imports):
+  - import useRtl from '@hooks/useRtl';
+  - import { rtlFlipClasses, getRtlStyles } from '@/utils/rtl-utils';
+
+src/hooks/useAnimationSequence.ts (2 alias imports):
+  - import { useUIState } from '@components/UIStateContext';
+  - import type { UseAnimationSequenceProps, UseAnimationSequenceReturn } from '@types/advanced-ui';
+
+src/test/DirectusConfig.test.jsx (2 alias imports):
+  - import DirectusConfig from '@src-components/common/DirectusConfig';
+  - import * as authUtils from '@src-lib/auth-utils';
+
+src/app/api/categories/route.ts (1 alias imports):
+  - import { getCategories } from '@src-lib/directus';
+
+src/app/api/destinations/[slug]/route.ts (1 alias imports):
+  - import { getDestinationBySlug, getHotelsByDestination } from '@src-lib/directus';
+
+src/app/api/navigation/route.ts (1 alias imports):
+  - import { getNavigationPages } from '@src-lib/directus';
+
+src/app/api/pages/[slug]/route.ts (1 alias imports):
+  - import { getPageBySlug } from '@src-lib/directus';
+
+src/components/LanguageSwitcher.tsx (1 alias imports):
+  - import { LANGUAGES, LanguageCode } from '@src-lib/i18n';
+
+src/components/ThemeProvider.tsx (1 alias imports):
+  - import { defaultTheme, darkTheme, ThemeContextType } from '@/styles/theme';
+
+src/components/chatbot/__tests__/TravelAdvisor.test.tsx (1 alias imports):
+  - import { UIStateProvider } from '@components/UIStateContext';
+
+src/components/common/ContentBlock.tsx (1 alias imports):
+  - import ContentBlock from '@src-components/ui/ContentBlock';
+
+src/components/common/DirectusConfig.tsx (1 alias imports):
+  - import { getDirectusPublicToken } from '@src-lib/auth-utils';
+
+src/components/common/DirectusImage.tsx (1 alias imports):
+  - import { getAssetURL } from '@src-lib/directus';
+
+src/components/common/LoadingSpinner.tsx (1 alias imports):
+  - import LoadingSpinner from '@src-components/ui/LoadingSpinner';
+
+src/components/destinations/sections/ActivitiesSection.tsx (1 alias imports):
+  - import DirectusImage from '@components/common/DirectusImage';
+
+src/components/destinations/sections/DiningSection.tsx (1 alias imports):
+  - import DirectusImage from '@components/common/DirectusImage';
+
+src/components/destinations/sections/HighlightsSection.tsx (1 alias imports):
+  - import DirectusImage from '@components/common/DirectusImage';
+
+src/components/examples/FeatureInteractionExample.tsx (1 alias imports):
+  - import { useFeatureInteraction } from '@hooks/useFeatureInteraction';
+
+src/components/home/WorldMapSection.jsx (1 alias imports):
+  - import { useDestinations } from '@hooks/useDirectusData';
+
+src/components/hotel-detail/FeatureItem.ts (1 alias imports):
+  - import FeatureItem from '@components/ui/FeatureItem';
+
+src/components/hotel-detail/HotelDetailHero.tsx (1 alias imports):
+  - import BaseHero, { BaseHeroProps, CtaButton, ImageObject } from '@/components/ui/BaseHero';
+
+src/components/hotel-detail/HotelDetailPage.tsx (1 alias imports):
+  - import HotelDetailPage from '@components/hotel-detail/HotelDetailPage';
+
+src/components/hotel-detail/__tests__/DetailHeroBanner.test.tsx (1 alias imports):
+  - import { EnhancedTranslationsProvider } from '@components/i18n/EnhancedTranslationsProvider';
+
+src/components/hotels/AdvancedFilterModal.tsx (1 alias imports):
+  - import { cn } from '@lib/utils';
+
+src/components/hotels/CategoryButton.tsx (1 alias imports):
+  - import CategoryButton from '@components/ui/buttons/CategoryButton';
+
+src/components/hotels/FilterModal.tsx (1 alias imports):
+  - import FilterModal from '@components/hotels/filters/FilterModal';
+
+src/components/hotels/Filters.tsx (1 alias imports):
+  - import Filters from '@components/hotels/filters/Filters';
+
+src/components/hotels/HotelsPage.tsx (1 alias imports):
+  - import HotelsPageComponent from '@components/hotels/HotelsPage';
+
+src/components/hotels/ViewSwitcher.tsx (1 alias imports):
+  - import ViewSwitcher from '@components/ui/ViewSwitcher';
+
+src/components/hotels/__tests__/AnimatedHotelEntry.test.tsx (1 alias imports):
+  - import { UIStateProvider } from '@components/UIStateContext';
+
+src/components/hotels/__tests__/HotelMapView.test.tsx (1 alias imports):
+  - import { EnhancedTranslationsProvider } from '@components/i18n/EnhancedTranslationsProvider';
+
+src/components/hotels/__tests__/HotelModal.test.tsx (1 alias imports):
+  - import { HotelModalData } from '@types/layout';
+
+src/components/hotels/filters/FilterModal.tsx (1 alias imports):
+  - import { cn } from '@src-lib/utils';
+
+src/components/i18n/EnhancedLanguageSwitcher.tsx (1 alias imports):
+  - import { LANGUAGES, LanguageCode, RTL_LANGUAGES } from '@lib/i18n';
+
+src/components/i18n/LanguageSwitcher.tsx (1 alias imports):
+  - import { LANGUAGES, LanguageCode, DEFAULT_LANGUAGE } from '@lib/i18n';
+
+src/components/journey-designer/__tests__/TravelJourneyDesigner.test.tsx (1 alias imports):
+  - import { UIStateProvider } from '@components/UIStateContext';
+
+src/components/ui/FeatureItem.tsx (1 alias imports):
+  - import { cn } from '@src-lib/utils';
+
+src/components/ui/ViewSwitcher.tsx (1 alias imports):
+  - import { cn } from '@lib/utils';
+
+src/components/ui/buttons/CategoryButton.tsx (1 alias imports):
+  - import { cn } from '@src-lib/utils';
+
+src/components/ui/forms/BaseForm.tsx (1 alias imports):
+  - import { cn } from '@/lib/utils';
+
+src/components/ui/forms/FormInput.tsx (1 alias imports):
+  - import { cn } from '@src-lib/utils';
+
+src/components/ui/forms/FormTextarea.tsx (1 alias imports):
+  - import { cn } from '@src-lib/utils';
+
+src/components/ui/forms/SubmitButton.tsx (1 alias imports):
+  - import { cn } from '@src-lib/utils';
+
+src/components/ui/forms/__tests__/BaseInput.rtl.test.tsx (1 alias imports):
+  - import { renderWithRtl, renderWithLtr } from '@/utils/__tests__/rtl-test-utils';
+
+src/components/ui/modal/BaseModal.tsx (1 alias imports):
+  - import { cn } from '@lib/utils';
+
+src/components/ui/pagination/BasePagination.tsx (1 alias imports):
+  - import { cn } from '@lib/utils';
+
+src/components/ui/tables/__tests__/BaseTable.rtl.test.tsx (1 alias imports):
+  - import { renderWithRtl, renderWithLtr } from '@/utils/__tests__/rtl-test-utils';
+
+src/components/ui/tabs/__tests__/BaseTabs.rtl.test.tsx (1 alias imports):
+  - import { renderWithRtl, renderWithLtr } from '@/utils/__tests__/rtl-test-utils';
+
+src/hooks/__tests__/useRtl.test.ts (1 alias imports):
+  - import { EnhancedTranslationsProvider } from '@components/i18n/EnhancedTranslationsProvider';
+
+src/hooks/useAssetLoading.ts (1 alias imports):
+  - import { Asset, LoadingState } from '@types/advanced-ui';
+
+src/hooks/useMapControls.ts (1 alias imports):
+  - import { HotelCoordinates } from '@types/advanced-ui';
+
+src/hooks/useMapInteraction.ts (1 alias imports):
+  - import { HotelMapItem, HotelCoordinates } from '@types/advanced-ui';
+
+src/hooks/useMapInteractions.ts (1 alias imports):
+  - import { HotelMapItem, HotelCoordinates } from '@types/advanced-ui';
+
+src/hooks/useMapMarkers.ts (1 alias imports):
+  - import { HotelMapItem, HotelCoordinates } from '@types/advanced-ui';
+
+src/hooks/useOptimizedFilter.ts (1 alias imports):
+  - import { useUIState } from '@src-components/UIStateContext';
+
+src/hooks/useRtl.ts (1 alias imports):
+  - import { useEnhancedTranslations } from '@components/i18n/EnhancedTranslationsProvider';
+
+src/hooks/useTravelPlanner.ts (1 alias imports):
+  - import { useUIState } from '@components/UIStateContext';
+
+src/types/pages.ts (1 alias imports):
+  - import { Hotel, Destination, Category, Room } from '@src-lib/directus';
+
+src/utils/__tests__/rtl-test-utils.ts (1 alias imports):
+  - import { EnhancedTranslationsProvider } from '@components/i18n/EnhancedTranslationsProvider';
+
+src/utils/metadata.ts (1 alias imports):
+  - import { ExtendedMetadata } from '@types/seo';
+
+src/utils/rtl-utils.ts (1 alias imports):
+  - import { RTL_LANGUAGES, LanguageCode } from '@lib/i18n';

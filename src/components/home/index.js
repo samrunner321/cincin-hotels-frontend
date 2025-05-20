@@ -1,0 +1,10 @@
+export { default as DestinationCategories } from './DestinationCategories';
+export { default as DiscoverDestinations } from './DiscoverDestinations';
+export { default as FeaturedHotel } from './FeaturedHotel';
+export { default as Hero } from './Hero';
+export { default as HotelCategories } from './HotelCategories';
+export { default as JournalSection } from './JournalSection';
+export { default as NewsletterSignup } from './NewsletterSignup';
+export { default as PopularDestinations } from './PopularDestinations';
+export { default as RestaurantFeature } from './RestaurantFeature';
+export { default as WorldMapSection } from './WorldMapSection';

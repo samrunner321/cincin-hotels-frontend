@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { getNavigationPages } from '@/lib/directus';
+import { getNavigationPages } from '../../../lib/directus';
 
 export const dynamic = 'force-dynamic';
 

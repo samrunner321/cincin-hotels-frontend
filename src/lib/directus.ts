@@ -3,7 +3,8 @@
  * Provides TypeScript type definitions and helper functions for interacting with the Directus API
  */
 
-import { createDirectus, rest, graphql, staticToken } from '@directus/sdk';
+import { createDirectus, rest, graphql, staticToken, readItems } from '@directus/sdk';
+import { getDirectusAdminToken, getDirectusPublicToken } from './auth';
 
 /**
  * Base types for common fields
@@ -218,7 +219,7 @@ export interface Page extends BaseItem {
  * Translation
  */
 export interface Translation extends BaseItem {
-  language: 'en-US' | 'de-DE';
+  language: 'en-US' | 'de-DE' | 'ar-AE' | 'he-IL';
   key: string;
   value: string;
 }
@@ -242,45 +243,36 @@ const DIRECTUS_URL = typeof window !== 'undefined'
   ? (process.env.NEXT_PUBLIC_DIRECTUS_URL || 'http://localhost:8055')
   : (process.env.NEXT_PUBLIC_DIRECTUS_URL || 'http://localhost:8055');
 
-const DIRECTUS_ADMIN_TOKEN = process.env.DIRECTUS_ADMIN_TOKEN || '';
-const DIRECTUS_PUBLIC_TOKEN = process.env.DIRECTUS_PUBLIC_TOKEN || 'kFQlJAEbLr5BrPGIbqODGDWiL1TJgLfE';
+// Safely access tokens via auth functions
 const IS_MOCK_SERVER = process.env.IS_MOCK_SERVER === 'true';
-
-/**
- * Mock data paths
- */
-const MOCK_DATA_DIR = './mock-directus/data';
-const MOCK_DESTINATIONS_PATH = `${MOCK_DATA_DIR}/destinations.json`;
-const MOCK_HOTELS_PATH = `${MOCK_DATA_DIR}/hotels.json`;
-const MOCK_CATEGORIES_PATH = `${MOCK_DATA_DIR}/categories.json`;
 
 /**
  * Directus REST client - admin access (server-side only)
  */
 export const directusAdminRest = createDirectus<Schema>(DIRECTUS_URL)
   .with(rest())
-  .with(staticToken(DIRECTUS_ADMIN_TOKEN));
+  .with(staticToken(getDirectusAdminToken()));
 
 /**
  * Directus REST client - public access (can be used on client)
  */
 export const directusPublicRest = createDirectus<Schema>(DIRECTUS_URL)
   .with(rest())
-  .with(staticToken(DIRECTUS_PUBLIC_TOKEN));
+  .with(staticToken(getDirectusPublicToken()));
 
 /**
  * Directus GraphQL client - admin access (server-side only)
  */
 export const directusAdminGraphQL = createDirectus<Schema>(DIRECTUS_URL)
   .with(graphql())
-  .with(staticToken(DIRECTUS_ADMIN_TOKEN));
+  .with(staticToken(getDirectusAdminToken()));
 
 /**
  * Directus GraphQL client - public access (can be used on client)
  */
 export const directusPublicGraphQL = createDirectus<Schema>(DIRECTUS_URL)
   .with(graphql())
-  .with(staticToken(DIRECTUS_PUBLIC_TOKEN));
+  .with(staticToken(getDirectusPublicToken()));
 
 /**
  * Function to get asset URL from Directus file ID
@@ -288,7 +280,7 @@ export const directusPublicGraphQL = createDirectus<Schema>(DIRECTUS_URL)
 export function getAssetURL(fileId: string): string {
   if (!fileId) return '';
   
-  // Mock-Modus: Pfad zu lokalen Bildern
+  // Mock mode: path to local images
   if (IS_MOCK_SERVER) {
     return `/mock-images/${fileId}`;
   }
@@ -297,7 +289,7 @@ export function getAssetURL(fileId: string): string {
 }
 
 /**
- * Transformierte Bild-URL mit angegebenen Parametern generieren
+ * Generate transformed image URL with specified parameters
  */
 export function getTransformedImageUrl(fileId: string, options: {
   width?: number;
@@ -329,7 +321,7 @@ export function getTransformedImageUrl(fileId: string, options: {
 }
 
 /**
- * Responsives Bilderset für art direction generieren
+ * Generate responsive image set for art direction
  */
 export function generateResponsiveImageSet(fileId: string, sizes: { width: number, height?: number }[]) {
   if (!fileId) return [];
@@ -343,9 +335,7 @@ export function generateResponsiveImageSet(fileId: string, sizes: { width: numbe
   });
 }
 
-/**
- * Helper functions for API interactions
- */
+// Browser-safe API functions
 
 /**
  * Get all hotels with filtering options
@@ -366,47 +356,14 @@ export async function getHotels(options: {
       fields = ['*', 'main_image.*'],
     } = options;
 
-    // Use mock data in mock mode
-    if (IS_MOCK_SERVER) {
-      const fs = require('fs');
-      const path = require('path');
-      
-      try {
-        const mockDataPath = path.join(process.cwd(), 'mock-directus/data/hotels.json');
-        if (fs.existsSync(mockDataPath)) {
-          const data = fs.readFileSync(mockDataPath, 'utf8');
-          let hotels = JSON.parse(data);
-          
-          // Simple filtering
-          if (filter.status && filter.status._eq) {
-            hotels = hotels.filter((h: any) => h.status === filter.status._eq);
-          }
-          
-          if (filter.is_featured !== undefined) {
-            hotels = hotels.filter((h: any) => h.is_featured === filter.is_featured._eq);
-          }
-          
-          if (filter.destination && filter.destination._eq) {
-            hotels = hotels.filter((h: any) => h.destination === filter.destination._eq);
-          }
-          
-          return hotels.slice(offset, offset + limit);
-        }
-        return [];
-      } catch (mockError) {
-        console.error('Error reading mock hotel data:', mockError);
-        return [];
-      }
-    }
-
     // API request in production mode
     const response = await directusPublicRest.request(
-      rest.readItems('hotels', {
+      readItems('hotels', {
         limit,
         offset,
-        sort,
+        sort: sort as any,
         filter,
-        fields,
+        fields: fields as any,
       })
     );
 
@@ -422,32 +379,9 @@ export async function getHotels(options: {
  */
 export async function getHotelBySlug(slug: string) {
   try {
-    // Use mock data in mock mode
-    if (IS_MOCK_SERVER) {
-      const fs = require('fs');
-      const path = require('path');
-      
-      try {
-        const mockDataPath = path.join(process.cwd(), 'mock-directus/data/hotels.json');
-        if (fs.existsSync(mockDataPath)) {
-          const data = fs.readFileSync(mockDataPath, 'utf8');
-          const hotels = JSON.parse(data);
-          
-          // Find by slug
-          const hotel = hotels.find((h: any) => h.slug === slug && h.status === 'published');
-          
-          return hotel || null;
-        }
-        return null;
-      } catch (mockError) {
-        console.error(`Error reading mock hotel data for slug ${slug}:`, mockError);
-        return null;
-      }
-    }
-
     // API request in production mode
     const response = await directusPublicRest.request(
-      rest.readItems('hotels', {
+      readItems('hotels', {
         limit: 1,
         filter: {
           slug: { _eq: slug },
@@ -455,13 +389,11 @@ export async function getHotelBySlug(slug: string) {
         },
         fields: [
           '*',
-          'main_image.*',
-          'gallery.image.*',
-          'rooms.*',
-          'rooms.main_image.*',
-          'destination.*',
-          'destination.main_image.*',
-        ],
+          'main_image',
+          'gallery',
+          'rooms',
+          'destination',
+        ] as any,
       })
     );
 
@@ -491,51 +423,14 @@ export async function getDestinations(options: {
       fields = ['*', 'main_image.*'],
     } = options;
 
-    // Use mock data in mock mode
-    if (IS_MOCK_SERVER) {
-      const fs = require('fs');
-      const path = require('path');
-      
-      try {
-        const mockDataPath = path.join(process.cwd(), 'mock-directus/data/destinations.json');
-        if (fs.existsSync(mockDataPath)) {
-          const data = fs.readFileSync(mockDataPath, 'utf8');
-          let destinations = JSON.parse(data);
-          
-          // Simple filtering
-          if (filter.status && filter.status._eq) {
-            destinations = destinations.filter((d: any) => d.status === filter.status._eq);
-          }
-          
-          if (filter.is_featured !== undefined) {
-            destinations = destinations.filter((d: any) => d.is_featured === filter.is_featured._eq);
-          }
-          
-          if (filter.is_popular !== undefined) {
-            destinations = destinations.filter((d: any) => d.is_popular === filter.is_popular._eq);
-          }
-          
-          if (filter.region && filter.region._eq) {
-            destinations = destinations.filter((d: any) => d.region === filter.region._eq);
-          }
-          
-          return destinations.slice(offset, offset + limit);
-        }
-        return [];
-      } catch (mockError) {
-        console.error('Error reading mock destination data:', mockError);
-        return [];
-      }
-    }
-
     // API request in production mode
     const response = await directusPublicRest.request(
-      rest.readItems('destinations', {
+      readItems('destinations', {
         limit,
         offset,
-        sort,
+        sort: sort as any,
         filter,
-        fields,
+        fields: fields as any,
       })
     );
 
@@ -551,31 +446,9 @@ export async function getDestinations(options: {
  */
 export async function getDestinationBySlug(slug: string) {
   try {
-    // Use mock data in mock mode
-    if (IS_MOCK_SERVER) {
-      const fs = require('fs');
-      const path = require('path');
-      
-      try {
-        const mockDataPath = path.join(process.cwd(), 'mock-directus/data/destinations.json');
-        if (fs.existsSync(mockDataPath)) {
-          const data = fs.readFileSync(mockDataPath, 'utf8');
-          const destinations = JSON.parse(data);
-          
-          // Find by slug
-          const destination = destinations.find((d: any) => d.slug === slug && d.status === 'published');
-          return destination || null;
-        }
-        return null;
-      } catch (mockError) {
-        console.error(`Error reading mock destination data for slug ${slug}:`, mockError);
-        return null;
-      }
-    }
-
     // API request in production mode
     const response = await directusPublicRest.request(
-      rest.readItems('destinations', {
+      readItems('destinations', {
         limit: 1,
         filter: {
           slug: { _eq: slug },
@@ -583,14 +456,14 @@ export async function getDestinationBySlug(slug: string) {
         },
         fields: [
           '*',
-          'main_image.*',
-          'gallery.image.*',
-          'highlights.image.*',
-          'activities.image.*',
-          'dining.image.*',
-          'signature_dishes.image.*',
-          'chef_spotlight.image.*',
-        ],
+          'main_image',
+          'gallery',
+          'highlights',
+          'activities',
+          'dining',
+          'signature_dishes',
+          'chef_spotlight',
+        ] as any,
       })
     );
 
@@ -606,37 +479,14 @@ export async function getDestinationBySlug(slug: string) {
  */
 export async function getHotelsByDestination(destinationId: string) {
   try {
-    // Use mock data in mock mode
-    if (IS_MOCK_SERVER) {
-      const fs = require('fs');
-      const path = require('path');
-      
-      try {
-        const mockDataPath = path.join(process.cwd(), 'mock-directus/data/hotels.json');
-        if (fs.existsSync(mockDataPath)) {
-          const data = fs.readFileSync(mockDataPath, 'utf8');
-          const hotels = JSON.parse(data);
-          
-          // Filter by destination
-          return hotels.filter((h: any) => 
-            h.destination === destinationId && h.status === 'published'
-          );
-        }
-        return [];
-      } catch (mockError) {
-        console.error(`Error reading mock hotel data for destination ${destinationId}:`, mockError);
-        return [];
-      }
-    }
-
     // API request in production mode
     const response = await directusPublicRest.request(
-      rest.readItems('hotels', {
+      readItems('hotels', {
         filter: {
           destination: { _eq: destinationId },
           status: { _eq: 'published' },
         },
-        fields: ['*', 'main_image.*'],
+        fields: ['*', 'main_image'] as any,
       })
     );
 
@@ -653,12 +503,12 @@ export async function getHotelsByDestination(destinationId: string) {
 export async function getRoomsByHotel(hotelId: string) {
   try {
     const response = await directusPublicRest.request(
-      rest.readItems('rooms', {
+      readItems('rooms', {
         filter: {
           hotel: { _eq: hotelId },
           status: { _eq: 'published' },
         },
-        fields: ['*', 'main_image.*', 'gallery.image.*'],
+        fields: ['*', 'main_image', 'gallery'] as any,
       })
     );
 
@@ -688,42 +538,12 @@ export async function getCategories(options: {
       filter.featured = { _eq: featured };
     }
 
-    // Use mock data in mock mode
-    if (IS_MOCK_SERVER) {
-      const fs = require('fs');
-      const path = require('path');
-      
-      try {
-        const mockDataPath = path.join(process.cwd(), 'mock-directus/data/categories.json');
-        if (fs.existsSync(mockDataPath)) {
-          const data = fs.readFileSync(mockDataPath, 'utf8');
-          let categories = JSON.parse(data);
-          
-          // Filter by type
-          if (type) {
-            categories = categories.filter((c: any) => c.type === type || c.type === 'both');
-          }
-          
-          // Filter by featured
-          if (featured !== undefined) {
-            categories = categories.filter((c: any) => c.featured === featured);
-          }
-          
-          return categories;
-        }
-        return [];
-      } catch (mockError) {
-        console.error('Error reading mock category data:', mockError);
-        return [];
-      }
-    }
-
     // API request in production mode
     const response = await directusPublicRest.request(
-      rest.readItems('categories', {
+      readItems('categories', {
         filter,
-        sort: ['sort'],
-        fields: ['*', 'image.*'],
+        sort: ['sort'] as any,
+        fields: ['*', 'image'] as any,
       })
     );
 
@@ -740,13 +560,13 @@ export async function getCategories(options: {
 export async function getPageBySlug(slug: string) {
   try {
     const response = await directusPublicRest.request(
-      rest.readItems('pages', {
+      readItems('pages', {
         limit: 1,
         filter: {
           slug: { _eq: slug },
           status: { _eq: 'published' },
         },
-        fields: ['*', 'featured_image.*'],
+        fields: ['*', 'featured_image'] as any,
       })
     );
 
@@ -763,13 +583,13 @@ export async function getPageBySlug(slug: string) {
 export async function getNavigationPages() {
   try {
     const response = await directusPublicRest.request(
-      rest.readItems('pages', {
+      readItems('pages', {
         filter: {
           show_in_navigation: { _eq: true },
           status: { _eq: 'published' },
         },
-        sort: ['sort'],
-        fields: ['id', 'title', 'slug'],
+        sort: ['sort'] as any,
+        fields: ['id', 'title', 'slug'] as any,
       })
     );
 
@@ -783,14 +603,14 @@ export async function getNavigationPages() {
 /**
  * Get translations by language
  */
-export async function getTranslationsByLanguage(language: string) {
+export async function getTranslationsByLanguage(language: 'en-US' | 'de-DE' | 'ar-AE' | 'he-IL') {
   try {
     const response = await directusPublicRest.request(
-      rest.readItems('translations', {
+      readItems('translations', {
         filter: {
           language: { _eq: language },
         },
-        fields: ['key', 'value'],
+        fields: ['key', 'value'] as any,
       })
     );
     

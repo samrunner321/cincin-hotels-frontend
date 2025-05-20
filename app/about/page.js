@@ -1,5 +1,5 @@
-import PageHero from '../../components/common/PageHero';
-import ContentBlock from '../../components/common/ContentBlock';
+import PageHero from '../../src/components/common/PageHero';
+import ContentBlock from '../../src/components/common/ContentBlock';
 import Image from 'next/image';
 
 export const metadata = {

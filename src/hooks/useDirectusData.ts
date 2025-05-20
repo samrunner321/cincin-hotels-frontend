@@ -1,5 +1,6 @@
 /**
  * Custom hooks for fetching data from Directus CMS with SWR for client-side data fetching
+ * With enhanced error handling and type safety
  */
 import useSWR from 'swr';
 import { 
@@ -12,10 +13,92 @@ import {
   getCategories,
   getPageBySlug,
   getNavigationPages
-} from '@/lib/directus';
+} from '../lib/directus';
+import { ApiError } from '../types/api';
+import { errorLogger, ErrorSeverity } from '../lib/error-logger';
 
-// SWR fetcher function
-const fetcher = (url: string) => fetch(url).then((res) => res.json());
+// Enhanced fetcher function with error handling
+const fetcher = async (url: string) => {
+  try {
+    const startTime = performance.now();
+    const response = await fetch(url);
+    const duration = performance.now() - startTime;
+    
+    // Log slow requests (client-side)
+    if (duration > 1000) {
+      errorLogger.logWarning(
+        `Slow client fetch: ${url} took ${duration.toFixed(2)}ms`,
+        {
+          source: 'client-performance',
+          data: { duration, url },
+          tags: ['performance', 'client']
+        },
+        'SLOW_CLIENT_REQUEST'
+      );
+    }
+
+    // Handle non-2xx responses
+    if (!response.ok) {
+      let errorData: ApiError;
+      
+      try {
+        errorData = await response.json();
+      } catch (e) {
+        errorData = {
+          message: `Network response was not ok: ${response.statusText}`,
+          statusCode: response.status,
+          code: 'FETCH_ERROR'
+        };
+      }
+      
+      // Log client-side fetch errors
+      errorLogger.logApiError(
+        errorData,
+        {
+          source: 'client-fetch',
+          request: {
+            method: 'GET',
+            path: url
+          },
+          tags: ['client', 'fetch', url.split('?')[0].split('/').pop() || 'unknown']
+        },
+        response.status >= 500 ? ErrorSeverity.ERROR : ErrorSeverity.WARNING
+      );
+      
+      throw errorData;
+    }
+    
+    return response.json();
+  } catch (error) {
+    if (!(error as ApiError).statusCode && !(error as ApiError).code) {
+      // Capture and format network errors
+      const networkError: ApiError = {
+        message: error instanceof Error ? error.message : 'Network request failed',
+        code: 'NETWORK_ERROR',
+        statusCode: 0,
+        details: { originalError: error }
+      };
+      
+      // Log network errors
+      errorLogger.logApiError(
+        networkError,
+        {
+          source: 'client-fetch',
+          request: {
+            method: 'GET',
+            path: url
+          },
+          tags: ['client', 'network', 'fetch']
+        },
+        ErrorSeverity.WARNING
+      );
+      
+      throw networkError;
+    }
+    
+    throw error;
+  }
+};
 
 /**
  * Hook to fetch hotels with filters
@@ -52,21 +135,39 @@ export function useHotels(options: {
     filter.destination = { _eq: destination };
   }
 
-  const { data, error, isLoading } = useSWR(
+  const { data, error, isLoading, mutate } = useSWR(
     `/api/hotels?limit=${limit}&offset=${offset}&filter=${JSON.stringify(filter)}`,
     fetcher,
     { 
       revalidateOnFocus: false,
       revalidateIfStale: false,
       revalidateOnReconnect: false,
-      refreshInterval: revalidate * 1000
+      refreshInterval: revalidate * 1000,
+      shouldRetryOnError: (error) => {
+        // Don't retry on 4xx errors, retry on 503 (circuit breaker) and other 5xx
+        const status = (error as ApiError)?.statusCode || 0;
+        return status >= 500 && status !== 503;
+      },
+      errorRetryCount: 3
     }
   );
 
+  // Handle specific error processing
+  if (error) {
+    const apiError = error as ApiError;
+    
+    // If circuit is open, log a more specific error
+    if (apiError.code === 'SERVICE_UNAVAILABLE') {
+      console.warn('Hotel service temporarily unavailable due to high error rate');
+    }
+  }
+
   return {
-    hotels: data,
+    hotels: data?.data || [],
     isLoading,
-    isError: error
+    isError: error,
+    error: error as ApiError | null,
+    mutate
   };
 }
 
@@ -74,21 +175,29 @@ export function useHotels(options: {
  * Hook to fetch a hotel by slug
  */
 export function useHotel(slug: string | undefined, revalidate = 60) {
-  const { data, error, isLoading } = useSWR(
+  const { data, error, isLoading, mutate } = useSWR(
     slug ? `/api/hotels/${slug}` : null,
     fetcher,
     {
       revalidateOnFocus: false,
       revalidateIfStale: false,
       revalidateOnReconnect: false,
-      refreshInterval: revalidate * 1000
+      refreshInterval: revalidate * 1000,
+      shouldRetryOnError: (error) => {
+        // Don't retry on 4xx errors, retry on other 5xx
+        const status = (error as ApiError)?.statusCode || 0;
+        return status >= 500 && status !== 503;
+      },
+      errorRetryCount: 2
     }
   );
 
   return {
-    hotel: data,
+    hotel: data?.data || null,
     isLoading,
-    isError: error
+    isError: error,
+    error: error as ApiError | null,
+    mutate
   };
 }
 
@@ -101,6 +210,7 @@ export function useDestinations(options: {
   featured?: boolean;
   popular?: boolean;
   categories?: string[];
+  region?: string;
   revalidate?: number;
 } = {}) {
   const { 
@@ -109,6 +219,7 @@ export function useDestinations(options: {
     featured, 
     popular,
     categories,
+    region,
     revalidate = 60 // 1 minute cache
   } = options;
 
@@ -126,22 +237,33 @@ export function useDestinations(options: {
   if (categories && categories.length > 0) {
     filter.categories = { _contains: categories };
   }
+  
+  if (region) {
+    filter.region = { _eq: region };
+  }
 
-  const { data, error, isLoading } = useSWR(
+  const { data, error, isLoading, mutate } = useSWR(
     `/api/destinations?limit=${limit}&offset=${offset}&filter=${JSON.stringify(filter)}`,
     fetcher,
     { 
       revalidateOnFocus: false,
       revalidateIfStale: false,
       revalidateOnReconnect: false,
-      refreshInterval: revalidate * 1000
+      refreshInterval: revalidate * 1000,
+      shouldRetryOnError: (error) => {
+        // Don't retry on 4xx errors, retry on other 5xx
+        const status = (error as ApiError)?.statusCode || 0;
+        return status >= 500 && status !== 503;
+      }
     }
   );
 
   return {
-    destinations: data,
+    destinations: data?.data || [],
     isLoading,
-    isError: error
+    isError: error,
+    error: error as ApiError | null,
+    mutate
   };
 }
 
@@ -149,21 +271,28 @@ export function useDestinations(options: {
  * Hook to fetch a destination by slug
  */
 export function useDestination(slug: string | undefined, revalidate = 60) {
-  const { data, error, isLoading } = useSWR(
+  const { data, error, isLoading, mutate } = useSWR(
     slug ? `/api/destinations/${slug}` : null,
     fetcher,
     {
       revalidateOnFocus: false,
       revalidateIfStale: false,
       revalidateOnReconnect: false,
-      refreshInterval: revalidate * 1000
+      refreshInterval: revalidate * 1000,
+      shouldRetryOnError: (error) => {
+        // Don't retry on 4xx errors, retry on other 5xx
+        const status = (error as ApiError)?.statusCode || 0;
+        return status >= 500 && status !== 503;
+      }
     }
   );
 
   return {
-    destination: data,
+    destination: data?.data || null,
     isLoading,
-    isError: error
+    isError: error,
+    error: error as ApiError | null,
+    mutate
   };
 }
 
@@ -190,21 +319,28 @@ export function useCategories(options: {
     queryString += `featured=${featured}&`;
   }
 
-  const { data, error, isLoading } = useSWR(
+  const { data, error, isLoading, mutate } = useSWR(
     queryString,
     fetcher,
     { 
       revalidateOnFocus: false,
       revalidateIfStale: false,
       revalidateOnReconnect: false,
-      refreshInterval: revalidate * 1000
+      refreshInterval: revalidate * 1000,
+      shouldRetryOnError: (error) => {
+        // Don't retry on 4xx errors, retry on other 5xx
+        const status = (error as ApiError)?.statusCode || 0;
+        return status >= 500 && status !== 503;
+      }
     }
   );
 
   return {
-    categories: data,
+    categories: data?.data || [],
     isLoading,
-    isError: error
+    isError: error,
+    error: error as ApiError | null,
+    mutate
   };
 }
 
@@ -212,21 +348,28 @@ export function useCategories(options: {
  * Hook to fetch a page by slug
  */
 export function usePage(slug: string | undefined, revalidate = 300) {
-  const { data, error, isLoading } = useSWR(
+  const { data, error, isLoading, mutate } = useSWR(
     slug ? `/api/pages/${slug}` : null,
     fetcher,
     {
       revalidateOnFocus: false,
       revalidateIfStale: false,
       revalidateOnReconnect: false,
-      refreshInterval: revalidate * 1000
+      refreshInterval: revalidate * 1000,
+      shouldRetryOnError: (error) => {
+        // Don't retry on 4xx errors, retry on other 5xx
+        const status = (error as ApiError)?.statusCode || 0;
+        return status >= 500 && status !== 503;
+      }
     }
   );
 
   return {
-    page: data,
+    page: data?.data || null,
     isLoading,
-    isError: error
+    isError: error,
+    error: error as ApiError | null,
+    mutate
   };
 }
 
@@ -234,20 +377,27 @@ export function usePage(slug: string | undefined, revalidate = 300) {
  * Hook to fetch navigation pages
  */
 export function useNavigation(revalidate = 3600) { // 1 hour cache
-  const { data, error, isLoading } = useSWR(
+  const { data, error, isLoading, mutate } = useSWR(
     '/api/navigation',
     fetcher,
     {
       revalidateOnFocus: false,
       revalidateIfStale: false,
       revalidateOnReconnect: false,
-      refreshInterval: revalidate * 1000
+      refreshInterval: revalidate * 1000,
+      shouldRetryOnError: (error) => {
+        // Don't retry on 4xx errors, retry on other 5xx
+        const status = (error as ApiError)?.statusCode || 0;
+        return status >= 500 && status !== 503;
+      }
     }
   );
 
   return {
-    navItems: data,
+    navItems: data?.data || [],
     isLoading,
-    isError: error
+    isError: error,
+    error: error as ApiError | null,
+    mutate
   };
 }

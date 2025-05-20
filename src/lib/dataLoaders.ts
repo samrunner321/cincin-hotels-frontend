@@ -65,10 +65,10 @@ export async function loadHotels(options: {
     const hotels = await getHotels({
       limit,
       filter,
-      fields: ['*', 'main_image.*', 'destination.id', 'destination.name', 'destination.slug'],
+      fields: ['*', 'main_image', 'destination'],
     });
 
-    return hotels;
+    return hotels as unknown as Hotel[];
   } catch (error) {
     console.error('Error loading hotels for static generation:', error);
     return [];
@@ -80,7 +80,7 @@ export async function loadHotels(options: {
  */
 export async function loadHotel(slug: string): Promise<Hotel | null> {
   try {
-    const hotel = await getHotelBySlug(slug);
+    const hotel = await getHotelBySlug(slug) as Hotel | null;
     return hotel;
   } catch (error) {
     console.error(`Error loading hotel ${slug} for static generation:`, error);
@@ -98,7 +98,7 @@ export async function loadHotelSlugs(): Promise<string[]> {
       limit: 1000, // Get all published hotels
     });
 
-    return hotels.map(hotel => hotel.slug);
+    return (hotels as unknown as Hotel[]).map(hotel => hotel.slug);
   } catch (error) {
     console.error('Error loading hotel slugs for static paths:', error);
     return [];
@@ -113,12 +113,14 @@ export async function loadDestinations(options: {
   featured?: boolean;
   popular?: boolean;
   categories?: string[];
+  region?: string;
 } = {}): Promise<Destination[]> {
   const {
     limit = 100,
     featured,
     popular,
     categories,
+    region,
   } = options;
 
   // Build filter object
@@ -135,15 +137,19 @@ export async function loadDestinations(options: {
   if (categories && categories.length > 0) {
     filter.categories = { _contains: categories };
   }
+  
+  if (region) {
+    filter.region = { _eq: region };
+  }
 
   try {
     const destinations = await getDestinations({
       limit,
       filter,
-      fields: ['*', 'main_image.*'],
+      fields: ['*', 'main_image'],
     });
 
-    return destinations;
+    return destinations as unknown as Destination[];
   } catch (error) {
     console.error('Error loading destinations for static generation:', error);
     return [];
@@ -155,14 +161,14 @@ export async function loadDestinations(options: {
  */
 export async function loadDestination(slug: string): Promise<Destination & { hotels: Hotel[] } | null> {
   try {
-    const destination = await getDestinationBySlug(slug);
+    const destination = await getDestinationBySlug(slug) as Destination | null;
     
     if (!destination) {
       return null;
     }
     
     // Get hotels for this destination
-    const hotels = await getHotelsByDestination(destination.id);
+    const hotels = await getHotelsByDestination(destination.id) as unknown as Hotel[];
     
     return {
       ...destination,
@@ -184,7 +190,7 @@ export async function loadDestinationSlugs(): Promise<string[]> {
       limit: 1000, // Get all published destinations
     });
 
-    return destinations.map(destination => destination.slug);
+    return (destinations as unknown as Destination[]).map(destination => destination.slug);
   } catch (error) {
     console.error('Error loading destination slugs for static paths:', error);
     return [];
@@ -202,7 +208,7 @@ export async function loadCategories(options: {
 
   try {
     const categories = await getCategories({ type, featured });
-    return categories;
+    return categories as unknown as Category[];
   } catch (error) {
     console.error('Error loading categories for static generation:', error);
     return [];
@@ -214,7 +220,7 @@ export async function loadCategories(options: {
  */
 export async function loadPage(slug: string): Promise<Page | null> {
   try {
-    const page = await getPageBySlug(slug);
+    const page = await getPageBySlug(slug) as Page | null;
     return page;
   } catch (error) {
     console.error(`Error loading page ${slug} for static generation:`, error);
@@ -227,7 +233,7 @@ export async function loadPage(slug: string): Promise<Page | null> {
  */
 export async function loadNavigation(): Promise<{ title: string; slug: string; id: string }[]> {
   try {
-    const navItems = await getNavigationPages();
+    const navItems = await getNavigationPages() as unknown as { title: string; slug: string; id: string }[];
     return navItems;
   } catch (error) {
     console.error('Error loading navigation for static generation:', error);

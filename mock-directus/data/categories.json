@@ -1,0 +1,66 @@
+[
+  {
+    "id": "1",
+    "name": "Luxury",
+    "slug": "luxury",
+    "type": "both",
+    "description": "Premium accommodations and destinations offering the highest level of service and amenities.",
+    "featured": true
+  },
+  {
+    "id": "2",
+    "name": "Beach",
+    "slug": "beach",
+    "type": "destination",
+    "description": "Beautiful coastal locations with stunning beaches and ocean views.",
+    "featured": true
+  },
+  {
+    "id": "3",
+    "name": "Mountain",
+    "slug": "mountain",
+    "type": "destination",
+    "description": "Spectacular mountain destinations perfect for outdoor activities and dramatic landscapes.",
+    "featured": true
+  },
+  {
+    "id": "4",
+    "name": "Cultural",
+    "slug": "cultural",
+    "type": "destination",
+    "description": "Destinations rich in history, art, and cultural experiences.",
+    "featured": true
+  },
+  {
+    "id": "5",
+    "name": "Culinary",
+    "slug": "culinary",
+    "type": "both",
+    "description": "Experiences focused on exceptional dining and local cuisines.",
+    "featured": false
+  },
+  {
+    "id": "6",
+    "name": "Wellness",
+    "slug": "wellness",
+    "type": "hotel",
+    "description": "Properties featuring exceptional spa and wellness facilities.",
+    "featured": true
+  },
+  {
+    "id": "7",
+    "name": "Family-Friendly",
+    "slug": "family-friendly",
+    "type": "both",
+    "description": "Accommodations and destinations perfect for family vacations.",
+    "featured": false
+  },
+  {
+    "id": "8",
+    "name": "Romantic",
+    "slug": "romantic",
+    "type": "both",
+    "description": "Ideal settings for couples and romantic getaways.",
+    "featured": true
+  }
+]

@@ -1,14 +1,15 @@
 /**
  * Translations helper functions
  */
+import { LanguageCode } from './i18n';
 
-interface Translation {
+export interface Translation {
   key: string;
   value: string;
 }
 
 // Create a mock translations object if API is not available
-export const mockTranslations = {
+export const mockTranslations: Partial<Record<LanguageCode, Record<string, string>>> = {
   'en-US': {
     'common.welcome': 'Welcome to CinCin Hotels',
     'common.explore': 'Explore our collection',

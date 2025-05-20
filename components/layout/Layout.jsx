@@ -1,13 +1,7 @@
 'use client';
 
-// Import von Navbar und Footer entfernt, da sie bereits im globalen Layout enthalten sind
+// Redirect file for backward compatibility
+// This file ensures that imports from the old path will still work
+import Layout from '../../src/components/layout/Layout.jsx'layout/Layout';
 
-export default function Layout({ children }) {
-  return (
-    <>
-      {/* Navbar wird im globalen Layout bereits gerendert */}
-      {children}
-      {/* Footer wird im globalen Layout bereits gerendert */}
-    </>
-  );
-}
+export default Layout;

@@ -1,28 +1,86 @@
 'use client';
 
-import Image from 'next/image';
+import { useState, useEffect } from 'react';
 import { getHotelImage } from '../hotels/HotelCard';
+import { useAssetManager } from '../common/AssetManager';
+import { ResponsiveDirectusImage } from '../common';
+import LoadingSpinner from '../common/LoadingSpinner';
 
 export default function DetailHeroBanner({ 
   hotelName = "Seezeitlodge Hotel & Spa", 
   location = "Gonnesweiler, Saarland, Germany", 
   description = "A lakeside wellness retreat with sustainable design and natural splendor.",
   backgroundImage = "/images/hotels/hotel-1.jpg",
-  slug
+  slug,
+  isRoomsPage = false
 }) {
+  const [isImageLoaded, setIsImageLoaded] = useState(false);
+  const { preloadAsset } = useAssetManager();
+  
+  // Determine the image source (Directus asset ID or static path)
+  const imageSource = typeof backgroundImage === 'string' && (
+    backgroundImage.startsWith('http') || 
+    backgroundImage.startsWith('/') || 
+    backgroundImage.includes('/')
+  ) ? backgroundImage : slug ? getHotelImage(slug, backgroundImage) : backgroundImage;
+  
+  // Check if the image is from Directus (just the asset ID)
+  const isDirectusImage = typeof backgroundImage === 'string' && 
+    !backgroundImage.startsWith('http') && 
+    !backgroundImage.startsWith('/') &&
+    !backgroundImage.includes('/');
+  
+  // Preload the next section images
+  useEffect(() => {
+    // If we're on rooms page, preload room images
+    if (isRoomsPage) {
+      // You would typically get these from your data, but for now let's preload some common images
+      preloadAsset('hotel-1.jpg');
+      preloadAsset('hotel-2.jpg');
+    } else {
+      // Preload overview and gallery section images
+      preloadAsset('hotel-2.jpg');
+      preloadAsset('hotel-3.jpg');
+    }
+  }, [isRoomsPage, preloadAsset]);
+  
+  // Handle image load complete
+  const handleImageLoaded = () => {
+    setIsImageLoaded(true);
+  };
+
   return (
     <section className="flex flex-col md:flex-row h-[68vh] w-full relative">
       {/* Hintergrund-Container der vollen Breite */}
       <div className="absolute inset-0 flex w-full h-full">
         {/* Linke Seite - Bild (55%) */}
-        <div className="relative w-[55%] h-full">
-          <Image
-            src={slug ? getHotelImage(slug, backgroundImage) : backgroundImage}
-            alt={hotelName}
-            fill
-            priority
-            className="object-cover"
-          />
+        <div className="relative w-[55%] h-full bg-gray-100">
+          {isDirectusImage ? (
+            <ResponsiveDirectusImage
+              fileId={backgroundImage}
+              alt={hotelName}
+              priority={true}
+              objectFit="cover"
+              showLoadingSpinner={true}
+              loadingSpinnerSize="large"
+              onLoad={handleImageLoaded}
+              className="w-full h-full"
+            />
+          ) : (
+            <div className="relative w-full h-full">
+              {!isImageLoaded && (
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <LoadingSpinner size="large" color="olive" />
+                </div>
+              )}
+              <img
+                src={imageSource}
+                alt={hotelName}
+                className={`w-full h-full object-cover transition-opacity duration-500 ${isImageLoaded ? 'opacity-100' : 'opacity-0'}`}
+                onLoad={handleImageLoaded}
+              />
+            </div>
+          )}
         </div>
         
         {/* Rechte Seite - Farbiger Hintergrund (45%) */}
@@ -45,7 +103,7 @@ export default function DetailHeroBanner({
               className="inline-flex items-center text-white hover:text-gray-200"
               onClick={(e) => {
                 e.preventDefault();
-                document.getElementById('overview').scrollIntoView({ behavior: 'smooth' });
+                document.getElementById('overview')?.scrollIntoView({ behavior: 'smooth' });
               }}
             >
               <span>show more</span>

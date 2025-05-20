@@ -1,5 +1,5 @@
 
-import MembershipForm from '../../components/forms/MembershipForm';
+import MembershipForm from '../../src/components/forms/MembershipForm';
 
 export const metadata = {
   title: 'Become a Member | CinCin Hotels',

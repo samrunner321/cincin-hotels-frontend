@@ -1,6 +1,6 @@
-import PageHero from '../../components/common/PageHero';
-import ContentBlock from '../../components/common/ContentBlock';
-import ContactForm from '../../components/forms/ContactForm';
+import PageHero from '../../src/components/common/PageHero';
+import ContentBlock from '../../src/components/common/ContentBlock';
+import ClientContactForm from '../../src/components/forms/ClientContactForm';
 
 export const metadata = {
   title: 'Contact | CinCin Hotels',
@@ -52,7 +52,7 @@ export default function ContactPage() {
           </div>
           
           <div>
-            <ContactForm />
+            <ClientContactForm />
           </div>
         </div>
       </ContentBlock>

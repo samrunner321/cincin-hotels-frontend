@@ -1,0 +1,463 @@
+import { rest } from 'msw';
+
+// Importiere Mock-Daten
+import { mockHotels } from './data/hotels';
+import { mockDestinations } from './data/destinations';
+import { mockCategories } from './data/categories';
+import { mockRooms } from './data/rooms';
+import { mockPages } from './data/pages';
+import { mockTranslations } from './data/translations';
+
+// Base URL für Directus API
+const DIRECTUS_URL = process.env.NEXT_PUBLIC_DIRECTUS_URL || 'http://localhost:8055';
+
+/**
+ * Helfer-Funktion zur Filterung von Daten basierend auf Query-Parametern
+ * Einfache Version, die die wichtigsten Directus-Filter unterstützt
+ */
+function applyFilters(data, filters) {
+  if (!filters) return data;
+  
+  return data.filter(item => {
+    // Prüfe jeden Filter
+    for (const [key, value] of Object.entries(filters)) {
+      // Überspringe leere Filter
+      if (!value) continue;
+      
+      // Unterstützte Operatoren: _eq, _in, _gt, _lt, _null
+      if (typeof value === 'object') {
+        const operator = Object.keys(value)[0];
+        const filterValue = value[operator];
+        
+        switch (operator) {
+          case '_eq':
+            if (item[key] !== filterValue) return false;
+            break;
+          case '_neq':
+            if (item[key] === filterValue) return false;
+            break;
+          case '_in':
+            if (!Array.isArray(filterValue) || !filterValue.includes(item[key])) return false;
+            break;
+          case '_gt':
+            if (!(item[key] > filterValue)) return false;
+            break;
+          case '_lt':
+            if (!(item[key] < filterValue)) return false;
+            break;
+          case '_null':
+            const isNull = item[key] === null || item[key] === undefined;
+            if (filterValue && !isNull) return false;
+            if (!filterValue && isNull) return false;
+            break;
+          default:
+            // Unbekannter Operator
+            console.warn(`Unbekannter Filter-Operator: ${operator}`);
+        }
+      } else {
+        // Einfacher Gleichheitsfilter
+        if (item[key] !== value) return false;
+      }
+    }
+    
+    return true;
+  });
+}
+
+/**
+ * Helfer-Funktion zum Anwenden von Sortierung
+ */
+function applySorting(data, sort) {
+  if (!sort || !Array.isArray(sort) || sort.length === 0) return [...data];
+  
+  const sortedData = [...data];
+  
+  sortedData.sort((a, b) => {
+    // Durchlaufe alle Sortierkriterien
+    for (const criteria of sort) {
+      const isDesc = criteria.startsWith('-');
+      const field = isDesc ? criteria.substring(1) : criteria;
+      
+      if (a[field] < b[field]) return isDesc ? 1 : -1;
+      if (a[field] > b[field]) return isDesc ? -1 : 1;
+    }
+    
+    return 0;
+  });
+  
+  return sortedData;
+}
+
+/**
+ * Helfer-Funktion zum Extrahieren von Parametern aus der URL
+ */
+function extractParams(url) {
+  const searchParams = new URL(url).searchParams;
+  
+  // Extrahiere Pagination
+  const limit = parseInt(searchParams.get('limit')) || 100;
+  const offset = parseInt(searchParams.get('offset')) || 0;
+  
+  // Extrahiere Sortierung
+  const sort = searchParams.get('sort')?.split(',') || ['-date_created'];
+  
+  // Extrahiere Filter
+  let filter = {};
+  const filterParam = searchParams.get('filter');
+  if (filterParam) {
+    try {
+      filter = JSON.parse(filterParam);
+    } catch (error) {
+      console.error('Fehler beim Parsen des Filters:', error);
+    }
+  }
+  
+  // Extrahiere zusätzliche Parameter
+  const fields = searchParams.get('fields')?.split(',');
+  
+  return { limit, offset, sort, filter, fields };
+}
+
+/**
+ * Verzögert die Antwort um eine zufällige Zeit (für Simulationen)
+ */
+async function simulateNetworkDelay(minMs = 10, maxMs = 200) {
+  const delayMs = Math.floor(Math.random() * (maxMs - minMs + 1)) + minMs;
+  await delay(delayMs);
+}
+
+/**
+ * Handler für Directus API
+ */
+export const directusHandlers = [
+  // Hotels Endpunkte
+  rest.get(`${DIRECTUS_URL}/items/hotels`, async ({ request }) => {
+    await simulateNetworkDelay();
+    
+    const { limit, offset, sort, filter } = extractParams(request.url);
+    
+    // Filter und sortiere die Daten
+    let filteredData = applyFilters(mockHotels, filter);
+    filteredData = applySorting(filteredData, sort);
+    
+    // Paginierung anwenden
+    const paginatedData = filteredData.slice(offset, offset + limit);
+    
+    return res(ctx.json(paginatedData, { status: 200 });
+  }),
+  
+  // Hotel by ID Endpunkt
+  rest.get(`${DIRECTUS_URL}/items/hotels/:id`, async ({ params }) => {
+    await simulateNetworkDelay();
+    
+    const { id } = params;
+    const hotel = mockHotels.find(hotel => hotel.id === id || hotel.slug === id);
+    
+    if (hotel) {
+      return res(ctx.json(hotel, { status: 200 });
+    }
+    
+    return new HttpResponse(null, { status: 404 });
+  }),
+  
+  // Destinations Endpunkte
+  rest.get(`${DIRECTUS_URL}/items/destinations`, async ({ request }) => {
+    await simulateNetworkDelay();
+    
+    const { limit, offset, sort, filter } = extractParams(request.url);
+    
+    // Filter und sortiere die Daten
+    let filteredData = applyFilters(mockDestinations, filter);
+    filteredData = applySorting(filteredData, sort);
+    
+    // Paginierung anwenden
+    const paginatedData = filteredData.slice(offset, offset + limit);
+    
+    return res(ctx.json(paginatedData, { status: 200 });
+  }),
+  
+  // Destination by ID Endpunkt
+  rest.get(`${DIRECTUS_URL}/items/destinations/:id`, async ({ params }) => {
+    await simulateNetworkDelay();
+    
+    const { id } = params;
+    const destination = mockDestinations.find(destination => destination.id === id || destination.slug === id);
+    
+    if (destination) {
+      return res(ctx.json(destination, { status: 200 });
+    }
+    
+    return new HttpResponse(null, { status: 404 });
+  }),
+  
+  // Categories Endpunkte
+  rest.get(`${DIRECTUS_URL}/items/categories`, async ({ request }) => {
+    await simulateNetworkDelay();
+    
+    const { limit, offset, sort, filter } = extractParams(request.url);
+    
+    // Filter und sortiere die Daten
+    let filteredData = applyFilters(mockCategories, filter);
+    filteredData = applySorting(filteredData, sort);
+    
+    // Paginierung anwenden
+    const paginatedData = filteredData.slice(offset, offset + limit);
+    
+    return res(ctx.json(paginatedData, { status: 200 });
+  }),
+  
+  // Rooms Endpunkte
+  rest.get(`${DIRECTUS_URL}/items/rooms`, async ({ request }) => {
+    await simulateNetworkDelay();
+    
+    const { limit, offset, sort, filter } = extractParams(request.url);
+    
+    // Filter und sortiere die Daten
+    let filteredData = applyFilters(mockRooms, filter);
+    filteredData = applySorting(filteredData, sort);
+    
+    // Paginierung anwenden
+    const paginatedData = filteredData.slice(offset, offset + limit);
+    
+    return res(ctx.json(paginatedData, { status: 200 });
+  }),
+  
+  // Pages Endpunkte
+  rest.get(`${DIRECTUS_URL}/items/pages`, async ({ request }) => {
+    await simulateNetworkDelay();
+    
+    const { limit, offset, sort, filter } = extractParams(request.url);
+    
+    // Filter und sortiere die Daten
+    let filteredData = applyFilters(mockPages, filter);
+    filteredData = applySorting(filteredData, sort);
+    
+    // Paginierung anwenden
+    const paginatedData = filteredData.slice(offset, offset + limit);
+    
+    return res(ctx.json(paginatedData, { status: 200 });
+  }),
+  
+  // Page by ID/Slug Endpunkt
+  rest.get(`${DIRECTUS_URL}/items/pages/:id`, async ({ params }) => {
+    await simulateNetworkDelay();
+    
+    const { id } = params;
+    const page = mockPages.find(page => page.id === id || page.slug === id);
+    
+    if (page) {
+      return res(ctx.json(page, { status: 200 });
+    }
+    
+    return new HttpResponse(null, { status: 404 });
+  }),
+  
+  // Translations Endpunkte
+  rest.get(`${DIRECTUS_URL}/items/translations`, async ({ request }) => {
+    await simulateNetworkDelay();
+    
+    const { limit, offset, sort, filter } = extractParams(request.url);
+    
+    // Filter und sortiere die Daten
+    let filteredData = applyFilters(mockTranslations, filter);
+    filteredData = applySorting(filteredData, sort);
+    
+    // Paginierung anwenden
+    const paginatedData = filteredData.slice(offset, offset + limit);
+    
+    return res(ctx.json(paginatedData, { status: 200 });
+  }),
+  
+  // Fehlerszenarien
+  rest.get(`${DIRECTUS_URL}/items/error`, async () => {
+    return new HttpResponse(
+      JSON.stringify({ message: 'Internal Server Error' }), 
+      { status: 500 }
+    );
+  }),
+  
+  // Timeout Szenario
+  rest.get(`${DIRECTUS_URL}/items/timeout`, async () => {
+    await delay(5000); // Langer Delay
+    return res(ctx.json({ message: 'This response was delayed' });
+  }),
+];
+
+/**
+ * Handler für eigene API-Routen
+ */
+export const nextApiHandlers = [
+  // Hotels API
+  rest.get('/api/hotels', async ({ request }) => {
+    await simulateNetworkDelay();
+    
+    const url = new URL(request.url);
+    const limit = parseInt(url.searchParams.get('limit') || '100');
+    const offset = parseInt(url.searchParams.get('offset') || '0');
+    const filterParam = url.searchParams.get('filter');
+    
+    let filter = { status: { _eq: 'published' } };
+    if (filterParam) {
+      try {
+        filter = JSON.parse(filterParam);
+      } catch (e) {
+        console.error('Fehler beim Parsen des Filter-Parameters:', e);
+      }
+    }
+    
+    // Filter und sortiere die Daten
+    let filteredData = applyFilters(mockHotels, filter);
+    
+    // Paginierung anwenden
+    const paginatedData = filteredData.slice(offset, offset + limit);
+    
+    return res(ctx.json(paginatedData, { status: 200 });
+  }),
+  
+  // Hotel by Slug API
+  rest.get('/api/hotels/:slug', async ({ params }) => {
+    await simulateNetworkDelay();
+    
+    const { slug } = params;
+    const hotel = mockHotels.find(hotel => hotel.slug === slug && hotel.status === 'published');
+    
+    if (hotel) {
+      return res(ctx.json(hotel, { status: 200 });
+    }
+    
+    return new HttpResponse(
+      JSON.stringify({ error: 'Hotel not found' }), 
+      { status: 404 }
+    );
+  }),
+  
+  // Destinations API
+  rest.get('/api/destinations', async ({ request }) => {
+    await simulateNetworkDelay();
+    
+    const url = new URL(request.url);
+    const limit = parseInt(url.searchParams.get('limit') || '100');
+    const offset = parseInt(url.searchParams.get('offset') || '0');
+    const filterParam = url.searchParams.get('filter');
+    const region = url.searchParams.get('region');
+    
+    // Filter erstellen
+    let filter = { status: { _eq: 'published' } };
+    if (filterParam) {
+      try {
+        filter = JSON.parse(filterParam);
+      } catch (e) {
+        console.error('Fehler beim Parsen des Filter-Parameters:', e);
+      }
+    }
+    
+    // Region-Filter hinzufügen, wenn vorhanden
+    if (region && !filter.region) {
+      filter.region = { _eq: region };
+    }
+    
+    // Filter und sortiere die Daten
+    let filteredData = applyFilters(mockDestinations, filter);
+    
+    // Paginierung anwenden
+    const paginatedData = filteredData.slice(offset, offset + limit);
+    
+    return res(ctx.json(paginatedData, { status: 200 });
+  }),
+  
+  // Destination by Slug API
+  rest.get('/api/destinations/:slug', async ({ params }) => {
+    await simulateNetworkDelay();
+    
+    const { slug } = params;
+    const destination = mockDestinations.find(
+      destination => destination.slug === slug && destination.status === 'published'
+    );
+    
+    if (destination) {
+      return res(ctx.json(destination, { status: 200 });
+    }
+    
+    return new HttpResponse(
+      JSON.stringify({ error: 'Destination not found' }), 
+      { status: 404 }
+    );
+  }),
+  
+  // Categories API
+  rest.get('/api/categories', async () => {
+    await simulateNetworkDelay();
+    
+    return res(ctx.json(mockCategories, { status: 200 });
+  }),
+  
+  // Rooms by Hotel API
+  rest.get('/api/rooms/:hotelId', async ({ params }) => {
+    await simulateNetworkDelay();
+    
+    const { hotelId } = params;
+    const rooms = mockRooms.filter(
+      room => room.hotel === hotelId && room.status === 'published'
+    );
+    
+    return res(ctx.json(rooms, { status: 200 });
+  }),
+  
+  // Pages API
+  rest.get('/api/pages/:slug', async ({ params }) => {
+    await simulateNetworkDelay();
+    
+    const { slug } = params;
+    const page = mockPages.find(
+      page => page.slug === slug && page.status === 'published'
+    );
+    
+    if (page) {
+      return res(ctx.json(page, { status: 200 });
+    }
+    
+    return new HttpResponse(
+      JSON.stringify({ error: 'Page not found' }), 
+      { status: 404 }
+    );
+  }),
+  
+  // Translations API
+  rest.get('/api/translations', async ({ request }) => {
+    await simulateNetworkDelay();
+    
+    const url = new URL(request.url);
+    const language = url.searchParams.get('language') || 'en-US';
+    
+    // Filtern nach Sprache
+    const translations = mockTranslations.filter(t => t.language === language);
+    
+    // In ein Key-Value-Format umwandeln
+    const translationsObject = {};
+    translations.forEach(t => {
+      translationsObject[t.key] = t.value;
+    });
+    
+    return res(ctx.json(translationsObject, { status: 200 });
+  }),
+  
+  // Fehlerszenarien API
+  rest.get('/api/error', async () => {
+    return new HttpResponse(
+      JSON.stringify({ error: 'Internal Server Error' }), 
+      { status: 500 }
+    );
+  }),
+  
+  // Timeout Szenario API
+  rest.get('/api/timeout', async () => {
+    await delay(5000); // Langer Delay
+    return res(ctx.json({ message: 'This response was delayed' });
+  }),
+];
+
+// Alle Handler kombinieren
+export const handlers = [
+  ...directusHandlers,
+  ...nextApiHandlers,
+];

@@ -1,0 +1,50 @@
+[
+  {
+    "id": "1a2b3c4d-5e6f-7g8h-9i0j-1k2l3m4n5o6p",
+    "status": "published",
+    "name": "Grand Hotel Convento di Amalfi",
+    "slug": "grand-hotel-convento-di-amalfi",
+    "subtitle": "A historic monastery transformed into a luxury cliff-side retreat",
+    "location": "Amalfi",
+    "region": "mediterranean",
+    "short_description": "Perched on a cliff 80 meters above sea level, this luxury hotel combines 12th-century architecture with modern comforts and breathtaking views.",
+    "main_image": "convento-amalfi.jpg",
+    "price_from": 450,
+    "currency": "EUR",
+    "star_rating": 5,
+    "destination": "da8192c5-f28f-4f11-98de-37ca1e729a5a",
+    "is_featured": true
+  },
+  {
+    "id": "2b3c4d5e-6f7g-8h9i-0j1k-2l3m4n5o6p7q",
+    "status": "published",
+    "name": "The Alpina Gstaad",
+    "slug": "alpina-gstaad",
+    "subtitle": "Contemporary Swiss luxury with alpine soul",
+    "location": "Gstaad",
+    "region": "alps",
+    "short_description": "This five-star mountain retreat blends traditional Swiss architecture with contemporary style, offering exceptional amenities including a world-class spa and Michelin-starred dining.",
+    "main_image": "alpina-gstaad.jpg",
+    "price_from": 850,
+    "currency": "CHF",
+    "star_rating": 5,
+    "destination": "7b824242-1ab8-46a1-8e07-7f96c6a6b383",
+    "is_featured": true
+  },
+  {
+    "id": "3c4d5e6f-7g8h-9i0j-1k2l-3m4n5o6p7q8r",
+    "status": "published",
+    "name": "Hotel Arts Barcelona",
+    "slug": "hotel-arts-barcelona",
+    "subtitle": "Modern luxury overlooking the Mediterranean",
+    "location": "Barcelona",
+    "region": "mediterranean",
+    "short_description": "This iconic 44-story skyscraper offers luxurious accommodations with stunning sea views, an outdoor pool, and a two-Michelin-star restaurant.",
+    "main_image": "hotel-arts-barcelona.jpg",
+    "price_from": 380,
+    "currency": "EUR",
+    "star_rating": 5,
+    "destination": "5c8f8e9a-3e7d-4cbd-b22c-15b5c6de9b72",
+    "is_featured": false
+  }
+]

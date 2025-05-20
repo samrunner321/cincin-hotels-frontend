@@ -1,0 +1,36 @@
+.contactFormWrapper {
+  width: 100%;
+  max-width: 32rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.formHeader {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.formTitle {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #1f2937;
+  margin-bottom: 0.5rem;
+}
+
+.formDescription {
+  font-size: 0.875rem;
+  color: #6b7280;
+  line-height: 1.5;
+}
+
+.contactForm {
+  /* Zusätzliche Stile für das Kontaktformular */
+}
+
+/* Responsives Design */
+@media (max-width: 640px) {
+  .contactFormWrapper {
+    max-width: 100%;
+    padding: 0 1rem;
+  }
+}

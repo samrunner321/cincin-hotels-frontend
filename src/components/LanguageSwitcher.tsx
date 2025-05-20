@@ -1,13 +1,11 @@
 'use client';
 
 import { useState } from 'react';
-import { useRouter } from 'next/navigation';
-import { LANGUAGES, LanguageCode } from '@/lib/i18n';
+import { LANGUAGES, LanguageCode } from '../lib/i18n';
 import { useTranslations } from './TranslationsContext';
 
 export default function LanguageSwitcher() {
   const [isOpen, setIsOpen] = useState(false);
-  const router = useRouter();
   const { language, setLanguage } = useTranslations();
   const currentLang = LANGUAGES[language];
 
@@ -65,16 +63,16 @@ export default function LanguageSwitcher() {
 
       {isOpen && (
         <div className="absolute right-0 mt-2 py-2 w-48 bg-white rounded-md shadow-lg z-20">
-          {Object.entries(LANGUAGES).map(([code, language]) => (
+          {Object.entries(LANGUAGES).map(([langCode, langInfo]) => (
             <button
-              key={code}
+              key={langCode}
               className={`w-full text-left px-4 py-2 hover:bg-gray-100 ${
-                currentLanguage === code ? 'bg-gray-50 font-medium' : ''
+                langCode === language ? 'bg-gray-50 font-medium' : ''
               }`}
-              onClick={() => handleLanguageChange(code as LanguageCode)}
+              onClick={() => handleLanguageChange(langCode as LanguageCode)}
             >
-              <span className="mr-2">{language.flag}</span>
-              {language.name}
+              <span className="mr-2">{langInfo.flag}</span>
+              {langInfo.name}
             </button>
           ))}
         </div>

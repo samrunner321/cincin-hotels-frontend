@@ -1,0 +1,175 @@
+{
+  "timestamp": "2025-05-20T10:22:25.167Z",
+  "batchId": 5,
+  "componentCount": 33,
+  "completedCount": 33,
+  "currentIndex": 32,
+  "nextIndex": 33,
+  "results": [
+    {
+      "name": "journal_post",
+      "success": true,
+      "duration": 1881
+    },
+    {
+      "name": "TravelContent",
+      "success": true,
+      "duration": 1889
+    },
+    {
+      "name": "RelatedHotelsSection",
+      "success": true,
+      "duration": 1919
+    },
+    {
+      "name": "JournalPostHero",
+      "success": true,
+      "duration": 1935
+    },
+    {
+      "name": "JournalPostContent",
+      "success": true,
+      "duration": 1911
+    },
+    {
+      "name": "ArticleInfo",
+      "success": true,
+      "duration": 1925
+    },
+    {
+      "name": "Hero",
+      "success": true,
+      "duration": 1987
+    },
+    {
+      "name": "hotels",
+      "success": true,
+      "duration": 1841
+    },
+    {
+      "name": "ViewSwitcher",
+      "success": true,
+      "duration": 1925
+    },
+    {
+      "name": "ImprovedCategoryButton",
+      "success": true,
+      "duration": 1923
+    },
+    {
+      "name": "HotelModal",
+      "success": true,
+      "duration": 676
+    },
+    {
+      "name": "HotelList",
+      "success": true,
+      "duration": 1880
+    },
+    {
+      "name": "HotelFilters",
+      "success": true,
+      "duration": 679
+    },
+    {
+      "name": "HotelCard",
+      "success": true,
+      "duration": 1890
+    },
+    {
+      "name": "Hero",
+      "success": true,
+      "duration": 2015
+    },
+    {
+      "name": "Filters",
+      "success": true,
+      "duration": 1895
+    },
+    {
+      "name": "FilterModal",
+      "success": true,
+      "duration": 1874
+    },
+    {
+      "name": "CategoryButton",
+      "success": true,
+      "duration": 1886
+    },
+    {
+      "name": "AnimatedHotelEntry",
+      "success": true,
+      "duration": 1932
+    },
+    {
+      "name": "hotel-detail",
+      "success": true,
+      "duration": 1900
+    },
+    {
+      "name": "RoomCard",
+      "success": true,
+      "duration": 694
+    },
+    {
+      "name": "FeatureItem",
+      "success": true,
+      "duration": 1883
+    },
+    {
+      "name": "WorldMapSection",
+      "success": true,
+      "duration": 1917
+    },
+    {
+      "name": "HotelCategories",
+      "success": true,
+      "duration": 1894
+    },
+    {
+      "name": "DiscoverDestinations",
+      "success": true,
+      "duration": 1892
+    },
+    {
+      "name": "DestinationCategories",
+      "success": true,
+      "duration": 1939
+    },
+    {
+      "name": "Hero",
+      "success": true,
+      "duration": 1928
+    },
+    {
+      "name": "DestinationHeader",
+      "success": true,
+      "duration": 1958
+    },
+    {
+      "name": "common",
+      "success": true,
+      "duration": 1866
+    },
+    {
+      "name": "PageHero",
+      "success": true,
+      "duration": 1974
+    },
+    {
+      "name": "LoadingSpinner",
+      "success": true,
+      "duration": 1890
+    },
+    {
+      "name": "ContentBlock",
+      "success": true,
+      "duration": 1871
+    },
+    {
+      "name": "AssetPreloader",
+      "success": true,
+      "duration": 1919
+    }
+  ]
+}

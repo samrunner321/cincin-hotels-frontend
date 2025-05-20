@@ -1,0 +1,932 @@
+[
+  {
+    "name": "Batch 1: Base Components",
+    "description": "Foundation components with minimum dependencies",
+    "components": [],
+    "id": 1,
+    "componentCount": 0,
+    "averageComplexity": 0,
+    "estimatedEffort": 0
+  },
+  {
+    "name": "Batch 2: UI Components",
+    "description": "Common UI elements and utilities",
+    "components": [],
+    "id": 2,
+    "componentCount": 0,
+    "averageComplexity": 0,
+    "estimatedEffort": 0
+  },
+  {
+    "name": "Batch 3: Form and Layout Components",
+    "description": "Form elements, layouts, and structural components",
+    "components": [
+      {
+        "name": "Navbar",
+        "path": "components/layout/Navbar.jsx",
+        "complexity": 2,
+        "complexityLevel": "low",
+        "category": "layout",
+        "dependencyCount": 1,
+        "usedByCount": 1
+      },
+      {
+        "name": "MobileMenu",
+        "path": "components/layout/MobileMenu.jsx",
+        "complexity": 3,
+        "complexityLevel": "low",
+        "category": "layout",
+        "dependencyCount": 1,
+        "usedByCount": 1
+      },
+      {
+        "name": "Layout",
+        "path": "components/layout/Layout.jsx",
+        "complexity": 2,
+        "complexityLevel": "low",
+        "category": "layout",
+        "dependencyCount": 1,
+        "usedByCount": 1
+      },
+      {
+        "name": "Footer",
+        "path": "components/layout/Footer.jsx",
+        "complexity": 2,
+        "complexityLevel": "low",
+        "category": "layout",
+        "dependencyCount": 1,
+        "usedByCount": 1
+      },
+      {
+        "name": "MembershipHero",
+        "path": "components/forms/MembershipHero.jsx",
+        "complexity": 22,
+        "complexityLevel": "medium",
+        "category": "form",
+        "dependencyCount": 0,
+        "usedByCount": 0
+      },
+      {
+        "name": "MembershipBenefits",
+        "path": "components/forms/MembershipBenefits.jsx",
+        "complexity": 30,
+        "complexityLevel": "medium",
+        "category": "form",
+        "dependencyCount": 0,
+        "usedByCount": 0
+      },
+      {
+        "name": "ContactForm",
+        "path": "components/forms/ContactForm.jsx",
+        "complexity": 4,
+        "complexityLevel": "low",
+        "category": "form",
+        "dependencyCount": 1,
+        "usedByCount": 0
+      }
+    ],
+    "id": 3,
+    "componentCount": 7,
+    "averageComplexity": 9,
+    "estimatedEffort": 6.3
+  },
+  {
+    "name": "Batch 4: Feature Components (Medium)",
+    "description": "Medium complexity feature components",
+    "components": [],
+    "id": 4,
+    "componentCount": 0,
+    "averageComplexity": 0,
+    "estimatedEffort": 0
+  },
+  {
+    "name": "Batch 5: Complex Feature Components",
+    "description": "High complexity feature components",
+    "components": [
+      {
+        "name": "journal_post",
+        "path": "components/journal_post/index.js",
+        "complexity": 4,
+        "complexityLevel": "low",
+        "category": "other",
+        "dependencyCount": 0,
+        "usedByCount": 0
+      },
+      {
+        "name": "TravelContent",
+        "path": "components/journal_post/TravelContent.jsx",
+        "complexity": 24,
+        "complexityLevel": "medium",
+        "category": "other",
+        "dependencyCount": 0,
+        "usedByCount": 0
+      },
+      {
+        "name": "RelatedHotelsSection",
+        "path": "components/journal_post/RelatedHotelsSection.jsx",
+        "complexity": 14,
+        "complexityLevel": "low",
+        "category": "other",
+        "dependencyCount": 1,
+        "usedByCount": 0
+      },
+      {
+        "name": "JournalPostHero",
+        "path": "components/journal_post/JournalPostHero.jsx",
+        "complexity": 24,
+        "complexityLevel": "medium",
+        "category": "other",
+        "dependencyCount": 0,
+        "usedByCount": 0
+      },
+      {
+        "name": "JournalPostContent",
+        "path": "components/journal_post/JournalPostContent.jsx",
+        "complexity": 32,
+        "complexityLevel": "medium",
+        "category": "other",
+        "dependencyCount": 5,
+        "usedByCount": 0
+      },
+      {
+        "name": "ArticleInfo",
+        "path": "components/journal_post/ArticleInfo.jsx",
+        "complexity": 21,
+        "complexityLevel": "medium",
+        "category": "other",
+        "dependencyCount": 0,
+        "usedByCount": 0
+      },
+      {
+        "name": "Hero",
+        "path": "components/journal/Hero.jsx",
+        "complexity": 37,
+        "complexityLevel": "medium",
+        "category": "other",
+        "dependencyCount": 0,
+        "usedByCount": 0
+      },
+      {
+        "name": "hotels",
+        "path": "components/hotels/index.js",
+        "complexity": 5,
+        "complexityLevel": "low",
+        "category": "other",
+        "dependencyCount": 0,
+        "usedByCount": 0
+      },
+      {
+        "name": "ViewSwitcher",
+        "path": "components/hotels/ViewSwitcher.jsx",
+        "complexity": 2,
+        "complexityLevel": "low",
+        "category": "other",
+        "dependencyCount": 0,
+        "usedByCount": 0
+      },
+      {
+        "name": "ImprovedCategoryButton",
+        "path": "components/hotels/ImprovedCategoryButton.jsx",
+        "complexity": 18,
+        "complexityLevel": "low",
+        "category": "other",
+        "dependencyCount": 0,
+        "usedByCount": 0
+      },
+      {
+        "name": "HotelModal",
+        "path": "components/hotels/HotelModal.jsx",
+        "complexity": 3,
+        "complexityLevel": "low",
+        "category": "other",
+        "dependencyCount": 0,
+        "usedByCount": 0
+      },
+      {
+        "name": "HotelList",
+        "path": "components/hotels/HotelList.js",
+        "complexity": 2,
+        "complexityLevel": "low",
+        "category": "other",
+        "dependencyCount": 0,
+        "usedByCount": 0
+      },
+      {
+        "name": "HotelFilters",
+        "path": "components/hotels/HotelFilters.jsx",
+        "complexity": 2,
+        "complexityLevel": "low",
+        "category": "other",
+        "dependencyCount": 0,
+        "usedByCount": 0
+      },
+      {
+        "name": "HotelCard",
+        "path": "components/hotels/HotelCard.js",
+        "complexity": 7,
+        "complexityLevel": "low",
+        "category": "other",
+        "dependencyCount": 0,
+        "usedByCount": 0
+      },
+      {
+        "name": "Hero",
+        "path": "components/hotels/Hero.jsx",
+        "complexity": 30,
+        "complexityLevel": "medium",
+        "category": "other",
+        "dependencyCount": 0,
+        "usedByCount": 0
+      },
+      {
+        "name": "Filters",
+        "path": "components/hotels/Filters.js",
+        "complexity": 2,
+        "complexityLevel": "low",
+        "category": "other",
+        "dependencyCount": 0,
+        "usedByCount": 0
+      },
+      {
+        "name": "FilterModal",
+        "path": "components/hotels/FilterModal.js",
+        "complexity": 2,
+        "complexityLevel": "low",
+        "category": "other",
+        "dependencyCount": 0,
+        "usedByCount": 0
+      },
+      {
+        "name": "CategoryButton",
+        "path": "components/hotels/CategoryButton.js",
+        "complexity": 2,
+        "complexityLevel": "low",
+        "category": "other",
+        "dependencyCount": 0,
+        "usedByCount": 0
+      },
+      {
+        "name": "AnimatedHotelEntry",
+        "path": "components/hotels/AnimatedHotelEntry.jsx",
+        "complexity": 15,
+        "complexityLevel": "low",
+        "category": "other",
+        "dependencyCount": 0,
+        "usedByCount": 0
+      },
+      {
+        "name": "hotel-detail",
+        "path": "components/hotel-detail/index.js",
+        "complexity": 8,
+        "complexityLevel": "low",
+        "category": "other",
+        "dependencyCount": 0,
+        "usedByCount": 0
+      },
+      {
+        "name": "RoomCard",
+        "path": "components/hotel-detail/RoomCard.js",
+        "complexity": 17,
+        "complexityLevel": "low",
+        "category": "other",
+        "dependencyCount": 0,
+        "usedByCount": 0
+      },
+      {
+        "name": "FeatureItem",
+        "path": "components/hotel-detail/FeatureItem.js",
+        "complexity": 2,
+        "complexityLevel": "low",
+        "category": "other",
+        "dependencyCount": 0,
+        "usedByCount": 0
+      },
+      {
+        "name": "WorldMapSection",
+        "path": "components/home/WorldMapSection.jsx",
+        "complexity": 30,
+        "complexityLevel": "medium",
+        "category": "other",
+        "dependencyCount": 0,
+        "usedByCount": 0
+      },
+      {
+        "name": "HotelCategories",
+        "path": "components/home/HotelCategories.jsx",
+        "complexity": 24,
+        "complexityLevel": "medium",
+        "category": "other",
+        "dependencyCount": 0,
+        "usedByCount": 0
+      },
+      {
+        "name": "DiscoverDestinations",
+        "path": "components/home/DiscoverDestinations.jsx",
+        "complexity": 6,
+        "complexityLevel": "low",
+        "category": "other",
+        "dependencyCount": 0,
+        "usedByCount": 0
+      },
+      {
+        "name": "DestinationCategories",
+        "path": "components/home/DestinationCategories.jsx",
+        "complexity": 23,
+        "complexityLevel": "medium",
+        "category": "other",
+        "dependencyCount": 0,
+        "usedByCount": 0
+      },
+      {
+        "name": "Hero",
+        "path": "components/destinations/Hero.jsx",
+        "complexity": 23,
+        "complexityLevel": "medium",
+        "category": "other",
+        "dependencyCount": 0,
+        "usedByCount": 0
+      },
+      {
+        "name": "DestinationHeader",
+        "path": "components/destinations/DestinationHeader.jsx",
+        "complexity": 26,
+        "complexityLevel": "medium",
+        "category": "other",
+        "dependencyCount": 0,
+        "usedByCount": 0
+      },
+      {
+        "name": "common",
+        "path": "components/common/index.js",
+        "complexity": 4,
+        "complexityLevel": "low",
+        "category": "other",
+        "dependencyCount": 0,
+        "usedByCount": 0
+      },
+      {
+        "name": "PageHero",
+        "path": "components/common/PageHero.jsx",
+        "complexity": 17,
+        "complexityLevel": "low",
+        "category": "other",
+        "dependencyCount": 0,
+        "usedByCount": 0
+      },
+      {
+        "name": "LoadingSpinner",
+        "path": "components/common/LoadingSpinner.jsx",
+        "complexity": 4,
+        "complexityLevel": "low",
+        "category": "other",
+        "dependencyCount": 1,
+        "usedByCount": 0
+      },
+      {
+        "name": "ContentBlock",
+        "path": "components/common/ContentBlock.jsx",
+        "complexity": 4,
+        "complexityLevel": "low",
+        "category": "other",
+        "dependencyCount": 1,
+        "usedByCount": 0
+      },
+      {
+        "name": "AssetPreloader",
+        "path": "components/common/AssetPreloader.jsx",
+        "complexity": 34,
+        "complexityLevel": "medium",
+        "category": "other",
+        "dependencyCount": 1,
+        "usedByCount": 0
+      }
+    ],
+    "id": 5,
+    "componentCount": 33,
+    "averageComplexity": 14,
+    "estimatedEffort": 46.2
+  },
+  {
+    "name": "Batch 6: Remaining Components",
+    "description": "All remaining components",
+    "components": [
+      {
+        "name": "TravelJourneyDesigner",
+        "path": "components/journey-designer/TravelJourneyDesigner.jsx",
+        "complexity": 121,
+        "complexityLevel": "high",
+        "category": "other",
+        "dependencyCount": 0,
+        "usedByCount": 0
+      },
+      {
+        "name": "TabbedAttractionsSection",
+        "path": "components/journal_post/TabbedAttractionsSection.jsx",
+        "complexity": 50,
+        "complexityLevel": "high",
+        "category": "other",
+        "dependencyCount": 0,
+        "usedByCount": 0
+      },
+      {
+        "name": "RelatedHotelCard",
+        "path": "components/journal_post/RelatedHotelCard.jsx",
+        "complexity": 44,
+        "complexityLevel": "high",
+        "category": "other",
+        "dependencyCount": 0,
+        "usedByCount": 0
+      },
+      {
+        "name": "JournalGrid",
+        "path": "components/journal/JournalGrid.jsx",
+        "complexity": 98,
+        "complexityLevel": "high",
+        "category": "other",
+        "dependencyCount": 1,
+        "usedByCount": 0
+      },
+      {
+        "name": "HotelsPage",
+        "path": "components/hotels/HotelsPage.jsx",
+        "complexity": 107,
+        "complexityLevel": "high",
+        "category": "other",
+        "dependencyCount": 3,
+        "usedByCount": 0
+      },
+      {
+        "name": "HotelsHero",
+        "path": "components/hotels/HotelsHero.jsx",
+        "complexity": 59,
+        "complexityLevel": "high",
+        "category": "other",
+        "dependencyCount": 0,
+        "usedByCount": 0
+      },
+      {
+        "name": "HotelQuickView",
+        "path": "components/hotels/HotelQuickView.jsx",
+        "complexity": 88,
+        "complexityLevel": "high",
+        "category": "other",
+        "dependencyCount": 1,
+        "usedByCount": 0
+      },
+      {
+        "name": "HotelMapView",
+        "path": "components/hotels/HotelMapView.jsx",
+        "complexity": 87,
+        "complexityLevel": "high",
+        "category": "other",
+        "dependencyCount": 1,
+        "usedByCount": 0
+      },
+      {
+        "name": "HotelListView",
+        "path": "components/hotels/HotelListView.jsx",
+        "complexity": 70,
+        "complexityLevel": "high",
+        "category": "other",
+        "dependencyCount": 1,
+        "usedByCount": 0
+      },
+      {
+        "name": "HotelGrid",
+        "path": "components/hotels/HotelGrid.jsx",
+        "complexity": 83,
+        "complexityLevel": "high",
+        "category": "other",
+        "dependencyCount": 0,
+        "usedByCount": 0
+      },
+      {
+        "name": "HotelDetail",
+        "path": "components/hotels/HotelDetail.jsx",
+        "complexity": 98,
+        "complexityLevel": "high",
+        "category": "other",
+        "dependencyCount": 1,
+        "usedByCount": 0
+      },
+      {
+        "name": "CategoryBar",
+        "path": "components/hotels/CategoryBar.js",
+        "complexity": 98,
+        "complexityLevel": "high",
+        "category": "other",
+        "dependencyCount": 0,
+        "usedByCount": 0
+      },
+      {
+        "name": "RoomList",
+        "path": "components/hotel-detail/RoomList.js",
+        "complexity": 84,
+        "complexityLevel": "high",
+        "category": "other",
+        "dependencyCount": 1,
+        "usedByCount": 0
+      },
+      {
+        "name": "OverviewSection",
+        "path": "components/hotel-detail/OverviewSection.js",
+        "complexity": 93,
+        "complexityLevel": "high",
+        "category": "other",
+        "dependencyCount": 1,
+        "usedByCount": 0
+      },
+      {
+        "name": "OriginalsSection",
+        "path": "components/hotel-detail/OriginalsSection.js",
+        "complexity": 49,
+        "complexityLevel": "high",
+        "category": "other",
+        "dependencyCount": 0,
+        "usedByCount": 0
+      },
+      {
+        "name": "LocalDining",
+        "path": "components/hotel-detail/LocalDining.jsx",
+        "complexity": 92,
+        "complexityLevel": "high",
+        "category": "other",
+        "dependencyCount": 0,
+        "usedByCount": 0
+      },
+      {
+        "name": "HotelRoomsPage",
+        "path": "components/hotel-detail/HotelRoomsPage.jsx",
+        "complexity": 70,
+        "complexityLevel": "high",
+        "category": "other",
+        "dependencyCount": 1,
+        "usedByCount": 0
+      },
+      {
+        "name": "HotelRooms",
+        "path": "components/hotel-detail/HotelRooms.jsx",
+        "complexity": 109,
+        "complexityLevel": "high",
+        "category": "form",
+        "dependencyCount": 0,
+        "usedByCount": 0
+      },
+      {
+        "name": "HotelGallery",
+        "path": "components/hotel-detail/HotelGallery.jsx",
+        "complexity": 137,
+        "complexityLevel": "high",
+        "category": "other",
+        "dependencyCount": 0,
+        "usedByCount": 0
+      },
+      {
+        "name": "HotelDetailPage",
+        "path": "components/hotel-detail/HotelDetailPage.jsx",
+        "complexity": 104,
+        "complexityLevel": "high",
+        "category": "other",
+        "dependencyCount": 4,
+        "usedByCount": 0
+      },
+      {
+        "name": "HotelDetailHero",
+        "path": "components/hotel-detail/HotelDetailHero.jsx",
+        "complexity": 75,
+        "complexityLevel": "high",
+        "category": "other",
+        "dependencyCount": 0,
+        "usedByCount": 0
+      },
+      {
+        "name": "HotelAmenities",
+        "path": "components/hotel-detail/HotelAmenities.jsx",
+        "complexity": 104,
+        "complexityLevel": "high",
+        "category": "other",
+        "dependencyCount": 0,
+        "usedByCount": 0
+      },
+      {
+        "name": "GallerySection",
+        "path": "components/hotel-detail/GallerySection.js",
+        "complexity": 177,
+        "complexityLevel": "high",
+        "category": "other",
+        "dependencyCount": 4,
+        "usedByCount": 0
+      },
+      {
+        "name": "DetailHeroBanner",
+        "path": "components/hotel-detail/DetailHeroBanner.js",
+        "complexity": 89,
+        "complexityLevel": "high",
+        "category": "other",
+        "dependencyCount": 4,
+        "usedByCount": 0
+      },
+      {
+        "name": "DestinationOverview",
+        "path": "components/hotel-detail/DestinationOverview.jsx",
+        "complexity": 86,
+        "complexityLevel": "high",
+        "category": "other",
+        "dependencyCount": 0,
+        "usedByCount": 0
+      },
+      {
+        "name": "ContentTabs",
+        "path": "components/hotel-detail/ContentTabs.js",
+        "complexity": 118,
+        "complexityLevel": "high",
+        "category": "other",
+        "dependencyCount": 0,
+        "usedByCount": 0
+      },
+      {
+        "name": "RestaurantFeature",
+        "path": "components/home/RestaurantFeature.jsx",
+        "complexity": 91,
+        "complexityLevel": "high",
+        "category": "other",
+        "dependencyCount": 0,
+        "usedByCount": 0
+      },
+      {
+        "name": "PopularDestinations",
+        "path": "components/home/PopularDestinations.jsx",
+        "complexity": 59,
+        "complexityLevel": "high",
+        "category": "other",
+        "dependencyCount": 0,
+        "usedByCount": 0
+      },
+      {
+        "name": "NewsletterSignup",
+        "path": "components/home/NewsletterSignup.jsx",
+        "complexity": 49,
+        "complexityLevel": "high",
+        "category": "form",
+        "dependencyCount": 0,
+        "usedByCount": 0
+      },
+      {
+        "name": "JournalSection",
+        "path": "components/home/JournalSection.jsx",
+        "complexity": 51,
+        "complexityLevel": "high",
+        "category": "other",
+        "dependencyCount": 0,
+        "usedByCount": 0
+      },
+      {
+        "name": "InteractiveFeatures",
+        "path": "components/home/InteractiveFeatures.jsx",
+        "complexity": 83,
+        "complexityLevel": "high",
+        "category": "other",
+        "dependencyCount": 0,
+        "usedByCount": 0
+      },
+      {
+        "name": "Hero",
+        "path": "components/home/Hero.jsx",
+        "complexity": 78,
+        "complexityLevel": "high",
+        "category": "form",
+        "dependencyCount": 0,
+        "usedByCount": 0
+      },
+      {
+        "name": "FeaturedHotel",
+        "path": "components/home/FeaturedHotel.jsx",
+        "complexity": 88,
+        "complexityLevel": "high",
+        "category": "other",
+        "dependencyCount": 1,
+        "usedByCount": 0
+      },
+      {
+        "name": "MembershipForm",
+        "path": "components/forms/MembershipForm.jsx",
+        "complexity": 91,
+        "complexityLevel": "high",
+        "category": "form",
+        "dependencyCount": 0,
+        "usedByCount": 0
+      },
+      {
+        "name": "DemoAssetGallery",
+        "path": "components/examples/DemoAssetGallery.jsx",
+        "complexity": 88,
+        "complexityLevel": "high",
+        "category": "other",
+        "dependencyCount": 2,
+        "usedByCount": 0
+      },
+      {
+        "name": "AssetManagementExample",
+        "path": "components/examples/AssetManagementExample.jsx",
+        "complexity": 80,
+        "complexityLevel": "high",
+        "category": "other",
+        "dependencyCount": 5,
+        "usedByCount": 0
+      },
+      {
+        "name": "AssetGalleryExample",
+        "path": "components/examples/AssetGalleryExample.jsx",
+        "complexity": 102,
+        "complexityLevel": "high",
+        "category": "other",
+        "dependencyCount": 4,
+        "usedByCount": 0
+      },
+      {
+        "name": "RecommendedDestinations",
+        "path": "components/destinations/RecommendedDestinations.jsx",
+        "complexity": 49,
+        "complexityLevel": "high",
+        "category": "other",
+        "dependencyCount": 0,
+        "usedByCount": 0
+      },
+      {
+        "name": "PopularHotels",
+        "path": "components/destinations/PopularHotels.jsx",
+        "complexity": 59,
+        "complexityLevel": "high",
+        "category": "other",
+        "dependencyCount": 0,
+        "usedByCount": 0
+      },
+      {
+        "name": "FeaturedDestination",
+        "path": "components/destinations/FeaturedDestination.jsx",
+        "complexity": 84,
+        "complexityLevel": "high",
+        "category": "other",
+        "dependencyCount": 0,
+        "usedByCount": 0
+      },
+      {
+        "name": "DestinationInteractiveFeatures",
+        "path": "components/destinations/DestinationInteractiveFeatures.jsx",
+        "complexity": 69,
+        "complexityLevel": "high",
+        "category": "other",
+        "dependencyCount": 0,
+        "usedByCount": 0
+      },
+      {
+        "name": "DestinationInfo",
+        "path": "components/destinations/DestinationInfo.jsx",
+        "complexity": 77,
+        "complexityLevel": "high",
+        "category": "other",
+        "dependencyCount": 0,
+        "usedByCount": 0
+      },
+      {
+        "name": "DestinationHotels",
+        "path": "components/destinations/DestinationHotels.jsx",
+        "complexity": 46,
+        "complexityLevel": "high",
+        "category": "other",
+        "dependencyCount": 0,
+        "usedByCount": 0
+      },
+      {
+        "name": "DestinationGrid",
+        "path": "components/destinations/DestinationGrid.jsx",
+        "complexity": 74,
+        "complexityLevel": "high",
+        "category": "other",
+        "dependencyCount": 0,
+        "usedByCount": 0
+      },
+      {
+        "name": "DestinationExplorer",
+        "path": "components/destinations/DestinationExplorer.jsx",
+        "complexity": 169,
+        "complexityLevel": "high",
+        "category": "other",
+        "dependencyCount": 0,
+        "usedByCount": 0
+      },
+      {
+        "name": "OverviewSection",
+        "path": "components/destinations/detail/OverviewSection.jsx",
+        "complexity": 139,
+        "complexityLevel": "high",
+        "category": "other",
+        "dependencyCount": 0,
+        "usedByCount": 0
+      },
+      {
+        "name": "InteractiveExperiences",
+        "path": "components/destinations/detail/InteractiveExperiences.jsx",
+        "complexity": 136,
+        "complexityLevel": "high",
+        "category": "other",
+        "dependencyCount": 0,
+        "usedByCount": 0
+      },
+      {
+        "name": "InfoSection",
+        "path": "components/destinations/detail/InfoSection.jsx",
+        "complexity": 81,
+        "complexityLevel": "high",
+        "category": "other",
+        "dependencyCount": 0,
+        "usedByCount": 0
+      },
+      {
+        "name": "HotelsSection",
+        "path": "components/destinations/detail/HotelsSection.jsx",
+        "complexity": 155,
+        "complexityLevel": "high",
+        "category": "form",
+        "dependencyCount": 0,
+        "usedByCount": 0
+      },
+      {
+        "name": "DiningSection",
+        "path": "components/destinations/detail/DiningSection.jsx",
+        "complexity": 108,
+        "complexityLevel": "high",
+        "category": "other",
+        "dependencyCount": 0,
+        "usedByCount": 0
+      },
+      {
+        "name": "DestinationHero",
+        "path": "components/destinations/detail/DestinationHero.jsx",
+        "complexity": 74,
+        "complexityLevel": "high",
+        "category": "other",
+        "dependencyCount": 0,
+        "usedByCount": 0
+      },
+      {
+        "name": "DestinationContentTabs",
+        "path": "components/destinations/detail/DestinationContentTabs.jsx",
+        "complexity": 117,
+        "complexityLevel": "high",
+        "category": "other",
+        "dependencyCount": 0,
+        "usedByCount": 0
+      },
+      {
+        "name": "ActivitiesSection",
+        "path": "components/destinations/detail/ActivitiesSection.jsx",
+        "complexity": 107,
+        "complexityLevel": "high",
+        "category": "other",
+        "dependencyCount": 0,
+        "usedByCount": 0
+      },
+      {
+        "name": "directus-client",
+        "path": "components/common/directus-client.js",
+        "complexity": 46,
+        "complexityLevel": "high",
+        "category": "other",
+        "dependencyCount": 0,
+        "usedByCount": 0
+      },
+      {
+        "name": "ResponsiveDirectusImage",
+        "path": "components/common/ResponsiveDirectusImage.jsx",
+        "complexity": 76,
+        "complexityLevel": "high",
+        "category": "other",
+        "dependencyCount": 3,
+        "usedByCount": 0
+      },
+      {
+        "name": "AssetManager",
+        "path": "components/common/AssetManager.jsx",
+        "complexity": 83,
+        "complexityLevel": "high",
+        "category": "other",
+        "dependencyCount": 1,
+        "usedByCount": 0
+      },
+      {
+        "name": "TravelAdvisor",
+        "path": "components/chatbot/TravelAdvisor.jsx",
+        "complexity": 124,
+        "complexityLevel": "high",
+        "category": "form",
+        "dependencyCount": 0,
+        "usedByCount": 0
+      }
+    ],
+    "id": 6,
+    "componentCount": 57,
+    "averageComplexity": 90,
+    "estimatedEffort": 513
+  }
+]

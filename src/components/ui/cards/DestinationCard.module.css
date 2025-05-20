@@ -1,0 +1,38 @@
+.destinationCard {
+  /* Specific styles for destination cards */
+}
+
+.location {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  color: #6b7280;
+}
+
+.location svg {
+  color: #4b5563;
+  font-size: 0.875rem;
+}
+
+.hotelCount {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  color: #6b7280;
+}
+
+.hotelCount svg {
+  color: #4b5563;
+  font-size: 0.875rem;
+}
+
+.featuredBadge {
+  background-color: #f59e0b;
+  color: white;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.25rem 0.5rem;
+  border-radius: 9999px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}

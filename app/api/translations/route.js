@@ -1,1 +1,0 @@
-export { GET, handler } from '../../../src/app/api/translations/route';

@@ -1,0 +1,105 @@
+/* RTL-Support mit CSS-Modulen */
+
+/* Logische Eigenschaften für alle Ausrichtungen */
+.container {
+  margin-inline-start: 1rem;
+  padding-inline-end: 2rem;
+  text-align: start;
+}
+
+/* Spezifische Richtungsangaben mit dir-Selektoren */
+[dir="ltr"] .alignedText {
+  text-align: left;
+  padding-left: 1rem;
+  border-left: 2px solid #333;
+}
+
+[dir="rtl"] .alignedText {
+  text-align: right;
+  padding-right: 1rem;
+  border-right: 2px solid #333;
+}
+
+/* Flex-Direction für RTL */
+[dir="ltr"] .flexContainer {
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+[dir="rtl"] .flexContainer {
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+}
+
+/* Icon-Rotation für RTL */
+[dir="ltr"] .arrowIcon {
+  transform: rotate(0deg);
+}
+
+[dir="rtl"] .arrowIcon {
+  transform: rotate(180deg);
+}
+
+/* Grid-Layout für RTL */
+.gridContainer {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+[dir="rtl"] .gridContainer {
+  direction: rtl;
+}
+
+/* Abgerundete Ecken für RTL */
+[dir="ltr"] .cornerElement {
+  border-top-left-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+}
+
+[dir="rtl"] .cornerElement {
+  border-top-right-radius: 1rem;
+  border-bottom-left-radius: 1rem;
+}
+
+/* Positionierung für RTL */
+.positionedElement {
+  position: relative;
+}
+
+[dir="ltr"] .positionedElement {
+  left: 1rem;
+  right: auto;
+}
+
+[dir="rtl"] .positionedElement {
+  right: 1rem;
+  left: auto;
+}
+
+/* Box-Shadow für RTL */
+[dir="ltr"] .shadowElement {
+  box-shadow: -5px 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+[dir="rtl"] .shadowElement {
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Übergänge und Animationen für RTL */
+@keyframes slideInLTR {
+  from { transform: translateX(-100%); }
+  to { transform: translateX(0); }
+}
+
+@keyframes slideInRTL {
+  from { transform: translateX(100%); }
+  to { transform: translateX(0); }
+}
+
+[dir="ltr"] .animatedElement {
+  animation: slideInLTR 0.5s ease-in-out;
+}
+
+[dir="rtl"] .animatedElement {
+  animation: slideInRTL 0.5s ease-in-out;
+}

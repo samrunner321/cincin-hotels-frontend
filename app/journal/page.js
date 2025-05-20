@@ -1,6 +1,6 @@
 import { getAllJournalArticles } from '../../lib/api';
-import JournalGrid from '../../components/journal/JournalGrid';
-import Hero from '../../components/journal/Hero';
+import JournalGrid from '../../src/components/journal/JournalGrid';
+import Hero from '../../src/components/journal/Hero';
 
 export const metadata = {
   title: 'Journal - CinCin Hotels',

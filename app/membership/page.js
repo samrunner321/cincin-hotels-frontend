@@ -1,6 +1,6 @@
-import MembershipForm from '../../components/forms/MembershipForm';
-import MembershipHero from '../../components/forms/MembershipHero';
-import MembershipBenefits from '../../components/forms/MembershipBenefits';
+import MembershipForm from '../../src/components/forms/MembershipForm.jsx';
+import MembershipHero from '../../src/components/forms/MembershipHero';
+import MembershipBenefits from '../../src/components/forms/MembershipBenefits';
 
 export const metadata = {
   title: 'Become a Member | CinCin Hotels',

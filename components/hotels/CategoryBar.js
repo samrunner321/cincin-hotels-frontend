@@ -44,7 +44,7 @@ const CategoryIcons = {
 };
 
 export default function CategoryBar({ 
-  categories = null,
+  categories = [], // Changed from null to empty array to match expected type
   activeCategory = null,
   onCategoryClick = () => {},
   title = null // Titel versteckt im neuen Design
@@ -67,7 +67,7 @@ export default function CategoryBar({
     { id: 'family', name: 'family', url: '/categories/family' }
   ];
 
-  const categoriesToUse = categories || defaultCategories;
+  const categoriesToUse = categories && categories.length > 0 ? categories : defaultCategories;
   
   // Scroll-Logik
   useEffect(() => {

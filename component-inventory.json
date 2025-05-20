@@ -1,0 +1,5577 @@
+[
+  {
+    "name": "UIStateContext",
+    "path": "components/UIStateContext.js",
+    "category": "other",
+    "complexity": 2,
+    "complexityLevel": "low",
+    "imports": [
+      {
+        "source": "@components/UIStateContext",
+        "imports": [
+          "UIStateProvider",
+          "useUIState"
+        ]
+      }
+    ],
+    "internalDependencies": [],
+    "externalDependencies": [
+      {
+        "path": "@components/UIStateContext",
+        "imports": [
+          "UIStateProvider",
+          "useUIState"
+        ]
+      }
+    ],
+    "migrated": true,
+    "fileSize": 198,
+    "exportType": "named",
+    "isTypeScript": false,
+    "hasJSX": false,
+    "hasHooks": false,
+    "dependedOnBy": [],
+    "usageScore": {
+      "directUsage": 0,
+      "weightedScore": 0,
+      "isCritical": false
+    },
+    "migrationPriority": "migrated"
+  },
+  {
+    "name": "Navbar",
+    "path": "components/layout/Navbar.jsx",
+    "category": "layout",
+    "complexity": 2,
+    "complexityLevel": "low",
+    "imports": [
+      {
+        "source": "@/components/layout/Navbar",
+        "imports": [
+          "Navbar"
+        ]
+      }
+    ],
+    "internalDependencies": [
+      {
+        "path": "components/layout/Navbar",
+        "imports": [
+          "Navbar"
+        ]
+      }
+    ],
+    "externalDependencies": [],
+    "migrated": false,
+    "fileSize": 199,
+    "exportType": "default",
+    "isTypeScript": false,
+    "hasJSX": false,
+    "hasHooks": false,
+    "dependedOnBy": [
+      "Navbar"
+    ],
+    "usageScore": {
+      "directUsage": 1,
+      "weightedScore": 1,
+      "isCritical": false
+    },
+    "migrationPriority": "medium"
+  },
+  {
+    "name": "MobileMenu",
+    "path": "components/layout/MobileMenu.jsx",
+    "category": "layout",
+    "complexity": 3,
+    "complexityLevel": "low",
+    "imports": [
+      {
+        "source": "@/components/layout/MobileMenu",
+        "imports": [
+          "MobileMenu"
+        ]
+      }
+    ],
+    "internalDependencies": [
+      {
+        "path": "components/layout/MobileMenu",
+        "imports": [
+          "MobileMenu"
+        ]
+      }
+    ],
+    "externalDependencies": [],
+    "migrated": false,
+    "fileSize": 211,
+    "exportType": "default",
+    "isTypeScript": false,
+    "hasJSX": false,
+    "hasHooks": false,
+    "dependedOnBy": [
+      "MobileMenu"
+    ],
+    "usageScore": {
+      "directUsage": 1,
+      "weightedScore": 1,
+      "isCritical": false
+    },
+    "migrationPriority": "medium"
+  },
+  {
+    "name": "Layout",
+    "path": "components/layout/Layout.jsx",
+    "category": "layout",
+    "complexity": 2,
+    "complexityLevel": "low",
+    "imports": [
+      {
+        "source": "@/components/layout/Layout",
+        "imports": [
+          "Layout"
+        ]
+      }
+    ],
+    "internalDependencies": [
+      {
+        "path": "components/layout/Layout",
+        "imports": [
+          "Layout"
+        ]
+      }
+    ],
+    "externalDependencies": [],
+    "migrated": false,
+    "fileSize": 199,
+    "exportType": "default",
+    "isTypeScript": false,
+    "hasJSX": false,
+    "hasHooks": false,
+    "dependedOnBy": [
+      "Layout"
+    ],
+    "usageScore": {
+      "directUsage": 1,
+      "weightedScore": 1,
+      "isCritical": false
+    },
+    "migrationPriority": "medium"
+  },
+  {
+    "name": "Footer",
+    "path": "components/layout/Footer.jsx",
+    "category": "layout",
+    "complexity": 2,
+    "complexityLevel": "low",
+    "imports": [
+      {
+        "source": "@/components/layout/Footer",
+        "imports": [
+          "Footer"
+        ]
+      }
+    ],
+    "internalDependencies": [
+      {
+        "path": "components/layout/Footer",
+        "imports": [
+          "Footer"
+        ]
+      }
+    ],
+    "externalDependencies": [],
+    "migrated": false,
+    "fileSize": 199,
+    "exportType": "default",
+    "isTypeScript": false,
+    "hasJSX": false,
+    "hasHooks": false,
+    "dependedOnBy": [
+      "Footer"
+    ],
+    "usageScore": {
+      "directUsage": 1,
+      "weightedScore": 1,
+      "isCritical": false
+    },
+    "migrationPriority": "medium"
+  },
+  {
+    "name": "TravelJourneyDesigner",
+    "path": "components/journey-designer/TravelJourneyDesigner.jsx",
+    "category": "other",
+    "complexity": 121,
+    "complexityLevel": "high",
+    "imports": [
+      {
+        "source": "react",
+        "imports": [
+          "useState",
+          "useEffect",
+          "useRef"
+        ]
+      },
+      {
+        "source": "framer-motion",
+        "imports": [
+          "motion",
+          "AnimatePresence"
+        ]
+      },
+      {
+        "source": "next/image",
+        "imports": [
+          "Image"
+        ]
+      },
+      {
+        "source": "next/link",
+        "imports": [
+          "Link"
+        ]
+      }
+    ],
+    "internalDependencies": [],
+    "externalDependencies": [
+      {
+        "path": "react",
+        "imports": [
+          "useState",
+          "useEffect",
+          "useRef"
+        ]
+      },
+      {
+        "path": "framer-motion",
+        "imports": [
+          "motion",
+          "AnimatePresence"
+        ]
+      },
+      {
+        "path": "next/image",
+        "imports": [
+          "Image"
+        ]
+      },
+      {
+        "path": "next/link",
+        "imports": [
+          "Link"
+        ]
+      }
+    ],
+    "migrated": false,
+    "fileSize": 21933,
+    "exportType": "default",
+    "isTypeScript": false,
+    "hasJSX": true,
+    "hasHooks": true,
+    "dependedOnBy": [],
+    "usageScore": {
+      "directUsage": 0,
+      "weightedScore": 0,
+      "isCritical": false
+    },
+    "migrationPriority": "low"
+  },
+  {
+    "name": "journal_post",
+    "path": "components/journal_post/index.js",
+    "category": "other",
+    "complexity": 4,
+    "complexityLevel": "low",
+    "imports": [],
+    "internalDependencies": [],
+    "externalDependencies": [],
+    "migrated": false,
+    "fileSize": 471,
+    "exportType": "named",
+    "isTypeScript": false,
+    "hasJSX": false,
+    "hasHooks": false,
+    "dependedOnBy": [],
+    "usageScore": {
+      "directUsage": 0,
+      "weightedScore": 0,
+      "isCritical": false
+    },
+    "migrationPriority": "medium"
+  },
+  {
+    "name": "TravelContent",
+    "path": "components/journal_post/TravelContent.jsx",
+    "category": "other",
+    "complexity": 24,
+    "complexityLevel": "medium",
+    "imports": [
+      {
+        "source": "next/image",
+        "imports": [
+          "Image"
+        ]
+      }
+    ],
+    "internalDependencies": [],
+    "externalDependencies": [
+      {
+        "path": "next/image",
+        "imports": [
+          "Image"
+        ]
+      }
+    ],
+    "migrated": false,
+    "fileSize": 2356,
+    "exportType": "default",
+    "isTypeScript": false,
+    "hasJSX": true,
+    "hasHooks": false,
+    "dependedOnBy": [],
+    "usageScore": {
+      "directUsage": 0,
+      "weightedScore": 0,
+      "isCritical": false
+    },
+    "migrationPriority": "medium"
+  },
+  {
+    "name": "TabbedAttractionsSection",
+    "path": "components/journal_post/TabbedAttractionsSection.jsx",
+    "category": "other",
+    "complexity": 50,
+    "complexityLevel": "high",
+    "imports": [
+      {
+        "source": "react",
+        "imports": [
+          "useState"
+        ]
+      }
+    ],
+    "internalDependencies": [],
+    "externalDependencies": [
+      {
+        "path": "react",
+        "imports": [
+          "useState"
+        ]
+      }
+    ],
+    "migrated": false,
+    "fileSize": 3180,
+    "exportType": "default",
+    "isTypeScript": false,
+    "hasJSX": true,
+    "hasHooks": true,
+    "dependedOnBy": [],
+    "usageScore": {
+      "directUsage": 0,
+      "weightedScore": 0,
+      "isCritical": false
+    },
+    "migrationPriority": "low"
+  },
+  {
+    "name": "RelatedHotelsSection",
+    "path": "components/journal_post/RelatedHotelsSection.jsx",
+    "category": "other",
+    "complexity": 14,
+    "complexityLevel": "low",
+    "imports": [
+      {
+        "source": "./RelatedHotelCard",
+        "imports": [
+          "RelatedHotelCard"
+        ]
+      }
+    ],
+    "internalDependencies": [
+      {
+        "path": "/Users/samuelrenner/cincinhotels/components/journal_post/RelatedHotelCard",
+        "imports": [
+          "RelatedHotelCard"
+        ]
+      }
+    ],
+    "externalDependencies": [],
+    "migrated": false,
+    "fileSize": 861,
+    "exportType": "default",
+    "isTypeScript": false,
+    "hasJSX": true,
+    "hasHooks": false,
+    "dependedOnBy": [],
+    "usageScore": {
+      "directUsage": 0,
+      "weightedScore": 0,
+      "isCritical": false
+    },
+    "migrationPriority": "medium"
+  },
+  {
+    "name": "RelatedHotelCard",
+    "path": "components/journal_post/RelatedHotelCard.jsx",
+    "category": "other",
+    "complexity": 44,
+    "complexityLevel": "high",
+    "imports": [
+      {
+        "source": "next/link",
+        "imports": [
+          "Link"
+        ]
+      },
+      {
+        "source": "next/image",
+        "imports": [
+          "Image"
+        ]
+      }
+    ],
+    "internalDependencies": [],
+    "externalDependencies": [
+      {
+        "path": "next/link",
+        "imports": [
+          "Link"
+        ]
+      },
+      {
+        "path": "next/image",
+        "imports": [
+          "Image"
+        ]
+      }
+    ],
+    "migrated": false,
+    "fileSize": 2803,
+    "exportType": "default",
+    "isTypeScript": false,
+    "hasJSX": true,
+    "hasHooks": false,
+    "dependedOnBy": [],
+    "usageScore": {
+      "directUsage": 0,
+      "weightedScore": 0,
+      "isCritical": false
+    },
+    "migrationPriority": "low"
+  },
+  {
+    "name": "JournalPostHero",
+    "path": "components/journal_post/JournalPostHero.jsx",
+    "category": "other",
+    "complexity": 24,
+    "complexityLevel": "medium",
+    "imports": [
+      {
+        "source": "next/link",
+        "imports": [
+          "Link"
+        ]
+      }
+    ],
+    "internalDependencies": [],
+    "externalDependencies": [
+      {
+        "path": "next/link",
+        "imports": [
+          "Link"
+        ]
+      }
+    ],
+    "migrated": false,
+    "fileSize": 1944,
+    "exportType": "default",
+    "isTypeScript": false,
+    "hasJSX": true,
+    "hasHooks": false,
+    "dependedOnBy": [],
+    "usageScore": {
+      "directUsage": 0,
+      "weightedScore": 0,
+      "isCritical": false
+    },
+    "migrationPriority": "medium"
+  },
+  {
+    "name": "JournalPostContent",
+    "path": "components/journal_post/JournalPostContent.jsx",
+    "category": "other",
+    "complexity": 32,
+    "complexityLevel": "medium",
+    "imports": [
+      {
+        "source": "./JournalPostHero",
+        "imports": [
+          "JournalPostHero"
+        ]
+      },
+      {
+        "source": "./ArticleInfo",
+        "imports": [
+          "ArticleInfo"
+        ]
+      },
+      {
+        "source": "./TabbedAttractionsSection",
+        "imports": [
+          "TabbedAttractionsSection"
+        ]
+      },
+      {
+        "source": "./TravelContent",
+        "imports": [
+          "TravelContent"
+        ]
+      },
+      {
+        "source": "./RelatedHotelsSection",
+        "imports": [
+          "RelatedHotelsSection"
+        ]
+      }
+    ],
+    "internalDependencies": [
+      {
+        "path": "/Users/samuelrenner/cincinhotels/components/journal_post/JournalPostHero",
+        "imports": [
+          "JournalPostHero"
+        ]
+      },
+      {
+        "path": "/Users/samuelrenner/cincinhotels/components/journal_post/ArticleInfo",
+        "imports": [
+          "ArticleInfo"
+        ]
+      },
+      {
+        "path": "/Users/samuelrenner/cincinhotels/components/journal_post/TabbedAttractionsSection",
+        "imports": [
+          "TabbedAttractionsSection"
+        ]
+      },
+      {
+        "path": "/Users/samuelrenner/cincinhotels/components/journal_post/TravelContent",
+        "imports": [
+          "TravelContent"
+        ]
+      },
+      {
+        "path": "/Users/samuelrenner/cincinhotels/components/journal_post/RelatedHotelsSection",
+        "imports": [
+          "RelatedHotelsSection"
+        ]
+      }
+    ],
+    "externalDependencies": [],
+    "migrated": false,
+    "fileSize": 2373,
+    "exportType": "default",
+    "isTypeScript": false,
+    "hasJSX": true,
+    "hasHooks": false,
+    "dependedOnBy": [],
+    "usageScore": {
+      "directUsage": 0,
+      "weightedScore": 0,
+      "isCritical": false
+    },
+    "migrationPriority": "medium"
+  },
+  {
+    "name": "ArticleInfo",
+    "path": "components/journal_post/ArticleInfo.jsx",
+    "category": "other",
+    "complexity": 21,
+    "complexityLevel": "medium",
+    "imports": [
+      {
+        "source": "next/image",
+        "imports": [
+          "Image"
+        ]
+      }
+    ],
+    "internalDependencies": [],
+    "externalDependencies": [
+      {
+        "path": "next/image",
+        "imports": [
+          "Image"
+        ]
+      }
+    ],
+    "migrated": false,
+    "fileSize": 2058,
+    "exportType": "default",
+    "isTypeScript": false,
+    "hasJSX": true,
+    "hasHooks": false,
+    "dependedOnBy": [],
+    "usageScore": {
+      "directUsage": 0,
+      "weightedScore": 0,
+      "isCritical": false
+    },
+    "migrationPriority": "medium"
+  },
+  {
+    "name": "JournalGrid",
+    "path": "components/journal/JournalGrid.jsx",
+    "category": "other",
+    "complexity": 98,
+    "complexityLevel": "high",
+    "imports": [
+      {
+        "source": "react",
+        "imports": [
+          "useState",
+          "useEffect"
+        ]
+      },
+      {
+        "source": "next/link",
+        "imports": [
+          "Link"
+        ]
+      },
+      {
+        "source": "next/image",
+        "imports": [
+          "Image"
+        ]
+      },
+      {
+        "source": "next/navigation",
+        "imports": [
+          "useRouter",
+          "usePathname",
+          "useSearchParams"
+        ]
+      },
+      {
+        "source": "framer-motion",
+        "imports": [
+          "motion"
+        ]
+      },
+      {
+        "source": "../../lib/utils",
+        "imports": [
+          "formatDate"
+        ]
+      }
+    ],
+    "internalDependencies": [
+      {
+        "path": "/Users/samuelrenner/cincinhotels/lib/utils",
+        "imports": [
+          "formatDate"
+        ]
+      }
+    ],
+    "externalDependencies": [
+      {
+        "path": "react",
+        "imports": [
+          "useState",
+          "useEffect"
+        ]
+      },
+      {
+        "path": "next/link",
+        "imports": [
+          "Link"
+        ]
+      },
+      {
+        "path": "next/image",
+        "imports": [
+          "Image"
+        ]
+      },
+      {
+        "path": "next/navigation",
+        "imports": [
+          "useRouter",
+          "usePathname",
+          "useSearchParams"
+        ]
+      },
+      {
+        "path": "framer-motion",
+        "imports": [
+          "motion"
+        ]
+      }
+    ],
+    "migrated": false,
+    "fileSize": 6833,
+    "exportType": "default",
+    "isTypeScript": false,
+    "hasJSX": true,
+    "hasHooks": true,
+    "dependedOnBy": [],
+    "usageScore": {
+      "directUsage": 0,
+      "weightedScore": 0,
+      "isCritical": false
+    },
+    "migrationPriority": "low"
+  },
+  {
+    "name": "Hero",
+    "path": "components/journal/Hero.jsx",
+    "category": "other",
+    "complexity": 37,
+    "complexityLevel": "medium",
+    "imports": [
+      {
+        "source": "next/link",
+        "imports": [
+          "Link"
+        ]
+      },
+      {
+        "source": "next/image",
+        "imports": [
+          "Image"
+        ]
+      },
+      {
+        "source": "framer-motion",
+        "imports": [
+          "motion"
+        ]
+      }
+    ],
+    "internalDependencies": [],
+    "externalDependencies": [
+      {
+        "path": "next/link",
+        "imports": [
+          "Link"
+        ]
+      },
+      {
+        "path": "next/image",
+        "imports": [
+          "Image"
+        ]
+      },
+      {
+        "path": "framer-motion",
+        "imports": [
+          "motion"
+        ]
+      }
+    ],
+    "migrated": false,
+    "fileSize": 3452,
+    "exportType": "default",
+    "isTypeScript": false,
+    "hasJSX": true,
+    "hasHooks": false,
+    "dependedOnBy": [],
+    "usageScore": {
+      "directUsage": 0,
+      "weightedScore": 0,
+      "isCritical": false
+    },
+    "migrationPriority": "medium"
+  },
+  {
+    "name": "hotels",
+    "path": "components/hotels/index.js",
+    "category": "other",
+    "complexity": 5,
+    "complexityLevel": "low",
+    "imports": [],
+    "internalDependencies": [],
+    "externalDependencies": [],
+    "migrated": false,
+    "fileSize": 584,
+    "exportType": "named",
+    "isTypeScript": false,
+    "hasJSX": false,
+    "hasHooks": false,
+    "dependedOnBy": [],
+    "usageScore": {
+      "directUsage": 0,
+      "weightedScore": 0,
+      "isCritical": false
+    },
+    "migrationPriority": "medium"
+  },
+  {
+    "name": "ViewSwitcher",
+    "path": "components/hotels/ViewSwitcher.jsx",
+    "category": "other",
+    "complexity": 2,
+    "complexityLevel": "low",
+    "imports": [
+      {
+        "source": "@components/ui/ViewSwitcher",
+        "imports": [
+          "ViewSwitcher"
+        ]
+      }
+    ],
+    "internalDependencies": [],
+    "externalDependencies": [
+      {
+        "path": "@components/ui/ViewSwitcher",
+        "imports": [
+          "ViewSwitcher"
+        ]
+      }
+    ],
+    "migrated": false,
+    "fileSize": 169,
+    "exportType": "default",
+    "isTypeScript": false,
+    "hasJSX": false,
+    "hasHooks": false,
+    "dependedOnBy": [],
+    "usageScore": {
+      "directUsage": 0,
+      "weightedScore": 0,
+      "isCritical": false
+    },
+    "migrationPriority": "medium"
+  },
+  {
+    "name": "ImprovedCategoryButton",
+    "path": "components/hotels/ImprovedCategoryButton.jsx",
+    "category": "other",
+    "complexity": 18,
+    "complexityLevel": "low",
+    "imports": [
+      {
+        "source": "next/link",
+        "imports": [
+          "Link"
+        ]
+      }
+    ],
+    "internalDependencies": [],
+    "externalDependencies": [
+      {
+        "path": "next/link",
+        "imports": [
+          "Link"
+        ]
+      }
+    ],
+    "migrated": false,
+    "fileSize": 950,
+    "exportType": "default",
+    "isTypeScript": false,
+    "hasJSX": true,
+    "hasHooks": false,
+    "dependedOnBy": [],
+    "usageScore": {
+      "directUsage": 0,
+      "weightedScore": 0,
+      "isCritical": false
+    },
+    "migrationPriority": "medium"
+  },
+  {
+    "name": "HotelsPage",
+    "path": "components/hotels/HotelsPage.jsx",
+    "category": "other",
+    "complexity": 107,
+    "complexityLevel": "high",
+    "imports": [
+      {
+        "source": "react",
+        "imports": [
+          "useState",
+          "useEffect"
+        ]
+      },
+      {
+        "source": "./HotelsHero",
+        "imports": [
+          "HotelsHero"
+        ]
+      },
+      {
+        "source": "./HotelFilters",
+        "imports": [
+          "HotelFilters"
+        ]
+      },
+      {
+        "source": "./HotelGrid",
+        "imports": [
+          "HotelGrid"
+        ]
+      }
+    ],
+    "internalDependencies": [
+      {
+        "path": "/Users/samuelrenner/cincinhotels/components/hotels/HotelsHero",
+        "imports": [
+          "HotelsHero"
+        ]
+      },
+      {
+        "path": "/Users/samuelrenner/cincinhotels/components/hotels/HotelFilters",
+        "imports": [
+          "HotelFilters"
+        ]
+      },
+      {
+        "path": "/Users/samuelrenner/cincinhotels/components/hotels/HotelGrid",
+        "imports": [
+          "HotelGrid"
+        ]
+      }
+    ],
+    "externalDependencies": [
+      {
+        "path": "react",
+        "imports": [
+          "useState",
+          "useEffect"
+        ]
+      }
+    ],
+    "migrated": false,
+    "fileSize": 7335,
+    "exportType": "default",
+    "isTypeScript": false,
+    "hasJSX": true,
+    "hasHooks": true,
+    "dependedOnBy": [],
+    "usageScore": {
+      "directUsage": 0,
+      "weightedScore": 0,
+      "isCritical": false
+    },
+    "migrationPriority": "low"
+  },
+  {
+    "name": "HotelsHero",
+    "path": "components/hotels/HotelsHero.jsx",
+    "category": "other",
+    "complexity": 59,
+    "complexityLevel": "high",
+    "imports": [
+      {
+        "source": "framer-motion",
+        "imports": [
+          "motion"
+        ]
+      },
+      {
+        "source": "react",
+        "imports": [
+          "useState"
+        ]
+      }
+    ],
+    "internalDependencies": [],
+    "externalDependencies": [
+      {
+        "path": "framer-motion",
+        "imports": [
+          "motion"
+        ]
+      },
+      {
+        "path": "react",
+        "imports": [
+          "useState"
+        ]
+      }
+    ],
+    "migrated": false,
+    "fileSize": 4072,
+    "exportType": "default",
+    "isTypeScript": false,
+    "hasJSX": true,
+    "hasHooks": true,
+    "dependedOnBy": [],
+    "usageScore": {
+      "directUsage": 0,
+      "weightedScore": 0,
+      "isCritical": false
+    },
+    "migrationPriority": "low"
+  },
+  {
+    "name": "HotelQuickView",
+    "path": "components/hotels/HotelQuickView.jsx",
+    "category": "other",
+    "complexity": 88,
+    "complexityLevel": "high",
+    "imports": [
+      {
+        "source": "react",
+        "imports": [
+          "useState"
+        ]
+      },
+      {
+        "source": "next/image",
+        "imports": [
+          "Image"
+        ]
+      },
+      {
+        "source": "framer-motion",
+        "imports": [
+          "motion",
+          "AnimatePresence"
+        ]
+      },
+      {
+        "source": "./HotelCard",
+        "imports": [
+          "getHotelImage"
+        ]
+      }
+    ],
+    "internalDependencies": [
+      {
+        "path": "/Users/samuelrenner/cincinhotels/components/hotels/HotelCard",
+        "imports": [
+          "getHotelImage"
+        ]
+      }
+    ],
+    "externalDependencies": [
+      {
+        "path": "react",
+        "imports": [
+          "useState"
+        ]
+      },
+      {
+        "path": "next/image",
+        "imports": [
+          "Image"
+        ]
+      },
+      {
+        "path": "framer-motion",
+        "imports": [
+          "motion",
+          "AnimatePresence"
+        ]
+      }
+    ],
+    "migrated": false,
+    "fileSize": 5693,
+    "exportType": "default",
+    "isTypeScript": false,
+    "hasJSX": true,
+    "hasHooks": true,
+    "dependedOnBy": [],
+    "usageScore": {
+      "directUsage": 0,
+      "weightedScore": 0,
+      "isCritical": false
+    },
+    "migrationPriority": "low"
+  },
+  {
+    "name": "HotelModal",
+    "path": "components/hotels/HotelModal.jsx",
+    "category": "other",
+    "complexity": 3,
+    "complexityLevel": "low",
+    "imports": [
+      {
+        "source": "@components/hotels/HotelModal",
+        "imports": [
+          "HotelModal"
+        ]
+      }
+    ],
+    "internalDependencies": [],
+    "externalDependencies": [
+      {
+        "path": "@components/hotels/HotelModal",
+        "imports": [
+          "HotelModal"
+        ]
+      }
+    ],
+    "migrated": false,
+    "fileSize": 210,
+    "exportType": "default",
+    "isTypeScript": false,
+    "hasJSX": false,
+    "hasHooks": false,
+    "dependedOnBy": [],
+    "usageScore": {
+      "directUsage": 0,
+      "weightedScore": 0,
+      "isCritical": false
+    },
+    "migrationPriority": "medium"
+  },
+  {
+    "name": "HotelMapView",
+    "path": "components/hotels/HotelMapView.jsx",
+    "category": "other",
+    "complexity": 87,
+    "complexityLevel": "high",
+    "imports": [
+      {
+        "source": "react",
+        "imports": [
+          "useState",
+          "useEffect"
+        ]
+      },
+      {
+        "source": "next/image",
+        "imports": [
+          "Image"
+        ]
+      },
+      {
+        "source": "framer-motion",
+        "imports": [
+          "motion",
+          "AnimatePresence"
+        ]
+      },
+      {
+        "source": "./HotelCard",
+        "imports": [
+          "getHotelImage"
+        ]
+      }
+    ],
+    "internalDependencies": [
+      {
+        "path": "/Users/samuelrenner/cincinhotels/components/hotels/HotelCard",
+        "imports": [
+          "getHotelImage"
+        ]
+      }
+    ],
+    "externalDependencies": [
+      {
+        "path": "react",
+        "imports": [
+          "useState",
+          "useEffect"
+        ]
+      },
+      {
+        "path": "next/image",
+        "imports": [
+          "Image"
+        ]
+      },
+      {
+        "path": "framer-motion",
+        "imports": [
+          "motion",
+          "AnimatePresence"
+        ]
+      }
+    ],
+    "migrated": false,
+    "fileSize": 5405,
+    "exportType": "default",
+    "isTypeScript": false,
+    "hasJSX": true,
+    "hasHooks": true,
+    "dependedOnBy": [],
+    "usageScore": {
+      "directUsage": 0,
+      "weightedScore": 0,
+      "isCritical": false
+    },
+    "migrationPriority": "low"
+  },
+  {
+    "name": "HotelListView",
+    "path": "components/hotels/HotelListView.jsx",
+    "category": "other",
+    "complexity": 70,
+    "complexityLevel": "high",
+    "imports": [
+      {
+        "source": "framer-motion",
+        "imports": [
+          "motion"
+        ]
+      },
+      {
+        "source": "next/image",
+        "imports": [
+          "Image"
+        ]
+      },
+      {
+        "source": "./HotelCard",
+        "imports": [
+          "getHotelImage"
+        ]
+      }
+    ],
+    "internalDependencies": [
+      {
+        "path": "/Users/samuelrenner/cincinhotels/components/hotels/HotelCard",
+        "imports": [
+          "getHotelImage"
+        ]
+      }
+    ],
+    "externalDependencies": [
+      {
+        "path": "framer-motion",
+        "imports": [
+          "motion"
+        ]
+      },
+      {
+        "path": "next/image",
+        "imports": [
+          "Image"
+        ]
+      }
+    ],
+    "migrated": false,
+    "fileSize": 5083,
+    "exportType": "default",
+    "isTypeScript": false,
+    "hasJSX": true,
+    "hasHooks": false,
+    "dependedOnBy": [],
+    "usageScore": {
+      "directUsage": 0,
+      "weightedScore": 0,
+      "isCritical": false
+    },
+    "migrationPriority": "low"
+  },
+  {
+    "name": "HotelList",
+    "path": "components/hotels/HotelList.js",
+    "category": "other",
+    "complexity": 2,
+    "complexityLevel": "low",
+    "imports": [
+      {
+        "source": "@components/hotels/HotelList",
+        "imports": [
+          "HotelList"
+        ]
+      }
+    ],
+    "internalDependencies": [],
+    "externalDependencies": [
+      {
+        "path": "@components/hotels/HotelList",
+        "imports": [
+          "HotelList"
+        ]
+      }
+    ],
+    "migrated": false,
+    "fileSize": 142,
+    "exportType": "default",
+    "isTypeScript": false,
+    "hasJSX": false,
+    "hasHooks": false,
+    "dependedOnBy": [],
+    "usageScore": {
+      "directUsage": 0,
+      "weightedScore": 0,
+      "isCritical": false
+    },
+    "migrationPriority": "medium"
+  },
+  {
+    "name": "HotelGrid",
+    "path": "components/hotels/HotelGrid.jsx",
+    "category": "other",
+    "complexity": 83,
+    "complexityLevel": "high",
+    "imports": [
+      {
+        "source": "react",
+        "imports": [
+          "useState"
+        ]
+      },
+      {
+        "source": "framer-motion",
+        "imports": [
+          "motion"
+        ]
+      },
+      {
+        "source": "next/link",
+        "imports": [
+          "Link"
+        ]
+      },
+      {
+        "source": "next/image",
+        "imports": [
+          "Image"
+        ]
+      }
+    ],
+    "internalDependencies": [],
+    "externalDependencies": [
+      {
+        "path": "react",
+        "imports": [
+          "useState"
+        ]
+      },
+      {
+        "path": "framer-motion",
+        "imports": [
+          "motion"
+        ]
+      },
+      {
+        "path": "next/link",
+        "imports": [
+          "Link"
+        ]
+      },
+      {
+        "path": "next/image",
+        "imports": [
+          "Image"
+        ]
+      }
+    ],
+    "migrated": false,
+    "fileSize": 7149,
+    "exportType": "default",
+    "isTypeScript": false,
+    "hasJSX": true,
+    "hasHooks": true,
+    "dependedOnBy": [],
+    "usageScore": {
+      "directUsage": 0,
+      "weightedScore": 0,
+      "isCritical": false
+    },
+    "migrationPriority": "low"
+  },
+  {
+    "name": "HotelFilters",
+    "path": "components/hotels/HotelFilters.jsx",
+    "category": "other",
+    "complexity": 2,
+    "complexityLevel": "low",
+    "imports": [
+      {
+        "source": "@components/hotels/HotelFilters",
+        "imports": [
+          "HotelFilters"
+        ]
+      }
+    ],
+    "internalDependencies": [],
+    "externalDependencies": [
+      {
+        "path": "@components/hotels/HotelFilters",
+        "imports": [
+          "HotelFilters"
+        ]
+      }
+    ],
+    "migrated": false,
+    "fileSize": 186,
+    "exportType": "default",
+    "isTypeScript": false,
+    "hasJSX": false,
+    "hasHooks": false,
+    "dependedOnBy": [],
+    "usageScore": {
+      "directUsage": 0,
+      "weightedScore": 0,
+      "isCritical": false
+    },
+    "migrationPriority": "medium"
+  },
+  {
+    "name": "HotelDetail",
+    "path": "components/hotels/HotelDetail.jsx",
+    "category": "other",
+    "complexity": 98,
+    "complexityLevel": "high",
+    "imports": [
+      {
+        "source": "react",
+        "imports": [
+          "useState"
+        ]
+      },
+      {
+        "source": "next/image",
+        "imports": [
+          "Image"
+        ]
+      },
+      {
+        "source": "next/link",
+        "imports": [
+          "Link"
+        ]
+      },
+      {
+        "source": "framer-motion",
+        "imports": [
+          "motion"
+        ]
+      },
+      {
+        "source": "../../lib/utils",
+        "imports": [
+          "cn"
+        ]
+      }
+    ],
+    "internalDependencies": [
+      {
+        "path": "/Users/samuelrenner/cincinhotels/lib/utils",
+        "imports": [
+          "cn"
+        ]
+      }
+    ],
+    "externalDependencies": [
+      {
+        "path": "react",
+        "imports": [
+          "useState"
+        ]
+      },
+      {
+        "path": "next/image",
+        "imports": [
+          "Image"
+        ]
+      },
+      {
+        "path": "next/link",
+        "imports": [
+          "Link"
+        ]
+      },
+      {
+        "path": "framer-motion",
+        "imports": [
+          "motion"
+        ]
+      }
+    ],
+    "migrated": false,
+    "fileSize": 11083,
+    "exportType": "default",
+    "isTypeScript": false,
+    "hasJSX": true,
+    "hasHooks": true,
+    "dependedOnBy": [],
+    "usageScore": {
+      "directUsage": 0,
+      "weightedScore": 0,
+      "isCritical": false
+    },
+    "migrationPriority": "low"
+  },
+  {
+    "name": "HotelCard",
+    "path": "components/hotels/HotelCard.js",
+    "category": "other",
+    "complexity": 7,
+    "complexityLevel": "low",
+    "imports": [
+      {
+        "source": "next/link",
+        "imports": [
+          "Link"
+        ]
+      },
+      {
+        "source": "next/image",
+        "imports": [
+          "Image"
+        ]
+      },
+      {
+        "source": "@components/hotels/HotelCard",
+        "imports": [
+          "HotelCard"
+        ]
+      },
+      {
+        "source": "@/utils/image-helpers",
+        "imports": [
+          "getHotelImage"
+        ]
+      }
+    ],
+    "internalDependencies": [],
+    "externalDependencies": [
+      {
+        "path": "next/link",
+        "imports": [
+          "Link"
+        ]
+      },
+      {
+        "path": "next/image",
+        "imports": [
+          "Image"
+        ]
+      },
+      {
+        "path": "@components/hotels/HotelCard",
+        "imports": [
+          "HotelCard"
+        ]
+      },
+      {
+        "path": "@/utils/image-helpers",
+        "imports": [
+          "getHotelImage"
+        ]
+      }
+    ],
+    "migrated": false,
+    "fileSize": 336,
+    "exportType": "default",
+    "isTypeScript": false,
+    "hasJSX": false,
+    "hasHooks": false,
+    "dependedOnBy": [],
+    "usageScore": {
+      "directUsage": 0,
+      "weightedScore": 0,
+      "isCritical": false
+    },
+    "migrationPriority": "medium"
+  },
+  {
+    "name": "Hero",
+    "path": "components/hotels/Hero.jsx",
+    "category": "other",
+    "complexity": 30,
+    "complexityLevel": "medium",
+    "imports": [
+      {
+        "source": "next/link",
+        "imports": [
+          "Link"
+        ]
+      },
+      {
+        "source": "framer-motion",
+        "imports": [
+          "motion"
+        ]
+      }
+    ],
+    "internalDependencies": [],
+    "externalDependencies": [
+      {
+        "path": "next/link",
+        "imports": [
+          "Link"
+        ]
+      },
+      {
+        "path": "framer-motion",
+        "imports": [
+          "motion"
+        ]
+      }
+    ],
+    "migrated": false,
+    "fileSize": 2696,
+    "exportType": "default",
+    "isTypeScript": false,
+    "hasJSX": true,
+    "hasHooks": false,
+    "dependedOnBy": [],
+    "usageScore": {
+      "directUsage": 0,
+      "weightedScore": 0,
+      "isCritical": false
+    },
+    "migrationPriority": "medium"
+  },
+  {
+    "name": "Filters",
+    "path": "components/hotels/Filters.js",
+    "category": "other",
+    "complexity": 2,
+    "complexityLevel": "low",
+    "imports": [
+      {
+        "source": "@components/hotels/filters/Filters",
+        "imports": [
+          "Filters"
+        ]
+      }
+    ],
+    "internalDependencies": [],
+    "externalDependencies": [
+      {
+        "path": "@components/hotels/filters/Filters",
+        "imports": [
+          "Filters"
+        ]
+      }
+    ],
+    "migrated": false,
+    "fileSize": 142,
+    "exportType": "default",
+    "isTypeScript": false,
+    "hasJSX": false,
+    "hasHooks": false,
+    "dependedOnBy": [],
+    "usageScore": {
+      "directUsage": 0,
+      "weightedScore": 0,
+      "isCritical": false
+    },
+    "migrationPriority": "medium"
+  },
+  {
+    "name": "FilterModal",
+    "path": "components/hotels/FilterModal.js",
+    "category": "other",
+    "complexity": 2,
+    "complexityLevel": "low",
+    "imports": [
+      {
+        "source": "@components/hotels/filters/FilterModal",
+        "imports": [
+          "FilterModal"
+        ]
+      }
+    ],
+    "internalDependencies": [],
+    "externalDependencies": [
+      {
+        "path": "@components/hotels/filters/FilterModal",
+        "imports": [
+          "FilterModal"
+        ]
+      }
+    ],
+    "migrated": false,
+    "fileSize": 158,
+    "exportType": "default",
+    "isTypeScript": false,
+    "hasJSX": false,
+    "hasHooks": false,
+    "dependedOnBy": [],
+    "usageScore": {
+      "directUsage": 0,
+      "weightedScore": 0,
+      "isCritical": false
+    },
+    "migrationPriority": "medium"
+  },
+  {
+    "name": "CategoryButton",
+    "path": "components/hotels/CategoryButton.js",
+    "category": "other",
+    "complexity": 2,
+    "complexityLevel": "low",
+    "imports": [
+      {
+        "source": "@components/ui/buttons/CategoryButton",
+        "imports": [
+          "CategoryButton"
+        ]
+      }
+    ],
+    "internalDependencies": [],
+    "externalDependencies": [
+      {
+        "path": "@components/ui/buttons/CategoryButton",
+        "imports": [
+          "CategoryButton"
+        ]
+      }
+    ],
+    "migrated": false,
+    "fileSize": 193,
+    "exportType": "default",
+    "isTypeScript": false,
+    "hasJSX": false,
+    "hasHooks": false,
+    "dependedOnBy": [],
+    "usageScore": {
+      "directUsage": 0,
+      "weightedScore": 0,
+      "isCritical": false
+    },
+    "migrationPriority": "medium"
+  },
+  {
+    "name": "CategoryBar",
+    "path": "components/hotels/CategoryBar.js",
+    "category": "other",
+    "complexity": 98,
+    "complexityLevel": "high",
+    "imports": [
+      {
+        "source": "react",
+        "imports": [
+          "useState",
+          "useRef",
+          "useEffect"
+        ]
+      },
+      {
+        "source": "next/link",
+        "imports": [
+          "Link"
+        ]
+      },
+      {
+        "source": "next/navigation",
+        "imports": [
+          "useRouter",
+          "usePathname"
+        ]
+      }
+    ],
+    "internalDependencies": [],
+    "externalDependencies": [
+      {
+        "path": "react",
+        "imports": [
+          "useState",
+          "useRef",
+          "useEffect"
+        ]
+      },
+      {
+        "path": "next/link",
+        "imports": [
+          "Link"
+        ]
+      },
+      {
+        "path": "next/navigation",
+        "imports": [
+          "useRouter",
+          "usePathname"
+        ]
+      }
+    ],
+    "migrated": false,
+    "fileSize": 9588,
+    "exportType": "default",
+    "isTypeScript": false,
+    "hasJSX": true,
+    "hasHooks": true,
+    "dependedOnBy": [],
+    "usageScore": {
+      "directUsage": 0,
+      "weightedScore": 0,
+      "isCritical": false
+    },
+    "migrationPriority": "low"
+  },
+  {
+    "name": "AnimatedHotelEntry",
+    "path": "components/hotels/AnimatedHotelEntry.jsx",
+    "category": "other",
+    "complexity": 15,
+    "complexityLevel": "low",
+    "imports": [
+      {
+        "source": "react",
+        "imports": [
+          "useRef"
+        ]
+      },
+      {
+        "source": "framer-motion",
+        "imports": [
+          "motion",
+          "useInView"
+        ]
+      }
+    ],
+    "internalDependencies": [],
+    "externalDependencies": [
+      {
+        "path": "react",
+        "imports": [
+          "useRef"
+        ]
+      },
+      {
+        "path": "framer-motion",
+        "imports": [
+          "motion",
+          "useInView"
+        ]
+      }
+    ],
+    "migrated": false,
+    "fileSize": 706,
+    "exportType": "default",
+    "isTypeScript": false,
+    "hasJSX": true,
+    "hasHooks": false,
+    "dependedOnBy": [],
+    "usageScore": {
+      "directUsage": 0,
+      "weightedScore": 0,
+      "isCritical": false
+    },
+    "migrationPriority": "medium"
+  },
+  {
+    "name": "hotel-detail",
+    "path": "components/hotel-detail/index.js",
+    "category": "other",
+    "complexity": 8,
+    "complexityLevel": "low",
+    "imports": [],
+    "internalDependencies": [],
+    "externalDependencies": [],
+    "migrated": false,
+    "fileSize": 869,
+    "exportType": "named",
+    "isTypeScript": false,
+    "hasJSX": false,
+    "hasHooks": false,
+    "dependedOnBy": [],
+    "usageScore": {
+      "directUsage": 0,
+      "weightedScore": 0,
+      "isCritical": false
+    },
+    "migrationPriority": "medium"
+  },
+  {
+    "name": "RoomList",
+    "path": "components/hotel-detail/RoomList.js",
+    "category": "other",
+    "complexity": 84,
+    "complexityLevel": "high",
+    "imports": [
+      {
+        "source": "./RoomCard",
+        "imports": [
+          "RoomCard"
+        ]
+      },
+      {
+        "source": "next/link",
+        "imports": [
+          "Link"
+        ]
+      },
+      {
+        "source": "react",
+        "imports": [
+          "useState"
+        ]
+      }
+    ],
+    "internalDependencies": [
+      {
+        "path": "/Users/samuelrenner/cincinhotels/components/hotel-detail/RoomCard",
+        "imports": [
+          "RoomCard"
+        ]
+      }
+    ],
+    "externalDependencies": [
+      {
+        "path": "next/link",
+        "imports": [
+          "Link"
+        ]
+      },
+      {
+        "path": "react",
+        "imports": [
+          "useState"
+        ]
+      }
+    ],
+    "migrated": false,
+    "fileSize": 10931,
+    "exportType": "default",
+    "isTypeScript": false,
+    "hasJSX": true,
+    "hasHooks": true,
+    "dependedOnBy": [],
+    "usageScore": {
+      "directUsage": 0,
+      "weightedScore": 0,
+      "isCritical": false
+    },
+    "migrationPriority": "low"
+  },
+  {
+    "name": "RoomCard",
+    "path": "components/hotel-detail/RoomCard.js",
+    "category": "other",
+    "complexity": 17,
+    "complexityLevel": "low",
+    "imports": [
+      {
+        "source": "next/image",
+        "imports": [
+          "Image"
+        ]
+      }
+    ],
+    "internalDependencies": [],
+    "externalDependencies": [
+      {
+        "path": "next/image",
+        "imports": [
+          "Image"
+        ]
+      }
+    ],
+    "migrated": false,
+    "fileSize": 1467,
+    "exportType": "default",
+    "isTypeScript": false,
+    "hasJSX": true,
+    "hasHooks": false,
+    "dependedOnBy": [],
+    "usageScore": {
+      "directUsage": 0,
+      "weightedScore": 0,
+      "isCritical": false
+    },
+    "migrationPriority": "medium"
+  },
+  {
+    "name": "OverviewSection",
+    "path": "components/hotel-detail/OverviewSection.js",
+    "category": "other",
+    "complexity": 93,
+    "complexityLevel": "high",
+    "imports": [
+      {
+        "source": "react",
+        "imports": [
+          "useState",
+          "useEffect"
+        ]
+      },
+      {
+        "source": "framer-motion",
+        "imports": [
+          "motion"
+        ]
+      },
+      {
+        "source": "./FeatureItem",
+        "imports": [
+          "FeatureItem"
+        ]
+      }
+    ],
+    "internalDependencies": [
+      {
+        "path": "/Users/samuelrenner/cincinhotels/components/hotel-detail/FeatureItem",
+        "imports": [
+          "FeatureItem"
+        ]
+      }
+    ],
+    "externalDependencies": [
+      {
+        "path": "react",
+        "imports": [
+          "useState",
+          "useEffect"
+        ]
+      },
+      {
+        "path": "framer-motion",
+        "imports": [
+          "motion"
+        ]
+      }
+    ],
+    "migrated": false,
+    "fileSize": 24767,
+    "exportType": "default",
+    "isTypeScript": false,
+    "hasJSX": true,
+    "hasHooks": true,
+    "dependedOnBy": [],
+    "usageScore": {
+      "directUsage": 0,
+      "weightedScore": 0,
+      "isCritical": false
+    },
+    "migrationPriority": "low"
+  },
+  {
+    "name": "OriginalsSection",
+    "path": "components/hotel-detail/OriginalsSection.js",
+    "category": "other",
+    "complexity": 49,
+    "complexityLevel": "high",
+    "imports": [
+      {
+        "source": "framer-motion",
+        "imports": [
+          "motion"
+        ]
+      },
+      {
+        "source": "next/image",
+        "imports": [
+          "Image"
+        ]
+      }
+    ],
+    "internalDependencies": [],
+    "externalDependencies": [
+      {
+        "path": "framer-motion",
+        "imports": [
+          "motion"
+        ]
+      },
+      {
+        "path": "next/image",
+        "imports": [
+          "Image"
+        ]
+      }
+    ],
+    "migrated": false,
+    "fileSize": 4721,
+    "exportType": "default",
+    "isTypeScript": false,
+    "hasJSX": true,
+    "hasHooks": false,
+    "dependedOnBy": [],
+    "usageScore": {
+      "directUsage": 0,
+      "weightedScore": 0,
+      "isCritical": false
+    },
+    "migrationPriority": "low"
+  },
+  {
+    "name": "LocalDining",
+    "path": "components/hotel-detail/LocalDining.jsx",
+    "category": "other",
+    "complexity": 92,
+    "complexityLevel": "high",
+    "imports": [
+      {
+        "source": "react",
+        "imports": [
+          "useState",
+          "useRef"
+        ]
+      },
+      {
+        "source": "framer-motion",
+        "imports": [
+          "motion",
+          "useInView",
+          "AnimatePresence"
+        ]
+      },
+      {
+        "source": "next/image",
+        "imports": [
+          "Image"
+        ]
+      },
+      {
+        "source": "next/link",
+        "imports": [
+          "Link"
+        ]
+      }
+    ],
+    "internalDependencies": [],
+    "externalDependencies": [
+      {
+        "path": "react",
+        "imports": [
+          "useState",
+          "useRef"
+        ]
+      },
+      {
+        "path": "framer-motion",
+        "imports": [
+          "motion",
+          "useInView",
+          "AnimatePresence"
+        ]
+      },
+      {
+        "path": "next/image",
+        "imports": [
+          "Image"
+        ]
+      },
+      {
+        "path": "next/link",
+        "imports": [
+          "Link"
+        ]
+      }
+    ],
+    "migrated": false,
+    "fileSize": 11413,
+    "exportType": "default",
+    "isTypeScript": false,
+    "hasJSX": true,
+    "hasHooks": true,
+    "dependedOnBy": [],
+    "usageScore": {
+      "directUsage": 0,
+      "weightedScore": 0,
+      "isCritical": false
+    },
+    "migrationPriority": "low"
+  },
+  {
+    "name": "HotelRoomsPage",
+    "path": "components/hotel-detail/HotelRoomsPage.jsx",
+    "category": "other",
+    "complexity": 70,
+    "complexityLevel": "high",
+    "imports": [
+      {
+        "source": "react",
+        "imports": [
+          "useState",
+          "useEffect"
+        ]
+      },
+      {
+        "source": "next/link",
+        "imports": [
+          "Link"
+        ]
+      },
+      {
+        "source": "framer-motion",
+        "imports": [
+          "motion"
+        ]
+      },
+      {
+        "source": "./HotelRooms",
+        "imports": [
+          "HotelRooms"
+        ]
+      }
+    ],
+    "internalDependencies": [
+      {
+        "path": "/Users/samuelrenner/cincinhotels/components/hotel-detail/HotelRooms",
+        "imports": [
+          "HotelRooms"
+        ]
+      }
+    ],
+    "externalDependencies": [
+      {
+        "path": "react",
+        "imports": [
+          "useState",
+          "useEffect"
+        ]
+      },
+      {
+        "path": "next/link",
+        "imports": [
+          "Link"
+        ]
+      },
+      {
+        "path": "framer-motion",
+        "imports": [
+          "motion"
+        ]
+      }
+    ],
+    "migrated": false,
+    "fileSize": 6657,
+    "exportType": "default",
+    "isTypeScript": false,
+    "hasJSX": true,
+    "hasHooks": true,
+    "dependedOnBy": [],
+    "usageScore": {
+      "directUsage": 0,
+      "weightedScore": 0,
+      "isCritical": false
+    },
+    "migrationPriority": "low"
+  },
+  {
+    "name": "HotelRooms",
+    "path": "components/hotel-detail/HotelRooms.jsx",
+    "category": "form",
+    "complexity": 109,
+    "complexityLevel": "high",
+    "imports": [
+      {
+        "source": "react",
+        "imports": [
+          "useState"
+        ]
+      },
+      {
+        "source": "next/image",
+        "imports": [
+          "Image"
+        ]
+      },
+      {
+        "source": "framer-motion",
+        "imports": [
+          "motion",
+          "AnimatePresence"
+        ]
+      }
+    ],
+    "internalDependencies": [],
+    "externalDependencies": [
+      {
+        "path": "react",
+        "imports": [
+          "useState"
+        ]
+      },
+      {
+        "path": "next/image",
+        "imports": [
+          "Image"
+        ]
+      },
+      {
+        "path": "framer-motion",
+        "imports": [
+          "motion",
+          "AnimatePresence"
+        ]
+      }
+    ],
+    "migrated": false,
+    "fileSize": 17459,
+    "exportType": "default",
+    "isTypeScript": false,
+    "hasJSX": true,
+    "hasHooks": true,
+    "dependedOnBy": [],
+    "usageScore": {
+      "directUsage": 0,
+      "weightedScore": 0,
+      "isCritical": false
+    },
+    "migrationPriority": "low"
+  },
+  {
+    "name": "HotelGallery",
+    "path": "components/hotel-detail/HotelGallery.jsx",
+    "category": "other",
+    "complexity": 137,
+    "complexityLevel": "high",
+    "imports": [
+      {
+        "source": "react",
+        "imports": [
+          "useState",
+          "useRef",
+          "useEffect"
+        ]
+      },
+      {
+        "source": "framer-motion",
+        "imports": [
+          "motion",
+          "AnimatePresence"
+        ]
+      },
+      {
+        "source": "next/image",
+        "imports": [
+          "Image"
+        ]
+      }
+    ],
+    "internalDependencies": [],
+    "externalDependencies": [
+      {
+        "path": "react",
+        "imports": [
+          "useState",
+          "useRef",
+          "useEffect"
+        ]
+      },
+      {
+        "path": "framer-motion",
+        "imports": [
+          "motion",
+          "AnimatePresence"
+        ]
+      },
+      {
+        "path": "next/image",
+        "imports": [
+          "Image"
+        ]
+      }
+    ],
+    "migrated": false,
+    "fileSize": 10678,
+    "exportType": "default",
+    "isTypeScript": false,
+    "hasJSX": true,
+    "hasHooks": true,
+    "dependedOnBy": [],
+    "usageScore": {
+      "directUsage": 0,
+      "weightedScore": 0,
+      "isCritical": false
+    },
+    "migrationPriority": "low"
+  },
+  {
+    "name": "HotelDetailPage",
+    "path": "components/hotel-detail/HotelDetailPage.jsx",
+    "category": "other",
+    "complexity": 104,
+    "complexityLevel": "high",
+    "imports": [
+      {
+        "source": "react",
+        "imports": [
+          "useState",
+          "useEffect"
+        ]
+      },
+      {
+        "source": "./HotelDetailHero",
+        "imports": [
+          "HotelDetailHero"
+        ]
+      },
+      {
+        "source": "./HotelGallery",
+        "imports": [
+          "HotelGallery"
+        ]
+      },
+      {
+        "source": "./HotelAmenities",
+        "imports": [
+          "HotelAmenities"
+        ]
+      },
+      {
+        "source": "./HotelRooms",
+        "imports": [
+          "HotelRooms"
+        ]
+      },
+      {
+        "source": "framer-motion",
+        "imports": [
+          "motion"
+        ]
+      }
+    ],
+    "internalDependencies": [
+      {
+        "path": "/Users/samuelrenner/cincinhotels/components/hotel-detail/HotelDetailHero",
+        "imports": [
+          "HotelDetailHero"
+        ]
+      },
+      {
+        "path": "/Users/samuelrenner/cincinhotels/components/hotel-detail/HotelGallery",
+        "imports": [
+          "HotelGallery"
+        ]
+      },
+      {
+        "path": "/Users/samuelrenner/cincinhotels/components/hotel-detail/HotelAmenities",
+        "imports": [
+          "HotelAmenities"
+        ]
+      },
+      {
+        "path": "/Users/samuelrenner/cincinhotels/components/hotel-detail/HotelRooms",
+        "imports": [
+          "HotelRooms"
+        ]
+      }
+    ],
+    "externalDependencies": [
+      {
+        "path": "react",
+        "imports": [
+          "useState",
+          "useEffect"
+        ]
+      },
+      {
+        "path": "framer-motion",
+        "imports": [
+          "motion"
+        ]
+      }
+    ],
+    "migrated": false,
+    "fileSize": 12390,
+    "exportType": "default",
+    "isTypeScript": false,
+    "hasJSX": true,
+    "hasHooks": true,
+    "dependedOnBy": [],
+    "usageScore": {
+      "directUsage": 0,
+      "weightedScore": 0,
+      "isCritical": false
+    },
+    "migrationPriority": "low"
+  },
+  {
+    "name": "HotelDetailHero",
+    "path": "components/hotel-detail/HotelDetailHero.jsx",
+    "category": "other",
+    "complexity": 75,
+    "complexityLevel": "high",
+    "imports": [
+      {
+        "source": "react",
+        "imports": [
+          "useState",
+          "useEffect"
+        ]
+      },
+      {
+        "source": "framer-motion",
+        "imports": [
+          "motion"
+        ]
+      }
+    ],
+    "internalDependencies": [],
+    "externalDependencies": [
+      {
+        "path": "react",
+        "imports": [
+          "useState",
+          "useEffect"
+        ]
+      },
+      {
+        "path": "framer-motion",
+        "imports": [
+          "motion"
+        ]
+      }
+    ],
+    "migrated": false,
+    "fileSize": 7127,
+    "exportType": "default",
+    "isTypeScript": false,
+    "hasJSX": true,
+    "hasHooks": true,
+    "dependedOnBy": [],
+    "usageScore": {
+      "directUsage": 0,
+      "weightedScore": 0,
+      "isCritical": false
+    },
+    "migrationPriority": "low"
+  },
+  {
+    "name": "HotelAmenities",
+    "path": "components/hotel-detail/HotelAmenities.jsx",
+    "category": "other",
+    "complexity": 104,
+    "complexityLevel": "high",
+    "imports": [
+      {
+        "source": "react",
+        "imports": [
+          "useState"
+        ]
+      },
+      {
+        "source": "framer-motion",
+        "imports": [
+          "motion"
+        ]
+      }
+    ],
+    "internalDependencies": [],
+    "externalDependencies": [
+      {
+        "path": "react",
+        "imports": [
+          "useState"
+        ]
+      },
+      {
+        "path": "framer-motion",
+        "imports": [
+          "motion"
+        ]
+      }
+    ],
+    "migrated": false,
+    "fileSize": 16135,
+    "exportType": "default",
+    "isTypeScript": false,
+    "hasJSX": true,
+    "hasHooks": true,
+    "dependedOnBy": [],
+    "usageScore": {
+      "directUsage": 0,
+      "weightedScore": 0,
+      "isCritical": false
+    },
+    "migrationPriority": "low"
+  },
+  {
+    "name": "GallerySection",
+    "path": "components/hotel-detail/GallerySection.js",
+    "category": "other",
+    "complexity": 177,
+    "complexityLevel": "high",
+    "imports": [
+      {
+        "source": "react",
+        "imports": [
+          "useState",
+          "useRef",
+          "useEffect"
+        ]
+      },
+      {
+        "source": "../common/AssetManager",
+        "imports": [
+          "useAssetManager"
+        ]
+      },
+      {
+        "source": "../common",
+        "imports": [
+          "ResponsiveDirectusImage"
+        ]
+      },
+      {
+        "source": "../common/LoadingSpinner",
+        "imports": [
+          "LoadingSpinner"
+        ]
+      },
+      {
+        "source": "../common/AssetPreloader",
+        "imports": [
+          "AssetPreloader"
+        ]
+      }
+    ],
+    "internalDependencies": [
+      {
+        "path": "/Users/samuelrenner/cincinhotels/components/common/AssetManager",
+        "imports": [
+          "useAssetManager"
+        ]
+      },
+      {
+        "path": "/Users/samuelrenner/cincinhotels/components/common",
+        "imports": [
+          "ResponsiveDirectusImage"
+        ]
+      },
+      {
+        "path": "/Users/samuelrenner/cincinhotels/components/common/LoadingSpinner",
+        "imports": [
+          "LoadingSpinner"
+        ]
+      },
+      {
+        "path": "/Users/samuelrenner/cincinhotels/components/common/AssetPreloader",
+        "imports": [
+          "AssetPreloader"
+        ]
+      }
+    ],
+    "externalDependencies": [
+      {
+        "path": "react",
+        "imports": [
+          "useState",
+          "useRef",
+          "useEffect"
+        ]
+      }
+    ],
+    "migrated": false,
+    "fileSize": 17278,
+    "exportType": "default",
+    "isTypeScript": false,
+    "hasJSX": true,
+    "hasHooks": true,
+    "dependedOnBy": [],
+    "usageScore": {
+      "directUsage": 0,
+      "weightedScore": 0,
+      "isCritical": false
+    },
+    "migrationPriority": "low"
+  },
+  {
+    "name": "FeatureItem",
+    "path": "components/hotel-detail/FeatureItem.js",
+    "category": "other",
+    "complexity": 2,
+    "complexityLevel": "low",
+    "imports": [
+      {
+        "source": "@components/ui/FeatureItem",
+        "imports": [
+          "FeatureItem"
+        ]
+      }
+    ],
+    "internalDependencies": [],
+    "externalDependencies": [
+      {
+        "path": "@components/ui/FeatureItem",
+        "imports": [
+          "FeatureItem"
+        ]
+      }
+    ],
+    "migrated": false,
+    "fileSize": 165,
+    "exportType": "default",
+    "isTypeScript": false,
+    "hasJSX": false,
+    "hasHooks": false,
+    "dependedOnBy": [],
+    "usageScore": {
+      "directUsage": 0,
+      "weightedScore": 0,
+      "isCritical": false
+    },
+    "migrationPriority": "medium"
+  },
+  {
+    "name": "DetailHeroBanner",
+    "path": "components/hotel-detail/DetailHeroBanner.js",
+    "category": "other",
+    "complexity": 89,
+    "complexityLevel": "high",
+    "imports": [
+      {
+        "source": "react",
+        "imports": [
+          "useState",
+          "useEffect"
+        ]
+      },
+      {
+        "source": "../hotels/HotelCard",
+        "imports": [
+          "getHotelImage"
+        ]
+      },
+      {
+        "source": "../common/AssetManager",
+        "imports": [
+          "useAssetManager"
+        ]
+      },
+      {
+        "source": "../common",
+        "imports": [
+          "ResponsiveDirectusImage"
+        ]
+      },
+      {
+        "source": "../common/LoadingSpinner",
+        "imports": [
+          "LoadingSpinner"
+        ]
+      }
+    ],
+    "internalDependencies": [
+      {
+        "path": "/Users/samuelrenner/cincinhotels/components/hotels/HotelCard",
+        "imports": [
+          "getHotelImage"
+        ]
+      },
+      {
+        "path": "/Users/samuelrenner/cincinhotels/components/common/AssetManager",
+        "imports": [
+          "useAssetManager"
+        ]
+      },
+      {
+        "path": "/Users/samuelrenner/cincinhotels/components/common",
+        "imports": [
+          "ResponsiveDirectusImage"
+        ]
+      },
+      {
+        "path": "/Users/samuelrenner/cincinhotels/components/common/LoadingSpinner",
+        "imports": [
+          "LoadingSpinner"
+        ]
+      }
+    ],
+    "externalDependencies": [
+      {
+        "path": "react",
+        "imports": [
+          "useState",
+          "useEffect"
+        ]
+      }
+    ],
+    "migrated": false,
+    "fileSize": 5024,
+    "exportType": "default",
+    "isTypeScript": false,
+    "hasJSX": true,
+    "hasHooks": true,
+    "dependedOnBy": [],
+    "usageScore": {
+      "directUsage": 0,
+      "weightedScore": 0,
+      "isCritical": false
+    },
+    "migrationPriority": "low"
+  },
+  {
+    "name": "DestinationOverview",
+    "path": "components/hotel-detail/DestinationOverview.jsx",
+    "category": "other",
+    "complexity": 86,
+    "complexityLevel": "high",
+    "imports": [
+      {
+        "source": "react",
+        "imports": [
+          "useState",
+          "useRef"
+        ]
+      },
+      {
+        "source": "framer-motion",
+        "imports": [
+          "motion",
+          "useInView",
+          "AnimatePresence"
+        ]
+      },
+      {
+        "source": "next/image",
+        "imports": [
+          "Image"
+        ]
+      },
+      {
+        "source": "next/link",
+        "imports": [
+          "Link"
+        ]
+      }
+    ],
+    "internalDependencies": [],
+    "externalDependencies": [
+      {
+        "path": "react",
+        "imports": [
+          "useState",
+          "useRef"
+        ]
+      },
+      {
+        "path": "framer-motion",
+        "imports": [
+          "motion",
+          "useInView",
+          "AnimatePresence"
+        ]
+      },
+      {
+        "path": "next/image",
+        "imports": [
+          "Image"
+        ]
+      },
+      {
+        "path": "next/link",
+        "imports": [
+          "Link"
+        ]
+      }
+    ],
+    "migrated": false,
+    "fileSize": 16090,
+    "exportType": "default",
+    "isTypeScript": false,
+    "hasJSX": true,
+    "hasHooks": true,
+    "dependedOnBy": [],
+    "usageScore": {
+      "directUsage": 0,
+      "weightedScore": 0,
+      "isCritical": false
+    },
+    "migrationPriority": "low"
+  },
+  {
+    "name": "ContentTabs",
+    "path": "components/hotel-detail/ContentTabs.js",
+    "category": "other",
+    "complexity": 118,
+    "complexityLevel": "high",
+    "imports": [
+      {
+        "source": "react",
+        "imports": [
+          "useState",
+          "useEffect",
+          "useRef"
+        ]
+      },
+      {
+        "source": "next/link",
+        "imports": [
+          "Link"
+        ]
+      },
+      {
+        "source": "next/navigation",
+        "imports": [
+          "usePathname"
+        ]
+      }
+    ],
+    "internalDependencies": [],
+    "externalDependencies": [
+      {
+        "path": "react",
+        "imports": [
+          "useState",
+          "useEffect",
+          "useRef"
+        ]
+      },
+      {
+        "path": "next/link",
+        "imports": [
+          "Link"
+        ]
+      },
+      {
+        "path": "next/navigation",
+        "imports": [
+          "usePathname"
+        ]
+      }
+    ],
+    "migrated": false,
+    "fileSize": 7578,
+    "exportType": "default",
+    "isTypeScript": false,
+    "hasJSX": true,
+    "hasHooks": true,
+    "dependedOnBy": [],
+    "usageScore": {
+      "directUsage": 0,
+      "weightedScore": 0,
+      "isCritical": false
+    },
+    "migrationPriority": "low"
+  },
+  {
+    "name": "WorldMapSection",
+    "path": "components/home/WorldMapSection.jsx",
+    "category": "other",
+    "complexity": 30,
+    "complexityLevel": "medium",
+    "imports": [
+      {
+        "source": "next/image",
+        "imports": [
+          "Image"
+        ]
+      },
+      {
+        "source": "next/link",
+        "imports": [
+          "Link"
+        ]
+      }
+    ],
+    "internalDependencies": [],
+    "externalDependencies": [
+      {
+        "path": "next/image",
+        "imports": [
+          "Image"
+        ]
+      },
+      {
+        "path": "next/link",
+        "imports": [
+          "Link"
+        ]
+      }
+    ],
+    "migrated": false,
+    "fileSize": 2548,
+    "exportType": "default",
+    "isTypeScript": false,
+    "hasJSX": true,
+    "hasHooks": false,
+    "dependedOnBy": [],
+    "usageScore": {
+      "directUsage": 0,
+      "weightedScore": 0,
+      "isCritical": false
+    },
+    "migrationPriority": "medium"
+  },
+  {
+    "name": "RestaurantFeature",
+    "path": "components/home/RestaurantFeature.jsx",
+    "category": "other",
+    "complexity": 91,
+    "complexityLevel": "high",
+    "imports": [
+      {
+        "source": "react",
+        "imports": [
+          "useState",
+          "useEffect",
+          "useRef"
+        ]
+      },
+      {
+        "source": "next/image",
+        "imports": [
+          "Image"
+        ]
+      },
+      {
+        "source": "next/link",
+        "imports": [
+          "Link"
+        ]
+      }
+    ],
+    "internalDependencies": [],
+    "externalDependencies": [
+      {
+        "path": "react",
+        "imports": [
+          "useState",
+          "useEffect",
+          "useRef"
+        ]
+      },
+      {
+        "path": "next/image",
+        "imports": [
+          "Image"
+        ]
+      },
+      {
+        "path": "next/link",
+        "imports": [
+          "Link"
+        ]
+      }
+    ],
+    "migrated": false,
+    "fileSize": 4823,
+    "exportType": "default",
+    "isTypeScript": false,
+    "hasJSX": true,
+    "hasHooks": true,
+    "dependedOnBy": [],
+    "usageScore": {
+      "directUsage": 0,
+      "weightedScore": 0,
+      "isCritical": false
+    },
+    "migrationPriority": "low"
+  },
+  {
+    "name": "PopularDestinations",
+    "path": "components/home/PopularDestinations.jsx",
+    "category": "other",
+    "complexity": 59,
+    "complexityLevel": "high",
+    "imports": [
+      {
+        "source": "next/link",
+        "imports": [
+          "Link"
+        ]
+      },
+      {
+        "source": "next/image",
+        "imports": [
+          "Image"
+        ]
+      },
+      {
+        "source": "framer-motion",
+        "imports": [
+          "motion"
+        ]
+      }
+    ],
+    "internalDependencies": [],
+    "externalDependencies": [
+      {
+        "path": "next/link",
+        "imports": [
+          "Link"
+        ]
+      },
+      {
+        "path": "next/image",
+        "imports": [
+          "Image"
+        ]
+      },
+      {
+        "path": "framer-motion",
+        "imports": [
+          "motion"
+        ]
+      }
+    ],
+    "migrated": false,
+    "fileSize": 6767,
+    "exportType": "default",
+    "isTypeScript": false,
+    "hasJSX": true,
+    "hasHooks": false,
+    "dependedOnBy": [],
+    "usageScore": {
+      "directUsage": 0,
+      "weightedScore": 0,
+      "isCritical": false
+    },
+    "migrationPriority": "low"
+  },
+  {
+    "name": "NewsletterSignup",
+    "path": "components/home/NewsletterSignup.jsx",
+    "category": "form",
+    "complexity": 49,
+    "complexityLevel": "high",
+    "imports": [
+      {
+        "source": "react",
+        "imports": [
+          "useState"
+        ]
+      }
+    ],
+    "internalDependencies": [],
+    "externalDependencies": [
+      {
+        "path": "react",
+        "imports": [
+          "useState"
+        ]
+      }
+    ],
+    "migrated": false,
+    "fileSize": 2749,
+    "exportType": "default",
+    "isTypeScript": false,
+    "hasJSX": true,
+    "hasHooks": true,
+    "dependedOnBy": [],
+    "usageScore": {
+      "directUsage": 0,
+      "weightedScore": 0,
+      "isCritical": false
+    },
+    "migrationPriority": "low"
+  },
+  {
+    "name": "JournalSection",
+    "path": "components/home/JournalSection.jsx",
+    "category": "other",
+    "complexity": 51,
+    "complexityLevel": "high",
+    "imports": [
+      {
+        "source": "next/image",
+        "imports": [
+          "Image"
+        ]
+      },
+      {
+        "source": "next/link",
+        "imports": [
+          "Link"
+        ]
+      }
+    ],
+    "internalDependencies": [],
+    "externalDependencies": [
+      {
+        "path": "next/image",
+        "imports": [
+          "Image"
+        ]
+      },
+      {
+        "path": "next/link",
+        "imports": [
+          "Link"
+        ]
+      }
+    ],
+    "migrated": false,
+    "fileSize": 4164,
+    "exportType": "default",
+    "isTypeScript": false,
+    "hasJSX": true,
+    "hasHooks": false,
+    "dependedOnBy": [],
+    "usageScore": {
+      "directUsage": 0,
+      "weightedScore": 0,
+      "isCritical": false
+    },
+    "migrationPriority": "low"
+  },
+  {
+    "name": "InteractiveFeatures",
+    "path": "components/home/InteractiveFeatures.jsx",
+    "category": "other",
+    "complexity": 83,
+    "complexityLevel": "high",
+    "imports": [
+      {
+        "source": "react",
+        "imports": [
+          "useRef"
+        ]
+      },
+      {
+        "source": "framer-motion",
+        "imports": [
+          "motion",
+          "useInView"
+        ]
+      },
+      {
+        "source": "next/image",
+        "imports": [
+          "Image"
+        ]
+      }
+    ],
+    "internalDependencies": [],
+    "externalDependencies": [
+      {
+        "path": "react",
+        "imports": [
+          "useRef"
+        ]
+      },
+      {
+        "path": "framer-motion",
+        "imports": [
+          "motion",
+          "useInView"
+        ]
+      },
+      {
+        "path": "next/image",
+        "imports": [
+          "Image"
+        ]
+      }
+    ],
+    "migrated": false,
+    "fileSize": 11037,
+    "exportType": "default",
+    "isTypeScript": false,
+    "hasJSX": true,
+    "hasHooks": false,
+    "dependedOnBy": [],
+    "usageScore": {
+      "directUsage": 0,
+      "weightedScore": 0,
+      "isCritical": false
+    },
+    "migrationPriority": "low"
+  },
+  {
+    "name": "HotelCategories",
+    "path": "components/home/HotelCategories.jsx",
+    "category": "other",
+    "complexity": 24,
+    "complexityLevel": "medium",
+    "imports": [
+      {
+        "source": "next/image",
+        "imports": [
+          "Image"
+        ]
+      },
+      {
+        "source": "next/link",
+        "imports": [
+          "Link"
+        ]
+      }
+    ],
+    "internalDependencies": [],
+    "externalDependencies": [
+      {
+        "path": "next/image",
+        "imports": [
+          "Image"
+        ]
+      },
+      {
+        "path": "next/link",
+        "imports": [
+          "Link"
+        ]
+      }
+    ],
+    "migrated": false,
+    "fileSize": 1918,
+    "exportType": "default",
+    "isTypeScript": false,
+    "hasJSX": true,
+    "hasHooks": false,
+    "dependedOnBy": [],
+    "usageScore": {
+      "directUsage": 0,
+      "weightedScore": 0,
+      "isCritical": false
+    },
+    "migrationPriority": "medium"
+  },
+  {
+    "name": "Hero",
+    "path": "components/home/Hero.jsx",
+    "category": "form",
+    "complexity": 78,
+    "complexityLevel": "high",
+    "imports": [
+      {
+        "source": "next/link",
+        "imports": [
+          "Link"
+        ]
+      },
+      {
+        "source": "next/image",
+        "imports": [
+          "Image"
+        ]
+      },
+      {
+        "source": "framer-motion",
+        "imports": [
+          "motion"
+        ]
+      },
+      {
+        "source": "react",
+        "imports": [
+          "useState"
+        ]
+      }
+    ],
+    "internalDependencies": [],
+    "externalDependencies": [
+      {
+        "path": "next/link",
+        "imports": [
+          "Link"
+        ]
+      },
+      {
+        "path": "next/image",
+        "imports": [
+          "Image"
+        ]
+      },
+      {
+        "path": "framer-motion",
+        "imports": [
+          "motion"
+        ]
+      },
+      {
+        "path": "react",
+        "imports": [
+          "useState"
+        ]
+      }
+    ],
+    "migrated": false,
+    "fileSize": 8335,
+    "exportType": "default",
+    "isTypeScript": false,
+    "hasJSX": true,
+    "hasHooks": true,
+    "dependedOnBy": [],
+    "usageScore": {
+      "directUsage": 0,
+      "weightedScore": 0,
+      "isCritical": false
+    },
+    "migrationPriority": "low"
+  },
+  {
+    "name": "FeaturedHotel",
+    "path": "components/home/FeaturedHotel.jsx",
+    "category": "other",
+    "complexity": 88,
+    "complexityLevel": "high",
+    "imports": [
+      {
+        "source": "react",
+        "imports": [
+          "useState",
+          "useEffect"
+        ]
+      },
+      {
+        "source": "next/image",
+        "imports": [
+          "Image"
+        ]
+      },
+      {
+        "source": "next/link",
+        "imports": [
+          "Link"
+        ]
+      },
+      {
+        "source": "framer-motion",
+        "imports": [
+          "motion"
+        ]
+      },
+      {
+        "source": "../../lib/utils",
+        "imports": [
+          "cn"
+        ]
+      }
+    ],
+    "internalDependencies": [
+      {
+        "path": "/Users/samuelrenner/cincinhotels/lib/utils",
+        "imports": [
+          "cn"
+        ]
+      }
+    ],
+    "externalDependencies": [
+      {
+        "path": "react",
+        "imports": [
+          "useState",
+          "useEffect"
+        ]
+      },
+      {
+        "path": "next/image",
+        "imports": [
+          "Image"
+        ]
+      },
+      {
+        "path": "next/link",
+        "imports": [
+          "Link"
+        ]
+      },
+      {
+        "path": "framer-motion",
+        "imports": [
+          "motion"
+        ]
+      }
+    ],
+    "migrated": false,
+    "fileSize": 5678,
+    "exportType": "default",
+    "isTypeScript": false,
+    "hasJSX": true,
+    "hasHooks": true,
+    "dependedOnBy": [],
+    "usageScore": {
+      "directUsage": 0,
+      "weightedScore": 0,
+      "isCritical": false
+    },
+    "migrationPriority": "low"
+  },
+  {
+    "name": "DiscoverDestinations",
+    "path": "components/home/DiscoverDestinations.jsx",
+    "category": "other",
+    "complexity": 6,
+    "complexityLevel": "low",
+    "imports": [
+      {
+        "source": "next/link",
+        "imports": [
+          "Link"
+        ]
+      }
+    ],
+    "internalDependencies": [],
+    "externalDependencies": [
+      {
+        "path": "next/link",
+        "imports": [
+          "Link"
+        ]
+      }
+    ],
+    "migrated": false,
+    "fileSize": 599,
+    "exportType": "default",
+    "isTypeScript": false,
+    "hasJSX": true,
+    "hasHooks": false,
+    "dependedOnBy": [],
+    "usageScore": {
+      "directUsage": 0,
+      "weightedScore": 0,
+      "isCritical": false
+    },
+    "migrationPriority": "medium"
+  },
+  {
+    "name": "DestinationCategories",
+    "path": "components/home/DestinationCategories.jsx",
+    "category": "other",
+    "complexity": 23,
+    "complexityLevel": "medium",
+    "imports": [
+      {
+        "source": "next/link",
+        "imports": [
+          "Link"
+        ]
+      },
+      {
+        "source": "next/image",
+        "imports": [
+          "Image"
+        ]
+      }
+    ],
+    "internalDependencies": [],
+    "externalDependencies": [
+      {
+        "path": "next/link",
+        "imports": [
+          "Link"
+        ]
+      },
+      {
+        "path": "next/image",
+        "imports": [
+          "Image"
+        ]
+      }
+    ],
+    "migrated": false,
+    "fileSize": 1897,
+    "exportType": "default",
+    "isTypeScript": false,
+    "hasJSX": true,
+    "hasHooks": false,
+    "dependedOnBy": [],
+    "usageScore": {
+      "directUsage": 0,
+      "weightedScore": 0,
+      "isCritical": false
+    },
+    "migrationPriority": "medium"
+  },
+  {
+    "name": "MembershipHero",
+    "path": "components/forms/MembershipHero.jsx",
+    "category": "form",
+    "complexity": 22,
+    "complexityLevel": "medium",
+    "imports": [
+      {
+        "source": "next/image",
+        "imports": [
+          "Image"
+        ]
+      },
+      {
+        "source": "framer-motion",
+        "imports": [
+          "motion"
+        ]
+      }
+    ],
+    "internalDependencies": [],
+    "externalDependencies": [
+      {
+        "path": "next/image",
+        "imports": [
+          "Image"
+        ]
+      },
+      {
+        "path": "framer-motion",
+        "imports": [
+          "motion"
+        ]
+      }
+    ],
+    "migrated": false,
+    "fileSize": 2085,
+    "exportType": "default",
+    "isTypeScript": false,
+    "hasJSX": true,
+    "hasHooks": false,
+    "dependedOnBy": [],
+    "usageScore": {
+      "directUsage": 0,
+      "weightedScore": 0,
+      "isCritical": false
+    },
+    "migrationPriority": "medium"
+  },
+  {
+    "name": "MembershipForm",
+    "path": "components/forms/MembershipForm.jsx",
+    "category": "form",
+    "complexity": 91,
+    "complexityLevel": "high",
+    "imports": [
+      {
+        "source": "react",
+        "imports": [
+          "useState"
+        ]
+      },
+      {
+        "source": "next/link",
+        "imports": [
+          "Link"
+        ]
+      }
+    ],
+    "internalDependencies": [],
+    "externalDependencies": [
+      {
+        "path": "react",
+        "imports": [
+          "useState"
+        ]
+      },
+      {
+        "path": "next/link",
+        "imports": [
+          "Link"
+        ]
+      }
+    ],
+    "migrated": false,
+    "fileSize": 7827,
+    "exportType": "default",
+    "isTypeScript": false,
+    "hasJSX": true,
+    "hasHooks": true,
+    "dependedOnBy": [],
+    "usageScore": {
+      "directUsage": 0,
+      "weightedScore": 0,
+      "isCritical": false
+    },
+    "migrationPriority": "low"
+  },
+  {
+    "name": "MembershipBenefits",
+    "path": "components/forms/MembershipBenefits.jsx",
+    "category": "form",
+    "complexity": 30,
+    "complexityLevel": "medium",
+    "imports": [
+      {
+        "source": "next/image",
+        "imports": [
+          "Image"
+        ]
+      },
+      {
+        "source": "framer-motion",
+        "imports": [
+          "motion"
+        ]
+      }
+    ],
+    "internalDependencies": [],
+    "externalDependencies": [
+      {
+        "path": "next/image",
+        "imports": [
+          "Image"
+        ]
+      },
+      {
+        "path": "framer-motion",
+        "imports": [
+          "motion"
+        ]
+      }
+    ],
+    "migrated": false,
+    "fileSize": 2570,
+    "exportType": "default",
+    "isTypeScript": false,
+    "hasJSX": true,
+    "hasHooks": false,
+    "dependedOnBy": [],
+    "usageScore": {
+      "directUsage": 0,
+      "weightedScore": 0,
+      "isCritical": false
+    },
+    "migrationPriority": "medium"
+  },
+  {
+    "name": "ContactForm",
+    "path": "components/forms/ContactForm.jsx",
+    "category": "form",
+    "complexity": 4,
+    "complexityLevel": "low",
+    "imports": [
+      {
+        "source": "../../src/components/forms/ContactForm",
+        "imports": [
+          "ContactForm"
+        ]
+      }
+    ],
+    "internalDependencies": [
+      {
+        "path": "/Users/samuelrenner/cincinhotels/src/components/forms/ContactForm",
+        "imports": [
+          "ContactForm"
+        ]
+      }
+    ],
+    "externalDependencies": [],
+    "migrated": false,
+    "fileSize": 202,
+    "exportType": "default",
+    "isTypeScript": false,
+    "hasJSX": false,
+    "hasHooks": false,
+    "dependedOnBy": [],
+    "usageScore": {
+      "directUsage": 0,
+      "weightedScore": 0,
+      "isCritical": false
+    },
+    "migrationPriority": "medium"
+  },
+  {
+    "name": "DemoAssetGallery",
+    "path": "components/examples/DemoAssetGallery.jsx",
+    "category": "other",
+    "complexity": 88,
+    "complexityLevel": "high",
+    "imports": [
+      {
+        "source": "react",
+        "imports": [
+          "useState"
+        ]
+      },
+      {
+        "source": "../common",
+        "imports": [
+          "ResponsiveDirectusImage",
+          "LoadingSpinner"
+        ]
+      },
+      {
+        "source": "../common/AssetManager",
+        "imports": [
+          "AssetManagerProvider"
+        ]
+      }
+    ],
+    "internalDependencies": [
+      {
+        "path": "/Users/samuelrenner/cincinhotels/components/common",
+        "imports": [
+          "ResponsiveDirectusImage",
+          "LoadingSpinner"
+        ]
+      },
+      {
+        "path": "/Users/samuelrenner/cincinhotels/components/common/AssetManager",
+        "imports": [
+          "AssetManagerProvider"
+        ]
+      }
+    ],
+    "externalDependencies": [
+      {
+        "path": "react",
+        "imports": [
+          "useState"
+        ]
+      }
+    ],
+    "migrated": false,
+    "fileSize": 7494,
+    "exportType": "default",
+    "isTypeScript": false,
+    "hasJSX": true,
+    "hasHooks": true,
+    "dependedOnBy": [],
+    "usageScore": {
+      "directUsage": 0,
+      "weightedScore": 0,
+      "isCritical": false
+    },
+    "migrationPriority": "low"
+  },
+  {
+    "name": "AssetManagementExample",
+    "path": "components/examples/AssetManagementExample.jsx",
+    "category": "other",
+    "complexity": 80,
+    "complexityLevel": "high",
+    "imports": [
+      {
+        "source": "react",
+        "imports": [
+          "useState"
+        ]
+      },
+      {
+        "source": "../common/AssetManager",
+        "imports": [
+          "AssetManagerProvider"
+        ]
+      },
+      {
+        "source": "../common/ResponsiveDirectusImage",
+        "imports": [
+          "ResponsiveDirectusImage"
+        ]
+      },
+      {
+        "source": "../common/AssetPreloader",
+        "imports": [
+          "AssetPreloader"
+        ]
+      },
+      {
+        "source": "../common/LoadingSpinner",
+        "imports": [
+          "LoadingSpinner"
+        ]
+      },
+      {
+        "source": "./AssetGalleryExample",
+        "imports": [
+          "AssetGalleryExample"
+        ]
+      }
+    ],
+    "internalDependencies": [
+      {
+        "path": "/Users/samuelrenner/cincinhotels/components/common/AssetManager",
+        "imports": [
+          "AssetManagerProvider"
+        ]
+      },
+      {
+        "path": "/Users/samuelrenner/cincinhotels/components/common/ResponsiveDirectusImage",
+        "imports": [
+          "ResponsiveDirectusImage"
+        ]
+      },
+      {
+        "path": "/Users/samuelrenner/cincinhotels/components/common/AssetPreloader",
+        "imports": [
+          "AssetPreloader"
+        ]
+      },
+      {
+        "path": "/Users/samuelrenner/cincinhotels/components/common/LoadingSpinner",
+        "imports": [
+          "LoadingSpinner"
+        ]
+      },
+      {
+        "path": "/Users/samuelrenner/cincinhotels/components/examples/AssetGalleryExample",
+        "imports": [
+          "AssetGalleryExample"
+        ]
+      }
+    ],
+    "externalDependencies": [
+      {
+        "path": "react",
+        "imports": [
+          "useState"
+        ]
+      }
+    ],
+    "migrated": false,
+    "fileSize": 10048,
+    "exportType": "default",
+    "isTypeScript": false,
+    "hasJSX": true,
+    "hasHooks": true,
+    "dependedOnBy": [],
+    "usageScore": {
+      "directUsage": 0,
+      "weightedScore": 0,
+      "isCritical": false
+    },
+    "migrationPriority": "low"
+  },
+  {
+    "name": "AssetGalleryExample",
+    "path": "components/examples/AssetGalleryExample.jsx",
+    "category": "other",
+    "complexity": 102,
+    "complexityLevel": "high",
+    "imports": [
+      {
+        "source": "react",
+        "imports": [
+          "useState",
+          "useEffect"
+        ]
+      },
+      {
+        "source": "../common/AssetManager",
+        "imports": [
+          "useAssetManager"
+        ]
+      },
+      {
+        "source": "../common/ResponsiveDirectusImage",
+        "imports": [
+          "ResponsiveDirectusImage"
+        ]
+      },
+      {
+        "source": "../common/AssetPreloader",
+        "imports": [
+          "AssetPreloader"
+        ]
+      },
+      {
+        "source": "../common/LoadingSpinner",
+        "imports": [
+          "LoadingSpinner"
+        ]
+      }
+    ],
+    "internalDependencies": [
+      {
+        "path": "/Users/samuelrenner/cincinhotels/components/common/AssetManager",
+        "imports": [
+          "useAssetManager"
+        ]
+      },
+      {
+        "path": "/Users/samuelrenner/cincinhotels/components/common/ResponsiveDirectusImage",
+        "imports": [
+          "ResponsiveDirectusImage"
+        ]
+      },
+      {
+        "path": "/Users/samuelrenner/cincinhotels/components/common/AssetPreloader",
+        "imports": [
+          "AssetPreloader"
+        ]
+      },
+      {
+        "path": "/Users/samuelrenner/cincinhotels/components/common/LoadingSpinner",
+        "imports": [
+          "LoadingSpinner"
+        ]
+      }
+    ],
+    "externalDependencies": [
+      {
+        "path": "react",
+        "imports": [
+          "useState",
+          "useEffect"
+        ]
+      }
+    ],
+    "migrated": false,
+    "fileSize": 4845,
+    "exportType": "default",
+    "isTypeScript": false,
+    "hasJSX": true,
+    "hasHooks": true,
+    "dependedOnBy": [],
+    "usageScore": {
+      "directUsage": 0,
+      "weightedScore": 0,
+      "isCritical": false
+    },
+    "migrationPriority": "low"
+  },
+  {
+    "name": "RecommendedDestinations",
+    "path": "components/destinations/RecommendedDestinations.jsx",
+    "category": "other",
+    "complexity": 49,
+    "complexityLevel": "high",
+    "imports": [
+      {
+        "source": "next/link",
+        "imports": [
+          "Link"
+        ]
+      },
+      {
+        "source": "next/image",
+        "imports": [
+          "Image"
+        ]
+      },
+      {
+        "source": "framer-motion",
+        "imports": [
+          "motion"
+        ]
+      }
+    ],
+    "internalDependencies": [],
+    "externalDependencies": [
+      {
+        "path": "next/link",
+        "imports": [
+          "Link"
+        ]
+      },
+      {
+        "path": "next/image",
+        "imports": [
+          "Image"
+        ]
+      },
+      {
+        "path": "framer-motion",
+        "imports": [
+          "motion"
+        ]
+      }
+    ],
+    "migrated": false,
+    "fileSize": 4121,
+    "exportType": "default",
+    "isTypeScript": false,
+    "hasJSX": true,
+    "hasHooks": false,
+    "dependedOnBy": [],
+    "usageScore": {
+      "directUsage": 0,
+      "weightedScore": 0,
+      "isCritical": false
+    },
+    "migrationPriority": "low"
+  },
+  {
+    "name": "PopularHotels",
+    "path": "components/destinations/PopularHotels.jsx",
+    "category": "other",
+    "complexity": 59,
+    "complexityLevel": "high",
+    "imports": [
+      {
+        "source": "react",
+        "imports": [
+          "useState"
+        ]
+      },
+      {
+        "source": "next/link",
+        "imports": [
+          "Link"
+        ]
+      },
+      {
+        "source": "next/image",
+        "imports": [
+          "Image"
+        ]
+      },
+      {
+        "source": "framer-motion",
+        "imports": [
+          "motion"
+        ]
+      }
+    ],
+    "internalDependencies": [],
+    "externalDependencies": [
+      {
+        "path": "react",
+        "imports": [
+          "useState"
+        ]
+      },
+      {
+        "path": "next/link",
+        "imports": [
+          "Link"
+        ]
+      },
+      {
+        "path": "next/image",
+        "imports": [
+          "Image"
+        ]
+      },
+      {
+        "path": "framer-motion",
+        "imports": [
+          "motion"
+        ]
+      }
+    ],
+    "migrated": false,
+    "fileSize": 4927,
+    "exportType": "default",
+    "isTypeScript": false,
+    "hasJSX": true,
+    "hasHooks": true,
+    "dependedOnBy": [],
+    "usageScore": {
+      "directUsage": 0,
+      "weightedScore": 0,
+      "isCritical": false
+    },
+    "migrationPriority": "low"
+  },
+  {
+    "name": "Hero",
+    "path": "components/destinations/Hero.jsx",
+    "category": "other",
+    "complexity": 23,
+    "complexityLevel": "medium",
+    "imports": [
+      {
+        "source": "framer-motion",
+        "imports": [
+          "motion"
+        ]
+      }
+    ],
+    "internalDependencies": [],
+    "externalDependencies": [
+      {
+        "path": "framer-motion",
+        "imports": [
+          "motion"
+        ]
+      }
+    ],
+    "migrated": false,
+    "fileSize": 2231,
+    "exportType": "default",
+    "isTypeScript": false,
+    "hasJSX": true,
+    "hasHooks": false,
+    "dependedOnBy": [],
+    "usageScore": {
+      "directUsage": 0,
+      "weightedScore": 0,
+      "isCritical": false
+    },
+    "migrationPriority": "medium"
+  },
+  {
+    "name": "FeaturedDestination",
+    "path": "components/destinations/FeaturedDestination.jsx",
+    "category": "other",
+    "complexity": 84,
+    "complexityLevel": "high",
+    "imports": [
+      {
+        "source": "react",
+        "imports": [
+          "useState",
+          "useEffect"
+        ]
+      },
+      {
+        "source": "next/image",
+        "imports": [
+          "Image"
+        ]
+      },
+      {
+        "source": "next/link",
+        "imports": [
+          "Link"
+        ]
+      },
+      {
+        "source": "framer-motion",
+        "imports": [
+          "motion"
+        ]
+      }
+    ],
+    "internalDependencies": [],
+    "externalDependencies": [
+      {
+        "path": "react",
+        "imports": [
+          "useState",
+          "useEffect"
+        ]
+      },
+      {
+        "path": "next/image",
+        "imports": [
+          "Image"
+        ]
+      },
+      {
+        "path": "next/link",
+        "imports": [
+          "Link"
+        ]
+      },
+      {
+        "path": "framer-motion",
+        "imports": [
+          "motion"
+        ]
+      }
+    ],
+    "migrated": false,
+    "fileSize": 6198,
+    "exportType": "default",
+    "isTypeScript": false,
+    "hasJSX": true,
+    "hasHooks": true,
+    "dependedOnBy": [],
+    "usageScore": {
+      "directUsage": 0,
+      "weightedScore": 0,
+      "isCritical": false
+    },
+    "migrationPriority": "low"
+  },
+  {
+    "name": "DestinationInteractiveFeatures",
+    "path": "components/destinations/DestinationInteractiveFeatures.jsx",
+    "category": "other",
+    "complexity": 69,
+    "complexityLevel": "high",
+    "imports": [
+      {
+        "source": "react",
+        "imports": [
+          "useRef"
+        ]
+      },
+      {
+        "source": "framer-motion",
+        "imports": [
+          "motion",
+          "useInView"
+        ]
+      },
+      {
+        "source": "next/image",
+        "imports": [
+          "Image"
+        ]
+      }
+    ],
+    "internalDependencies": [],
+    "externalDependencies": [
+      {
+        "path": "react",
+        "imports": [
+          "useRef"
+        ]
+      },
+      {
+        "path": "framer-motion",
+        "imports": [
+          "motion",
+          "useInView"
+        ]
+      },
+      {
+        "path": "next/image",
+        "imports": [
+          "Image"
+        ]
+      }
+    ],
+    "migrated": false,
+    "fileSize": 13266,
+    "exportType": "default",
+    "isTypeScript": false,
+    "hasJSX": true,
+    "hasHooks": false,
+    "dependedOnBy": [],
+    "usageScore": {
+      "directUsage": 0,
+      "weightedScore": 0,
+      "isCritical": false
+    },
+    "migrationPriority": "low"
+  },
+  {
+    "name": "DestinationInfo",
+    "path": "components/destinations/DestinationInfo.jsx",
+    "category": "other",
+    "complexity": 77,
+    "complexityLevel": "high",
+    "imports": [
+      {
+        "source": "react",
+        "imports": [
+          "useState"
+        ]
+      },
+      {
+        "source": "next/image",
+        "imports": [
+          "Image"
+        ]
+      },
+      {
+        "source": "framer-motion",
+        "imports": [
+          "motion"
+        ]
+      }
+    ],
+    "internalDependencies": [],
+    "externalDependencies": [
+      {
+        "path": "react",
+        "imports": [
+          "useState"
+        ]
+      },
+      {
+        "path": "next/image",
+        "imports": [
+          "Image"
+        ]
+      },
+      {
+        "path": "framer-motion",
+        "imports": [
+          "motion"
+        ]
+      }
+    ],
+    "migrated": false,
+    "fileSize": 4890,
+    "exportType": "default",
+    "isTypeScript": false,
+    "hasJSX": true,
+    "hasHooks": true,
+    "dependedOnBy": [],
+    "usageScore": {
+      "directUsage": 0,
+      "weightedScore": 0,
+      "isCritical": false
+    },
+    "migrationPriority": "low"
+  },
+  {
+    "name": "DestinationHotels",
+    "path": "components/destinations/DestinationHotels.jsx",
+    "category": "other",
+    "complexity": 46,
+    "complexityLevel": "high",
+    "imports": [
+      {
+        "source": "next/link",
+        "imports": [
+          "Link"
+        ]
+      },
+      {
+        "source": "next/image",
+        "imports": [
+          "Image"
+        ]
+      },
+      {
+        "source": "framer-motion",
+        "imports": [
+          "motion"
+        ]
+      }
+    ],
+    "internalDependencies": [],
+    "externalDependencies": [
+      {
+        "path": "next/link",
+        "imports": [
+          "Link"
+        ]
+      },
+      {
+        "path": "next/image",
+        "imports": [
+          "Image"
+        ]
+      },
+      {
+        "path": "framer-motion",
+        "imports": [
+          "motion"
+        ]
+      }
+    ],
+    "migrated": false,
+    "fileSize": 4028,
+    "exportType": "default",
+    "isTypeScript": false,
+    "hasJSX": true,
+    "hasHooks": false,
+    "dependedOnBy": [],
+    "usageScore": {
+      "directUsage": 0,
+      "weightedScore": 0,
+      "isCritical": false
+    },
+    "migrationPriority": "low"
+  },
+  {
+    "name": "DestinationHeader",
+    "path": "components/destinations/DestinationHeader.jsx",
+    "category": "other",
+    "complexity": 26,
+    "complexityLevel": "medium",
+    "imports": [
+      {
+        "source": "framer-motion",
+        "imports": [
+          "motion"
+        ]
+      }
+    ],
+    "internalDependencies": [],
+    "externalDependencies": [
+      {
+        "path": "framer-motion",
+        "imports": [
+          "motion"
+        ]
+      }
+    ],
+    "migrated": false,
+    "fileSize": 2547,
+    "exportType": "default",
+    "isTypeScript": false,
+    "hasJSX": true,
+    "hasHooks": false,
+    "dependedOnBy": [],
+    "usageScore": {
+      "directUsage": 0,
+      "weightedScore": 0,
+      "isCritical": false
+    },
+    "migrationPriority": "medium"
+  },
+  {
+    "name": "DestinationGrid",
+    "path": "components/destinations/DestinationGrid.jsx",
+    "category": "other",
+    "complexity": 74,
+    "complexityLevel": "high",
+    "imports": [
+      {
+        "source": "react",
+        "imports": [
+          "useState"
+        ]
+      },
+      {
+        "source": "next/link",
+        "imports": [
+          "Link"
+        ]
+      },
+      {
+        "source": "next/image",
+        "imports": [
+          "Image"
+        ]
+      },
+      {
+        "source": "framer-motion",
+        "imports": [
+          "motion"
+        ]
+      }
+    ],
+    "internalDependencies": [],
+    "externalDependencies": [
+      {
+        "path": "react",
+        "imports": [
+          "useState"
+        ]
+      },
+      {
+        "path": "next/link",
+        "imports": [
+          "Link"
+        ]
+      },
+      {
+        "path": "next/image",
+        "imports": [
+          "Image"
+        ]
+      },
+      {
+        "path": "framer-motion",
+        "imports": [
+          "motion"
+        ]
+      }
+    ],
+    "migrated": false,
+    "fileSize": 5724,
+    "exportType": "default",
+    "isTypeScript": false,
+    "hasJSX": true,
+    "hasHooks": true,
+    "dependedOnBy": [],
+    "usageScore": {
+      "directUsage": 0,
+      "weightedScore": 0,
+      "isCritical": false
+    },
+    "migrationPriority": "low"
+  },
+  {
+    "name": "DestinationExplorer",
+    "path": "components/destinations/DestinationExplorer.jsx",
+    "category": "other",
+    "complexity": 169,
+    "complexityLevel": "high",
+    "imports": [
+      {
+        "source": "react",
+        "imports": [
+          "useState",
+          "useRef",
+          "useEffect"
+        ]
+      },
+      {
+        "source": "next/image",
+        "imports": [
+          "Image"
+        ]
+      },
+      {
+        "source": "next/link",
+        "imports": [
+          "Link"
+        ]
+      },
+      {
+        "source": "framer-motion",
+        "imports": [
+          "motion",
+          "useInView",
+          "AnimatePresence"
+        ]
+      }
+    ],
+    "internalDependencies": [],
+    "externalDependencies": [
+      {
+        "path": "react",
+        "imports": [
+          "useState",
+          "useRef",
+          "useEffect"
+        ]
+      },
+      {
+        "path": "next/image",
+        "imports": [
+          "Image"
+        ]
+      },
+      {
+        "path": "next/link",
+        "imports": [
+          "Link"
+        ]
+      },
+      {
+        "path": "framer-motion",
+        "imports": [
+          "motion",
+          "useInView",
+          "AnimatePresence"
+        ]
+      }
+    ],
+    "migrated": false,
+    "fileSize": 30018,
+    "exportType": "default",
+    "isTypeScript": false,
+    "hasJSX": true,
+    "hasHooks": true,
+    "dependedOnBy": [],
+    "usageScore": {
+      "directUsage": 0,
+      "weightedScore": 0,
+      "isCritical": false
+    },
+    "migrationPriority": "low"
+  },
+  {
+    "name": "OverviewSection",
+    "path": "components/destinations/detail/OverviewSection.jsx",
+    "category": "other",
+    "complexity": 139,
+    "complexityLevel": "high",
+    "imports": [
+      {
+        "source": "react",
+        "imports": [
+          "useState",
+          "useRef",
+          "useEffect"
+        ]
+      },
+      {
+        "source": "framer-motion",
+        "imports": [
+          "motion",
+          "useInView",
+          "AnimatePresence"
+        ]
+      },
+      {
+        "source": "next/image",
+        "imports": [
+          "Image"
+        ]
+      }
+    ],
+    "internalDependencies": [],
+    "externalDependencies": [
+      {
+        "path": "react",
+        "imports": [
+          "useState",
+          "useRef",
+          "useEffect"
+        ]
+      },
+      {
+        "path": "framer-motion",
+        "imports": [
+          "motion",
+          "useInView",
+          "AnimatePresence"
+        ]
+      },
+      {
+        "path": "next/image",
+        "imports": [
+          "Image"
+        ]
+      }
+    ],
+    "migrated": false,
+    "fileSize": 14530,
+    "exportType": "default",
+    "isTypeScript": false,
+    "hasJSX": true,
+    "hasHooks": true,
+    "dependedOnBy": [],
+    "usageScore": {
+      "directUsage": 0,
+      "weightedScore": 0,
+      "isCritical": false
+    },
+    "migrationPriority": "low"
+  },
+  {
+    "name": "InteractiveExperiences",
+    "path": "components/destinations/detail/InteractiveExperiences.jsx",
+    "category": "other",
+    "complexity": 136,
+    "complexityLevel": "high",
+    "imports": [
+      {
+        "source": "react",
+        "imports": [
+          "useState",
+          "useRef",
+          "useEffect"
+        ]
+      },
+      {
+        "source": "framer-motion",
+        "imports": [
+          "motion",
+          "useInView",
+          "AnimatePresence"
+        ]
+      },
+      {
+        "source": "next/image",
+        "imports": [
+          "Image"
+        ]
+      }
+    ],
+    "internalDependencies": [],
+    "externalDependencies": [
+      {
+        "path": "react",
+        "imports": [
+          "useState",
+          "useRef",
+          "useEffect"
+        ]
+      },
+      {
+        "path": "framer-motion",
+        "imports": [
+          "motion",
+          "useInView",
+          "AnimatePresence"
+        ]
+      },
+      {
+        "path": "next/image",
+        "imports": [
+          "Image"
+        ]
+      }
+    ],
+    "migrated": false,
+    "fileSize": 28465,
+    "exportType": "default",
+    "isTypeScript": false,
+    "hasJSX": true,
+    "hasHooks": true,
+    "dependedOnBy": [],
+    "usageScore": {
+      "directUsage": 0,
+      "weightedScore": 0,
+      "isCritical": false
+    },
+    "migrationPriority": "low"
+  },
+  {
+    "name": "InfoSection",
+    "path": "components/destinations/detail/InfoSection.jsx",
+    "category": "other",
+    "complexity": 81,
+    "complexityLevel": "high",
+    "imports": [
+      {
+        "source": "react",
+        "imports": [
+          "useRef"
+        ]
+      },
+      {
+        "source": "framer-motion",
+        "imports": [
+          "motion",
+          "useInView"
+        ]
+      },
+      {
+        "source": "next/image",
+        "imports": [
+          "Image"
+        ]
+      }
+    ],
+    "internalDependencies": [],
+    "externalDependencies": [
+      {
+        "path": "react",
+        "imports": [
+          "useRef"
+        ]
+      },
+      {
+        "path": "framer-motion",
+        "imports": [
+          "motion",
+          "useInView"
+        ]
+      },
+      {
+        "path": "next/image",
+        "imports": [
+          "Image"
+        ]
+      }
+    ],
+    "migrated": false,
+    "fileSize": 8934,
+    "exportType": "default",
+    "isTypeScript": false,
+    "hasJSX": true,
+    "hasHooks": false,
+    "dependedOnBy": [],
+    "usageScore": {
+      "directUsage": 0,
+      "weightedScore": 0,
+      "isCritical": false
+    },
+    "migrationPriority": "low"
+  },
+  {
+    "name": "HotelsSection",
+    "path": "components/destinations/detail/HotelsSection.jsx",
+    "category": "form",
+    "complexity": 155,
+    "complexityLevel": "high",
+    "imports": [
+      {
+        "source": "react",
+        "imports": [
+          "useState",
+          "useRef",
+          "useEffect"
+        ]
+      },
+      {
+        "source": "framer-motion",
+        "imports": [
+          "motion",
+          "useInView",
+          "AnimatePresence"
+        ]
+      },
+      {
+        "source": "next/image",
+        "imports": [
+          "Image"
+        ]
+      },
+      {
+        "source": "next/link",
+        "imports": [
+          "Link"
+        ]
+      }
+    ],
+    "internalDependencies": [],
+    "externalDependencies": [
+      {
+        "path": "react",
+        "imports": [
+          "useState",
+          "useRef",
+          "useEffect"
+        ]
+      },
+      {
+        "path": "framer-motion",
+        "imports": [
+          "motion",
+          "useInView",
+          "AnimatePresence"
+        ]
+      },
+      {
+        "path": "next/image",
+        "imports": [
+          "Image"
+        ]
+      },
+      {
+        "path": "next/link",
+        "imports": [
+          "Link"
+        ]
+      }
+    ],
+    "migrated": false,
+    "fileSize": 15525,
+    "exportType": "default",
+    "isTypeScript": false,
+    "hasJSX": true,
+    "hasHooks": true,
+    "dependedOnBy": [],
+    "usageScore": {
+      "directUsage": 0,
+      "weightedScore": 0,
+      "isCritical": false
+    },
+    "migrationPriority": "low"
+  },
+  {
+    "name": "DiningSection",
+    "path": "components/destinations/detail/DiningSection.jsx",
+    "category": "other",
+    "complexity": 108,
+    "complexityLevel": "high",
+    "imports": [
+      {
+        "source": "react",
+        "imports": [
+          "useState",
+          "useRef",
+          "useEffect"
+        ]
+      },
+      {
+        "source": "framer-motion",
+        "imports": [
+          "motion",
+          "useInView"
+        ]
+      },
+      {
+        "source": "next/image",
+        "imports": [
+          "Image"
+        ]
+      }
+    ],
+    "internalDependencies": [],
+    "externalDependencies": [
+      {
+        "path": "react",
+        "imports": [
+          "useState",
+          "useRef",
+          "useEffect"
+        ]
+      },
+      {
+        "path": "framer-motion",
+        "imports": [
+          "motion",
+          "useInView"
+        ]
+      },
+      {
+        "path": "next/image",
+        "imports": [
+          "Image"
+        ]
+      }
+    ],
+    "migrated": false,
+    "fileSize": 8609,
+    "exportType": "default",
+    "isTypeScript": false,
+    "hasJSX": true,
+    "hasHooks": true,
+    "dependedOnBy": [],
+    "usageScore": {
+      "directUsage": 0,
+      "weightedScore": 0,
+      "isCritical": false
+    },
+    "migrationPriority": "low"
+  },
+  {
+    "name": "DestinationHero",
+    "path": "components/destinations/detail/DestinationHero.jsx",
+    "category": "other",
+    "complexity": 74,
+    "complexityLevel": "high",
+    "imports": [
+      {
+        "source": "react",
+        "imports": [
+          "useState",
+          "useEffect"
+        ]
+      },
+      {
+        "source": "framer-motion",
+        "imports": [
+          "motion",
+          "useScroll",
+          "useTransform"
+        ]
+      },
+      {
+        "source": "next/image",
+        "imports": [
+          "Image"
+        ]
+      }
+    ],
+    "internalDependencies": [],
+    "externalDependencies": [
+      {
+        "path": "react",
+        "imports": [
+          "useState",
+          "useEffect"
+        ]
+      },
+      {
+        "path": "framer-motion",
+        "imports": [
+          "motion",
+          "useScroll",
+          "useTransform"
+        ]
+      },
+      {
+        "path": "next/image",
+        "imports": [
+          "Image"
+        ]
+      }
+    ],
+    "migrated": false,
+    "fileSize": 4942,
+    "exportType": "default",
+    "isTypeScript": false,
+    "hasJSX": true,
+    "hasHooks": true,
+    "dependedOnBy": [],
+    "usageScore": {
+      "directUsage": 0,
+      "weightedScore": 0,
+      "isCritical": false
+    },
+    "migrationPriority": "low"
+  },
+  {
+    "name": "DestinationContentTabs",
+    "path": "components/destinations/detail/DestinationContentTabs.jsx",
+    "category": "other",
+    "complexity": 117,
+    "complexityLevel": "high",
+    "imports": [
+      {
+        "source": "react",
+        "imports": [
+          "useState",
+          "useEffect",
+          "useRef"
+        ]
+      },
+      {
+        "source": "framer-motion",
+        "imports": [
+          "motion"
+        ]
+      },
+      {
+        "source": "next/navigation",
+        "imports": [
+          "usePathname"
+        ]
+      }
+    ],
+    "internalDependencies": [],
+    "externalDependencies": [
+      {
+        "path": "react",
+        "imports": [
+          "useState",
+          "useEffect",
+          "useRef"
+        ]
+      },
+      {
+        "path": "framer-motion",
+        "imports": [
+          "motion"
+        ]
+      },
+      {
+        "path": "next/navigation",
+        "imports": [
+          "usePathname"
+        ]
+      }
+    ],
+    "migrated": false,
+    "fileSize": 6205,
+    "exportType": "default",
+    "isTypeScript": false,
+    "hasJSX": true,
+    "hasHooks": true,
+    "dependedOnBy": [],
+    "usageScore": {
+      "directUsage": 0,
+      "weightedScore": 0,
+      "isCritical": false
+    },
+    "migrationPriority": "low"
+  },
+  {
+    "name": "ActivitiesSection",
+    "path": "components/destinations/detail/ActivitiesSection.jsx",
+    "category": "other",
+    "complexity": 107,
+    "complexityLevel": "high",
+    "imports": [
+      {
+        "source": "react",
+        "imports": [
+          "useState",
+          "useRef"
+        ]
+      },
+      {
+        "source": "framer-motion",
+        "imports": [
+          "motion",
+          "useInView",
+          "AnimatePresence"
+        ]
+      },
+      {
+        "source": "next/image",
+        "imports": [
+          "Image"
+        ]
+      }
+    ],
+    "internalDependencies": [],
+    "externalDependencies": [
+      {
+        "path": "react",
+        "imports": [
+          "useState",
+          "useRef"
+        ]
+      },
+      {
+        "path": "framer-motion",
+        "imports": [
+          "motion",
+          "useInView",
+          "AnimatePresence"
+        ]
+      },
+      {
+        "path": "next/image",
+        "imports": [
+          "Image"
+        ]
+      }
+    ],
+    "migrated": false,
+    "fileSize": 8624,
+    "exportType": "default",
+    "isTypeScript": false,
+    "hasJSX": true,
+    "hasHooks": true,
+    "dependedOnBy": [],
+    "usageScore": {
+      "directUsage": 0,
+      "weightedScore": 0,
+      "isCritical": false
+    },
+    "migrationPriority": "low"
+  },
+  {
+    "name": "common",
+    "path": "components/common/index.js",
+    "category": "other",
+    "complexity": 4,
+    "complexityLevel": "low",
+    "imports": [],
+    "internalDependencies": [],
+    "externalDependencies": [],
+    "migrated": false,
+    "fileSize": 453,
+    "exportType": "named",
+    "isTypeScript": false,
+    "hasJSX": false,
+    "hasHooks": false,
+    "dependedOnBy": [],
+    "usageScore": {
+      "directUsage": 0,
+      "weightedScore": 0,
+      "isCritical": false
+    },
+    "migrationPriority": "medium"
+  },
+  {
+    "name": "directus-client",
+    "path": "components/common/directus-client.js",
+    "category": "other",
+    "complexity": 46,
+    "complexityLevel": "high",
+    "imports": [],
+    "internalDependencies": [],
+    "externalDependencies": [],
+    "migrated": false,
+    "fileSize": 4359,
+    "exportType": "named",
+    "isTypeScript": false,
+    "hasJSX": false,
+    "hasHooks": false,
+    "dependedOnBy": [],
+    "usageScore": {
+      "directUsage": 0,
+      "weightedScore": 0,
+      "isCritical": false
+    },
+    "migrationPriority": "low"
+  },
+  {
+    "name": "ResponsiveDirectusImage",
+    "path": "components/common/ResponsiveDirectusImage.jsx",
+    "category": "other",
+    "complexity": 76,
+    "complexityLevel": "high",
+    "imports": [
+      {
+        "source": "next/image",
+        "imports": [
+          "Image"
+        ]
+      },
+      {
+        "source": "react",
+        "imports": [
+          "useState",
+          "useEffect"
+        ]
+      },
+      {
+        "source": "./AssetManager",
+        "imports": [
+          "useAssetManager"
+        ]
+      },
+      {
+        "source": "./LoadingSpinner",
+        "imports": [
+          "LoadingSpinner"
+        ]
+      },
+      {
+        "source": "./directus-client",
+        "imports": [
+          "getAssetURL"
+        ]
+      }
+    ],
+    "internalDependencies": [
+      {
+        "path": "/Users/samuelrenner/cincinhotels/components/common/AssetManager",
+        "imports": [
+          "useAssetManager"
+        ]
+      },
+      {
+        "path": "/Users/samuelrenner/cincinhotels/components/common/LoadingSpinner",
+        "imports": [
+          "LoadingSpinner"
+        ]
+      },
+      {
+        "path": "/Users/samuelrenner/cincinhotels/components/common/directus-client",
+        "imports": [
+          "getAssetURL"
+        ]
+      }
+    ],
+    "externalDependencies": [
+      {
+        "path": "next/image",
+        "imports": [
+          "Image"
+        ]
+      },
+      {
+        "path": "react",
+        "imports": [
+          "useState",
+          "useEffect"
+        ]
+      }
+    ],
+    "migrated": false,
+    "fileSize": 3312,
+    "exportType": "default",
+    "isTypeScript": false,
+    "hasJSX": true,
+    "hasHooks": true,
+    "dependedOnBy": [],
+    "usageScore": {
+      "directUsage": 0,
+      "weightedScore": 0,
+      "isCritical": false
+    },
+    "migrationPriority": "low"
+  },
+  {
+    "name": "PageHero",
+    "path": "components/common/PageHero.jsx",
+    "category": "other",
+    "complexity": 17,
+    "complexityLevel": "low",
+    "imports": [
+      {
+        "source": "next/image",
+        "imports": [
+          "Image"
+        ]
+      },
+      {
+        "source": "framer-motion",
+        "imports": [
+          "motion"
+        ]
+      }
+    ],
+    "internalDependencies": [],
+    "externalDependencies": [
+      {
+        "path": "next/image",
+        "imports": [
+          "Image"
+        ]
+      },
+      {
+        "path": "framer-motion",
+        "imports": [
+          "motion"
+        ]
+      }
+    ],
+    "migrated": false,
+    "fileSize": 1409,
+    "exportType": "default",
+    "isTypeScript": false,
+    "hasJSX": true,
+    "hasHooks": false,
+    "dependedOnBy": [],
+    "usageScore": {
+      "directUsage": 0,
+      "weightedScore": 0,
+      "isCritical": false
+    },
+    "migrationPriority": "medium"
+  },
+  {
+    "name": "LoadingSpinner",
+    "path": "components/common/LoadingSpinner.jsx",
+    "category": "other",
+    "complexity": 4,
+    "complexityLevel": "low",
+    "imports": [
+      {
+        "source": "../../src/components/ui/LoadingSpinner",
+        "imports": [
+          "LoadingSpinner"
+        ]
+      }
+    ],
+    "internalDependencies": [
+      {
+        "path": "/Users/samuelrenner/cincinhotels/src/components/ui/LoadingSpinner",
+        "imports": [
+          "LoadingSpinner"
+        ]
+      }
+    ],
+    "externalDependencies": [],
+    "migrated": false,
+    "fileSize": 218,
+    "exportType": "default",
+    "isTypeScript": false,
+    "hasJSX": false,
+    "hasHooks": false,
+    "dependedOnBy": [],
+    "usageScore": {
+      "directUsage": 0,
+      "weightedScore": 0,
+      "isCritical": false
+    },
+    "migrationPriority": "medium"
+  },
+  {
+    "name": "ContentBlock",
+    "path": "components/common/ContentBlock.jsx",
+    "category": "other",
+    "complexity": 4,
+    "complexityLevel": "low",
+    "imports": [
+      {
+        "source": "../../src/components/ui/ContentBlock",
+        "imports": [
+          "ContentBlock"
+        ]
+      }
+    ],
+    "internalDependencies": [
+      {
+        "path": "/Users/samuelrenner/cincinhotels/src/components/ui/ContentBlock",
+        "imports": [
+          "ContentBlock"
+        ]
+      }
+    ],
+    "externalDependencies": [],
+    "migrated": false,
+    "fileSize": 222,
+    "exportType": "default",
+    "isTypeScript": false,
+    "hasJSX": false,
+    "hasHooks": false,
+    "dependedOnBy": [],
+    "usageScore": {
+      "directUsage": 0,
+      "weightedScore": 0,
+      "isCritical": false
+    },
+    "migrationPriority": "medium"
+  },
+  {
+    "name": "AssetPreloader",
+    "path": "components/common/AssetPreloader.jsx",
+    "category": "other",
+    "complexity": 34,
+    "complexityLevel": "medium",
+    "imports": [
+      {
+        "source": "react",
+        "imports": [
+          "useEffect"
+        ]
+      },
+      {
+        "source": "./AssetManager",
+        "imports": [
+          "useAssetManager"
+        ]
+      }
+    ],
+    "internalDependencies": [
+      {
+        "path": "/Users/samuelrenner/cincinhotels/components/common/AssetManager",
+        "imports": [
+          "useAssetManager"
+        ]
+      }
+    ],
+    "externalDependencies": [
+      {
+        "path": "react",
+        "imports": [
+          "useEffect"
+        ]
+      }
+    ],
+    "migrated": false,
+    "fileSize": 1529,
+    "exportType": "default",
+    "isTypeScript": false,
+    "hasJSX": false,
+    "hasHooks": true,
+    "dependedOnBy": [],
+    "usageScore": {
+      "directUsage": 0,
+      "weightedScore": 0,
+      "isCritical": false
+    },
+    "migrationPriority": "medium"
+  },
+  {
+    "name": "AssetManager",
+    "path": "components/common/AssetManager.jsx",
+    "category": "other",
+    "complexity": 83,
+    "complexityLevel": "high",
+    "imports": [
+      {
+        "source": "react",
+        "imports": [
+          "createContext",
+          "useContext",
+          "useState",
+          "useEffect"
+        ]
+      },
+      {
+        "source": "./directus-client",
+        "imports": [
+          "getAssetURL",
+          "getTransformedImageUrl"
+        ]
+      }
+    ],
+    "internalDependencies": [
+      {
+        "path": "/Users/samuelrenner/cincinhotels/components/common/directus-client",
+        "imports": [
+          "getAssetURL",
+          "getTransformedImageUrl"
+        ]
+      }
+    ],
+    "externalDependencies": [
+      {
+        "path": "react",
+        "imports": [
+          "createContext",
+          "useContext",
+          "useState",
+          "useEffect"
+        ]
+      }
+    ],
+    "migrated": false,
+    "fileSize": 5931,
+    "exportType": "default",
+    "isTypeScript": false,
+    "hasJSX": true,
+    "hasHooks": true,
+    "dependedOnBy": [],
+    "usageScore": {
+      "directUsage": 0,
+      "weightedScore": 0,
+      "isCritical": false
+    },
+    "migrationPriority": "low"
+  },
+  {
+    "name": "TravelAdvisor",
+    "path": "components/chatbot/TravelAdvisor.jsx",
+    "category": "form",
+    "complexity": 124,
+    "complexityLevel": "high",
+    "imports": [
+      {
+        "source": "react",
+        "imports": [
+          "useState",
+          "useRef",
+          "useEffect"
+        ]
+      },
+      {
+        "source": "framer-motion",
+        "imports": [
+          "motion",
+          "AnimatePresence"
+        ]
+      },
+      {
+        "source": "next/image",
+        "imports": [
+          "Image"
+        ]
+      }
+    ],
+    "internalDependencies": [],
+    "externalDependencies": [
+      {
+        "path": "react",
+        "imports": [
+          "useState",
+          "useRef",
+          "useEffect"
+        ]
+      },
+      {
+        "path": "framer-motion",
+        "imports": [
+          "motion",
+          "AnimatePresence"
+        ]
+      },
+      {
+        "path": "next/image",
+        "imports": [
+          "Image"
+        ]
+      }
+    ],
+    "migrated": false,
+    "fileSize": 14608,
+    "exportType": "default",
+    "isTypeScript": false,
+    "hasJSX": true,
+    "hasHooks": true,
+    "dependedOnBy": [],
+    "usageScore": {
+      "directUsage": 0,
+      "weightedScore": 0,
+      "isCritical": false
+    },
+    "migrationPriority": "low"
+  }
+]

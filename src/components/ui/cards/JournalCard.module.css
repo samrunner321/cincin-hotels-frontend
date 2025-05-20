@@ -1,0 +1,61 @@
+.journalCard {
+  /* Additional styles specific to journal cards */
+}
+
+/* Layout variations */
+.verticalLayout {
+  height: 100%;
+}
+
+.horizontalLayout {
+  height: 100%;
+}
+
+.featuredLayout {
+  height: 100%;
+}
+
+.featuredLayout .cardContent {
+  padding: 2rem;
+}
+
+/* Metadata items */
+.date {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  color: #6b7280;
+}
+
+.date svg {
+  color: #4b5563;
+  font-size: 0.875rem;
+}
+
+.author {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  color: #6b7280;
+}
+
+.author svg {
+  color: #4b5563;
+  font-size: 0.875rem;
+}
+
+.readTime {
+  font-size: 0.875rem;
+  color: #6b7280;
+}
+
+.featuredBadge {
+  background-color: #ec4899;
+  color: white;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.25rem 0.5rem;
+  border-radius: 9999px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}

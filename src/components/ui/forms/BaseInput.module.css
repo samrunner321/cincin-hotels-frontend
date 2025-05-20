@@ -1,0 +1,321 @@
+.inputContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  width: 100%;
+}
+
+/* Label */
+.label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #374151;
+  margin-bottom: 0.25rem;
+}
+
+.required::after {
+  content: "*";
+  color: #ef4444;
+  margin-left: 0.25rem;
+}
+
+/* RTL support for required marker */
+[dir="rtl"] .required::after {
+  margin-right: 0.25rem;
+  margin-left: 0;
+}
+
+.labelError {
+  color: #ef4444;
+}
+
+/* Input-Wrapper für Layout mit Icons, Prefix und Suffix */
+.inputWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+/* Basis-Input-Stil */
+.input {
+  width: 100%;
+  padding: 0.625rem 0.75rem;
+  background-color: #ffffff;
+  border: 1px solid #d1d5db;
+  border-radius: 0.25rem;
+  font-size: 0.875rem;
+  color: #1f2937;
+  transition: all 0.2s ease;
+}
+
+.input:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
+}
+
+.input::placeholder {
+  color: #9ca3af;
+}
+
+.inputError {
+  border-color: #ef4444;
+}
+
+.inputError:focus {
+  border-color: #ef4444;
+  box-shadow: 0 0 0 2px rgba(239, 68, 68, 0.2);
+}
+
+.inputValid {
+  border-color: #10b981;
+}
+
+.inputValid:focus {
+  border-color: #10b981;
+  box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.2);
+}
+
+/* Icon-Styling with RTL support */
+.hasIcon .input {
+  padding-left: 2.5rem;
+}
+
+/* RTL support for icon positioning */
+[dir="rtl"] .hasIcon .input {
+  padding-left: 0.75rem;
+  padding-right: 2.5rem;
+}
+
+.iconWrapper {
+  position: absolute;
+  left: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #6b7280;
+  pointer-events: none;
+}
+
+/* RTL support for icon wrapper */
+.iconWrapperRtl {
+  position: absolute;
+  right: 0.75rem;
+  left: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #6b7280;
+  pointer-events: none;
+}
+
+.iconWrapper.clickable,
+.iconWrapperRtl.clickable {
+  pointer-events: auto;
+  cursor: pointer;
+}
+
+.iconWrapper.clickable:hover,
+.iconWrapperRtl.clickable:hover {
+  color: #4b5563;
+}
+
+/* Prefix/Suffix Styling with RTL support */
+.hasPrefix .input {
+  padding-left: 3rem;
+}
+
+[dir="rtl"] .hasPrefix .input {
+  padding-left: 0.75rem;
+  padding-right: 3rem;
+}
+
+.hasSuffix .input {
+  padding-right: 3rem;
+}
+
+[dir="rtl"] .hasSuffix .input {
+  padding-right: 0.75rem;
+  padding-left: 3rem;
+}
+
+.prefix {
+  position: absolute;
+  left: 0.75rem;
+  display: flex;
+  align-items: center;
+  color: #6b7280;
+}
+
+.prefixRtl {
+  position: absolute;
+  right: 0.75rem;
+  left: auto;
+  display: flex;
+  align-items: center;
+  color: #6b7280;
+}
+
+.suffix {
+  position: absolute;
+  right: 0.75rem;
+  display: flex;
+  align-items: center;
+  color: #6b7280;
+}
+
+.suffixRtl {
+  position: absolute;
+  left: 0.75rem;
+  right: auto;
+  display: flex;
+  align-items: center;
+  color: #6b7280;
+}
+
+/* Validierungsstatus with RTL support */
+.validating {
+  position: absolute;
+  right: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.validatingRtl {
+  position: absolute;
+  left: 0.75rem;
+  right: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.spinner {
+  width: 1rem;
+  height: 1rem;
+  border: 2px solid rgba(59, 130, 246, 0.25);
+  border-top-color: #3b82f6;
+  border-radius: 50%;
+  animation: spinner 0.6s linear infinite;
+}
+
+@keyframes spinner {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.validIcon {
+  position: absolute;
+  right: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #10b981;
+}
+
+.validIconRtl {
+  position: absolute;
+  left: 0.75rem;
+  right: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #10b981;
+}
+
+.checkIcon {
+  width: 1rem;
+  height: 1rem;
+}
+
+/* Größenvarianten */
+.sizeSmall .input {
+  height: 2rem;
+  padding: 0.375rem 0.5rem;
+  font-size: 0.75rem;
+}
+
+.sizeMedium .input {
+  height: 2.5rem;
+  padding: 0.625rem 0.75rem;
+  font-size: 0.875rem;
+}
+
+.sizeLarge .input {
+  height: 3rem;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+}
+
+/* Zustandsvarianten */
+.disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.disabled .input {
+  background-color: #f3f4f6;
+  cursor: not-allowed;
+}
+
+.focused .input {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
+}
+
+.hasError .input {
+  border-color: #ef4444;
+}
+
+.hasError.focused .input {
+  box-shadow: 0 0 0 2px rgba(239, 68, 68, 0.2);
+}
+
+/* Feedback-Container (für Hilfetext und Fehlermeldungen) */
+.feedbackContainer {
+  min-height: 1.25rem;
+  font-size: 0.75rem;
+}
+
+.errorMessage {
+  color: #ef4444;
+}
+
+.helpText {
+  color: #6b7280;
+}
+
+/* Date und Time Inputs */
+.input[type="date"],
+.input[type="time"],
+.input[type="datetime-local"] {
+  appearance: none;
+}
+
+/* File-Input */
+.input[type="file"] {
+  padding: 0.375rem;
+}
+
+.input[type="file"]::file-selector-button {
+  padding: 0.25rem 0.5rem;
+  margin-right: 0.5rem;
+  border: 1px solid #d1d5db;
+  border-radius: 0.25rem;
+  background-color: #f9fafb;
+  color: #374151;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.input[type="file"]::file-selector-button:hover {
+  background-color: #f3f4f6;
+}
+
+/* Passworteingabe-Überlegungen */
+.input[type="password"] {
+  letter-spacing: 0.25em;
+}

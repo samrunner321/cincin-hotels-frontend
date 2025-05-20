@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import { getAssetURL } from '@/lib/directus';
+import { getAssetURL } from '../../lib/directus';
 import { useState } from 'react';
 
 interface DirectusImageProps {

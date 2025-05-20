@@ -1,6 +1,6 @@
 import { notFound } from 'next/navigation';
 import { getJournalArticleBySlug } from '../../../lib/api';
-import { JournalPostContent } from '../../../components/journal_post';
+import { JournalPostContent } from '../../../src/components/journal_post';
 
 export const metadata = {
   title: 'Journal Article Preview - CinCin Hotels',

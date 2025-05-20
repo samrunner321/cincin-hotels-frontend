@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { getCategories } from '@/lib/directus';
+import { getCategories } from '../../../lib/directus';
 
 export const dynamic = 'force-dynamic';
 

@@ -1,8 +1,8 @@
 import { notFound } from 'next/navigation';
-import { getCategoryBySlug, getHotelsByCategory } from '@/lib/api';
-import { getAllCategories } from '@/lib/api';
-import HotelList from '@/components/hotels/HotelList';
-import CategoryBar from '@/components/hotels/CategoryBar';
+import { getCategoryBySlug, getHotelsByCategory } from '../../../src/lib/api';
+import { getAllCategories } from '../../../src/lib/api';
+import HotelList from '../../../src/components/hotels/HotelList';
+import CategoryButton from '../../../src/components/ui/buttons/CategoryButton';
 
 // Generate metadata for the page
 export async function generateMetadata({ params }) {
@@ -77,7 +77,15 @@ export default async function CategoryPage({ params }) {
       <HeroSection />
       
       <div className="container mx-auto px-4 py-8">
-        <CategoryBar activeCategory={slug} />
+        <div className="flex flex-wrap gap-2 mb-8">
+          {allCategories.map(cat => (
+            <CategoryButton 
+              key={cat.slug} 
+              category={cat} 
+              isActive={cat.slug === slug} 
+            />
+          ))}
+        </div>
         
         <HotelList 
           hotels={hotels}

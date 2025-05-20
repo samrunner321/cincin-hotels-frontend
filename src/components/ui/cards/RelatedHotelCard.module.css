@@ -1,0 +1,47 @@
+.relatedHotelCard {
+  /* Additional styles specific to related hotel cards */
+}
+
+.location {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  color: #6b7280;
+}
+
+.location svg {
+  color: #4b5563;
+  font-size: 0.875rem;
+}
+
+.distance {
+  font-size: 0.875rem;
+  color: #6b7280;
+}
+
+.relationshipBadge {
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.25rem 0.5rem;
+  border-radius: 9999px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: white;
+}
+
+/* Badge colors based on relationship type */
+.nearby {
+  background-color: #10b981; /* green */
+}
+
+.similar {
+  background-color: #3b82f6; /* blue */
+}
+
+.recommended {
+  background-color: #f59e0b; /* yellow */
+}
+
+.popular {
+  background-color: #ec4899; /* pink */
+}
