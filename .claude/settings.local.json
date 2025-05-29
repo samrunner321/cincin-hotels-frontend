@@ -62,7 +62,8 @@
       "Bash(/Users/samuelrenner/.nvm/versions/node/v18.20.8/lib/node_modules/@anthropic-ai/claude-code/vendor/ripgrep/arm64-darwin/rg -A5 -B5 \"cache.*no.store\" /Users/samuelrenner/cincinhotels/app/[locale]/destinations/[slug]/page.jsx)",
       "Bash(/Users/samuelrenner/.nvm/versions/node/v18.20.8/lib/node_modules/@anthropic-ai/claude-code/vendor/ripgrep/arm64-darwin/rg -r \"\" \"cache.*no.store\" /Users/samuelrenner/cincinhotels/app/ /Users/samuelrenner/cincinhotels/lib/)",
       "Bash(/Users/samuelrenner/.nvm/versions/node/v18.20.8/lib/node_modules/@anthropic-ai/claude-code/vendor/ripgrep/arm64-darwin/rg -n \"cache:\" /Users/samuelrenner/cincinhotels/app/api/hotels/[slug]/route.ts)",
-      "Bash(git add:*)"
+      "Bash(git add:*)",
+      "Bash(git push:*)"
     ],
     "deny": []
   },
