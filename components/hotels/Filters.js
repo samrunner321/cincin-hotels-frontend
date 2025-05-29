@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from 'react';
 import FilterModal from './FilterModal';
+import { useTranslation } from '@/providers/TranslationProvider';
 
 export default function Filters({ 
   onSearch, 
@@ -9,6 +10,7 @@ export default function Filters({
   initialSearchQuery = '',
   activeFilters = {} 
 }) {
+  const { t } = useTranslation();
   const [searchQuery, setSearchQuery] = useState(initialSearchQuery);
   const [isFilterModalOpen, setIsFilterModalOpen] = useState(false);
   const [isSearching, setIsSearching] = useState(false);
@@ -38,7 +40,7 @@ export default function Filters({
   return (
     <section 
       className="py-6"
-      aria-label="Hotel filters and search"
+      aria-label={t('hotels.filters.label')}
     >
       <div className="max-w-7xl mx-auto px-4">
         <div className="flex items-center justify-between gap-4">
@@ -49,10 +51,10 @@ export default function Filters({
                 <input
                   ref={searchInputRef}
                   type="search"
-                  placeholder="search destination..."
+                  placeholder={t('hotels.search.placeholder')}
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  aria-label="Search destinations or hotels"
+                  aria-label={t('hotels.search.aria_label')}
                   className="w-full py-3 pl-4 pr-10 rounded-full bg-gray-100 border-none focus:outline-none focus:ring-2 focus:ring-gray-200"
                 />
                 
@@ -60,7 +62,7 @@ export default function Filters({
                   type="submit"
                   disabled={isSearching}
                   className="absolute right-3 text-gray-500"
-                  aria-label="Submit search"
+                  aria-label={t('hotels.search.submit')}
                 >
                   {isSearching ? (
                     <svg className="animate-spin h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
@@ -88,7 +90,7 @@ export default function Filters({
             <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M5 5H15M7.5 10H12.5M9 15H11" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>
-            <span>Filters</span>
+            <span>{t('hotels.filters.button')}</span>
           </button>
         </div>
       </div>

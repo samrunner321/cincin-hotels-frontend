@@ -2,27 +2,30 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
+import { useTranslation } from '@/providers/TranslationProvider';
 
 export default function Footer() {
-  const currentYear = new Date().getFullYear();
+  // Hardcode the year to ensure consistent server/client rendering
+  const currentYear = 2025;
+  const { t, locale } = useTranslation();
   
   const links = {
     company: [
-      { text: 'About Us', href: '/about' },
-      { text: 'Contact', href: '/contact' },
-      { text: 'Careers', href: '/careers' },
+      { text: t('footer.about'), href: `/${locale}/about` },
+      { text: t('footer.contact'), href: `/${locale}/contact` },
+      { text: t('footer.careers'), href: `/${locale}/careers` },
     ],
     business: [
-      { text: 'Hotel Membership', href: '/membership' },
-      { text: 'Press', href: '/press' },
-      { text: 'Partner with Us', href: '/partner' },
+      { text: t('membership.title'), href: `/${locale}/membership` },
+      { text: t('footer.press'), href: `/${locale}/press` },
+      { text: t('nav.partner'), href: `/${locale}/partner` },
     ],
     legal: [
-      { text: 'Terms & Conditions', href: '/terms' },
-      { text: 'Privacy Policy', href: '/privacy' },
-      { text: 'Cookie Policy', href: '/cookies' },
-      { text: 'Cookie Settings', href: '#', isButton: true },
-      { text: 'Imprint', href: '/imprint' },
+      { text: t('footer.terms'), href: `/${locale}/terms`, key: 'terms' },
+      { text: t('footer.privacy'), href: `/${locale}/privacy`, key: 'privacy' },
+      { text: t('footer.cookies'), href: `/${locale}/cookies`, key: 'cookies-page' },
+      { text: t('footer.cookies'), href: '#', isButton: true, key: 'cookies-settings' },
+      { text: t('footer.imprint'), href: `/${locale}/imprint`, key: 'imprint' },
     ],
     social: [
       { name: 'Instagram', href: 'https://instagram.com', icon: InstagramIcon },
@@ -36,7 +39,7 @@ export default function Footer() {
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
           <div className="md:col-span-2">
-            <Link href="/" aria-label="CinCin Hotels Home">
+            <Link href={`/${locale}`} aria-label="CinCin Hotels Home">
               <Image 
                 src="/images/logo/footer-logo.png" 
                 alt="CinCin Hotels" 
@@ -46,17 +49,22 @@ export default function Footer() {
               />
             </Link>
             <p className="text-white mb-4">© {currentYear} CinCin Hotels</p>
-            <p className="text-gray-300 max-w-sm">Discover a curated collection of unique accommodations, renowned for timeless design and warm, personalized hospitality.</p>
+            <p className="text-gray-300 max-w-sm">
+              {locale === 'de' 
+                ? 'Entdecken Sie eine kuratierte Sammlung einzigartiger Unterkünfte, bekannt für zeitloses Design und warme, persönliche Gastfreundschaft.'
+                : 'Discover a curated collection of unique accommodations, renowned for timeless design and warm, personalized hospitality.'
+              }
+            </p>
           </div>
           
-          <FooterLinksColumn title="Company" links={links.company} />
-          <FooterLinksColumn title="Business" links={links.business} />
+          <FooterLinksColumn title={locale === 'de' ? 'Unternehmen' : 'Company'} links={links.company} />
+          <FooterLinksColumn title={locale === 'de' ? 'Geschäft' : 'Business'} links={links.business} />
           
           <div>
-            <h3 className="text-sm font-normal text-white mb-4 uppercase tracking-wider">Legal</h3>
+            <h3 className="text-sm font-normal text-white mb-4 uppercase tracking-wider">{locale === 'de' ? 'Rechtliches' : 'Legal'}</h3>
             <ul className="space-y-2">
               {links.legal.map(link => (
-                <li key={link.text}>
+                <li key={link.key}>
                   {link.isButton ? (
                     <button 
                       className="text-gray-300 hover:text-white transition-colors"
@@ -91,7 +99,12 @@ export default function Footer() {
         </div>
         
         <div className="border-t border-gray-800 mt-10 pt-6 text-sm text-gray-400 text-center md:text-left">
-          <p>CinCin Hotels is committed to responsible tourism and environmental sustainability.</p>
+          <p>
+            {locale === 'de'
+              ? 'CinCin Hotels setzt sich für verantwortungsvollen Tourismus und Umweltschutz ein.'
+              : 'CinCin Hotels is committed to responsible tourism and environmental sustainability.'
+            }
+          </p>
         </div>
       </div>
     </footer>

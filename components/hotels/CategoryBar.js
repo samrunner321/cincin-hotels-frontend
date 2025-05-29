@@ -3,6 +3,7 @@
 import { useState, useRef, useEffect } from 'react';
 import Link from 'next/link';
 import { useRouter, usePathname } from 'next/navigation';
+import { useTranslation } from '@/providers/TranslationProvider';
 
 // Kategorie-Icons
 const CategoryIcons = {
@@ -49,6 +50,7 @@ export default function CategoryBar({
   onCategoryClick = () => {},
   title = null // Titel versteckt im neuen Design
 }) {
+  const { t } = useTranslation();
   const router = useRouter();
   const pathname = usePathname();
   const scrollContainerRef = useRef(null);
@@ -58,16 +60,16 @@ export default function CategoryBar({
 
   // Voreingestellte Kategorien
   const defaultCategories = [
-    { id: 'adults-only', name: 'adults only', url: '/categories/adults-only' },
-    { id: 'fine-dining', name: 'fine dining', url: '/categories/fine-dining' },
-    { id: 'beach', name: 'beach', url: '/categories/beach' },
-    { id: 'spa', name: 'spa', url: '/categories/spa' },
-    { id: 'mountains', name: 'mountains', url: '/categories/mountains' },
-    { id: 'city-break', name: 'city break', url: '/categories/city-break' },
-    { id: 'family', name: 'family', url: '/categories/family' }
+    { id: 'adults-only', name: t('hotels.categories.adults_only'), url: '/categories/adults-only' },
+    { id: 'fine-dining', name: t('hotels.categories.fine_dining'), url: '/categories/fine-dining' },
+    { id: 'beach', name: t('hotels.categories.beach'), url: '/categories/beach' },
+    { id: 'spa', name: t('hotels.categories.spa'), url: '/categories/spa' },
+    { id: 'mountains', name: t('hotels.categories.mountains'), url: '/categories/mountains' },
+    { id: 'city-break', name: t('hotels.categories.city_break'), url: '/categories/city-break' },
+    { id: 'family', name: t('hotels.categories.family'), url: '/categories/family' }
   ];
 
-  const categoriesToUse = categories || defaultCategories;
+  const categoriesToUse = Array.isArray(categories) ? categories : defaultCategories;
   
   // Scroll-Logik
   useEffect(() => {
@@ -139,7 +141,7 @@ export default function CategoryBar({
                   ${!canScrollLeft ? 'opacity-0 cursor-default' : 'opacity-100 hover:bg-gray-50'}
                   transition-opacity duration-300
                 `}
-                aria-label="Scroll categories left"
+                aria-label={t('hotels.categories.scroll_left')}
               >
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-gray-700" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                   <path fillRule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clipRule="evenodd" />
@@ -156,7 +158,7 @@ export default function CategoryBar({
                   ${!canScrollRight ? 'opacity-0 cursor-default' : 'opacity-100 hover:bg-gray-50'}
                   transition-opacity duration-300
                 `}
-                aria-label="Scroll categories right"
+                aria-label={t('hotels.categories.scroll_right')}
               >
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-gray-700" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                   <path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clipRule="evenodd" />
@@ -170,7 +172,7 @@ export default function CategoryBar({
             ref={scrollContainerRef}
             className="flex items-center justify-center space-x-10 overflow-x-auto pb-2 scrollbar-none"
             role="navigation"
-            aria-label="Hotel categories"
+            aria-label={t('hotels.categories.aria_label')}
             onScroll={handleScroll}
           >
             {categoriesToUse.map((category) => (

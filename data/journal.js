@@ -3,6 +3,63 @@
  */
 export const journalArticles = [
   {
+    id: '7',
+    title: 'The Future of Alpine Luxury: Where Contemporary Design Meets Mountain Majesty',
+    slug: 'alpine-luxury-contemporary-design',
+    excerpt: 'Discover how the worlds most innovative mountain hotels are redefining luxury through bold architecture that harmonizes with—rather than competes against—the dramatic Alpine landscape.',
+    date: '2024-01-15',
+    author: {
+      name: 'Elena Papadopoulos',
+      image: '/images/authors/elena-papadopoulos.jpg',
+      bio: 'Architecture and design writer specializing in luxury hospitality and sustainable building practices'
+    },
+    content: `
+      <p>High above the bustling valleys of Europe's most celebrated mountain ranges, a quiet architectural revolution is taking place. The latest generation of Alpine luxury hotels is moving boldly beyond traditional chalet aesthetics, embracing contemporary design languages that create profound dialogue between human creativity and natural grandeur.</p>
+
+      <h2>Rethinking Mountain Luxury</h2>
+      <p>For decades, Alpine hospitality architecture followed predictable patterns—dark timber exteriors, steep-pitched roofs, and interiors heavy with carved wood and traditional motifs. While these elements remain part of the mountain building vocabulary, today's most compelling properties demonstrate that authentic Alpine design can express itself through radically different forms.</p>
+      
+      <p>"We asked ourselves a fundamental question," explains architect Peter Zumthor, whose thermal bath complex in Vals has become an pilgrimage site for design enthusiasts. "What does it mean to create a building that truly belongs to the mountains, not just one that looks like it belongs there?"</p>
+
+      <h2>Material Poetry</h2>
+      <p>The answer, for many of today's visionary Alpine architects, lies in a deeper understanding of materials and their relationship to place. Rather than applying superficial regional styling, these designs emerge from thoughtful engagement with local stone, timber, and even snow and ice as architectural elements.</p>
+      
+      <p>At Forestis in South Tyrol, architects Armin Blasbichler and Lukas Schwitzer created a structure that seems to grow from the mountainside itself. The hotel's distinctive tower, clad in local larch that will weather to a silvery gray over time, creates a landmark that feels both ancient and utterly contemporary. "We wanted to build something that would age with the landscape," Schwitzer explains. "The building will continue to evolve, just like the forest around it."</p>
+
+      <h2>Framing the Infinite</h2>
+      <p>Perhaps the most striking characteristic of this new Alpine architecture is its approach to views. Traditional mountain hotels often featured small windows—practical responses to harsh weather but limiting in their visual scope. Today's designs treat the surrounding landscape as the primary artwork, creating carefully choreographed sequences of views that frame and celebrate the mountain environment.</p>
+      
+      <p>The recently opened Audemars Piguet Hotel des Horlogers in Switzerland exemplifies this approach. Its facade, perforated with irregular openings of varying sizes, creates a dynamic interplay of light and shadow while offering guests glimpses of the Jura mountains that change throughout the day. Each room becomes a unique viewing device, transforming the act of looking at mountains into a curated experience.</p>
+
+      <h2>Sustainable Innovation</h2>
+      <p>The environmental imperatives of mountain construction have pushed Alpine architects toward innovative solutions that enhance both sustainability and guest experience. Geothermal systems, solar orientation, and natural ventilation are no longer add-on features but fundamental design drivers that shape the architecture from the ground up.</p>
+      
+      <p>At the Therme Vals, Zumthor's masterpiece demonstrates how environmental performance can be poetic. The building's massive stone walls provide thermal mass that naturally regulates temperature, while its integration into the hillside creates a structure that appears to be carved from the mountain itself. Guests experience luxury not through ornamental excess but through the profound tranquility of spaces perfectly attuned to their environment.</p>
+
+      <h2>The Future Landscape</h2>
+      <p>As climate change reshapes Alpine environments, these architectural innovations take on even greater significance. Buildings that work with rather than against their mountain settings offer models for sustainable luxury that other regions can adapt. They demonstrate that environmental responsibility and design excellence are not competing goals but complementary aspects of truly contemporary architecture.</p>
+      
+      <p>The most successful of these projects share a common understanding: that the greatest luxury in our hyperconnected age is the opportunity to experience authentic connection to place. By creating architecture that heightens rather than distracts from the mountain experience, these hotels offer something increasingly rare—the chance to feel genuinely present in one of the world's most magnificent landscapes.</p>
+
+      <h2>Looking Forward</h2>
+      <p>As this architectural movement continues to evolve, it's creating new definitions of Alpine luxury that future generations of hotels will likely follow. The emphasis on authentic materials, environmental integration, and experiential richness over decorative excess points toward a more mature understanding of what mountain hospitality can be.</p>
+      
+      <p>For travelers seeking accommodations that match the grandeur of Alpine landscapes, these architecturally distinctive properties offer experiences that go far beyond comfortable beds and fine dining. They provide the rare opportunity to inhabit buildings that are themselves expressions of the creative potential unleashed when human imagination engages seriously with natural wonder.</p>
+    `,
+    images: {
+      main: '/images/journal/alpine-architecture/main.jpg',
+      gallery: [
+        '/images/journal/alpine-architecture/forestis.jpg',
+        '/images/journal/alpine-architecture/vigilius.jpg',
+        '/images/journal/alpine-architecture/schgaguler.jpg',
+        '/images/journal/alpine-architecture/villa-honegg.jpg'
+      ]
+    },
+    categories: ['architecture', 'design', 'luxury'],
+    relatedHotels: ['forestis', 'vigilius-mountain-resort', 'schgaguler-hotel'],
+    featured: true
+  },
+  {
     id: '1',
     title: 'The Renaissance of Alpine Wellness: Rediscovering Ancient Healing Traditions',
     slug: 'alpine-wellness-traditions',

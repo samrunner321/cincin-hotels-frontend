@@ -1,12 +1,13 @@
 'use client';
 
 import { useState } from 'react';
-import Image from 'next/image';
 import FeatureItem from './FeatureItem';
+import AmenityIcon from '../common/AmenityIcon';
 
 export default function OverviewSection({ 
   hotelDescription = "Perched at 2,112 meters in Crans-Montana, Chetzeron blends sustainable luxury with alpine charm. This transformed gondola station offers ski-in/ski-out access, a serene spa with an outdoor pool, and gourmet cuisine celebrating local Valais flavors—all framed by breathtaking views of the Matterhorn and Mont-Blanc.",
-  overviewImage = "/images/hotels/hotel-2.jpg",
+  translations = [],
+  amenities = [],
   features = [
     {
       icon: "mountains",
@@ -30,93 +31,173 @@ export default function OverviewSection({
     }
   ]
 }) {
-  const [showFeatures, setShowFeatures] = useState(false);
+  const [selectedDetail, setSelectedDetail] = useState('essentials');
   
+  // Use the description directly (API already handles translations)
+  const displayDescription = hotelDescription;
+  
+  // Expanded hotel information
+  const hotelDetails = {
+    essentials: [
+      { label: "Check-in/Check-out", value: "3 PM / 11 AM" },
+      { label: "Rooms", value: "150 rooms and suites" },
+      { label: "Area", value: "18,000 sq. meters" },
+      { label: "Year Built", value: "2015, renovated 2022" },
+      { label: "Languages Spoken", value: "German, English, French, Italian" }
+    ],
+    services: [
+      { label: "Room Service", value: "24 hours" },
+      { label: "Concierge", value: "24 hours, personalized service" },
+      { label: "Housekeeping", value: "Twice daily" },
+      { label: "Laundry", value: "Same-day service available" },
+      { label: "Airport Transfer", value: "Luxury vehicles, helicopter available" },
+      { label: "Childcare", value: "Professional babysitting services" }
+    ],
+    amenities: [
+      { label: "Pools", value: "Indoor pool, outdoor infinity pool, hot tubs" },
+      { label: "Spa", value: "Full service spa, thermal baths, treatments" },
+      { label: "Fitness", value: "24-hour gym, yoga studio, personal trainers" },
+      { label: "Activities", value: "Hiking, skiing, mountain biking, cooking classes" },
+      { label: "Business", value: "Meeting rooms, co-working spaces, high-speed wifi" },
+      { label: "Restaurants", value: "Fine dining restaurant, casual bistro, bar, terrace" }
+    ],
+    special: [
+      { label: "Sustainability", value: "Solar powered, locally sourced ingredients, waste reduction program" },
+      { label: "Accessibility", value: "Fully accessible rooms and facilities, elevator access to all areas" },
+      { label: "Pet Policy", value: "Pet-friendly rooms available with special amenities" },
+      { label: "Unique Feature", value: "Direct ski-in/ski-out access, private mountain trails" },
+      { label: "Awards", value: "World Luxury Hotel Awards 2022, Green Key certification" }
+    ]
+  };
+
   return (
-    <section id="overview" className="py-16 bg-white">
-      <div className="container mx-auto px-4">
-        <div className="flex flex-col md:flex-row gap-12">
-          <div className="w-full md:w-2/3">
-            <div className="flex flex-col md:flex-row mb-8">
-              <div className="mr-0 md:mr-4 mb-6 md:mb-0">
-                <button className="bg-blue-600 text-white px-6 py-3 rounded hover:bg-blue-700 transition">
-                  Send Request
-                </button>
-                
-                <div className="flex items-center mt-6 space-x-4">
-                  <a href="#" className="p-2 bg-gray-100 rounded-full" aria-label="Phone">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                      <path d="M22.0004 16.92V19.92C22.0016 20.1985 21.9445 20.4741 21.8329 20.7293C21.7214 20.9845 21.5577 21.2136 21.3525 21.4018C21.1473 21.5901 20.905 21.7335 20.6412 21.8227C20.3773 21.9119 20.0978 21.945 19.8204 21.92C16.7433 21.5856 13.7874 20.5341 11.1904 18.85C8.77425 17.3146 6.72576 15.2661 5.19042 12.85C3.5004 10.2412 2.44866 7.27097 2.12042 4.17997C2.09543 3.90344 2.1283 3.62474 2.21692 3.3616C2.30555 3.09846 2.44799 2.85666 2.63519 2.6516C2.82238 2.44653 3.05023 2.28268 3.30421 2.1705C3.5582 2.05831 3.83276 2.00024 4.11042 1.99997H7.11042C7.59573 1.9952 8.06621 2.16705 8.43418 2.48351C8.80215 2.79996 9.0425 3.23942 9.11042 3.71997C9.23704 4.68004 9.47187 5.6227 9.81042 6.52997C9.94497 6.8879 9.97408 7.27689 9.89433 7.65086C9.81457 8.02482 9.62928 8.36809 9.36042 8.63998L8.09042 9.90997C9.51398 12.4135 11.5869 14.4864 14.0904 15.91L15.3604 14.64C15.6323 14.3711 15.9756 14.1858 16.3495 14.1061C16.7235 14.0263 17.1125 14.0554 17.4704 14.19C18.3777 14.5285 19.3204 14.7634 20.2804 14.89C20.7662 14.9585 21.2098 15.2032 21.527 15.5775C21.8441 15.9518 22.0126 16.4296 22.0004 16.92Z" stroke="#1E1E1E" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                    </svg>
-                  </a>
-                  <a href="#" className="p-2 bg-gray-100 rounded-full" aria-label="Email">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22" fill="none">
-                      <path d="M20.1663 5.50002C20.1663 4.49169 19.3413 3.66669 18.333 3.66669H3.66634C2.65801 3.66669 1.83301 4.49169 1.83301 5.50002M20.1663 5.50002V16.5C20.1663 17.5084 19.3413 18.3334 18.333 18.3334H3.66634C2.65801 18.3334 1.83301 17.5084 1.83301 16.5V5.50002M20.1663 5.50002L10.9997 11.9167L1.83301 5.50002" stroke="#1E1E1E" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                    </svg>
-                  </a>
-                </div>
-              </div>
-              
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                {features.map((feature, index) => (
+    <section id="overview" className="pt-12 pb-16 bg-white">
+      <div className="container mx-auto px-4 max-w-[1280px]">
+        <div className="mb-12">
+          <h2 className="text-3xl font-light text-center mb-2">Hotel Overview</h2>
+          <div className="w-16 h-0.5 bg-[#93A27F] mx-auto"></div>
+        </div>
+        
+        <div className="flex flex-col md:flex-row gap-10">
+          {/* Left column - Features & Details */}
+          <div className="w-full md:w-1/2">
+            {/* Feature highlights */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-8">
+              {features.map((feature, index) => (
+                <div 
+                  key={index}
+                  className="bg-gray-50 rounded-2xl p-6 transition-all duration-300 hover:shadow-md"
+                >
                   <FeatureItem 
-                    key={index}
                     icon={feature.icon}
                     title={feature.title}
                     description={feature.description}
                   />
+                </div>
+              ))}
+            </div>
+            
+            {/* Detail navigation tabs */}
+            <div className="bg-white border-b border-gray-200 mb-6">
+              <div className="flex flex-wrap -mb-px">
+                {Object.keys(hotelDetails).map((key) => (
+                  <button
+                    key={key}
+                    className={`inline-block py-4 px-4 text-sm font-medium capitalize border-b-2 ${
+                      selectedDetail === key
+                        ? 'text-[#93A27F] border-[#93A27F]'
+                        : 'text-gray-500 border-transparent hover:text-gray-700 hover:border-gray-300'
+                    }`}
+                    onClick={() => setSelectedDetail(key)}
+                  >
+                    {key}
+                  </button>
                 ))}
               </div>
             </div>
             
-            <button 
-              onClick={() => setShowFeatures(!showFeatures)}
-              className="flex items-center justify-center w-full py-3 border border-gray-300 rounded mb-6 hover:bg-gray-50 transition"
-            >
-              <svg 
-                className={`mr-2 transition-transform ${showFeatures ? 'rotate-90' : ''}`}
-                xmlns="http://www.w3.org/2000/svg" 
-                width="13" 
-                height="17" 
-                viewBox="0 0 13 17" 
-                fill="none"
-              >
-                <path d="M11.691 8.81254L1.16699 15.9282V1.69688L11.691 8.81254Z" fill="black" stroke="black"/>
-              </svg>
-              <span>More Features</span>
-            </button>
-            
-            {showFeatures && (
-              <div className="bg-gray-50 p-6 rounded mb-8 animate-fadeIn">
-                <p className="text-gray-700">
-                  <strong>Check-in/Check-out:</strong> 3 PM / 11 AM<br/><br/>
-                  <strong>Rooms:</strong> 150 rooms and suites<br/><br/>
-                  <strong>Best For:</strong> Couples, wellness enthusiasts, and families<br/><br/>
-                  <strong>Languages Spoken:</strong> German, English<br/><br/>
-                  <strong>Special Features:</strong> Direct ski access, infinity pool, kids' adventure zone
-                </p>
+            {/* Detail content */}
+            <div className="bg-gray-50 p-6 rounded-2xl">
+              <div className="grid grid-cols-1 gap-4">
+                {hotelDetails[selectedDetail].map((item, idx) => (
+                  <div key={idx} className="border-b border-gray-200 pb-3 last:border-0 last:pb-0">
+                    <div className="flex items-baseline justify-between">
+                      <span className="font-medium text-gray-800">{item.label}</span>
+                      <span className="text-gray-600 text-right">{item.value}</span>
+                    </div>
+                  </div>
+                ))}
               </div>
-            )}
+            </div>
           </div>
           
-          <div className="w-full md:w-1/3">
-            <div className="rounded-lg overflow-hidden">
-              <Image 
-                src={overviewImage}
-                alt="Hotel overview"
-                width={600}
-                height={400}
-                className="w-full h-full object-cover"
-              />
+          {/* Right column - Description & Contact */}
+          <div className="w-full md:w-1/2 flex flex-col">
+            <div className="flex-grow"></div>
+            
+            <div className="mt-auto">
+              <p className="text-gray-700 leading-relaxed mb-8">
+                {displayDescription}
+              </p>
+              
+              <div className="flex items-center gap-4">
+                <a href="#" className="group">
+                  <div className="w-8 h-8 rounded-full border border-[#93A27F] flex items-center justify-center transform transition duration-300 group-hover:bg-[#93A27F]">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" 
+                        stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" 
+                        className="group-hover:text-white text-[#93A27F] transition">
+                      <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                    </svg>
+                  </div>
+                </a>
+                
+                <a href="#" className="group">
+                  <div className="w-8 h-8 rounded-full border border-[#93A27F] flex items-center justify-center transform transition duration-300 group-hover:bg-[#93A27F]">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" 
+                        stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" 
+                        className="group-hover:text-white text-[#93A27F] transition">
+                      <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                      <polyline points="22,6 12,13 2,6"></polyline>
+                    </svg>
+                  </div>
+                </a>
+                
+                <a href="#" className="group">
+                  <div className="w-8 h-8 rounded-full border border-[#93A27F] flex items-center justify-center transform transition duration-300 group-hover:bg-[#93A27F]">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" 
+                        stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" 
+                        className="group-hover:text-white text-[#93A27F] transition">
+                      <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                      <circle cx="12" cy="10" r="3"></circle>
+                    </svg>
+                  </div>
+                </a>
+              </div>
             </div>
           </div>
         </div>
         
-        <div className="mt-16 p-8 bg-gray-100 rounded-lg">
-          <p className="text-gray-700 leading-relaxed">
-            {hotelDescription}
-          </p>
-        </div>
+        {/* Hotel Amenities from Directus */}
+        {amenities && amenities.length > 0 && (
+          <div className="mt-16 border-t border-gray-100 pt-12">
+            <div className="flex flex-wrap items-center justify-center gap-12">
+              {amenities.map((amenity) => {
+                const amenityData = amenity.hotel_amenities_id || amenity;
+                const translation = amenityData.translations?.find(t => t.languages_code === 'en') || {};
+                const displayName = translation.name || amenityData.name;
+                
+                return (
+                  <div key={amenityData.id} className="flex flex-col items-center">
+                    <div className="w-12 h-12 flex items-center justify-center text-[#93A27F]">
+                      <AmenityIcon amenity={amenityData} size={28} />
+                    </div>
+                    <span className="text-xs text-gray-600 mt-1">{displayName}</span>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        )}
       </div>
     </section>
   );

@@ -1,55 +1,87 @@
+'use client';
+
 import Image from 'next/image';
 import Link from 'next/link';
+import { useTranslation } from '@/providers/TranslationProvider';
+
+const DIRECTUS_URL = process.env.NEXT_PUBLIC_DIRECTUS_URL || 'http://localhost:8055';
 
 export default function HotelCategories({
-  title = "Hotel Categories",
-  categories = [
+  title,
+  categories: propCategories
+}) {
+  const { t, locale } = useTranslation();
+  
+  // Fallback categories if no data is provided
+  const fallbackCategories = [
     {
       id: 1,
       name: "Culinary",
-      image: "/images/category-culinary.jpg",
-      url: "/hotels/category/culinary"
+      slug: "culinary",
+      image: "/images/category-culinary.jpg"
     },
     {
       id: 2,
-      name: "Spa",
-      image: "/images/category-spa.jpg",
-      url: "/hotels/category/spa"
+      name: "Spa & Wellness",
+      slug: "spa",
+      image: "/images/category-spa.jpg"
     },
     {
       id: 3,
       name: "City",
-      image: "/images/category-city.jpg",
-      url: "/hotels/category/city"
+      slug: "city",
+      image: "/images/category-city.jpg"
     },
     {
       id: 4,
       name: "Beach",
-      image: "/images/category-beach.jpg",
-      url: "/hotels/category/beach"
+      slug: "beach",
+      image: "/images/category-beach.jpg"
     },
     {
       id: 5,
       name: "Adults Only",
-      image: "/images/category-adults.jpg",
-      url: "/hotels/category/adults-only"
+      slug: "adults-only",
+      image: "/images/category-adults.jpg"
     }
-  ]
-}) {
+  ];
+
+  const categories = propCategories || fallbackCategories;
+  const displayTitle = title || (locale === 'de' ? 'Hotel Kategorien' : 'Hotel Categories');
+  const getImageSrc = (category) => {
+    // Check if image is an object (fetched with relation data)
+    if (category.image && typeof category.image === 'object' && category.image.id) {
+      return `${DIRECTUS_URL}/assets/${category.image.id}?width=400&height=300&fit=cover&quality=80`;
+    }
+    // Check if image is a UUID string
+    else if (category.image && typeof category.image === 'string' && category.image.length === 36) {
+      return `${DIRECTUS_URL}/assets/${category.image}?width=400&height=300&fit=cover&quality=80`;
+    }
+    // Fallback to local image based on slug
+    const fallbackImages = {
+      'culinary': '/images/category-culinary.jpg',
+      'spa': '/images/category-spa.jpg',
+      'city': '/images/category-city.jpg',
+      'beach': '/images/category-beach.jpg',
+      'adults-only': '/images/category-adults.jpg'
+    };
+    return fallbackImages[category.slug] || "/images/category-default.jpg";
+  };
+
   return (
     <section className="py-12 md:py-16">
       <div className="container mx-auto px-4">
-        <h3 className="text-2xl md:text-3xl font-semibold mb-8">{title}</h3>
+        <h3 className="text-2xl md:text-3xl font-semibold mb-8">{displayTitle}</h3>
         
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
           {categories.map((category) => (
             <Link
               key={category.id}
-              href={category.url}
+              href={`/${locale}/hotels/category/${category.slug}`}
               className="group relative block h-56 md:h-64 rounded-lg overflow-hidden"
             >
               <Image
-                src={category.image}
+                src={getImageSrc(category)}
                 alt={category.name}
                 fill
                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 20vw"

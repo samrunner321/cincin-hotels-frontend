@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
+import { useParams } from 'next/navigation';
 
 export default function PopularDestinations({ 
   title = "Popular Destinations",
@@ -38,6 +39,8 @@ export default function PopularDestinations({
     }
   ]
 }) {
+  const params = useParams();
+  const locale = params?.locale || 'de';
   // Animation variants
   const fadeIn = {
     hidden: { opacity: 0 },
@@ -57,7 +60,7 @@ export default function PopularDestinations({
         {/* Featured Destination - South Tyrol */}
         <div className="mb-6">
           <Link
-            href={featured.url}
+            href={`/${locale}${featured.url}`}
             className="relative block h-48 rounded-xl overflow-hidden"
           >
             <div className="h-full w-full">
@@ -81,7 +84,7 @@ export default function PopularDestinations({
           {hotels.map((hotel) => (
             <Link 
               key={hotel.id}
-              href={hotel.url}
+              href={`/${locale}${hotel.url}`}
               className="group relative block h-48 rounded-xl overflow-hidden"
             >
               <div className="h-full w-full transition-transform duration-500 group-hover:scale-105">

@@ -20,12 +20,16 @@ export default function JournalGrid({
   
   const [filter, setFilter] = useState(activeFilter);
   
-  // Set up simplified categories for filtering
+  // Set up categories and tags for filtering
   const categories = [
     { id: 'all', name: 'All' },
     { id: 'design', name: 'Design' },
     { id: 'destinations', name: 'Destinations' },
     { id: 'originals', name: 'Originals' },
+    { id: 'culinary', name: 'Culinary' },
+    { id: 'wellness', name: 'Wellness' },
+    { id: 'architecture', name: 'Architecture' },
+    { id: 'lifestyle', name: 'Lifestyle' },
   ];
   
   // Sync URL with active filter
@@ -71,14 +75,24 @@ export default function JournalGrid({
 
   return (
     <div className="container mx-auto px-4 py-8">
-      {/* Category Filters - Exact HTML structure from provided code */}
-      <div className="elementor-widget-container">
-        <search className="e-filter" role="search" data-base-url="https://cincinhotels.com/journal/" data-page-num="1" data-page-x="">
-          <button className="e-filter-item" data-filter="all" aria-pressed={filter === 'all'} onClick={() => setFilter('all')}>All</button>
-          <button className="e-filter-item" data-filter="design" aria-pressed={filter === 'design'} onClick={() => setFilter('design')}>Design</button>
-          <button className="e-filter-item" data-filter="destinations" aria-pressed={filter === 'destinations'} onClick={() => setFilter('destinations')}>Destinations</button>
-          <button className="e-filter-item" data-filter="originals" aria-pressed={filter === 'originals'} onClick={() => setFilter('originals')}>Originals</button>
-        </search>
+      {/* Category Filters - Modern Tag-based Filter Bar */}
+      <div className="mb-12">
+        <div className="flex flex-wrap gap-3 justify-center">
+          {categories.map((category) => (
+            <button
+              key={category.id}
+              onClick={() => setFilter(category.id)}
+              className={`px-6 py-2 rounded-full font-medium text-sm transition-all duration-300 ${
+                filter === category.id
+                  ? 'bg-black text-white'
+                  : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+              }`}
+              aria-pressed={filter === category.id}
+            >
+              {category.name}
+            </button>
+          ))}
+        </div>
       </div>
       
       {/* Articles Grid */}

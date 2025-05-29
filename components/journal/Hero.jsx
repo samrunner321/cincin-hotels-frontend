@@ -25,7 +25,7 @@ export default function Hero({
   };
 
   return (
-    <div className="relative w-full h-screen">
+    <div className="relative w-full h-[80vh]">
       {/* Hauptbild */}
       <div className="absolute inset-0">
         <Image

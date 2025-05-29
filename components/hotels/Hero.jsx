@@ -2,11 +2,12 @@
 
 import Link from 'next/link';
 import { motion } from 'framer-motion';
+import { useTranslation } from '@/providers/TranslationProvider';
 
 export default function Hero({ 
-  description = "CINCIN® hotels is a curated collection of unique accommodations, renowned for timeless design and warm, personalized hospitality.",
   backgroundImage = "/images/hero-bg.jpg"
 }) {
+  const { t } = useTranslation();
   // Animation variants
   const textVariants = {
     hidden: { opacity: 0, y: 20 },
@@ -41,14 +42,14 @@ export default function Hero({
 
   const scrollToNext = () => {
     window.scrollTo({
-      top: window.innerHeight,
+      top: window.innerHeight * 0.8,
       behavior: 'smooth'
     });
   };
 
   return (
     <section 
-      className="relative min-h-screen flex items-end"
+      className="relative h-[80vh] flex items-end"
       style={{
         backgroundImage: `url(${backgroundImage})`,
         backgroundSize: 'cover',
@@ -65,7 +66,7 @@ export default function Hero({
             animate="visible"
             className="text-xl md:text-2xl leading-relaxed font-normal"
           >
-            {description}
+            {t('hotels.hero.description')}
           </motion.p>
         </div>
       </div>

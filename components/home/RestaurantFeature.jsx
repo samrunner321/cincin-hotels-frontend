@@ -3,9 +3,10 @@
 import { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useTranslation } from '@/providers/TranslationProvider';
 
 export default function RestaurantFeature({
-  title = "CinCin's Picks of the Week: Best Food & Drinks",
+  title,
   restaurants = [
     {
       id: 1,
@@ -40,6 +41,10 @@ export default function RestaurantFeature({
   const [activeRestaurant, setActiveRestaurant] = useState(0);
   const [locked, setLocked] = useState(false);
   const componentRef = useRef(null);
+  const { t } = useTranslation();
+  
+  // Use translated title if not provided
+  const displayTitle = title || t('restaurants.title');
 
   // Event handler for clicking outside
   useEffect(() => {
@@ -91,12 +96,23 @@ export default function RestaurantFeature({
                   className="object-cover"
                 />
                 <div className="absolute bottom-6 right-6">
-                  <Link
-                    href={restaurant.url}
-                    className="px-6 py-2 bg-white text-black rounded-md hover:bg-white/90 transition-colors text-sm"
-                  >
-                    Menu
-                  </Link>
+                  {restaurant.website_url ? (
+                    <a
+                      href={restaurant.website_url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="px-6 py-2 bg-white text-black rounded-md hover:bg-white/90 transition-colors text-sm"
+                    >
+                      {t('restaurants.menu')}
+                    </a>
+                  ) : (
+                    <Link
+                      href={restaurant.url}
+                      className="px-6 py-2 bg-white text-black rounded-md hover:bg-white/90 transition-colors text-sm"
+                    >
+                      {t('restaurants.menu')}
+                    </Link>
+                  )}
                 </div>
               </div>
             ))}
@@ -104,26 +120,56 @@ export default function RestaurantFeature({
           
           {/* Content Column - Takes up 5/12 of the grid */}
           <div className="md:col-span-5 py-4 flex flex-col h-full">
-            <h2 className="text-2xl md:text-3xl font-normal mb-10">{title}</h2>
+            <h2 className="text-2xl md:text-3xl font-normal mb-10">{displayTitle}</h2>
             
             <div className="space-y-5">
-              {restaurants.map((restaurant, index) => (
-                <div 
-                  key={restaurant.id} 
-                  className="cursor-pointer"
-                  onMouseEnter={() => handleMouseEnter(index)}
-                  onClick={() => handleClick(index)}
-                >
+              {restaurants.map((restaurant, index) => {
+                const isActive = index === activeRestaurant;
+                const content = (
                   <div className={`transition-all duration-200 rounded-md p-2 ${
-                    index === activeRestaurant ? 'bg-black text-white' : 'hover:bg-black hover:text-white'
+                    isActive ? 'bg-black text-white' : 'hover:bg-black hover:text-white'
                   }`}>
                     <h3 className="text-lg font-normal mb-0.5">{restaurant.name}</h3>
-                    <p className={`text-sm leading-tight ${index === activeRestaurant ? 'text-gray-100' : 'text-gray-600'}`}>
+                    <p className={`text-sm leading-tight ${isActive ? 'text-gray-100' : 'text-gray-600'}`}>
                       {restaurant.description}
                     </p>
                   </div>
-                </div>
-              ))}
+                );
+
+                if (restaurant.website_url) {
+                  return (
+                    <a
+                      key={restaurant.id}
+                      href={restaurant.website_url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="cursor-pointer block"
+                      onMouseEnter={() => handleMouseEnter(index)}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        handleClick(index);
+                      }}
+                    >
+                      {content}
+                    </a>
+                  );
+                } else {
+                  return (
+                    <Link
+                      key={restaurant.id}
+                      href={restaurant.url}
+                      className="cursor-pointer block"
+                      onMouseEnter={() => handleMouseEnter(index)}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        handleClick(index);
+                      }}
+                    >
+                      {content}
+                    </Link>
+                  );
+                }
+              })}
             </div>
           </div>
         </div>

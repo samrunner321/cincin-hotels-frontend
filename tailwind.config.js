@@ -8,10 +8,7 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        'brand-blue': {
-          600: '#046bd2', // Primärfarbe
-          700: '#045cb4', // Dunkleres Blau
-        },
+        'primary': '#93A27F',
         'brand-gray': {
           50: '#F0F5FA',
           700: '#1e293b',
@@ -48,7 +45,8 @@ module.exports = {
         },
       },
       fontFamily: {
-        sans: ['-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'sans-serif'],
+        'sans': ['Brooklyn', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'sans-serif'],
+        'brooklyn': ['Brooklyn', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'sans-serif'],
       },
       aspectRatio: {
         '4/3': '4 / 3',

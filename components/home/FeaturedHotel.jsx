@@ -5,19 +5,31 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { cn } from '../../lib/utils';
+import { useTranslation } from '@/providers/TranslationProvider';
 
 export default function FeaturedHotel({ 
-  tag = "New to the Club",
-  name = "the cōmodo",
-  location = "Bad Gastein, Austria",
-  description = "the cōmodo in Bad Gastein offers a midcentury-inspired retreat with farm-to-table dining, a full spa, and a curated art collection. Perfect for families and wellness enthusiasts.",
-  slug = "the-comodo",
-  images = [
-    "/images/hotel-1.jpg",
-    "/images/hotel-2.jpg",
-    "/images/hotel-3.jpg"
-  ]
+  hotel: propHotel
 }) {
+  const { t, locale } = useTranslation();
+  
+  // Use provided hotel data or fallback
+  const defaultHotel = {
+    tag: locale === 'de' ? "Neu im Club" : "New to the Club",
+    name: "Kempinski Hotel Berchtesgaden",
+    location: "Berchtesgaden, Bayern",
+    description: locale === 'de' 
+      ? "Erleben Sie alpinen Luxus im Kempinski Hotel Berchtesgaden. Eingebettet in die majestätische Berglandschaft der bayerischen Alpen bietet unser 5-Sterne-Hotel erstklassigen Service und atemberaubende Bergblicke."
+      : "Experience alpine luxury at Kempinski Hotel Berchtesgaden. Nestled in the majestic mountain landscape of the Bavarian Alps, our 5-star hotel offers exceptional service and breathtaking mountain views.",
+    slug: "kempinski-berchtesgaden",
+    images: [
+      "/images/hotel-1.jpg",
+      "/images/hotel-2.jpg",
+      "/images/hotel-3.jpg"
+    ]
+  };
+  
+  const hotel = propHotel || defaultHotel;
+  const { tag, name, location, description, slug, images } = hotel;
   const [activeImage, setActiveImage] = useState(0);
 
   // Auto-slideshow
@@ -100,10 +112,10 @@ export default function FeaturedHotel({
             )}
             
             <Link 
-              href={`/hotels/${slug}`}
+              href={`/${locale}/hotels/${slug}`}
               className="inline-flex items-center hover:opacity-80 transition-opacity"
             >
-              <span>Discover Hotel</span>
+              <span>{locale === 'de' ? 'Hotel entdecken' : 'Discover Hotel'}</span>
               <svg 
                 xmlns="http://www.w3.org/2000/svg" 
                 className="h-5 w-5 ml-2" 

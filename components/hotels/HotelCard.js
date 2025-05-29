@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
+import AmenityIcon from '../common/AmenityIcon';
 
 // Function to get the correct hotel image path based on slug
 export function getHotelImage(slug, fallbackImage) {
@@ -28,24 +29,21 @@ export default function HotelCard({
   location, 
   description, 
   image, 
-  categories = [],
   slug,
   extraInfo,
-  maxDescriptionLength = 120
+  amenities = []
 }) {
   // Slug-Fallback und URL-Erzeugung
   const hotelUrl = `/hotels/${slug || id}`;
   
-  // Beschreibung kürzen, wenn zu lang
-  const truncatedDescription = description && description.length > maxDescriptionLength
-    ? `${description.substring(0, maxDescriptionLength)}...`
-    : description;
+  // Beschreibung auf maximal 5 Zeilen begrenzen
+  const truncatedDescription = description;
 
   return (
     <article className="overflow-hidden rounded-xl">
       <div className="flex flex-col h-full">
         {/* Bild-Container */}
-        <div className="relative h-[460px] overflow-hidden rounded-xl">
+        <div className="relative h-[460px] overflow-hidden rounded-xl group">
           <Link href={hotelUrl} aria-label={`View details for ${name}`}>
             <Image
               src={getHotelImage(slug, image)}
@@ -56,6 +54,32 @@ export default function HotelCard({
               priority={false}
             />
           </Link>
+          
+          {/* Bookmark Icon */}
+          <button 
+            className="absolute top-3 right-3 w-8 h-8 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center shadow-sm hover:bg-white transition-all duration-200 opacity-0 group-hover:opacity-100"
+            aria-label="Bookmark this hotel"
+            onClick={(e) => {
+              e.preventDefault();
+              e.stopPropagation();
+              // Add bookmark functionality here
+              console.log('Bookmark clicked for:', name);
+            }}
+          >
+            <svg 
+              width="16" 
+              height="16" 
+              viewBox="0 0 24 24" 
+              fill="none" 
+              stroke="currentColor" 
+              strokeWidth="2" 
+              strokeLinecap="round" 
+              strokeLinejoin="round"
+              className="text-gray-700"
+            >
+              <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/>
+            </svg>
+          </button>
         </div>
         
         {/* Content-Container */}
@@ -71,31 +95,27 @@ export default function HotelCard({
           )}
           
           {truncatedDescription && (
-            <p className="text-gray-700 mb-1">{truncatedDescription}</p>
+            <p className="text-gray-700 mb-1 line-clamp-3">{truncatedDescription}</p>
           )}
           
           {extraInfo && (
             <p className="text-gray-700 text-sm italic mb-3">{extraInfo}</p>
           )}
           
-          {categories && categories.length > 0 && (
-            <div className="flex flex-wrap gap-2 mt-2">
-              {categories.map(category => {
-                const categorySlug = typeof category === 'string' 
-                  ? category.toLowerCase().replace(/\s+/g, '-')
-                  : '';
-                
-                return (
-                  <Link 
-                    key={category} 
-                    href={`/categories/${categorySlug}`}
-                    className="text-sm text-blue-600 hover:text-blue-800 transition-colors bg-blue-50 px-2 py-1 rounded-full"
-                    aria-label={`Browse ${category} hotels`}
-                  >
-                    {category}
-                  </Link>
-                );
-              })}
+          {/* Hotel Amenities */}
+          {amenities && amenities.length > 0 && (
+            <div className="flex flex-wrap items-center gap-4 mt-4 pt-3 border-t border-gray-100">
+              {amenities.slice(0, 4).map((amenity, index) => (
+                <div key={amenity.id || index} className="flex items-center gap-1">
+                  <div className="w-4 h-4 text-gray-500">
+                    <AmenityIcon amenity={amenity} size={16} />
+                  </div>
+                  <span className="text-xs text-gray-600">{amenity.name}</span>
+                </div>
+              ))}
+              {amenities.length > 4 && (
+                <span className="text-xs text-gray-500">+{amenities.length - 4} more</span>
+              )}
             </div>
           )}
         </div>
